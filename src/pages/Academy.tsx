@@ -108,7 +108,9 @@ export default function Academy() {
               O OdontoHub Academy organiza seus casos, checklists e evoluções para você chegar mais preparado, atender com mais segurança e aprender com mais clareza. Você continua seguindo sua faculdade, o Academy só faz você chegar menos perdido.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-              <Button variant="purple" className="w-full sm:w-auto">Começar grátis como aluno</Button>
+              <a href="https://academy.odontohub.app.br" className="w-full sm:w-auto">
+                <Button variant="purple" className="w-full">Começar grátis como aluno</Button>
+              </a>
               <Button variant="outline" className="w-full sm:w-auto">Ver como funciona</Button>
             </div>
           </motion.div>
@@ -224,7 +226,9 @@ export default function Academy() {
                 </li>
               ))}
             </ul>
-            <Button variant="outline" className="w-full">Começar grátis</Button>
+            <a href="https://academy.odontohub.app.br" className="w-full">
+              <Button variant="outline" className="w-full">Começar grátis</Button>
+            </a>
           </div>
 
           {/* Academy Student */}
@@ -243,7 +247,9 @@ export default function Academy() {
                 </li>
               ))}
             </ul>
-            <Button className="w-full !bg-white !text-brand-purple hover:bg-purple-50 transition-colors py-4 font-bold">Assinar Student</Button>
+            <a href="https://academy.odontohub.app.br" className="w-full">
+                <Button variant="outline" className="w-full !bg-white !text-brand-purple transition-colors py-4 font-bold border-none">Assinar Student</Button>
+            </a>
           </div>
         </div>
       </Section>
@@ -285,11 +291,11 @@ export default function Academy() {
          <div className="max-w-3xl mx-auto text-center py-6 md:py-10 text-white">
             <h3 className="text-2xl md:text-4xl font-bold mb-6 italic">Já é dentista formado?</h3>
             <p className="text-emerald-50/70 mb-10 font-medium text-lg md:text-xl">Conheça o OdontoHub Pro para organizar agenda, pacientes, retornos e pendências no consultório real.</p>
-            <Link to="/">
+            <a href="https://sistema.odontohub.app.br">
                <Button className="bg-brand-green text-white hover:bg-emerald-400 border-none transition-all px-10 py-5 scale-110 shadow-2xl shadow-black/20 flex items-center gap-2 mx-auto font-bold">
                   Conhecer OdontoHub Pro <ArrowRight size={18} />
                </Button>
-            </Link>
+            </a>
          </div>
       </Section>
 
@@ -299,7 +305,9 @@ export default function Academy() {
           <div className="relative z-10 max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-6xl font-bold mb-8 leading-tight">Organize-se agora para ser o dentista que você quer ser amanhã.</h2>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button className="w-full sm:w-auto px-10 py-5 !bg-white !text-brand-purple hover:bg-purple-50 font-bold border-none">Começar Grátis agora</Button>
+              <a href="https://academy.odontohub.app.br" className="w-full sm:w-auto">
+                <Button variant="outline" className="w-full px-10 py-5 !bg-white !text-brand-purple font-bold border-none">Começar Grátis agora</Button>
+              </a>
               <Button variant="ghost" className="text-white hover:text-purple-200">Ver demostração para alunos</Button>
             </div>
           </div>

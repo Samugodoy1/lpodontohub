@@ -138,7 +138,9 @@ export default function Home() {
               OdontoHub organiza agenda, pacientes, retornos e pendências para mostrar o que você precisa fazer agora — sem transformar sua rotina em um sistema pesado.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 mb-10 px-4 md:px-0">
-              <Button onClick={() => {}} className="w-full sm:w-auto">Começar grátis</Button>
+              <a href="https://sistema.odontohub.app.br" className="w-full sm:w-auto">
+                <Button className="w-full">Começar grátis</Button>
+              </a>
               <Button variant="outline" className="w-full sm:w-auto">Ver como funciona</Button>
             </div>
             <p className="text-[10px] md:text-xs font-bold text-brand-text-muted uppercase tracking-widest px-8 md:px-0">
@@ -328,7 +330,9 @@ export default function Home() {
               ))}
             </ul>
             
-            <Button variant="outline" className="w-full">Começar grátis</Button>
+            <a href="https://sistema.odontohub.app.br" className="w-full">
+              <Button variant="outline" className="w-full">Começar grátis</Button>
+            </a>
           </div>
 
           <div className="premium-card p-8 md:p-10 flex flex-col !bg-brand-green-dark text-white border-none shadow-2xl relative mt-4 md:mt-0 md:scale-105">
@@ -348,7 +352,9 @@ export default function Home() {
               ))}
             </ul>
             
-            <Button className="w-full bg-brand-green text-white shadow-xl shadow-brand-green/40 hover:bg-emerald-400 border-none transition-colors py-5 text-base font-bold">Assinar Pro</Button>
+            <a href="https://sistema.odontohub.app.br" className="w-full">
+              <Button className="w-full bg-brand-green text-white shadow-xl shadow-brand-green/40 hover:bg-emerald-400 border-none transition-colors py-5 text-base font-bold">Assinar Pro</Button>
+            </a>
           </div>
         </div>
       </Section>
@@ -421,7 +427,9 @@ export default function Home() {
               Comece grátis e veja como o OdontoHub organiza agenda, pacientes e pendências com mais clareza e menos peso mental.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
-              <Button className="w-full sm:w-auto px-8 md:px-10 py-5 bg-white text-brand-green-dark hover:bg-emerald-50 border-none flex items-center justify-center">Começar grátis agora</Button>
+              <a href="https://sistema.odontohub.app.br" className="w-full sm:w-auto">
+                <Button variant="outline" className="w-full px-8 md:px-10 py-5 !bg-white !text-brand-green-dark border-none flex items-center justify-center">Começar grátis agora</Button>
+              </a>
               <Button variant="ghost" className="text-white hover:text-emerald-200">Ver demostração</Button>
             </div>
           </div>

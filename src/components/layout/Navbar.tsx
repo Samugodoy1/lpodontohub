@@ -53,8 +53,12 @@ export const Navbar = () => {
         </div>
 
         <div className="hidden lg:flex items-center gap-4">
-          <Button variant="ghost" className="px-5 py-2 md:py-2.5 text-sm font-bold">Entrar</Button>
-          <Button variant={isAcademy ? 'purple' : 'primary'} className="px-5 py-2 md:py-2.5 text-sm">Começar grátis</Button>
+          <a href={isAcademy ? "https://academy.odontohub.app.br" : "https://sistema.odontohub.app.br"}>
+            <Button variant="ghost" className="px-5 py-2 md:py-2.5 text-sm font-bold">Entrar</Button>
+          </a>
+          <a href={isAcademy ? "https://academy.odontohub.app.br" : "https://sistema.odontohub.app.br"}>
+            <Button variant={isAcademy ? 'purple' : 'primary'} className="px-5 py-2 md:py-2.5 text-sm">Começar grátis</Button>
+          </a>
         </div>
 
         <button className="lg:hidden p-1.5 text-brand-text" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -78,8 +82,12 @@ export const Navbar = () => {
             )}
             <hr className="border-brand-border my-1" />
             <div className="flex flex-col gap-2">
-              <Button variant={isAcademy ? 'purple' : 'primary'} onClick={() => setIsMenuOpen(false)}>Começar grátis</Button>
-              <Button variant="ghost" onClick={() => setIsMenuOpen(false)}>Entrar</Button>
+              <a href={isAcademy ? "https://academy.odontohub.app.br" : "https://sistema.odontohub.app.br"}>
+                <Button className="w-full" variant={isAcademy ? 'purple' : 'primary'} onClick={() => setIsMenuOpen(false)}>Começar grátis</Button>
+              </a>
+              <a href={isAcademy ? "https://academy.odontohub.app.br" : "https://sistema.odontohub.app.br"}>
+                <Button className="w-full" variant="ghost" onClick={() => setIsMenuOpen(false)}>Entrar</Button>
+              </a>
             </div>
           </motion.div>
         )}
