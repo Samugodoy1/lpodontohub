@@ -29,8 +29,8 @@ export const Navbar = () => {
     { label: 'Planos', href: '#planos' },
   ];
 
-  const brandColor = isAcademy ? 'brand-purple' : 'brand-green';
-  const brandTextColor = isAcademy ? 'text-brand-purple' : 'text-brand-green-dark';
+  const brandColor = isAcademy ? 'brand-academy' : 'brand-green';
+  const brandTextColor = isAcademy ? 'text-brand-academy' : 'text-brand-green-dark';
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-lg border-b border-brand-border py-3 md:py-4' : 'bg-transparent py-5 md:py-6'}`}>
@@ -41,12 +41,12 @@ export const Navbar = () => {
 
         <div className="hidden lg:flex items-center gap-10 text-sm font-semibold text-brand-text-muted">
           {links.map(link => (
-            <a key={link.label} href={link.href} className={`hover:${isAcademy ? 'text-brand-purple' : 'text-brand-green'} transition-colors font-semibold`}>
+            <a key={link.label} href={link.href} className={`hover:${isAcademy ? 'text-brand-academy' : 'text-brand-green'} transition-colors font-semibold`}>
               {link.label}
             </a>
           ))}
           {!isAcademy && (
-            <Link to="/academy" className="px-3 py-1 bg-brand-purple-soft text-brand-purple rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-brand-purple hover:text-white transition-all">
+            <Link to="/academy" className="px-3 py-1 bg-brand-academy-soft text-brand-academy rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-brand-academy hover:text-white transition-all">
                Academy: Para Alunos
             </Link>
           )}
@@ -57,7 +57,7 @@ export const Navbar = () => {
             <Button variant="ghost" className="px-5 py-2 md:py-2.5 text-sm font-bold">Entrar</Button>
           </a>
           <a href={isAcademy ? "https://academy.odontohub.app.br" : "https://sistema.odontohub.app.br"}>
-            <Button variant={isAcademy ? 'purple' : 'primary'} className="px-5 py-2 md:py-2.5 text-sm">Começar grátis</Button>
+            <Button variant={isAcademy ? 'academy' : 'primary'} className="px-5 py-2 md:py-2.5 text-sm">Começar grátis</Button>
           </a>
         </div>
 
@@ -78,12 +78,12 @@ export const Navbar = () => {
                <a key={link.label} href={link.href} className="py-1" onClick={() => setIsMenuOpen(false)}>{link.label}</a>
             ))}
             {!isAcademy && (
-               <Link to="/academy" className="text-brand-purple" onClick={() => setIsMenuOpen(false)}>OdontoHub Academy (Alunos)</Link>
+               <Link to="/academy" className="text-brand-academy" onClick={() => setIsMenuOpen(false)}>OdontoHub Academy (Alunos)</Link>
             )}
             <hr className="border-brand-border my-1" />
             <div className="flex flex-col gap-2">
               <a href={isAcademy ? "https://academy.odontohub.app.br" : "https://sistema.odontohub.app.br"}>
-                <Button className="w-full" variant={isAcademy ? 'purple' : 'primary'} onClick={() => setIsMenuOpen(false)}>Começar grátis</Button>
+                <Button className="w-full" variant={isAcademy ? 'academy' : 'primary'} onClick={() => setIsMenuOpen(false)}>Começar grátis</Button>
               </a>
               <a href={isAcademy ? "https://academy.odontohub.app.br" : "https://sistema.odontohub.app.br"}>
                 <Button className="w-full" variant="ghost" onClick={() => setIsMenuOpen(false)}>Entrar</Button>

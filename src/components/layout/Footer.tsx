@@ -5,8 +5,8 @@ import { Logo } from '../shared/Logo';
 export const Footer = () => {
   const location = useLocation();
   const isAcademy = location.pathname === '/academy';
-  const brandColor = isAcademy ? 'text-brand-purple' : 'text-brand-green-dark';
-  const iconBg = isAcademy ? 'bg-brand-purple' : 'bg-brand-green';
+  const brandColor = isAcademy ? 'text-brand-academy' : 'text-brand-green-dark';
+  const iconBg = isAcademy ? 'bg-brand-academy' : 'bg-brand-green';
 
   return (
     <footer className="py-12 md:py-16 px-5 md:px-6 bg-white">

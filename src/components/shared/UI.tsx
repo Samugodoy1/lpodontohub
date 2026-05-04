@@ -7,13 +7,13 @@ export const Button = ({
   ...props 
 }: { 
   children: React.ReactNode, 
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'purple', 
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'academy', 
   className?: string 
 } & React.ButtonHTMLAttributes<HTMLButtonElement>) => {
   const variants = {
     primary: 'bg-brand-green text-white hover:bg-brand-green/90 shadow-lg shadow-brand-green/20 active:scale-95',
     secondary: 'bg-brand-green-dark text-white hover:bg-brand-green-dark/90 active:scale-95',
-    purple: 'bg-brand-purple text-white hover:bg-brand-purple/90 shadow-lg shadow-brand-purple/20 active:scale-95',
+    academy: 'bg-brand-academy text-white hover:bg-brand-academy/90 shadow-lg shadow-brand-academy/20 active:scale-95',
     outline: 'border border-brand-border bg-white text-brand-text hover:bg-brand-bg-alt active:scale-95',
     ghost: 'text-brand-text-muted hover:text-brand-green transition-colors'
   };

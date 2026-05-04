@@ -4,20 +4,20 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   
-  --color-brand-bg: #F8FAF9;
-  --color-brand-bg-alt: #F5F7F6;
-  --color-brand-text: #17211D;
-  --color-brand-text-muted: #5B665F;
-  --color-brand-green: #10B981;
-  --color-brand-green-dark: #1D4F3E;
-  --color-brand-green-soft: #DDF6EC;
-  --color-brand-purple: #8B5CF6;
-  --color-brand-purple-soft: #EDE9FE;
+  --color-brand-bg: #FAFCFB;
+  --color-brand-bg-alt: #FFFFFF;
+  --color-brand-text: #13201B;
+  --color-brand-text-muted: #687A73;
+  --color-brand-green: #1F6B57;
+  --color-brand-green-dark: #124438;
+  --color-brand-green-soft: #EAF4F0;
+  --color-brand-academy: #008294;
+  --color-brand-academy-soft: #E6F3F5;
   --color-brand-yellow: #F59E0B;
   --color-brand-yellow-soft: #FEF3C7;
   --color-brand-red: #EF4444;
   --color-brand-red-soft: #FEE2E2;
-  --color-brand-border: #E3E8E5;
+  --color-brand-border: #DDE9E4;
 }
 
 @layer base {

@@ -6,7 +6,7 @@ interface LogoProps {
 }
 
 export const Logo = ({ className = "", isAcademy = false }: LogoProps) => {
-  const brandColorClass = isAcademy ? "text-brand-purple" : "text-brand-green-dark";
+  const brandColorClass = isAcademy ? "text-brand-academy" : "text-brand-green-dark";
   const subText = isAcademy ? "ACADEMY" : "GESTÃO PARA DENTISTAS";
 
   return (
