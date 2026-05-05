@@ -12,6 +12,7 @@ import {
   TrendingUp, 
   MessageSquare, 
   GraduationCap, 
+  Layout,
   UserCircle,
   PlusCircle,
   LayoutDashboard,
@@ -382,9 +383,62 @@ export default function Home() {
               </Button>
             </Link>
           </div>
-          <div className="w-full md:w-1/2 border border-brand-border rounded-[2rem] md:rounded-[3rem] p-4 md:p-6 bg-white overflow-hidden shadow-sm mt-8 md:mt-0">
-             <div className="aspect-[4/3] md:aspect-[16/10] bg-brand-academy-soft/50 rounded-[1.5rem] md:rounded-[2rem] flex items-center justify-center border border-brand-academy/5">
-                <p className="text-brand-academy/30 font-bold tracking-widest uppercase text-[10px] md:text-xs px-6 text-center">Academy Interface Preview</p>
+          <div className="w-full md:w-1/2 mt-12 md:mt-0">
+             <div className="relative group mx-auto max-w-[400px] md:max-w-none">
+               <div className="absolute -inset-4 bg-brand-academy/5 rounded-[3rem] blur-2xl group-hover:bg-brand-academy/10 transition-all duration-700" />
+               <div className="relative bg-white border border-brand-border rounded-[2rem] md:rounded-[3rem] shadow-2xl overflow-hidden flex flex-col group-hover:shadow-brand-academy/10 transition-all duration-700">
+                 {/* Academy UI Mockup */}
+                 <div className="p-6 md:p-10 space-y-6 md:space-y-8 bg-white">
+                    <div className="space-y-1 md:space-y-1.5">
+                       <p className="text-[9px] md:text-xs font-bold text-slate-400">Boa noite, Samuel</p>
+                       <h3 className="text-lg md:text-3xl font-bold text-brand-text tracking-tight leading-tight">Sem pressa. O próximo caso já está na mão.</h3>
+                    </div>
+
+                    <div className="bg-brand-academy rounded-[1.2rem] md:rounded-[2rem] p-4 md:p-8 text-white relative overflow-hidden">
+                       <div className="relative z-10">
+                          <p className="text-[7px] md:text-[10px] font-bold text-white/50 uppercase tracking-widest mb-1.5 md:mb-2">Próximo</p>
+                          <div className="flex justify-between items-start">
+                             <div>
+                                <h4 className="text-base md:text-2xl font-bold tracking-tight">Marcos Roberto Junior</h4>
+                                <div className="flex gap-1.5 mt-2 md:mt-3">
+                                   <span className="px-2 md:px-3 py-0.5 md:py-1 bg-white/20 rounded-full text-[6px] md:text-[9px] font-bold uppercase tracking-widest">Agendado</span>
+                                   <span className="px-2 md:px-3 py-0.5 md:py-1 bg-white/10 rounded-full text-[6px] md:text-[9px] font-bold uppercase tracking-widest">Amanhã, 09:30</span>
+                                </div>
+                             </div>
+                             <div className="w-10 h-10 md:w-12 md:h-12 bg-white/20 rounded-lg md:rounded-xl flex items-center justify-center text-xs md:text-lg font-bold shrink-0">M</div>
+                          </div>
+                       </div>
+                       <div className="absolute top-0 right-0 w-32 md:w-48 h-32 md:h-48 bg-white/5 rounded-full blur-2xl md:blur-3xl -mr-16 md:-mr-24 -mt-16 md:-mt-24" />
+                    </div>
+
+                    <div className="bg-slate-50 border border-slate-100 rounded-xl md:rounded-2xl p-4 md:p-6 flex items-center gap-3 md:gap-4">
+                       <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-lg md:rounded-xl flex items-center justify-center text-brand-academy shadow-sm shrink-0">
+                          <Clock size={16} />
+                       </div>
+                       <div>
+                          <p className="text-[7px] md:text-[10px] font-bold text-slate-400 uppercase tracking-widest">Agenda a seguir</p>
+                          <p className="font-bold text-brand-text text-[10px] md:text-sm">Lucas Medeiros • Extração</p>
+                       </div>
+                    </div>
+                 </div>
+
+                 {/* Tab Bar */}
+                 <div className="h-12 md:h-16 bg-white border-t border-slate-100 flex items-center justify-around px-4 md:px-6">
+                    <div className="flex flex-col items-center gap-0.5 md:gap-1 text-brand-academy">
+                       <Layout size={14} className="md:size-4" />
+                       <span className="text-[6px] md:text-[9px] font-bold uppercase">Rotina</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-1 text-slate-300">
+                       <Calendar size={14} />
+                    </div>
+                    <div className="flex flex-col items-center gap-1 text-slate-300">
+                       <Users size={14} />
+                    </div>
+                    <div className="flex flex-col items-center gap-1 text-slate-300">
+                       <ClipboardList size={14} />
+                    </div>
+                 </div>
+               </div>
              </div>
           </div>
         </div>
