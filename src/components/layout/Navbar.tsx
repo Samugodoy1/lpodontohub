@@ -20,12 +20,12 @@ export const Navbar = () => {
   const links = isAcademy ? [
     { label: 'O problema', href: '#como-funciona' },
     { label: 'Fluxo Academy', href: '#fluxo' },
-    { label: 'Recursos', href: '#recursos' },
+    { label: 'Social Kit', href: '/presets', isLink: true },
     { label: 'Planos', href: '#planos' },
   ] : [
     { label: 'Como funciona', href: '#como-funciona' },
     { label: 'Recursos', href: '#recursos' },
-    { label: 'Portal', href: '#portal' },
+    { label: 'Social Kit', href: '/presets', isLink: true },
     { label: 'Planos', href: '#planos' },
   ];
 
@@ -41,9 +41,15 @@ export const Navbar = () => {
 
         <div className="hidden lg:flex items-center gap-10 text-sm font-semibold text-brand-text-muted">
           {links.map(link => (
-            <a key={link.label} href={link.href} className={`hover:${isAcademy ? 'text-brand-academy' : 'text-brand-green'} transition-colors font-semibold`}>
-              {link.label}
-            </a>
+            link.isLink ? (
+              <Link key={link.label} to={link.href} className={`hover:${isAcademy ? 'text-brand-academy' : 'text-brand-green'} transition-colors font-semibold`}>
+                {link.label}
+              </Link>
+            ) : (
+              <a key={link.label} href={link.href} className={`hover:${isAcademy ? 'text-brand-academy' : 'text-brand-green'} transition-colors font-semibold`}>
+                {link.label}
+              </a>
+            )
           ))}
           {!isAcademy && (
             <Link to="/academy" className="px-3 py-1 bg-brand-academy-soft text-brand-academy rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-brand-academy hover:text-white transition-all">
@@ -75,7 +81,11 @@ export const Navbar = () => {
             className="absolute top-full left-0 right-0 bg-white border-b border-brand-border p-6 shadow-xl lg:hidden flex flex-col gap-5 font-bold text-base md:text-lg"
           >
             {links.map(link => (
-               <a key={link.label} href={link.href} className="py-1" onClick={() => setIsMenuOpen(false)}>{link.label}</a>
+              link.isLink ? (
+                <Link key={link.label} to={link.href} className="py-1" onClick={() => setIsMenuOpen(false)}>{link.label}</Link>
+              ) : (
+                <a key={link.label} href={link.href} className="py-1" onClick={() => setIsMenuOpen(false)}>{link.label}</a>
+              )
             ))}
             {!isAcademy && (
                <Link to="/academy" className="text-brand-academy" onClick={() => setIsMenuOpen(false)}>OdontoHub Academy (Alunos)</Link>

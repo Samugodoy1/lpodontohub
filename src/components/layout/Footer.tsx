@@ -24,6 +24,7 @@ export const Footer = () => {
                   <a href="#recursos" className="hover:text-brand-green">Recursos</a>
                   <a href="#planos" className="hover:text-brand-green">Planos</a>
                   <Link to={isAcademy ? "/" : "/academy"} className="hover:text-brand-green">{isAcademy ? "OdontoHub Pro" : "Academy"}</Link>
+                  <Link to="/presets" className="hover:text-brand-green">Kit Social (Instagram)</Link>
                 </div>
               </div>
               <div className="space-y-3 md:space-y-4">

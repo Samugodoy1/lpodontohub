@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { AnimatePresence, motion } from 'motion/react';
 import Home from './pages/Home';
 import Academy from './pages/Academy';
+import InstagramPresets from './pages/InstagramPresets';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 
@@ -40,6 +41,16 @@ function AnimatedRoutes() {
             transition={{ duration: 0.3 }}
           >
             <Academy />
+          </motion.div>
+        } />
+        <Route path="/presets" element={
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <InstagramPresets />
           </motion.div>
         } />
       </Routes>
