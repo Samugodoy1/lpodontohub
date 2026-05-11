@@ -131,17 +131,19 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <h1 className="text-[2.6rem] md:text-[5.5rem] font-bold tracking-tight text-brand-text mb-6 md:mb-8 leading-[1.05] px-2 md:px-0">
-              Pare de carregar sua clínica <br className="hidden md:block" />
-              <span className="text-brand-green">na cabeça.</span>
+              Menos caos.<br className="hidden md:block" />
+              <span className="text-brand-green">Mais clareza para cuidar.</span>
             </h1>
-            <p className="text-base md:text-xl text-brand-text-muted max-w-2xl mx-auto mb-10 md:mb-12 leading-relaxed px-4 md:px-0">
-              OdontoHub organiza agenda, pacientes, retornos e pendências para mostrar o que você precisa fazer agora — sem transformar sua rotina em um sistema pesado.
+            <p className="text-base md:text-xl text-brand-text-muted max-w-2xl mx-auto mb-10 md:mb-12 leading-relaxed px-4 md:px-0 font-medium">
+              O OdontoHub organiza agenda, pacientes e pendências para mostrar o que realmente precisa da sua atenção hoje — sem transformar sua rotina em um sistema pesado.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 mb-10 px-4 md:px-0">
               <a href="https://sistema.odontohub.app.br" className="w-full sm:w-auto">
                 <Button className="w-full">Começar grátis</Button>
               </a>
-              <Button variant="outline" className="w-full sm:w-auto">Ver como funciona</Button>
+              <a href="#como-funciona" className="w-full sm:w-auto">
+                <Button variant="outline" className="w-full">Ver como funciona</Button>
+              </a>
             </div>
             <p className="text-[10px] md:text-xs font-bold text-brand-text-muted uppercase tracking-widest px-8 md:px-0">
               Feito para dentistas recém-formados, profissionais solo e consultórios pequenos.
@@ -161,8 +163,8 @@ export default function Home() {
       {/* 3. PROBLEMA + COMPORTAMENTO INTELIGENTE */}
       <Section className="bg-white" id="como-funciona">
         <SectionHeader 
-          title="O problema não é falta de sistema. É excesso de coisa na sua cabeça."
-          subtitle="Paciente que precisa voltar, consulta sem confirmação, horário livre, orçamento parado e mensagem para enviar. O OdontoHub lê tudo isso e transforma em próximas ações."
+          title="O consultório não deveria depender só da sua memória."
+          subtitle="Sua atenção deve estar no atendimento, não na burocracia. O OdontoHub simplifica o que é complexo e te ajuda a lembrar de cada detalhe, sem esforço mental."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-start mb-20 md:mb-32">
@@ -199,8 +201,8 @@ export default function Home() {
       {/* 4. PRÓXIMA MELHOR AÇÃO */}
       <Section className="bg-white">
         <SectionHeader 
-          title="Abra o OdontoHub e saiba o que fazer agora."
-          subtitle="Nada de dashboard cheia de gráfico inútil. O sistema mostra poucas ações importantes, com contexto, prioridade e clareza."
+          title="Agendas mostram horários. Nós mostramos contexto."
+          subtitle="Uma nova forma de organizar sua rotina clínica com calma e responsabilidade. Saiba exatamente quem vem, quem sumiu e qual a próxima ação necessária para o seu dia."
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
@@ -311,7 +313,10 @@ export default function Home() {
       </Section>
 
       <Section id="planos">
-        <SectionHeader title="Comece grátis. Assine o Pro quando quiser o OdontoHub completo." />
+        <SectionHeader 
+          title="Comece com a organização. Evolua para a clareza total." 
+          subtitle="O OdontoHub Free organiza sua base e sua rotina. O Pro te mostra o que fazer com ela."
+        />
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto items-stretch px-2 md:px-0">
           <div className="premium-card p-8 md:p-10 flex flex-col">
@@ -323,7 +328,7 @@ export default function Home() {
             </div>
             
             <ul className="space-y-3.5 mb-8 md:mb-12 flex-grow">
-              {["Agenda básica", "Pacientes limitados", "Prontuário básico", "Portal básico", "Inteligência limitada"].map((feat) => (
+              {["Agenda básica", "Pacientes limitados", "Prontuário e Histórico", "Portal do Paciente básico", "Interface Limpa"].map((feat) => (
                 <li key={feat} className="flex items-center gap-3 text-sm text-brand-text/90 font-medium">
                   <CheckCircle2 size={16} className="text-brand-green/60 shrink-0" /> {feat}
                 </li>
@@ -331,13 +336,13 @@ export default function Home() {
             </ul>
             
             <a href="https://sistema.odontohub.app.br" className="w-full">
-              <Button variant="outline" className="w-full">Começar grátis</Button>
+              <Button variant="outline" className="w-full">Começar agora</Button>
             </a>
           </div>
 
           <div className="premium-card p-8 md:p-10 flex flex-col !bg-brand-green text-white border-none shadow-2xl relative mt-4 md:mt-0 md:scale-105">
             <div className="absolute -top-3 right-6 md:right-8 bg-brand-green-dark text-[9px] md:text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg text-white">Popular</div>
-            <p className="text-[10px] md:text-xs font-bold text-white/50 uppercase tracking-widest mb-1.5 md:mb-2">O produto completo</p>
+            <p className="text-[10px] md:text-xs font-bold text-white/50 uppercase tracking-widest mb-1.5 md:mb-2">A clareza operacional completa</p>
             <h3 className="text-xl md:text-2xl font-bold mb-1 text-white">OdontoHub Pro</h3>
             <div className="flex items-baseline gap-1 my-5 md:my-6">
               <span className="text-3xl md:text-4xl font-bold text-white tracking-tight">R$99,90</span>
@@ -345,7 +350,7 @@ export default function Home() {
             </div>
             
             <ul className="space-y-4 mb-8 md:mb-12 flex-grow">
-              {["Pacientes ilimitados", "Inteligência completa", "Sugestões de encaixe", "Pacientes esquecidos", "Visão agir agora", "Prontuário e Portal completos"].map((feat) => (
+              {["Pacientes ilimitados", "Sugestões de encaixe", "Recuperação de pacientes", "Visão Acting Now", "Inteligência Operacional", "Personalização Total"].map((feat) => (
                 <li key={feat} className="flex items-center gap-3 text-sm font-semibold text-white">
                   <CheckCircle2 size={16} className="text-white/30 shrink-0" /> {feat}
                 </li>
@@ -449,12 +454,11 @@ export default function Home() {
         <SectionHeader title="Dúvidas comuns" />
         <div className="max-w-3xl mx-auto space-y-3 md:space-y-4">
           {[
-            { q: "O OdontoHub é para clínica grande?", a: "Não. Focamos no dentista solo e em pequenos consultórios que buscam clareza operacional, não complexidade corporativa." },
-            { q: "O plano grátis tem limite?", a: "Sim, há um limite de pacientes ativos e inteligência, ideal para quem está no início da carreira." },
-            { q: "O paciente precisa baixar algum app?", a: "Não. O Portal do Paciente funciona direto no navegador do celular dele. Ele recebe um link por WhatsApp, clica e resolve o que precisa em segundos, seja para confirmar uma consulta ou ler uma orientação." },
-            { q: "O Pro é o produto completo?", a: "Sim! No Pro você tem todas as automatizações, sugestões inteligentes e suporte do OdontoHub." },
-            { q: "O Academy é um sistema de apoio clínico?", a: "Sim, é um sistema de apoio para auxiliar sua organização e aprendizado durante a graduação." },
-            { q: "Posso começar grátis e migrar depois?", a: "Absolutamente. Seus dados migram com você para o Pro de forma instantânea." }
+            { q: "O OdontoHub é um software de gestão?", a: "Sim, mas focado no que você realmente precisa. Diferente de sistemas complexos e lentos, nossa prioridade é a sua velocidade e clareza operacional hoje." },
+            { q: "Qual a diferença real entre o Free e o Pro?", a: "O Free organiza o básico: agenda e pacientes. O Pro é onde mora a inteligência: ele te avisa quem sumiu, sugere onde encaixar pacientes e te dá a visão de 'Próxima Melhor Ação'." },
+            { q: "Como o 'Portal do Paciente' funciona?", a: "O paciente resolve tudo sem ocupar sua linha. Ele recebe um link pelo WhatsApp, clica e resolve o que precisa em segundos: confirmação, anamnese ou pós-operatório." },
+            { q: "Como o 'Modo Box' Funciona?", a: "É uma visão otimizada para tablets ou celulares que você deixa ao lado da cadeira clínica. Ela guia o seu atendimento com checklists para que você nunca esqueça uma etapa crítica." },
+            { q: "Posso começar grátis e migrar depois?", a: "Absolutamente. Seus dados migram com você para o Pro de forma instantânea e sem burocracia." }
           ].map((faq, i) => (
             <details key={i} className="group rounded-2xl md:rounded-3xl border border-brand-border overflow-hidden bg-brand-bg-alt">
               <summary className="flex items-center justify-between p-5 md:p-6 cursor-pointer font-bold text-brand-text list-none group-open:bg-white transition-colors text-sm md:text-base">
@@ -475,12 +479,14 @@ export default function Home() {
       <Section className="pb-10 md:pb-20 pt-0">
         <div className="bg-brand-green-dark rounded-[2.5rem] md:rounded-[5rem] p-12 md:p-32 text-white text-center relative overflow-hidden mx-5">
           <div className="relative z-10 max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-7xl font-bold mb-8 md:mb-12 leading-tight tracking-tight">Sua rotina clínica não precisa ficar toda na sua cabeça.</h2>
+            <h2 className="text-4xl md:text-7xl font-bold mb-8 md:mb-12 leading-tight tracking-tight">Menos caos. Comece seu primeiro dia com clareza.</h2>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
               <a href="https://sistema.odontohub.app.br" className="w-full sm:w-auto">
                 <Button variant="outline" className="w-full px-12 py-6 !bg-white !text-brand-green-dark border-none font-bold shadow-2xl">Começar grátis agora</Button>
               </a>
-              <Button variant="ghost" className="text-white hover:bg-white/10 px-10 py-6 font-bold">Ver demostração</Button>
+              <a href="#como-funciona" className="w-full sm:w-auto">
+                <Button variant="ghost" className="text-white hover:bg-white/10 px-10 py-6 font-bold">Ver demostração</Button>
+              </a>
             </div>
           </div>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-white/[0.03] rounded-full blur-[100px] pointer-events-none" />

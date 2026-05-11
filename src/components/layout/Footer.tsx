@@ -4,7 +4,7 @@ import { Logo } from '../shared/Logo';
 
 export const Footer = () => {
   const location = useLocation();
-  const isAcademy = location.pathname === '/academy';
+  const isAcademy = location.pathname.startsWith('/academy');
   const brandColor = isAcademy ? 'text-brand-academy' : 'text-brand-green-dark';
   const iconBg = isAcademy ? 'bg-brand-academy' : 'bg-brand-green';
 
@@ -30,16 +30,17 @@ export const Footer = () => {
               <div className="space-y-3 md:space-y-4">
                 <p className="font-bold text-brand-text tracking-wider uppercase text-[10px]">Empresa</p>
                 <div className="flex flex-col gap-2.5 md:gap-3 text-brand-text-muted">
-                  <a href="#" className="hover:text-brand-green">Sobre</a>
-                  <a href="#" className="hover:text-brand-green">Contato</a>
-                  <a href="#" className="hover:text-brand-green">Manifesto</a>
+                  <Link to="/#recursos" className="hover:text-brand-green">Sobre</Link>
+                  <a href="https://wa.me/5500000000000" target="_blank" rel="noreferrer" className="hover:text-brand-green">Contato</a>
+                  <Link to="/academy/embaixadores" className="hover:text-brand-academy">Embaixadores Academy</Link>
+                  <Link to="/" className="hover:text-brand-green">Manifesto</Link>
                 </div>
               </div>
               <div className="space-y-3 md:space-y-4">
                 <p className="font-bold text-brand-text tracking-wider uppercase text-[10px]">Legal</p>
                 <div className="flex flex-col gap-2.5 md:gap-3 text-brand-text-muted">
-                  <a href="#" className="hover:text-brand-green">Termos</a>
-                  <a href="#" className="hover:text-brand-green">Privacidade</a>
+                  <Link to="/" className="hover:text-brand-green">Termos</Link>
+                  <Link to="/" className="hover:text-brand-green">Privacidade</Link>
                 </div>
               </div>
             </div>

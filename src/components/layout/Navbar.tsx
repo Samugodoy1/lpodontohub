@@ -9,7 +9,7 @@ export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-  const isAcademy = location.pathname === '/academy';
+  const isAcademy = location.pathname.startsWith('/academy');
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
@@ -20,6 +20,7 @@ export const Navbar = () => {
   const links = isAcademy ? [
     { label: 'O problema', href: '#como-funciona' },
     { label: 'Fluxo Academy', href: '#fluxo' },
+    { label: 'Embaixadores', href: '/academy/embaixadores', isLink: true },
     { label: 'Social Kit', href: '/presets', isLink: true },
     { label: 'Planos', href: '#planos' },
   ] : [

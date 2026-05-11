@@ -184,7 +184,7 @@ export default function InstagramPresets() {
         <PresetSection title="OdontoHub PRO — Produtividade Implacável">
           <InstagramPost 
             title="Mindset Zero" variant="dark"
-            caption="Pare de carregar sua clínica na cabeça. O OdontoHub organiza agenda, retornos e pendências para mostrar o que você precisa fazer agora — sem transformar sua rotina em um sistema pesado. 🧠 #ProdutividadeOdonto #GestãoSemPeso"
+            caption="Menos caos. Mais clareza para cuidar. O OdontoHub organiza agenda, pacientes e pendências para mostrar o que realmente precisa da sua atenção hoje — sem transformar sua rotina em um sistema pesado. 🧠 #ProdutividadeOdonto #GestãoSemPeso"
           >
              <div className="flex flex-col items-center justify-center text-center space-y-8">
                 <Brain size={60} className="text-brand-green opacity-50" strokeWidth={1} />
@@ -198,16 +198,16 @@ export default function InstagramPresets() {
 
           <InstagramPost 
             title="Focus Mode" variant="light"
-            caption="O problema não é falta de sistema. É excesso de coisa na sua cabeça. O OdontoHub filtra o essencial para que você foque no atendimento, não na burocracia. ✨ #FocoNoPaciente #OdontoHubPro"
+            caption="O consultório não deveria depender só da sua memória. O OdontoHub filtra o essencial para que você foque no atendimento, não na burocracia. Clareza antes de volume. ✨ #FocoNoPaciente #OdontoHubPro"
           >
              <div className="flex flex-col items-center justify-center text-center space-y-10">
                 <div className="w-24 h-24 bg-slate-50 flex items-center justify-center text-slate-300 border border-slate-100">
                    <Target size={48} strokeWidth={1} />
                 </div>
                 <h4 className="text-3xl lg:text-4xl font-black text-brand-text tracking-tighter leading-[1.1]">
-                   Menos Sistema,<br/>Mais Atendimento.
+                   Menos Caos,<br/>Mais Atendimento.
                 </h4>
-                <p className="text-xs font-medium text-brand-text/40 italic">"Simplicidade é a sofisticação máxima."</p>
+                <p className="text-xs font-medium text-brand-text/40 italic">"Clareza antes de volume."</p>
              </div>
           </InstagramPost>
 
@@ -226,7 +226,7 @@ export default function InstagramPresets() {
           
           <InstagramPost 
             title="Essential View" variant="light"
-            caption="Nada de dashboard cheia de gráfico inútil. O sistema mostra poucas ações importantes, com contexto, prioridade e clareza. 🧭 #DashboardMinimalista #GestãoSimples"
+            caption="Agendas mostram horários. O OdontoHub mostra contexto. Veja quem vem, quem confirmou e qual a próxima ação agora — antes da rotina virar ruído. 🧭 #ContextoOdonto #GestãoClara"
           >
              <div className="flex flex-col items-start text-left space-y-10">
                 <LayoutDashboard size={40} className="text-brand-green" />
@@ -460,7 +460,7 @@ export default function InstagramPresets() {
         <PresetSection title="OdontoHub ACADEMY — Sobrevivência Clínica">
           <InstagramPost 
             title="Clinics Noise" variant="academy"
-            caption="A clínica da faculdade já é tensa o suficiente. O Academy resolve o 'ruído' administrativo para você focar no aprendizado. 🎓 #OdontoAcademy #SobrevivênciaOdonto"
+            caption="A clínica começa antes do paciente sentar na cadeira. O Academy resolve o 'ruído' de fichas e materiais para você chegar na clínica menos perdido. 🎓 #OdontoAcademy #SobrevivênciaOdonto"
           >
              <div className="flex flex-col items-center justify-center text-center space-y-10">
                 <GraduationCap size={70} className="text-white" strokeWidth={1} />
@@ -550,7 +550,7 @@ export default function InstagramPresets() {
         <PresetSection title="OdontoHub ACADEMY — O Box Digital">
           <InstagramPost 
             title="Modo Box" variant="academy"
-            caption="Ative o Modo Box no tablet ou celular para guiar o atendimento e não esquecer etapas críticas. Interface pensada para a clínica. 📱 #ModoBox #OdontoDigital"
+            caption="Ative o Modo Box no tablet ou celular para guiar o atendimento e não esquecer etapas críticas. Chegue na clínica menos perdido. 📱 #InterfaceBox #OdontoDigital"
           >
              <div className="flex flex-col items-center justify-center text-center space-y-10">
                 <Smartphone size={54} className="text-white" strokeWidth={1} />

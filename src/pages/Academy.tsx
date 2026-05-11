@@ -85,12 +85,12 @@ export default function Academy() {
                 <GraduationCap size={12} className="shrink-0" /> Academy: Criado para Estudantes
               </div>
               <h1 className="text-4xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-brand-text mb-6 md:mb-8 leading-[1.1] md:leading-[1.05]">
-                Chegue mais preparado<br className="hidden md:block" />
-                na <span className="text-brand-academy">clínica da faculdade.</span>
+                Chegue na clínica<br className="hidden md:block" />
+                <span className="text-brand-academy">menos perdido.</span>
               </h1>
               <p className="text-base md:text-xl lg:text-2xl text-brand-text/50 max-w-3xl mx-auto mb-10 md:mb-16 leading-relaxed font-medium px-4 md:px-0">
-                O Academy organiza seus casos, checklists e evolução clínica.<br className="hidden md:block" />
-                Um sistema de apoio para você focar no que importa: aprender cuidando.
+                A clareza clínica que você precisa para o seu dia a dia.<br className="hidden md:block" />
+                Um sistema de apoio pessoal para você chegar menos perdido no atendimento.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-5">
                 <a href="https://academy.odontohub.app.br" className="w-full sm:w-auto">
@@ -98,9 +98,11 @@ export default function Academy() {
                     Começar grátis como aluno
                   </Button>
                 </a>
-                <Button variant="ghost" className="w-full sm:w-auto text-brand-text/60 hover:text-brand-academy flex items-center justify-center gap-2 font-bold group py-4">
-                  Ver como funciona <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                </Button>
+                <a href="#fluxo" className="w-full sm:w-auto">
+                  <Button variant="ghost" className="text-brand-text/60 hover:text-brand-academy flex items-center justify-center gap-2 font-bold group py-4">
+                    Ver como funciona <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </a>
               </div>
             </motion.div>
           </div>
@@ -225,10 +227,10 @@ export default function Academy() {
         <div className="max-w-6xl mx-auto">
            <div className="max-w-3xl mb-12 md:mb-24 px-2 md:px-0">
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-brand-text mb-6 md:mb-8 leading-[1.2] md:leading-tight">
-                A clínica da faculdade já é tensa o suficiente.
+                A clínica começa antes do paciente sentar na cadeira.
               </h2>
               <p className="text-lg md:text-xl text-brand-text/50 font-medium leading-relaxed">
-                Agenda cheia, materiais esquecidos na esterilização ou evolução atrasada. O Academy resolve o "ruído" administrativo para você focar no paciente e no seu aprendizado.
+                Antes do atendimento, você não precisa de mais conteúdo solto. Precisa de direção. O Academy organiza o "caos" de fichas e materiais para você ter clareza clínica real.
               </p>
            </div>
            
@@ -467,7 +469,9 @@ export default function Academy() {
                      </div>
                    ))}
                 </div>
-                <Button variant="outline" className="w-full py-4 md:py-5 rounded-2xl border-2 font-bold hover:bg-brand-bg-alt">Começar grátis</Button>
+                <a href="https://academy.odontohub.app.br" className="w-full">
+                  <Button variant="outline" className="w-full py-4 md:py-5 rounded-2xl border-2 font-bold hover:bg-brand-bg-alt">Começar grátis</Button>
+                </a>
              </div>
              
              {/* Plan 2 */}
@@ -487,7 +491,9 @@ export default function Academy() {
                      </div>
                    ))}
                 </div>
-                <Button variant="outline" className="w-full py-4 md:py-5 rounded-2xl !bg-white !text-brand-academy !border-none font-bold">Assinar Academy Student</Button>
+                <a href="https://academy.odontohub.app.br" className="w-full">
+                  <Button variant="outline" className="w-full py-4 md:py-5 rounded-2xl !bg-white !text-brand-academy !border-none font-bold">Assinar Academy Student</Button>
+                </a>
              </div>
           </div>
         </div>
@@ -544,12 +550,14 @@ export default function Academy() {
       <Section className="pb-16 md:pb-32">
         <div className="bg-brand-academy rounded-[2.5rem] md:rounded-[5rem] p-10 md:p-32 text-center text-white relative overflow-hidden mx-4 md:mx-5">
            <div className="relative z-10">
-              <h2 className="text-3xl md:text-7xl font-bold tracking-tight mb-8 md:mb-12 leading-tight">O dentista de amanhã<br className="hidden md:block" /> se organiza hoje.</h2>
+              <h2 className="text-3xl md:text-7xl font-bold tracking-tight mb-8 md:mb-12 leading-tight">Clareza clínica.<br className="hidden md:block" /> Menos caos Acadêmico.</h2>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                  <a href="https://academy.odontohub.app.br" className="w-full sm:w-auto">
                     <Button className="w-full sm:w-auto !bg-white !text-brand-academy px-10 md:px-12 py-5 md:py-6 rounded-2xl font-bold shadow-2xl">Começar Grátis agora</Button>
                  </a>
-                 <Button variant="ghost" className="w-full sm:w-auto text-white hover:bg-white/10 px-8 py-5 md:py-6 rounded-2xl font-bold">Ver Demonstração</Button>
+                                   <a href="#fluxo" className="w-full sm:w-auto">
+                    <Button variant="ghost" className="w-full sm:w-auto text-white hover:bg-white/10 px-8 py-5 md:py-6 rounded-2xl font-bold">Ver Demonstração</Button>
+                  </a>
               </div>
            </div>
            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-white/[0.03] rounded-full blur-[100px] pointer-events-none" />
