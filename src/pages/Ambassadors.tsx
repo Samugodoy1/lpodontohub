@@ -26,6 +26,9 @@ import {
   Video
 } from 'lucide-react';
 import { Button, Section } from '../components/shared/UI';
+import { db } from '../lib/firebase';
+import { collection, doc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { handleFirestoreError, OperationType } from '../lib/firestoreUtils';
 
 const BenefitCard = ({ icon: Icon, title, desc, delay = 0 }: any) => (
   <motion.div 
@@ -73,6 +76,54 @@ const FaqItem = ({ question, answer }: { question: string, answer: string, key?:
 };
 
 export default function Ambassadors() {
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: '',
+    instagram: '',
+    tiktok: '',
+    whatsapp: '',
+    faculty: '',
+    period: '',
+    cityState: '',
+    attendingClinic: 'Sim',
+    postsPerWeek: 0,
+    followers: '',
+    storyViews: '',
+    motivation: '',
+    contentStyle: '',
+    termsAccepted: false
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target as HTMLInputElement;
+    const val = type === 'checkbox' ? (e.target as HTMLInputElement).checked : value;
+    setFormData(prev => ({ ...prev, [name]: val }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (loading) return;
+    
+    setLoading(true);
+    try {
+      const submissionsRef = collection(db, 'ambassador_applications');
+      const newDocRef = doc(submissionsRef);
+      
+      await setDoc(newDocRef, {
+        ...formData,
+        postsPerWeek: Number(formData.postsPerWeek),
+        createdAt: serverTimestamp()
+      });
+      
+      setSubmitted(true);
+    } catch (error) {
+      handleFirestoreError(error, OperationType.CREATE, 'ambassador_applications');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -401,88 +452,234 @@ export default function Ambassadors() {
             <p className="text-brand-text/50 font-medium text-lg">Preencha seus dados para participar da seleção de embaixadores.</p>
           </div>
 
-          <form className="space-y-8 bg-white p-10 md:p-14 rounded-[3rem] border border-slate-100 shadow-2xl shadow-slate-200/50">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Nome Completo</label>
-                <input type="text" className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" placeholder="Ex: Ana Souza" />
-              </div>
-              <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Instagram</label>
-                <input type="text" className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" placeholder="@seuusuario" />
-              </div>
-              <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">TikTok</label>
-                <input type="text" className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" placeholder="@seuusuario" />
-              </div>
-              <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">WhatsApp</label>
-                <input type="text" className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" placeholder="(00) 00000-0000" />
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Faculdade</label>
-                <input type="text" className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" placeholder="Ex: USP" />
-              </div>
-              <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Período</label>
-                <input type="text" className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" placeholder="Ex: 7º Período" />
-              </div>
-            </div>
+          <AnimatePresence mode="wait">
+            {!submitted ? (
+              <motion.form 
+                key="form"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onSubmit={handleSubmit}
+                className="space-y-8 bg-white p-10 md:p-14 rounded-[3rem] border border-slate-100 shadow-2xl shadow-slate-200/50"
+              >
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Nome Completo</label>
+                    <input 
+                      required 
+                      type="text" 
+                      name="fullName"
+                      value={formData.fullName}
+                      onChange={handleChange}
+                      className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" 
+                      placeholder="Ex: Ana Souza" 
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Instagram</label>
+                    <input 
+                      required 
+                      type="text" 
+                      name="instagram"
+                      value={formData.instagram}
+                      onChange={handleChange}
+                      className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" 
+                      placeholder="@seuusuario" 
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">TikTok</label>
+                    <input 
+                      type="text" 
+                      name="tiktok"
+                      value={formData.tiktok}
+                      onChange={handleChange}
+                      className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" 
+                      placeholder="@seuusuario" 
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">WhatsApp</label>
+                    <input 
+                      required 
+                      type="text" 
+                      name="whatsapp"
+                      value={formData.whatsapp}
+                      onChange={handleChange}
+                      className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" 
+                      placeholder="(00) 00000-0000" 
+                    />
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Faculdade</label>
+                    <input 
+                      required 
+                      type="text" 
+                      name="faculty"
+                      value={formData.faculty}
+                      onChange={handleChange}
+                      className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" 
+                      placeholder="Ex: USP" 
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Período</label>
+                    <input 
+                      required 
+                      type="text" 
+                      name="period"
+                      value={formData.period}
+                      onChange={handleChange}
+                      className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" 
+                      placeholder="Ex: 7º Período" 
+                    />
+                  </div>
+                </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Cidade / Estado</label>
-                <input type="text" className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" placeholder="Cidade - UF" />
-              </div>
-              <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Já atende em clínica?</label>
-                <select className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none appearance-none">
-                  <option>Sim</option>
-                  <option>Não, mas começo em breve</option>
-                  <option>Ainda não</option>
-                </select>
-              </div>
-            </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Cidade / Estado</label>
+                    <input 
+                      required 
+                      type="text" 
+                      name="cityState"
+                      value={formData.cityState}
+                      onChange={handleChange}
+                      className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" 
+                      placeholder="Cidade - UF" 
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Já atende em clínica?</label>
+                    <select 
+                      name="attendingClinic"
+                      value={formData.attendingClinic}
+                      onChange={handleChange}
+                      className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none appearance-none"
+                    >
+                      <option>Sim</option>
+                      <option>Não, mas começo em breve</option>
+                      <option>Ainda não</option>
+                    </select>
+                  </div>
+                </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Posts p/ semana</label>
-                <input type="number" className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" placeholder="0" />
-              </div>
-              <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Seguidores</label>
-                <input type="text" className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" placeholder="Ex: 3k" />
-              </div>
-              <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Views Stories</label>
-                <input type="text" className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" placeholder="Média" />
-              </div>
-            </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Posts p/ semana</label>
+                    <input 
+                      required 
+                      type="number" 
+                      name="postsPerWeek"
+                      value={formData.postsPerWeek}
+                      onChange={handleChange}
+                      className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" 
+                      placeholder="0" 
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Seguidores</label>
+                    <input 
+                      required 
+                      type="text" 
+                      name="followers"
+                      value={formData.followers}
+                      onChange={handleChange}
+                      className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" 
+                      placeholder="Ex: 3k" 
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Views Stories</label>
+                    <input 
+                      required 
+                      type="text" 
+                      name="storyViews"
+                      value={formData.storyViews}
+                      onChange={handleChange}
+                      className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" 
+                      placeholder="Média" 
+                    />
+                  </div>
+                </div>
 
-            <div className="space-y-2">
-              <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Por que você quer ser embaixador?</label>
-              <textarea rows={4} className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none resize-none" placeholder="Conte sobre sua conexão com o Academy." />
-            </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Por que você quer ser embaixador?</label>
+                  <textarea 
+                    required 
+                    rows={4} 
+                    name="motivation"
+                    value={formData.motivation}
+                    onChange={handleChange}
+                    className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none resize-none" 
+                    placeholder="Conte sobre sua conexão com o Academy." 
+                  />
+                </div>
 
-            <div className="space-y-2">
-              <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Como você fala sobre sua rotina?</label>
-              <textarea rows={4} className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none resize-none" placeholder="Como é o seu estilo de conteúdo?" />
-            </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Como você fala sobre sua rotina?</label>
+                  <textarea 
+                    required 
+                    rows={4} 
+                    name="contentStyle"
+                    value={formData.contentStyle}
+                    onChange={handleChange}
+                    className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none resize-none" 
+                    placeholder="Como é o seu estilo de conteúdo?" 
+                  />
+                </div>
 
-            <div className="flex items-start gap-3">
-              <input type="checkbox" id="terms" className="w-5 h-5 rounded border-slate-200 text-brand-academy focus:ring-brand-academy mt-0.5" />
-              <label htmlFor="terms" className="text-xs font-bold text-slate-500 cursor-pointer leading-relaxed">Eu aceito seguir as diretrizes éticas e de comunicação da marca e entendo que a inscrição passa por análise.</label>
-            </div>
+                <div className="flex items-start gap-3">
+                  <input 
+                    required 
+                    type="checkbox" 
+                    id="terms" 
+                    name="termsAccepted"
+                    checked={formData.termsAccepted}
+                    onChange={handleChange}
+                    className="w-5 h-5 rounded border-slate-200 text-brand-academy focus:ring-brand-academy mt-0.5" 
+                  />
+                  <label htmlFor="terms" className="text-xs font-bold text-slate-500 cursor-pointer leading-relaxed">Eu aceito seguir as diretrizes éticas e de comunicação da marca e entendo que a inscrição passa por análise.</label>
+                </div>
 
-            <Button type="submit" className="w-full py-6 rounded-2xl font-black text-lg bg-brand-academy text-white shadow-xl shadow-brand-academy/20 uppercase tracking-widest">
-              Enviar inscrição
-            </Button>
-            
-            <p className="text-center text-[10px] font-bold text-slate-300 uppercase tracking-widest px-4 leading-relaxed">Selecionamos perfis com conteúdo constante, comunicação ética e conexão real com estudantes de odontologia.</p>
-          </form>
+                <Button 
+                  type="submit" 
+                  disabled={loading}
+                  className="w-full py-6 rounded-2xl font-black text-lg bg-brand-academy text-white shadow-xl shadow-brand-academy/20 uppercase tracking-widest disabled:opacity-50"
+                >
+                  {loading ? 'Enviando...' : 'Enviar inscrição'}
+                </Button>
+                
+                <p className="text-center text-[10px] font-bold text-slate-300 uppercase tracking-widest px-4 leading-relaxed">Selecionamos perfis com conteúdo constante, comunicação ética e conexão real com estudantes de odontologia.</p>
+              </motion.form>
+            ) : (
+              <motion.div 
+                key="success"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="bg-white p-12 md:p-20 rounded-[3rem] border border-slate-100 shadow-2xl shadow-brand-academy/5 text-center flex flex-col items-center"
+              >
+                <div className="w-20 h-20 bg-brand-academy/10 text-brand-academy rounded-full flex items-center justify-center mb-8">
+                  <CheckCircle2 size={48} />
+                </div>
+                <h3 className="text-3xl md:text-4xl font-bold text-brand-text mb-6">Inscrição recebida.</h3>
+                <p className="text-lg text-brand-text/50 font-medium max-w-md mx-auto leading-relaxed">
+                  Obrigado por se inscrever no programa de Embaixadores OdontoHub Academy.
+                  Vamos analisar seu perfil com cuidado e entraremos em contato se houver alinhamento.
+                </p>
+                <Button 
+                  onClick={() => setSubmitted(false)}
+                  variant="ghost" 
+                  className="mt-10 text-brand-academy font-bold"
+                >
+                  Fazer outra inscrição
+                </Button>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </Section>
 

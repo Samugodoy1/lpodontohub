@@ -1,0 +1,47 @@
+{
+  "entities": {
+    "AmbassadorApplication": {
+      "title": "Ambassador Application",
+      "description": "Form submission for the ambassador program",
+      "type": "object",
+      "properties": {
+        "fullName": { "type": "string" },
+        "instagram": { "type": "string" },
+        "tiktok": { "type": "string" },
+        "whatsapp": { "type": "string" },
+        "faculty": { "type": "string" },
+        "period": { "type": "string" },
+        "cityState": { "type": "string" },
+        "attendingClinic": { "type": "string" },
+        "postsPerWeek": { "type": "number" },
+        "followers": { "type": "string" },
+        "storyViews": { "type": "string" },
+        "motivation": { "type": "string" },
+        "contentStyle": { "type": "string" },
+        "termsAccepted": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["fullName", "instagram", "whatsapp", "faculty", "period", "cityState", "postsPerWeek", "followers", "storyViews", "motivation", "contentStyle", "termsAccepted", "createdAt"]
+    },
+    "Admin": {
+      "title": "Admin",
+      "description": "User with administrative privileges",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin"] }
+      },
+      "required": ["email", "role"]
+    }
+  },
+  "firestore": {
+    "/ambassador_applications/{applicationId}": {
+      "schema": "AmbassadorApplication",
+      "description": "Collection of ambassador submissions"
+    },
+    "/admins/{userId}": {
+      "schema": "Admin",
+      "description": "Collection of site administrators"
+    }
+  }
+}

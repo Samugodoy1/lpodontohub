@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Academy from './pages/Academy';
 import Ambassadors from './pages/Ambassadors';
 import InstagramPresets from './pages/InstagramPresets';
+import AdminApplications from './pages/AdminApplications';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 
@@ -62,6 +63,16 @@ function AnimatedRoutes() {
             transition={{ duration: 0.3 }}
           >
             <InstagramPresets />
+          </motion.div>
+        } />
+        <Route path="/admin/embaixadores" element={
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <AdminApplications />
           </motion.div>
         } />
       </Routes>

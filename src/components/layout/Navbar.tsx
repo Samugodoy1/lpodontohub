@@ -21,12 +21,10 @@ export const Navbar = () => {
     { label: 'O problema', href: '#como-funciona' },
     { label: 'Fluxo Academy', href: '#fluxo' },
     { label: 'Embaixadores', href: '/academy/embaixadores', isLink: true },
-    { label: 'Social Kit', href: '/presets', isLink: true },
     { label: 'Planos', href: '#planos' },
   ] : [
     { label: 'Como funciona', href: '#como-funciona' },
     { label: 'Recursos', href: '#recursos' },
-    { label: 'Social Kit', href: '/presets', isLink: true },
     { label: 'Planos', href: '#planos' },
   ];
 

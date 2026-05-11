@@ -1,0 +1,68 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global safety net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Global Helpers
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function isEmailVerified() {
+      return isSignedIn() && request.auth.token.email_verified == true;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        request.auth.token.email == 'samuelgodoylima@gmail.com' ||
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+      );
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    // Ambassador Applications
+    // -------------------------------------------------------------------------
+    match /ambassador_applications/{applicationId} {
+      allow create: if isValidId(applicationId) && isValidApplication(incoming());
+      allow get, list: if isAdmin();
+      
+      function isValidApplication(data) {
+        return data.keys().hasAll(['fullName', 'instagram', 'whatsapp', 'faculty', 'period', 'cityState', 'postsPerWeek', 'followers', 'storyViews', 'motivation', 'contentStyle', 'termsAccepted', 'createdAt'])
+          && data.keys().size() == 13
+          && data.fullName is string && data.fullName.size() <= 200
+          && data.instagram is string && data.instagram.size() <= 100
+          && data.whatsapp is string && data.whatsapp.size() <= 50
+          && data.faculty is string && data.faculty.size() <= 200
+          && data.period is string && data.period.size() <= 50
+          && data.cityState is string && data.cityState.size() <= 100
+          && data.postsPerWeek is number
+          && data.followers is string && data.followers.size() <= 50
+          && data.storyViews is string && data.storyViews.size() <= 50
+          && data.motivation is string && data.motivation.size() <= 2000
+          && data.contentStyle is string && data.contentStyle.size() <= 2000
+          && data.termsAccepted == true
+          && data.createdAt == request.time;
+      }
+    }
+
+    // Admin collection
+    // -------------------------------------------------------------------------
+    match /admins/{userId} {
+      allow read: if isSignedIn() && request.auth.uid == userId;
+    }
+  }
+}
