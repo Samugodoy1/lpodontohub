@@ -325,12 +325,14 @@ export default function InstagramPresets() {
             caption="Menos caos. Mais clareza para cuidar. O OdontoHub organiza agenda, pacientes e pendências para mostrar o que realmente precisa da sua atenção hoje — sem transformar sua rotina em um sistema pesado. 🧠 #ProdutividadeOdonto #GestãoSemPeso"
           >
              <div className="flex flex-col items-center justify-center text-center space-y-8">
-                <Brain size={60} className="text-brand-green opacity-50" strokeWidth={1} />
-                <h4 className="text-3xl lg:text-4xl font-black text-white tracking-tighter leading-[1.1]">
-                   Sua cabeça não é<br/>um HD.
+                <div className="relative">
+                   <div className="absolute inset-0 bg-brand-green/20 blur-2xl rounded-full" />
+                   <Brain size={60} className="text-brand-green relative z-10" strokeWidth={1.5} />
+                </div>
+                <h4 className="text-4xl lg:text-5xl font-black text-white tracking-tighter leading-[0.95]">
+                   A desordem tem<br/>um custo alto.
                 </h4>
-                <div className="h-0.5 w-12 bg-brand-green/40" />
-                <p className="text-[10px] font-black text-brand-green uppercase tracking-[0.4em]">OdontoHub Pro — 2026</p>
+                <p className="text-[10px] font-bold text-brand-green uppercase tracking-[0.5em]">Silencie o ruído.</p>
              </div>
           </InstagramPost>
 
@@ -839,65 +841,73 @@ export default function InstagramPresets() {
         animate={{ opacity: 1, y: 0 }}
         className="space-y-32"
       >
-        {/* DESTAQUE 1 — SISTEMA */}
-        <PresetSection title="Destaque 01 — Sistema">
-          <InstagramStory title="Sistema: Resiliência" variant="dark">
-            <div className="flex flex-col items-center gap-10">
-              <div className="w-16 h-16 bg-brand-green/20 rounded-2xl flex items-center justify-center">
-                <Zap size={32} className="text-brand-green" />
+        {/* DESTAQUE 1 — PRODUTIVIDADE */}
+        <PresetSection title="Destaque 01 — Produtividade">
+          <InstagramStory title="Sistema: Foco" variant="dark">
+            <div className="flex flex-col items-center gap-12">
+              <div className="w-20 h-20 bg-brand-green/10 rounded-3xl flex items-center justify-center border border-brand-green/20">
+                <Zap size={40} className="text-brand-green" />
               </div>
-              <h4 className="text-5xl font-black text-white tracking-tighter leading-[0.9]">
-                Menos caos.<br/>Mais clareza.
+              <h4 className="text-6xl font-black text-white tracking-tighter leading-[0.85]">
+                Menos caos.<br/>Mais foco.
               </h4>
-              <p className="text-sm text-white/40 font-medium px-8 leading-relaxed">
-                O OdontoHub organiza sua rotina clínica e mostra o que realmente precisa da sua atenção hoje.
+              <p className="text-base text-white/40 font-medium px-10 leading-relaxed">
+                Tudo o que você precisa ver, em uma única tela. Sem distrações.
               </p>
             </div>
           </InstagramStory>
 
           <InstagramStory title="Sistema: Contexto" variant="light">
-            <div className="flex flex-col items-start text-left px-8 gap-8">
-              <div className="p-4 bg-brand-green/5 rounded-full">
-                <Brain size={32} className="text-brand-green" />
+            <div className="flex flex-col items-start text-left px-10 gap-10">
+              <div className="p-5 bg-slate-50 border border-slate-100 rounded-full">
+                <Target size={40} className="text-brand-green" />
               </div>
-              <h4 className="text-4xl font-black text-brand-text tracking-tighter leading-none">
-                Você não precisa<br/>lembrar de tudo.
+              <h4 className="text-5xl font-black text-brand-text tracking-tighter leading-none">
+                Clareza antes<br/>de volume.
               </h4>
-              <p className="text-sm text-brand-text/40 font-medium leading-relaxed">
-                Consultas, pacientes, pendências e próximos passos aparecem com contexto — sem você precisar caçar informação.
+              <p className="text-base text-brand-text/40 font-medium leading-relaxed">
+                Agenda que não apenas mostra horários, mas indica a próxima melhor ação.
               </p>
             </div>
           </InstagramStory>
 
           <InstagramStory title="Sistema: Fluxo" variant="brand">
-            <div className="flex flex-col items-start px-10 gap-10 h-full justify-center">
-              <h4 className="text-5xl font-black text-white tracking-tighter leading-[0.85]">
-                Seu dia em<br/>uma tela.
+            <div className="flex flex-col items-start px-12 gap-12 h-full justify-center">
+              <h4 className="text-6xl font-black text-white tracking-tighter leading-[0.8]">
+                Seu consultório,<br/>organizado.
               </h4>
-              <div className="space-y-2 opacity-60">
-                <p className="text-xs font-black uppercase tracking-[0.2em] text-white">Quem atender.</p>
-                <p className="text-xs font-black uppercase tracking-[0.2em] text-white">Quem confirmar.</p>
-                <p className="text-xs font-black uppercase tracking-[0.2em] text-white">Quem chamar.</p>
-                <p className="text-xs font-black uppercase tracking-[0.2em] text-white">Onde encaixar.</p>
+              <div className="space-y-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-1.5 h-1.5 bg-white rounded-full" />
+                  <p className="text-xs font-bold uppercase tracking-widest text-white/60">Agenda Inteligente</p>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-1.5 h-1.5 bg-white rounded-full" />
+                  <p className="text-xs font-bold uppercase tracking-widest text-white/60">Portal do Paciente</p>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-1.5 h-1.5 bg-white rounded-full" />
+                  <p className="text-xs font-bold uppercase tracking-widest text-white/60">Gestão de Encaixes</p>
+                </div>
               </div>
-              <p className="text-sm text-white/80 font-medium leading-relaxed">
-                Tudo mais claro, antes da rotina virar bagunça.
-              </p>
             </div>
           </InstagramStory>
 
           <InstagramStory title="Sistema: CTA" variant="dark">
-            <div className="flex flex-col items-center justify-center h-full gap-12 text-center">
-               <div className="w-20 h-20 bg-brand-green rounded-full flex items-center justify-center shadow-2xl shadow-brand-green/40">
-                  <Check size={40} className="text-white" />
+            <div className="flex flex-col items-center justify-center h-full gap-16 text-center">
+               <div className="relative">
+                  <div className="absolute inset-0 bg-brand-green blur-3xl opacity-30 animate-pulse" />
+                  <div className="w-24 h-24 bg-brand-green rounded-full flex items-center justify-center relative z-10 shadow-2xl">
+                    <Check size={48} className="text-white" />
+                  </div>
                </div>
-               <h4 className="text-5xl font-black text-white tracking-tighter leading-[0.9]">
-                 Comece<br/>grátis.
-               </h4>
-               <p className="text-sm text-white/40 font-medium px-10 leading-relaxed">
-                 Teste o OdontoHub e veja sua rotina com mais clareza.
-               </p>
-               <div className="mt-4 px-10 py-4 bg-white text-brand-text text-[10px] font-black uppercase tracking-widest rounded-full">Try For Free</div>
+               <div className="space-y-4">
+                 <h4 className="text-6xl font-black text-white tracking-tighter leading-none">
+                   Assuma o<br/>controle.
+                 </h4>
+                 <p className="text-sm text-white/40 font-medium px-12">Teste grátis por 7 dias. Sem compromisso.</p>
+               </div>
+               <Button className="!bg-white !text-brand-text h-16 px-16 rounded-full font-black text-xs uppercase tracking-widest shadow-2xl transform hover:scale-105 transition-transform">Get Started</Button>
             </div>
           </InstagramStory>
         </PresetSection>
@@ -906,57 +916,54 @@ export default function InstagramPresets() {
         <PresetSection title="Destaque 02 — Demonstração">
           <InstagramStory title="Demo: Interface" variant="light">
             <div className="flex flex-col items-center gap-12">
-              <div className="p-8 bg-slate-50 border border-slate-100 rounded-[3rem]">
-                <Smartphone size={54} className="text-brand-text/20" strokeWidth={1} />
+              <div className="p-10 bg-slate-50 border border-slate-100 rounded-[3rem] shadow-inner">
+                <Smartphone size={64} className="text-brand-green" strokeWidth={1} />
               </div>
-              <h4 className="text-5xl font-black text-brand-text tracking-tighter leading-[0.9]">
-                Veja antes de<br/>imaginar.
+              <h4 className="text-6xl font-black text-brand-text tracking-tighter leading-[0.9]">
+                Simples.<br/>Potente.
               </h4>
-              <p className="text-sm text-brand-text/40 font-medium px-6 leading-relaxed">
-                Uma rotina clínica organizada pelo OdontoHub.
+              <p className="text-base text-brand-text/40 font-medium px-10 leading-relaxed">
+                Uma interface que desaparece para você focar no que importa.
               </p>
             </div>
           </InstagramStory>
 
           <InstagramStory title="Demo: Prioridade" variant="dark">
-            <div className="flex flex-col items-start px-10 gap-10">
-              <div className="h-1 lg:h-2 w-20 bg-brand-green" />
-              <h4 className="text-5xl font-black text-white tracking-tighter leading-[0.85]">
-                O sistema já separou o que importa.
+            <div className="flex flex-col items-start px-12 gap-10">
+              <div className="h-2 w-24 bg-brand-green" />
+              <h4 className="text-6xl font-black text-white tracking-tighter leading-[0.85]">
+                O essencial,<br/>em primeiro.
               </h4>
-              <p className="text-sm text-white/40 font-medium leading-relaxed">
-                Próximo atendimento, pendências e pacientes que precisam de atenção. Sem abrir dez telas.
+              <p className="text-base text-white/40 font-medium leading-relaxed">
+                O OdontoHub filtra o ruído e traz o que você precisa agora.
               </p>
             </div>
           </InstagramStory>
 
           <InstagramStory title="Demo: Visibilidade" variant="brand">
-            <div className="flex flex-col items-center gap-10 h-full justify-center">
+            <div className="flex flex-col items-center gap-12 h-full justify-center">
               <div className="relative">
-                <div className="absolute inset-0 bg-white blur-3xl opacity-20" />
-                <Target size={80} className="text-white relative z-10" strokeWidth={1} />
+                <div className="absolute inset-0 bg-white blur-[60px] opacity-30" />
+                <Target size={100} className="text-white relative z-10" strokeWidth={0.5} />
               </div>
-              <h4 className="text-5xl font-black text-white tracking-tighter leading-[0.9] text-center">
-                Agenda que<br/>mostra direção.
+              <h4 className="text-6xl font-black text-white tracking-tighter leading-[0.9] text-center">
+                Direção,<br/>não só data.
               </h4>
-              <p className="text-sm text-white/80 font-medium px-8 text-center leading-relaxed">
-                Sua agenda deixa de ser uma lista e passa a mostrar o que você precisa fazer agora.
+              <p className="text-base text-white/80 font-medium px-12 text-center leading-relaxed">
+                Agenda que entende contexto e sugere a melhor ação.
               </p>
             </div>
           </InstagramStory>
 
           <InstagramStory title="Demo: CTA" variant="light">
-            <div className="flex flex-col items-center gap-12 text-center h-full justify-center">
-              <div className="w-20 h-20 bg-brand-green/10 rounded-full flex items-center justify-center">
-                <Sparkles size={40} className="text-brand-green" />
+            <div className="flex flex-col items-center gap-14 text-center h-full justify-center">
+              <div className="w-24 h-24 bg-brand-green/5 rounded-full flex items-center justify-center border border-brand-green/10">
+                <Sparkles size={48} className="text-brand-green" />
               </div>
-              <h4 className="text-5xl font-black text-brand-text tracking-tighter leading-none">
-                Quer testar?
+              <h4 className="text-6xl font-black text-brand-text tracking-tighter leading-none">
+                Pronto para<br/>evoluir?
               </h4>
-              <p className="text-sm text-brand-text/40 font-medium px-10 leading-relaxed">
-                Comece grátis e veja o OdontoHub funcionando na prática.
-              </p>
-              <Button className="!bg-brand-text !text-white h-14 px-12 rounded-full font-black text-[10px] uppercase tracking-[0.2em]">Start Demo</Button>
+              <Button className="!bg-brand-text !text-white h-16 px-16 rounded-full font-black text-xs uppercase tracking-widest shadow-xl">Começar Demo</Button>
             </div>
           </InstagramStory>
         </PresetSection>
@@ -964,59 +971,46 @@ export default function InstagramPresets() {
         {/* DESTAQUE 3 — ACADEMY */}
         <PresetSection title="Destaque 03 — Academy">
           <InstagramStory title="Academy: Welcome" variant="academy">
-            <div className="flex flex-col items-center gap-10">
-              <GraduationCap size={80} className="text-white" strokeWidth={1} />
-              <h4 className="text-5xl font-black text-white tracking-tighter leading-[0.9] text-center">
-                Vida clínica sem<br/>bagunça.
+            <div className="flex flex-col items-center gap-12">
+              <div className="relative">
+                <div className="absolute inset-0 bg-white blur-3xl opacity-20" />
+                <GraduationCap size={100} className="text-white relative z-10" strokeWidth={0.5} />
+              </div>
+              <h4 className="text-6xl font-black text-white tracking-tighter leading-[0.85] text-center">
+                Clínica sem<br/>ruído.
               </h4>
-              <p className="text-sm text-white/50 font-medium px-8 text-center leading-relaxed">
-                OdontoHub Academy é o ambiente do estudante de Odontologia.
+              <p className="text-base text-white/50 font-medium px-10 text-center leading-relaxed">
+                O ambiente do estudante,<br/>elevado ao nível Pro.
               </p>
             </div>
           </InstagramStory>
 
           <InstagramStory title="Academy: Registry" variant="light">
-            <div className="flex flex-col items-start px-10 gap-10">
-              <div className="p-4 bg-brand-academy/10 rounded-2xl">
-                <Users size={32} className="text-brand-academy" />
+            <div className="flex flex-col items-start px-12 gap-10">
+              <div className="p-6 bg-brand-academy-soft/30 rounded-3xl border border-brand-academy/10">
+                <ClipboardCheck size={40} className="text-brand-academy" />
               </div>
-              <h4 className="text-5xl font-black text-brand-text tracking-tighter leading-[0.85]">
-                Casos, evolução<br/>e estudo.
+              <h4 className="text-6xl font-black text-brand-text tracking-tighter leading-[0.8]">
+                Registro,<br/>facilitado.
               </h4>
-              <p className="text-sm text-brand-text/40 font-medium leading-relaxed">
-                Tudo no mesmo lugar. Com mais clareza para atender, registrar e aprender.
+              <p className="text-base text-brand-text/40 font-medium leading-relaxed">
+                Tudo o que você precisa registrar, em um fluxo natural e rápido.
               </p>
             </div>
           </InstagramStory>
 
           <InstagramStory title="Academy: Mastery" variant="academy">
-            <div className="flex flex-col items-center justify-center h-full text-center gap-12">
+            <div className="flex flex-col items-center justify-center h-full text-center gap-14">
               <div className="space-y-4">
-                <div className="w-12 h-1 bg-white" />
-                <div className="w-24 h-1 bg-white/40" />
-                <div className="w-16 h-1 bg-white/40" />
+                <div className="w-16 h-1.5 bg-white rounded-full" />
+                <div className="w-32 h-1.5 bg-white/30 rounded-full" />
               </div>
-              <h4 className="text-5xl font-black text-white tracking-tighter leading-[0.9]">
-                Clareza em cada<br/>atendimento.
+              <h4 className="text-6xl font-black text-white tracking-tighter leading-[0.85]">
+                Atenda com<br/>segurança.
               </h4>
-              <p className="text-sm text-white/40 font-medium px-8 leading-relaxed">
-                Um fluxo pensado para a rotina real da clínica universitária. Do início ao fim do registro.
+              <p className="text-base text-white/40 font-medium px-12 leading-relaxed">
+                Um fluxo guiado para quem quer focar no paciente, não no papel.
               </p>
-            </div>
-          </InstagramStory>
-
-          <InstagramStory title="Academy: CTA" variant="light">
-            <div className="flex flex-col items-center gap-12 text-center h-full justify-center">
-              <div className="w-24 h-24 bg-brand-academy-soft border border-brand-academy/10 rounded-[2rem] flex items-center justify-center">
-                <ShieldCheck size={48} className="text-brand-academy" />
-              </div>
-              <h4 className="text-5xl font-black text-brand-text tracking-tighter leading-none">
-                Segurança e<br/>Foco.
-              </h4>
-              <p className="text-sm text-brand-text/40 font-medium px-10 leading-relaxed">
-                Feito para estudantes que querem viver a clínica com mais segurança.
-              </p>
-              <div className="mt-4 px-10 py-4 bg-brand-academy text-white text-[10px] font-black uppercase tracking-widest rounded-full shadow-lg">Try Academy</div>
             </div>
           </InstagramStory>
         </PresetSection>
@@ -1024,64 +1018,70 @@ export default function InstagramPresets() {
         {/* DESTAQUE 4 — EMBAIXADORES */}
         <PresetSection title="Destaque 04 — Embaixadores">
           <InstagramStory title="Ambassador: Voice" variant="brand">
-            <div className="flex flex-col items-center gap-10 text-center">
-              <Star size={72} className="text-white fill-white" strokeWidth={1} />
-              <h4 className="text-5xl font-black text-white tracking-tighter leading-[0.9]">
-                Odontologia com<br/>verdade.
+            <div className="flex flex-col items-center gap-12 text-center">
+              <div className="relative">
+                <div className="absolute inset-0 bg-white blur-3xl opacity-30 animate-pulse" />
+                <Star size={80} className="text-white relative z-10 fill-white" strokeWidth={0.5} />
+              </div>
+              <h4 className="text-6xl font-black text-white tracking-tighter leading-[0.85]">
+                Odontologia<br/>com verdade.
               </h4>
-              <p className="text-sm text-white/80 font-medium px-8 leading-relaxed">
-                O Programa de Embaixadores conecta estudantes e criadores à nova forma de organizar a clínica.
+              <p className="text-base text-white/70 font-medium px-10 leading-relaxed">
+                Junte-se à nova era da comunicação clínica.
               </p>
             </div>
           </InstagramStory>
 
           <InstagramStory title="Ambassador: Values" variant="dark">
-            <div className="flex flex-col items-start px-10 gap-12 h-full justify-center text-left">
-              <div className="flex gap-2">
-                {[1,2,3].map(i => <div key={i} className="w-4 h-4 bg-brand-green rounded-full" />)}
+            <div className="flex flex-col items-start px-12 gap-10">
+              <div className="flex gap-3">
+                {[1,2,3].map(i => <div key={i} className="w-5 h-5 bg-brand-green rounded-full shadow-lg shadow-brand-green/20" />)}
               </div>
-              <h4 className="text-5xl font-black text-white tracking-tighter leading-[0.85]">
-                 Comunicação Real e<br/>Humana.
+              <h4 className="text-6xl font-black text-white tracking-tighter leading-[0.8]">
+                 Clareza,<br/>não só alcance.
               </h4>
-              <p className="text-sm text-white/40 font-medium leading-relaxed max-w-[240px]">
-                Não buscamos só alcance. Buscamos gente com verdade na Odontologia.
+              <p className="text-base text-white/40 font-medium leading-relaxed">
+                Buscamos parceiros que vivem a odontologia real, todo santo dia.
               </p>
             </div>
           </InstagramStory>
 
           <InstagramStory title="Ambassador: Perks" variant="light">
-            <div className="flex flex-col items-start px-10 gap-8 h-full justify-center">
-              <span className="text-[10px] font-black text-brand-green uppercase tracking-[0.5em]">Special Benefits</span>
-              <div className="space-y-6">
+            <div className="flex flex-col items-start px-12 gap-10 h-full justify-center">
+              <span className="text-[11px] font-black text-brand-green uppercase tracking-[0.6em]">Exclusive Perks</span>
+              <div className="space-y-8">
                 <div className="flex gap-4 items-center">
-                  <Check size={18} className="text-brand-green" />
-                  <p className="text-sm font-black text-brand-text/60 uppercase tracking-widest">Cupom Personalizado</p>
+                  <div className="w-6 h-6 rounded-full bg-brand-green/10 flex items-center justify-center text-brand-green">
+                    <Check size={14} strokeWidth={3} />
+                  </div>
+                  <p className="text-sm font-black text-brand-text uppercase tracking-widest leading-none">Benefícios Únicos</p>
                 </div>
                 <div className="flex gap-4 items-center">
-                  <Check size={18} className="text-brand-green" />
-                  <p className="text-sm font-black text-brand-text/60 uppercase tracking-widest">Comissão por Indicação</p>
+                  <div className="w-6 h-6 rounded-full bg-brand-green/10 flex items-center justify-center text-brand-green">
+                    <Check size={14} strokeWidth={3} />
+                  </div>
+                  <p className="text-sm font-black text-brand-text uppercase tracking-widest leading-none">Acesso Antecipado</p>
                 </div>
                 <div className="flex gap-4 items-center">
-                  <Check size={18} className="text-brand-green" />
-                  <p className="text-sm font-black text-brand-text/60 uppercase tracking-widest">Materiais Oficiais</p>
+                  <div className="w-6 h-6 rounded-full bg-brand-green/10 flex items-center justify-center text-brand-green">
+                    <Check size={14} strokeWidth={3} />
+                  </div>
+                  <p className="text-sm font-black text-brand-text uppercase tracking-widest leading-none">Assets de Marca</p>
                 </div>
               </div>
             </div>
           </InstagramStory>
 
           <InstagramStory title="Ambassador: CTA" variant="brand">
-            <div className="flex flex-col items-center gap-12 text-center h-full justify-center">
+            <div className="flex flex-col items-center gap-14 text-center h-full justify-center">
               <div className="relative">
-                <div className="absolute inset-0 bg-white blur-3xl opacity-20 animate-pulse" />
-                <Share2 size={54} className="text-white relative z-10" />
+                <div className="absolute inset-0 bg-white blur-[80px] opacity-20" />
+                <Share2 size={64} className="text-white relative z-10" />
               </div>
-              <h4 className="text-5xl font-black text-white tracking-tighter leading-[0.9]">
-                Represente o<br/>OdontoHub.
+              <h4 className="text-6xl font-black text-white tracking-tighter leading-[0.9]">
+                Seja um de<br/>nós.
               </h4>
-              <p className="text-sm text-white/60 font-medium px-10 leading-relaxed">
-                Se você compartilha a Odontologia de formaclara e humana, fale com a gente.
-              </p>
-              <Button className="!bg-white !text-brand-green h-14 px-12 rounded-full font-black text-[10px] uppercase tracking-widest shadow-xl">Apply Now</Button>
+              <Button className="!bg-white !text-brand-green h-16 px-16 rounded-full font-black text-xs uppercase tracking-widest shadow-2xl">Apply Program</Button>
             </div>
           </InstagramStory>
         </PresetSection>
@@ -1089,60 +1089,31 @@ export default function InstagramPresets() {
         {/* DESTAQUE 5 — SUPORTE */}
         <PresetSection title="Destaque 05 — Suporte">
           <InstagramStory title="Support: Unity" variant="dark">
-            <div className="flex flex-col items-center gap-10">
-              <div className="w-16 h-16 bg-brand-green/20 rounded-full flex items-center justify-center">
-                <Users size={32} className="text-brand-green" />
+            <div className="flex flex-col items-center gap-12 text-center">
+              <div className="w-24 h-24 bg-brand-green/5 rounded-full flex items-center justify-center border border-brand-green/10">
+                <Users size={48} className="text-brand-green" />
               </div>
-              <h4 className="text-5xl font-black text-white tracking-tighter leading-[0.9] text-center">
-                Você não fica<br/>sozinho.
+              <h4 className="text-6xl font-black text-white tracking-tighter leading-[0.85]">
+                Suporte de<br/>humano para<br/>humano.
               </h4>
-              <p className="text-sm text-white/40 font-medium px-10 text-center leading-relaxed">
-                O OdontoHub foi criado para simplificar. O suporte segue o mesmo princípio.
+              <p className="text-base text-white/40 font-medium px-10 leading-relaxed">
+                Nós te ajudamos a entender o sistema, sem enrolação.
               </p>
             </div>
           </InstagramStory>
 
-          <InstagramStory title="Support: Clarity" variant="light">
-            <div className="flex flex-col items-start px-10 gap-10">
-              <div className="p-4 bg-slate-50 border border-slate-100 rounded-2xl">
-                <MessageCircle size={32} className="text-brand-text/30" />
+          <InstagramStory title="Support: CTA" variant="brand">
+            <div className="flex flex-col items-center gap-14 text-center h-full justify-center">
+              <div className="w-24 h-24 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
+                <MessageCircle size={48} className="text-white" />
               </div>
-              <h4 className="text-5xl font-black text-brand-text tracking-tighter leading-[0.85]">
-                 Dúvidas e Primeiros<br/>Passos.
-              </h4>
-              <p className="text-sm text-brand-text/40 font-medium leading-relaxed">
-                A gente te ajuda a entender o sistema sem complicar sua rotina clínica.
-              </p>
-            </div>
-          </InstagramStory>
-
-          <InstagramStory title="Support: Human" variant="brand">
-            <div className="flex flex-col items-center justify-center h-full text-center gap-10">
-              <div className="space-y-2 opacity-50">
-                <div className="w-24 h-1 bg-white" />
-                <div className="w-24 h-1 bg-white" />
+              <div className="space-y-4">
+                <h4 className="text-6xl font-black text-white tracking-tighter leading-none">
+                  Fale com<br/>a gente.
+                </h4>
+                <p className="text-base text-white/60">Canal oficial no WhatsApp.</p>
               </div>
-              <h4 className="text-5xl font-black text-white tracking-tighter leading-none">
-                Suporte Humano.<br/>Direto.
-              </h4>
-              <p className="text-sm text-white/80 font-medium px-10 leading-relaxed">
-                Sem enrolação. A ideia é resolver com clareza absoluta.
-              </p>
-            </div>
-          </InstagramStory>
-
-          <InstagramStory title="Support: CTA" variant="dark">
-            <div className="flex flex-col items-center gap-12 text-center h-full justify-center">
-              <div className="w-24 h-24 bg-brand-green/10 border border-brand-green/20 rounded-full flex items-center justify-center shadow-inner">
-                <Copy size={44} className="text-brand-green" />
-              </div>
-              <h4 className="text-5xl font-black text-white tracking-tighter leading-none">
-                Suporte Oficial.
-              </h4>
-              <p className="text-sm text-white/40 font-medium px-10 leading-relaxed">
-                Precisa de ajuda? Chame a gente pelo canal oficial a qualquer momento.
-              </p>
-              <a href="#" className="mt-4 px-12 py-5 bg-brand-green text-white text-[10px] font-black uppercase tracking-[0.4em] rounded-full shadow-2xl transition-transform hover:scale-105">Get Help</a>
+              <Button className="!bg-white !text-brand-text h-16 px-16 rounded-full font-black text-xs uppercase tracking-widest shadow-2xl">Get Support</Button>
             </div>
           </InstagramStory>
         </PresetSection>
