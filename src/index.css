@@ -18,8 +18,6 @@
   --color-brand-red: #EF4444;
   --color-brand-red-soft: #FEE2E2;
   --color-brand-border: #DDE9E4;
-
-  --letter-spacing-tightest: -0.06em;
 }
 
 @layer base {
