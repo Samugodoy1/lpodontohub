@@ -923,7 +923,7 @@ export default function InstagramPresets() {
                    Menos peso mental.<br/>
                    <span className="opacity-40">Mais clareza.</span>
                  </h4>
-                 <Button className="!bg-white !text-brand-green h-14 px-12 rounded-full font-black text-[10px] uppercase tracking-widest transform hover:scale-105 transition-all">Teste Grátis</Button>
+                 <Button className="!bg-white !text-brand-green h-14 px-12 rounded-full font-black text-[10px] uppercase tracking-widest transform hover:scale-105 transition-all">Começar Agora</Button>
                </div>
             </div>
           </InstagramStory>
@@ -1016,7 +1016,7 @@ export default function InstagramPresets() {
                  Você não entra para procurar.<br/>
                  <span className="text-brand-green-soft/40">Você entra para decidir.</span>
                </h4>
-               <Button className="!bg-white !text-brand-green h-16 px-16 rounded-full font-black text-xs uppercase tracking-widest shadow-2xl">Download Demo</Button>
+               <Button className="!bg-white !text-brand-green h-16 px-16 rounded-full font-black text-xs uppercase tracking-widest shadow-2xl">Conhecer Hub</Button>
             </div>
           </InstagramStory>
         </PresetSection>
@@ -1102,18 +1102,18 @@ export default function InstagramPresets() {
                <h4 className="text-6xl font-black text-white tracking-tighter leading-[0.85]">
                  Do primeiro paciente ao primeiro consultório.
                </h4>
-               <Button className="!bg-white !text-brand-academy h-16 px-16 rounded-full font-black text-xs uppercase tracking-widest shadow-2xl">Try Academy</Button>
+               <Button className="!bg-white !text-brand-academy h-16 px-16 rounded-full font-black text-xs uppercase tracking-widest shadow-2xl">Começar agora</Button>
             </div>
           </InstagramStory>
         </PresetSection>
 
         {/* DESTAQUE 4 — EMBAIXADORES */}
-        <PresetSection title="Destaque 04 — Embaixadores">
+        <PresetSection title="Destaque 04 — Embaixadores (Academy)">
           <InstagramStory title="Ambassador 01" variant="offwhite">
              <div className="flex flex-col items-center gap-12 text-center max-w-[280px]">
                 <div className="relative">
-                   <div className="absolute inset-0 bg-brand-green/20 blur-3xl opacity-50" />
-                   <Star size={100} className="text-brand-green relative z-10 fill-brand-green" strokeWidth={0} />
+                   <div className="absolute inset-0 bg-brand-academy/20 blur-3xl opacity-50" />
+                   <Star size={100} className="text-brand-academy relative z-10 fill-brand-academy" strokeWidth={0} />
                 </div>
                 <h4 className="text-5xl font-black text-brand-text tracking-tighter leading-[0.9]">
                   Para quem vive a Odontologia de verdade.
@@ -1121,10 +1121,10 @@ export default function InstagramPresets() {
              </div>
           </InstagramStory>
 
-          <InstagramStory title="Ambassador 02" variant="brand">
+          <InstagramStory title="Ambassador 02" variant="academy">
             <div className="flex flex-col items-center gap-12 text-center max-w-[300px]">
               <h4 className="text-5xl font-black text-white tracking-tighter leading-[0.9]">
-                O OdontoHub não nasceu para parecer grande.
+                O Academy não nasceu para parecer grande.
               </h4>
               <p className="text-lg text-white/40 font-medium italic underline decoration-white/20 underline-offset-8">Nasceu para ajudar na rotina real.</p>
             </div>
@@ -1132,8 +1132,8 @@ export default function InstagramPresets() {
 
           <InstagramStory title="Ambassador 03" variant="offwhite">
              <div className="flex flex-col items-center gap-12 text-center max-w-[320px]">
-                <div className="p-10 premium-card space-y-6">
-                   <Heart size={48} className="text-brand-red animate-pulse mx-auto" />
+                <div className="p-10 bg-white shadow-xl shadow-brand-academy/5 border border-brand-academy/10 rounded-[3rem] space-y-6">
+                   <Heart size={48} className="text-brand-academy animate-pulse mx-auto fill-brand-academy/10" />
                    <h4 className="text-3xl font-black text-brand-text tracking-tight leading-tight">
                      Se você mostra a vida clínica com verdade...
                    </h4>
@@ -1147,7 +1147,7 @@ export default function InstagramPresets() {
               <div className="space-y-4">
                 <h4 className="text-4xl font-black text-white tracking-tighter leading-[1.1]">Menos bagunça.</h4>
                 <h4 className="text-4xl font-black text-white/60 tracking-tighter leading-[1.1]">Menos improviso.</h4>
-                <h4 className="text-5xl font-black text-brand-green tracking-tighter leading-[1.1]">Mais clareza.</h4>
+                <h4 className="text-5xl font-black text-brand-academy tracking-tighter leading-[1.1]">Mais clareza.</h4>
               </div>
               <p className="text-[11px] font-black text-white/20 uppercase tracking-[0.5em] mt-8">Essa é a ideia que você representa.</p>
             </div>
@@ -1155,11 +1155,11 @@ export default function InstagramPresets() {
 
           <InstagramStory title="Ambassador 05" variant="offwhite">
              <div className="flex flex-col items-start text-left px-4 gap-10 w-full justify-center">
-                <p className="text-[11px] font-black text-brand-green uppercase tracking-[0.5em]">Benefícios de Embaixador</p>
+                <p className="text-[11px] font-black text-brand-academy uppercase tracking-[0.5em]">Benefícios de Embaixador</p>
                 <div className="space-y-6">
                    {['Cupom próprio', 'Comissão', 'Materiais oficiais', 'Proximidade com o projeto'].map(perk => (
                      <div key={perk} className="flex items-center gap-4">
-                        <div className="w-1.5 h-1.5 bg-brand-green rounded-full shadow-lg shadow-brand-green/40" />
+                        <div className="w-1.5 h-1.5 bg-brand-academy rounded-full shadow-lg shadow-brand-academy/40" />
                         <p className="text-xl font-black text-brand-text uppercase tracking-tight">{perk}</p>
                      </div>
                    ))}
@@ -1167,16 +1167,16 @@ export default function InstagramPresets() {
              </div>
           </InstagramStory>
 
-          <InstagramStory title="Ambassador 06" variant="brand">
+          <InstagramStory title="Ambassador 06" variant="academy">
             <div className="flex flex-col items-center gap-14 text-center">
                <div className="relative">
                  <div className="absolute inset-0 bg-white blur-[80px] opacity-20" />
                  <Share2 size={64} className="text-white relative z-10" />
                </div>
                <h4 className="text-6xl font-black text-white tracking-tighter leading-[0.85]">
-                 Quer representar o OdontoHub?
+                 Quer representar o Academy?
                </h4>
-               <Button className="!bg-white !text-brand-green h-16 px-16 rounded-full font-black text-xs uppercase tracking-widest shadow-2xl">Apply Program</Button>
+               <Button className="!bg-white !text-brand-academy h-16 px-16 rounded-full font-black text-xs uppercase tracking-widest shadow-2xl">Apply Program</Button>
             </div>
           </InstagramStory>
         </PresetSection>
@@ -1238,7 +1238,7 @@ export default function InstagramPresets() {
                  <h4 className="text-6xl font-black text-white tracking-tighter leading-none">
                    Quando travar,<br/>chame a gente.
                  </h4>
-                 <Button className="!bg-white !text-brand-text h-16 px-16 rounded-full font-black text-xs uppercase tracking-widest shadow-2xl">Get Help</Button>
+                 <Button className="!bg-white !text-brand-text h-16 px-16 rounded-full font-black text-xs uppercase tracking-widest shadow-2xl">Chamar Suporte</Button>
                </div>
             </div>
           </InstagramStory>
