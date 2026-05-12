@@ -85,7 +85,7 @@ export default function Academy() {
                 <GraduationCap size={12} className="shrink-0" /> Academy: Criado para Estudantes
               </div>
               <h1 className="text-4xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-brand-text mb-6 md:mb-8 leading-[1.1] md:leading-[1.05]">
-                Chegue na clínica<br className="hidden md:block" />
+                Chegue na clínica <br className="hidden md:block" />
                 <span className="text-brand-academy">menos perdido.</span>
               </h1>
               <p className="text-base md:text-xl lg:text-2xl text-brand-text/50 max-w-3xl mx-auto mb-10 md:mb-16 leading-relaxed font-medium px-4 md:px-0">
@@ -95,12 +95,12 @@ export default function Academy() {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-5">
                 <a href="https://academy.odontohub.app.br" className="w-full sm:w-auto">
                   <Button variant="academy" className="w-full px-10 md:px-12 py-5 md:py-6 text-base md:text-lg font-bold shadow-2xl shadow-brand-academy/25">
-                    Começar grátis como aluno
+                    Criar conta gratuita
                   </Button>
                 </a>
                 <a href="#fluxo" className="w-full sm:w-auto">
                   <Button variant="ghost" className="text-brand-text/60 hover:text-brand-academy flex items-center justify-center gap-2 font-bold group py-4">
-                    Ver como funciona <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                    Como funciona <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </a>
               </div>
@@ -470,7 +470,7 @@ export default function Academy() {
                    ))}
                 </div>
                 <a href="https://academy.odontohub.app.br" className="w-full">
-                  <Button variant="outline" className="w-full py-4 md:py-5 rounded-2xl border-2 font-bold hover:bg-brand-bg-alt">Começar grátis</Button>
+                  <Button variant="outline" className="w-full py-4 md:py-5 rounded-2xl border-2 font-bold hover:bg-brand-bg-alt">Fazer meu cadastro</Button>
                 </a>
              </div>
              
@@ -553,10 +553,10 @@ export default function Academy() {
               <h2 className="text-3xl md:text-7xl font-bold tracking-tight mb-8 md:mb-12 leading-tight">Clareza clínica.<br className="hidden md:block" /> Menos caos Acadêmico.</h2>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                  <a href="https://academy.odontohub.app.br" className="w-full sm:w-auto">
-                    <Button className="w-full sm:w-auto !bg-white !text-brand-academy px-10 md:px-12 py-5 md:py-6 rounded-2xl font-bold shadow-2xl">Começar Grátis agora</Button>
+                    <Button className="w-full sm:w-auto !bg-white !text-brand-academy px-10 md:px-12 py-5 md:py-6 rounded-2xl font-bold shadow-2xl">Começar agora</Button>
                  </a>
-                                   <a href="#fluxo" className="w-full sm:w-auto">
-                    <Button variant="ghost" className="w-full sm:w-auto text-white hover:bg-white/10 px-8 py-5 md:py-6 rounded-2xl font-bold">Ver Demonstração</Button>
+                 <a href="#fluxo" className="w-full sm:w-auto">
+                    <Button variant="ghost" className="w-full sm:w-auto text-white hover:bg-white/10 px-8 py-5 md:py-6 rounded-2xl font-bold">Saiba mais</Button>
                   </a>
               </div>
            </div>
