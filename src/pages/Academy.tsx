@@ -45,7 +45,7 @@ const ProductMockup = ({ title, content, type = "mobile" }: { title: string, con
       </div>
       
       {/* App Content */}
-      <div className="flex flex-col h-full bg-slate-50/30">
+      <div className="flex flex-col h-full bg-slate-50/30 overflow-y-auto scrollbar-none">
         {content || (
           <div className="p-6 flex flex-col h-full">
             <div className="space-y-4">
@@ -89,9 +89,9 @@ export default function Academy() {
   return (
     <div className="min-h-screen bg-brand-bg">
       {/* 1. HERO SECTION: Re-anchored for instant conversion */}
-      <Section className="pt-24 md:pt-40 pb-16 md:pb-24 overflow-hidden">
+      <Section className="pt-20 sm:pt-24 md:pt-40 pb-16 md:pb-24 overflow-hidden">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12 md:mb-24">
+          <div className="text-center mb-10 sm:mb-16 md:mb-28">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -99,21 +99,63 @@ export default function Academy() {
               className="px-4"
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-academy/5 border border-brand-academy/10 text-brand-academy rounded-full text-[9px] md:text-[10px] font-bold uppercase tracking-widest mb-6 md:mb-10">
-                <GraduationCap size={12} className="shrink-0" /> Suporte Clínico Pessoal
+                <GraduationCap size={12} className="shrink-0" /> Assistente de Bolso do Acadêmico de Odonto
               </div>
-              <h1 className="text-4xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-brand-text mb-6 md:mb-8 leading-[1.1] md:leading-[1.05]">
-                O seu assistente clínico <br className="hidden md:block" />
-                no Box da <span className="text-brand-academy">Faculdade.</span>
+              <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-brand-text mb-6 md:mb-8 leading-[1.15] md:leading-[1.05] px-2 md:px-0">
+                Chegue na clínica da faculdade <br className="hidden md:block" />
+                sabendo exatamente <span className="text-brand-academy">o que fazer.</span>
               </h1>
-              <p className="text-base md:text-xl lg:text-2xl text-brand-text/50 max-w-3xl mx-auto mb-10 md:mb-16 leading-relaxed font-semibold px-4 md:px-0">
-                O Academy não é livro nem plataforma de cursos. É um organizador de bolso para você separar instrumentais na esterilização, preparar prontuários, seguir checklists clínicos e armazenar fotos dos pacientes em um ambiente seguro. <br />
-                <span className="text-brand-academy/80">Chegue na clínica sabendo exatamente o próximo passo.</span>
+              <p className="text-sm xs:text-base md:text-xl lg:text-2xl text-brand-text/50 max-w-4xl mx-auto mb-10 md:mb-16 leading-relaxed font-semibold px-4 md:px-0">
+                O Academy não é livro ou plataforma de videoaulas. É uma ferramenta prática para você separar instrumentais na esterilização, seguir checklists clínicos ao lado do mocho, escrever a evolução de prontuário e guardar fotos dos pacientes de forma organizada — tudo pelo celular ou tablet.
               </p>
               
+              {/* Core Real-Use Bullet Cards - Visual Anchors built for instant comprehension */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 max-w-5xl mx-auto mb-12 md:mb-16 text-left">
+                <div className="p-5 md:p-6 bg-[#FAF9F5] border border-brand-border/40 rounded-2xl flex flex-col justify-between hover:bg-white hover:border-brand-academy/30 hover:shadow-lg transition-all duration-300">
+                  <div className="w-10 h-10 bg-white border border-brand-border/60 rounded-xl flex items-center justify-center text-brand-academy mb-4 shadow-sm">
+                    <ClipboardList size={18} />
+                  </div>
+                  <div>
+                    <h4 className="text-xs md:text-sm font-extrabold text-brand-text uppercase tracking-tight mb-1">Materiais & Instrumentais</h4>
+                    <p className="text-[10px] md:text-xs text-brand-text/50 font-semibold leading-relaxed">Checklists prontos para separar tudo e não esquecer nada para a esterilização.</p>
+                  </div>
+                </div>
+
+                <div className="p-5 md:p-6 bg-[#FAF9F5] border border-brand-border/40 rounded-2xl flex flex-col justify-between hover:bg-white hover:border-brand-academy/30 hover:shadow-lg transition-all duration-300">
+                  <div className="w-10 h-10 bg-white border border-brand-border/60 rounded-xl flex items-center justify-center text-brand-academy mb-4 shadow-sm">
+                    <Smartphone size={18} />
+                  </div>
+                  <div>
+                    <h4 className="text-xs md:text-sm font-extrabold text-brand-text uppercase tracking-tight mb-1">Evolução de Prontuário</h4>
+                    <p className="text-[10px] md:text-xs text-brand-text/50 font-semibold leading-relaxed">Modelos de escrita estruturada para colher a assinatura do preceptor sem travar.</p>
+                  </div>
+                </div>
+
+                <div className="p-5 md:p-6 bg-[#FAF9F5] border border-brand-border/40 rounded-2xl flex flex-col justify-between hover:bg-white hover:border-brand-academy/30 hover:shadow-lg transition-all duration-300">
+                  <div className="w-10 h-10 bg-white border border-brand-border/60 rounded-xl flex items-center justify-center text-brand-academy mb-4 shadow-sm">
+                    <Camera size={18} />
+                  </div>
+                  <div>
+                    <h4 className="text-xs md:text-sm font-extrabold text-brand-text uppercase tracking-tight mb-1">Galeria de Fotos Segura</h4>
+                    <p className="text-[10px] md:text-xs text-brand-text/50 font-semibold leading-relaxed">Organize fotos clínicas por patiente em ambiente seguro, fora do rolo pessoal.</p>
+                  </div>
+                </div>
+
+                <div className="p-5 md:p-6 bg-[#FAF9F5] border border-brand-border/40 rounded-2xl flex flex-col justify-between hover:bg-white hover:border-brand-academy/30 hover:shadow-lg transition-all duration-300">
+                  <div className="w-10 h-10 bg-white border border-brand-border/60 rounded-xl flex items-center justify-center text-brand-academy mb-4 shadow-sm">
+                    <CheckCircle2 size={18} />
+                  </div>
+                  <div>
+                    <h4 className="text-xs md:text-sm font-extrabold text-brand-text uppercase tracking-tight mb-1">Guia de Conduta Rápida</h4>
+                    <p className="text-[10px] md:text-xs text-brand-text/50 font-semibold leading-relaxed">Siga o passo a passo dos procedimentos ao lado do mocho com o Modo Box.</p>
+                  </div>
+                </div>
+              </div>
+
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-5 max-w-md mx-auto sm:max-w-none">
                 <a href="https://academy.odontohub.app.br" id="btn-hero-cta" className="w-full sm:w-auto">
-                  <Button variant="academy" className="w-full px-10 md:px-12 py-5 md:py-6 text-base md:text-lg font-bold shadow-2xl shadow-brand-academy/25">
-                    Criar conta gratuita
+                  <Button variant="academy" className="w-full px-6 sm:px-10 md:px-12 py-4.5 md:py-6 text-sm sm:text-base md:text-lg font-bold shadow-2xl shadow-brand-academy/25">
+                    Criar minha conta gratuita de aluno
                   </Button>
                 </a>
                 <a href="#fluxo" id="btn-hero-learn" className="w-full sm:w-auto">
@@ -134,7 +176,7 @@ export default function Academy() {
             {/* Main Mockup representing the user status board */}
             <div className="relative z-10 p-1.5 md:p-4 bg-slate-100 rounded-[2.5rem] md:rounded-[3.5rem] border border-brand-border shadow-2xl overflow-hidden max-w-5xl mx-auto">
               <div className="bg-white rounded-[2rem] md:rounded-[2.5rem] overflow-hidden aspect-auto md:aspect-[16/10] shadow-inner flex flex-col">
-                <div className="p-6 md:p-16 space-y-8 md:space-y-12">
+                <div className="p-4 sm:p-8 md:p-16 space-y-6 sm:space-y-8 md:space-y-12">
                    <div className="space-y-2 md:space-y-4">
                       <p className="text-slate-400 font-bold text-sm md:text-lg">Olá, Dr. Gabriel • 7º Semestre</p>
                       <h2 className="text-2xl md:text-6xl font-bold text-brand-text tracking-tight max-w-2xl leading-[1.2] md:leading-[1.1]">
@@ -142,18 +184,18 @@ export default function Academy() {
                       </h2>
                    </div>
 
-                   <div className="bg-brand-academy rounded-[1.5rem] md:rounded-[2.5rem] p-6 md:p-10 text-white relative overflow-hidden group">
+                   <div className="bg-brand-academy rounded-[1.5rem] md:rounded-[2.5rem] p-4 sm:p-6 md:p-10 text-white relative overflow-hidden group">
                       <div className="relative z-10">
                         <p className="text-[10px] font-bold text-white/50 uppercase tracking-widest mb-1 md:mb-2">Próximo Caso Clínico</p>
-                        <div className="flex flex-col md:flex-row justify-between items-start gap-4 md:gap-0 mb-6 md:mb-8">
+                        <div className="flex flex-row justify-between items-start gap-4 mb-6 md:mb-8">
                           <div>
-                            <h4 className="text-xl md:text-5xl font-bold tracking-tight">Clara Letícia Mendes</h4>
+                            <h4 className="text-lg xs:text-xl md:text-5xl font-bold tracking-tight">Clara Letícia Mendes</h4>
                             <div className="flex flex-wrap gap-1.5 md:gap-2 mt-3 tracking-wide">
-                              <span className="px-3 py-1 bg-white/20 rounded-full text-[9px] md:text-[10px] font-bold uppercase">Clínica de Prótese</span>
-                              <span className="px-3 py-1 bg-white/10 rounded-full text-[9px] md:text-[10px] font-bold uppercase">Cadeira 12 • 14:00</span>
+                              <span className="px-2.5 py-1 bg-white/20 rounded-full text-[8px] md:text-[10px] font-bold uppercase">Clínica de Prótese</span>
+                              <span className="px-2.5 py-1 bg-white/10 rounded-full text-[8px] md:text-[10px] font-bold uppercase">Cadeira 12 • 14:00</span>
                             </div>
                           </div>
-                          <div className="w-12 h-12 md:w-16 md:h-16 bg-white/20 border border-white/20 rounded-2xl flex items-center justify-center text-lg md:text-2xl font-bold">C</div>
+                          <div className="w-10 h-10 md:w-16 md:h-16 bg-white/20 border border-white/20 rounded-xl md:rounded-2xl flex items-center justify-center text-sm md:text-2xl font-bold shrink-0">C</div>
                         </div>
                       </div>
                       <div className="absolute top-0 right-0 w-48 h-48 md:w-64 md:h-64 bg-white/5 rounded-full blur-3xl -mr-24 -mt-24 md:-mr-32 md:-mt-32" />
@@ -320,7 +362,7 @@ export default function Academy() {
                 d: "Consulte o checklist de materiais clínicos, solicite insumos do almoxarifado acadêmico e revise a anamnese do seu caso clínico deitada na sua cama.",
                 icon: Layout,
                 mockup: (
-                  <div className="mt-8 p-6 bg-white border border-brand-border rounded-[2rem] shadow-sm space-y-4 w-full text-left">
+                  <div className="mt-8 p-6 bg-white border border-brand-border rounded-[2rem] shadow-sm space-y-4 w-full max-w-sm mx-auto text-left">
                     <div className="flex items-center gap-2">
                        <div className="w-5 h-5 bg-brand-academy/10 rounded flex items-center justify-center text-brand-academy">
                           <ClipboardList size={12} />
@@ -345,7 +387,7 @@ export default function Academy() {
                 d: "Ative o Modo Box no tablet ou celular. Siga o roteiro passo a passo com alertas visuais integrados para nunca pular fases essenciais do protocolo.",
                 icon: Smartphone,
                 mockup: (
-                  <div className="mt-8 p-6 bg-brand-academy rounded-[2rem] shadow-lg space-y-4 w-full text-white text-left overflow-hidden relative">
+                  <div className="mt-8 p-6 bg-brand-academy rounded-[2rem] shadow-lg space-y-4 w-full max-w-sm mx-auto text-white text-left overflow-hidden relative">
                     <div className="relative z-10">
                       <div className="flex items-center justify-between mb-4">
                          <div className="text-[9px] font-extrabold opacity-40 uppercase tracking-widest">Protocolo de Cimento</div>
@@ -366,7 +408,7 @@ export default function Academy() {
                 d: "Gere a evolução do paciente no prontuário, salve as imagens de evolução tiradas na hora e deixe o caso perfeito para seminários sem gastar horas de estudo.",
                 icon: Eye,
                 mockup: (
-                  <div className="mt-8 p-6 bg-slate-50 border border-slate-100 rounded-[2rem] space-y-3 w-full text-left">
+                  <div className="mt-8 p-6 bg-slate-50 border border-slate-100 rounded-[2rem] space-y-3 w-full max-w-sm mx-auto text-left">
                     <div className="flex items-center gap-3">
                        <CheckCircle2 size={16} className="text-brand-academy shrink-0" />
                        <div className="h-2 w-32 bg-slate-300 rounded-full" />
@@ -431,7 +473,7 @@ export default function Academy() {
                     "Integração rápida: sem precisar de toques na tela",
                     "Timer integrado de tempos de cimentação e ataque ácido"
                   ].map(f => (
-                    <div key={f} className="flex items-center gap-3 font-bold text-base md:text-lg">
+                    <div key={f} className="flex items-center gap-3 font-bold text-sm sm:text-base md:text-lg">
                       <CheckCircle2 size={20} className="text-white/40 shrink-0" /> {f}
                     </div>
                   ))}
@@ -442,7 +484,7 @@ export default function Academy() {
                     <ProductMockup 
                       title="Modo Box Interativo" 
                       content={
-                        <div className="p-8 flex flex-col h-full bg-white text-left">
+                        <div className="p-5 sm:p-8 flex flex-col h-full bg-white text-left">
                           <div className="flex justify-between items-center mb-8">
                              <span className="text-xs font-extrabold text-slate-400 uppercase tracking-widest">Cirurgia Oral</span>
                              <span className="px-2.5 py-0.5 bg-brand-academy/10 text-brand-academy rounded text-[9px] font-bold uppercase">Durante</span>
@@ -593,13 +635,13 @@ export default function Academy() {
               },
             ].map((faq, i) => (
               <details key={i} className="group bg-white rounded-3xl border border-brand-border overflow-hidden">
-                <summary className="flex items-center justify-between p-6 md:p-8 cursor-pointer font-bold text-brand-text list-none transition-all hover:bg-slate-50/40">
+                <summary className="flex items-center justify-between p-5 md:p-8 cursor-pointer font-bold text-brand-text list-none transition-all hover:bg-slate-50/40">
                   <span className="text-base md:text-lg pr-4">{faq.q}</span>
                   <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-slate-50 flex items-center justify-center shrink-0 group-open:rotate-180 transition-transform">
                     <ChevronRight size={18} />
                   </div>
                 </summary>
-                <div className="px-6 pb-6 md:px-8 md:pb-8 text-brand-text/60 leading-relaxed font-semibold text-sm md:text-lg border-t border-slate-50/50 pt-4 md:pt-0 md:border-none">
+                <div className="px-5 pb-5 md:px-8 md:pb-8 text-brand-text/60 leading-relaxed font-semibold text-sm md:text-lg border-t border-slate-50/50 pt-4 md:pt-0 md:border-none">
                   {faq.a}
                 </div>
               </details>
