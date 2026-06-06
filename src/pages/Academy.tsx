@@ -99,14 +99,14 @@ export default function Academy() {
               className="px-4"
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-academy/5 border border-brand-academy/10 text-brand-academy rounded-full text-[9px] md:text-[10px] font-bold uppercase tracking-widest mb-6 md:mb-10">
-                <GraduationCap size={12} className="shrink-0" /> Assistente de Bolso do Acadêmico de Odonto
+                <GraduationCap size={12} className="shrink-0" /> Educação continuada contextualizada para estudantes
               </div>
               <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-brand-text mb-6 md:mb-8 leading-[1.15] md:leading-[1.05] px-2 md:px-0">
-                Chegue na clínica da faculdade <br className="hidden md:block" />
-                sabendo exatamente <span className="text-brand-academy">o que fazer.</span>
+                O Academy não é uma biblioteca.<br className="hidden md:block" />
+                <span className="text-brand-academy">É um preceptor digital.</span>
               </h1>
               <p className="text-sm xs:text-base md:text-xl lg:text-2xl text-brand-text/50 max-w-4xl mx-auto mb-10 md:mb-16 leading-relaxed font-semibold px-4 md:px-0">
-                O Academy não é livro ou plataforma de videoaulas. É uma ferramenta prática para você separar instrumentais na esterilização, seguir checklists clínicos ao lado do mocho, escrever a evolução de prontuário e guardar fotos dos pacientes de forma organizada — tudo pelo celular ou tablet.
+                O único número que importa para o Academy é: você entra nos seus atendimentos mais confiante do que entrava antes de usá-lo? Conectamos a clínica à aprendizagem contextualizada, antecipando o conteúdo certo na hora certa. Menos conteúdo. Mais contexto.
               </p>
               
               {/* Core Real-Use Bullet Cards - Visual Anchors built for instant comprehension */}
@@ -178,24 +178,26 @@ export default function Academy() {
               <div className="bg-white rounded-[2rem] md:rounded-[2.5rem] overflow-hidden aspect-auto md:aspect-[16/10] shadow-inner flex flex-col">
                 <div className="p-4 sm:p-8 md:p-16 space-y-6 sm:space-y-8 md:space-y-12">
                    <div className="space-y-2 md:space-y-4">
-                      <p className="text-slate-400 font-bold text-sm md:text-lg">Olá, Dr. Gabriel • 7º Semestre</p>
+                      <p className="text-slate-400 font-bold text-sm md:text-lg">Boa noite, Samuel • 7º Semestre</p>
                       <h2 className="text-2xl md:text-6xl font-bold text-brand-text tracking-tight max-w-2xl leading-[1.2] md:leading-[1.1]">
-                        Clínica de hoje pronta. Sem correria de última hora.
+                        Sem pressa. O seu próximo caso clínico já está na mão.
                       </h2>
                    </div>
 
                    <div className="bg-brand-academy rounded-[1.5rem] md:rounded-[2.5rem] p-4 sm:p-6 md:p-10 text-white relative overflow-hidden group">
                       <div className="relative z-10">
-                        <p className="text-[10px] font-bold text-white/50 uppercase tracking-widest mb-1 md:mb-2">Próximo Caso Clínico</p>
+                        <p className="text-[10px] font-bold text-white/50 uppercase tracking-widest mb-1 md:mb-2">Próximo Caso Clínico • Quinta-feira</p>
                         <div className="flex flex-row justify-between items-start gap-4 mb-6 md:mb-8">
                           <div>
-                            <h4 className="text-lg xs:text-xl md:text-5xl font-bold tracking-tight">Clara Letícia Mendes</h4>
+                            <h4 className="text-lg xs:text-xl md:text-5xl font-bold tracking-tight">Marcos Roberto Jr.</h4>
+                            <p className="text-[11px] font-medium text-white/85 mt-2">Recomendação do Preceptor:</p>
+                            <p className="text-[12px] font-bold italic text-white/95 leading-relaxed mt-0.5">"Separamos um módulo de 12 minutos sobre gerenciamento de tecido mole em implantes anteriores. Relevante para esse caso."</p>
                             <div className="flex flex-wrap gap-1.5 md:gap-2 mt-3 tracking-wide">
-                              <span className="px-2.5 py-1 bg-white/20 rounded-full text-[8px] md:text-[10px] font-bold uppercase">Clínica de Prótese</span>
-                              <span className="px-2.5 py-1 bg-white/10 rounded-full text-[8px] md:text-[10px] font-bold uppercase">Cadeira 12 • 14:00</span>
+                              <span className="px-2.5 py-1 bg-white/20 rounded-full text-[8px] md:text-[10px] font-bold uppercase">Clínica de Implante</span>
+                              <span className="px-2.5 py-1 bg-white/10 rounded-full text-[8px] md:text-[10px] font-bold uppercase">Cadeira 08 • 14:00</span>
                             </div>
                           </div>
-                          <div className="w-10 h-10 md:w-16 md:h-16 bg-white/20 border border-white/20 rounded-xl md:rounded-2xl flex items-center justify-center text-sm md:text-2xl font-bold shrink-0">C</div>
+                          <div className="w-10 h-10 md:w-16 md:h-16 bg-white/20 border border-white/20 rounded-xl md:rounded-2xl flex items-center justify-center text-sm md:text-2xl font-bold shrink-0">M</div>
                         </div>
                       </div>
                       <div className="absolute top-0 right-0 w-48 h-48 md:w-64 md:h-64 bg-white/5 rounded-full blur-3xl -mr-24 -mt-24 md:-mr-32 md:-mt-32" />
@@ -207,8 +209,8 @@ export default function Academy() {
                             <ClipboardCheck size={20} />
                          </div>
                          <div>
-                            <p className="text-[8px] md:text-xs font-bold text-slate-400 uppercase tracking-widest">Procedimento Estimado</p>
-                            <p className="font-bold text-brand-text text-xs md:text-base">Preparo para Coroa Total</p>
+                            <p className="text-[8px] md:text-xs font-bold text-slate-400 uppercase tracking-widest">Preparo para o Box</p>
+                            <p className="font-bold text-brand-text text-xs md:text-base">Guia e kit implante esterilizados</p>
                          </div>
                       </div>
                       <div className="p-4 md:p-8 bg-slate-50 rounded-2xl md:rounded-3xl border border-slate-100 flex items-center gap-3 md:gap-4">
@@ -217,7 +219,7 @@ export default function Academy() {
                          </div>
                          <div>
                             <p className="text-[8px] md:text-xs font-bold text-slate-400 uppercase tracking-widest">Imagens Clínicas</p>
-                            <p className="font-bold text-brand-text text-xs md:text-base tracking-tight">7 fotos salvas nesta disciplina</p>
+                            <p className="font-bold text-brand-text text-xs md:text-base tracking-tight">Organizado na galeria de Marcos</p>
                          </div>
                       </div>
                    </div>
@@ -288,53 +290,53 @@ export default function Academy() {
            <div className="max-w-3xl mb-12 md:mb-20 px-4 md:px-0 text-left">
               <span className="text-[10px] font-bold text-brand-academy tracking-widest uppercase block mb-4">A realidade prática</span>
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-brand-text mb-6 md:mb-8 leading-[1.15]">
-                O estresse nos boxes práticos não vem das matérias. Vem da bagunça do dia a dia.
+                O problema na educação de odontologia não é a falta de conteúdo. É a falta de contexto.
               </h2>
               <p className="text-sm md:text-xl text-brand-text/50 font-semibold leading-relaxed">
-                Agenda rabiscada, fichas clínicas amassadas, correr desesperado para pegar instrumentais emprestados e misturar fotos de dentes na sua galeria pessoal. Reunimos tudo o que você precisa fazer — antes, durante e depois da clínica — em um ambiente limpo e sem distrações.
+                Plataformas tradicionais funcionam como catálogos gigantes, exigindo que você decida o que estudar e quando. O Academy inverte essa lógica: ele conecta o aprendizado à prática real, entregando recomendações precisas baseadas nos seus pacientes agendados, suas especialidades e suas lacunas clínicas.
               </p>
            </div>
            
            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-0">
               <FeatureCard 
                 icon={Target}
-                title="Dossiê de Casos Acadêmicos"
-                desc="Centralize dados, exames, anamneses e anotações por paciente de forma individualizada. Tenha o panorama clínico completo em segundos antes de começar o box."
+                title="Dossiê e Contexto Clínico"
+                desc="O significado é parte do produto. Centralize exames, históricos e anamneses de cada paciente, priorizando o que merece sua atenção agora, sem dashboards de vaidade ou métricas sem ação."
                 badge="Sem papéis soltos"
                 delay={0.1}
               />
               <FeatureCard 
                 icon={ClipboardList}
-                title="Checklist Pré-Clínica"
-                desc="Chega de esquecer espatulas, broqueiros ou bandejas. Monte listas precisas para separar seus instrumentais e levar para a esterilização no tempo correto."
+                title="Relevância Prática Imediata"
+                desc="Reduza expressivamente sua carga cognitiva. Monte checklists precisos por disciplina para separar seus instrumentais e levar para a esterilização sem correria."
                 badge="Material completo"
                 delay={0.2}
               />
               <FeatureCard 
                 icon={Smartphone}
-                title="Modo Box (Uso em Campo)"
-                desc="Use o celular ou tablet apoiado no box de atendimento. A interface de alto contraste foi feita para você revisar condutas clínicas de longe, sem precisar tocar na tela."
+                title="Modo Box Silencioso"
+                desc="Use o celular ou tablet apoiado no box de atendimento. A interface de alto contraste foi desenhada com exclusão de toques na tela e redução de presença invasiva."
                 badge="Foco no paciente"
                 delay={0.3}
               />
               <FeatureCard 
                 icon={Camera}
-                title="Pasta de Imagens Segura"
-                desc="Não misture fotos de boca com suas fotos pessoais. Armazene as fotos de evolução diagnóstica na galeria particular de cada paciente, protegida por criptografia."
+                title="Galeria Clínica Criptografada"
+                desc="Respeito absoluto à privacidade do paciente. Armazene as fotos da evolução operatória em ambiente blindado com segurança de nível hospitalar."
                 badge="Organização visual"
                 delay={0.4}
               />
               <FeatureCard 
                 icon={BookOpen}
-                title="Evolução Inteligente Guiada"
-                desc="Seja aprovado de primeira na assinatura do professor preceptor. Utilize modelos estruturados de redação clínica para escrever evoluções de prontuário perfeitas."
+                title="Evolução de Prontuário Guiada"
+                desc="O produto realiza o trabalho cognitivo pesado. Utilize modelos estruturados de redação clínica para criar históricos limpos e de conformidade ética ágil."
                 badge="Redução de erros"
                 delay={0.5}
               />
               <FeatureCard 
                 icon={Clock}
-                title="Controle de Requisitos"
-                desc="Veja progresso em tempo real das metas e disciplinas exigidas pela sua universidade. Não seja surpreendido na última semana por faltar requisitos obrigatórios."
+                title="Mapeamento de Lacunas"
+                desc="Monitore o progresso do aprendizado prático sem o vício de streaks ou gamificações artificiais de engajamento diário. Foco exclusivo em confiança e competência."
                 badge="Monitoramento integral"
                 delay={0.6}
               />
@@ -346,9 +348,9 @@ export default function Academy() {
       <Section id="fluxo" className="py-24 md:py-32 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 md:mb-24 px-4">
-             <p className="text-[10px] font-bold text-brand-academy uppercase mb-4 tracking-[0.25em]">Guia Operacional</p>
-             <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-brand-text">Sua rotina acadêmica em 3 tempos.</h2>
-             <p className="text-base md:text-lg text-brand-text/50 font-medium mt-4 max-w-2xl mx-auto">Do planejamento em casa até a finalização da clínica, o Academy acompanha seus passos.</p>
+             <p className="text-[10px] font-bold text-brand-academy uppercase mb-4 tracking-[0.25em]">Comportamento Ideal</p>
+             <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-brand-text">A clareza clínica em 3 momentos.</h2>
+             <p className="text-base md:text-lg text-brand-text/50 font-medium mt-4 max-w-2xl mx-auto">Preservando o silêncio ativamente e entregando ações rápidas em cada fase operacional.</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 relative px-4 md:px-0">
@@ -358,8 +360,8 @@ export default function Academy() {
             {[
               { 
                 step: "01", 
-                t: "Organizar (No dia anterior)", 
-                d: "Consulte o checklist de materiais clínicos, solicite insumos do almoxarifado acadêmico e revise a anamnese do seu caso clínico deitada na sua cama.",
+                t: "Antecipação de Contexto", 
+                d: "O Academy analisa os casos agendados e exibe recomendações pontuais de estudo em 12 minutos, reduzindo a carga cognitiva antes do Box.",
                 icon: Layout,
                 mockup: (
                   <div className="mt-8 p-6 bg-white border border-brand-border rounded-[2rem] shadow-sm space-y-4 w-full max-w-sm mx-auto text-left">
@@ -383,8 +385,8 @@ export default function Academy() {
               },
               { 
                 step: "02", 
-                t: "Atender (No Box clínico)", 
-                d: "Ative o Modo Box no tablet ou celular. Siga o roteiro passo a passo com alertas visuais integrados para nunca pular fases essenciais do protocolo.",
+                t: "Silêncio Ativo no Mocho", 
+                d: "A interface de alto contraste do Modo Box silencia distrações de notificações e destaca protocolos e checklists de longe, sem exigir toques.",
                 icon: Smartphone,
                 mockup: (
                   <div className="mt-8 p-6 bg-brand-academy rounded-[2rem] shadow-lg space-y-4 w-full max-w-sm mx-auto text-white text-left overflow-hidden relative">
@@ -404,8 +406,8 @@ export default function Academy() {
               },
               { 
                 step: "03", 
-                t: "Registrar (Pós-Clínica)", 
-                d: "Gere a evolução do paciente no prontuário, salve as imagens de evolução tiradas na hora e deixe o caso perfeito para seminários sem gastar horas de estudo.",
+                t: "Comportamento Pós-Clínico", 
+                d: "Gere a evolução clínica em arquivos PDF estruturados, reúna fotos criptografadas e feche o aplicativo em 90 segundos com confiança.",
                 icon: Eye,
                 mockup: (
                   <div className="mt-8 p-6 bg-slate-50 border border-slate-100 rounded-[2rem] space-y-3 w-full max-w-sm mx-auto text-left">
@@ -461,10 +463,10 @@ export default function Academy() {
                   <Smartphone size={14} /> Modo Box
                 </div>
                 <h2 className="text-3xl md:text-6xl font-bold tracking-tight mb-6 md:mb-8 leading-[1.1] md:leading-[1.15]">
-                  O assistente que fica ao lado do seu mocho clínico.
+                  Design que exige atenção falhou. Design que devolve atenção venceu.
                 </h2>
                 <p className="text-lg md:text-xl text-white/80 mb-8 md:mb-10 leading-relaxed font-semibold">
-                  Enquanto atende seu paciente, você não pode lidar com botões pequenos ou interfaces bagunçadas. O Modo Box desativa as notificações desnecessárias e oferece uma tela simplificada de alto contraste, feita para você acompanhar etapas clínicas a distância e sem tocar no tablet ou celular.
+                  No mocho, sua atenção deve estar inteiramente no paciente, não na burocracia ou em interfaces complexas. O Modo Box minimiza nossa própria presença, ativando um silêncio ativo rigoroso e destacando condutas assépticas, instrumentais e tempos operacionais de longe, sem exigir toques contaminantes.
                 </p>
                 <div className="space-y-4 md:space-y-6">
                   {[
@@ -531,9 +533,9 @@ export default function Academy() {
       <Section id="planos" className="py-24 md:py-32">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 md:mb-24 px-4">
-             <span className="text-[10px] font-bold text-brand-academy tracking-widest uppercase block mb-3">Sem amarras financeiras</span>
-             <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-brand-text mb-4 md:mb-6 leading-tight">Valores feitos para estudantes de Odonto.</h2>
-             <p className="text-base md:text-xl text-brand-text/50 font-semibold max-w-2xl mx-auto leading-relaxed">Crie sua conta gratuitamente e experimente a clareza clínica. Se suas disciplinas exigirem muito volume de fotos ou casos, faça o upgrade quando e se precisar.</p>
+             <span className="text-[10px] font-bold text-brand-academy tracking-widest uppercase block mb-3">Monetização limpa baseada em valor</span>
+             <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-brand-text mb-4 md:mb-6 leading-tight">Valores que respeitam estudantes e a clínica real.</h2>
+             <p className="text-base md:text-xl text-brand-text/50 font-semibold max-w-3xl mx-auto leading-relaxed">Rejeitamos todo modelo invasivo de anúncios nativos ou venda de atenção para terceiros. O Academy Core Free é livre de verdade para você organizar sua rotina, e o upgrade Unlimited destrava o potencial máximo do preceptor digital.</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 max-w-5xl mx-auto px-4 md:px-0">
@@ -677,9 +679,9 @@ export default function Academy() {
               <div className="w-16 h-16 bg-white/10 rounded-3xl flex items-center justify-center border border-white/20 mb-8">
                  <GraduationCap size={32} />
               </div>
-              <h2 className="text-3xl md:text-7xl font-bold tracking-tight mb-6 md:mb-10 leading-tight">Clareza nos atendimentos.<br />Menos caos Acadêmico.</h2>
+              <h2 className="text-3xl md:text-7xl font-bold tracking-tight mb-6 md:mb-10 leading-tight">Chegue no box clínico com total contexto.<br />Experimente a clareza prática.</h2>
               <p className="text-base md:text-xl text-white/70 mb-12 font-medium leading-relaxed max-w-2xl">
-                 Crie seu cadastro de estudante gratuitamente hoje mesmo. Comece as aulas práticas da próxima semana com total clareza e controle na palma da mão.
+                 Sem distrações desnecessárias, sem ansiedade e sem sobrecarga cognitiva. Organize seus próximos pacientes, revise checklists de materiais e prepare-se perfeitamente para a clínica agora.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
                  <a href="https://academy.odontohub.app.br" id="btn-final-register" className="w-full sm:w-auto">
