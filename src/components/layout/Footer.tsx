@@ -31,7 +31,7 @@ export const Footer = () => {
                 <p className="font-bold text-brand-text tracking-wider uppercase text-[10px]">Empresa</p>
                 <div className="flex flex-col gap-2.5 md:gap-3 text-brand-text-muted">
                   <Link to="/#recursos" className="hover:text-brand-green">Sobre</Link>
-                  <a href="https://wa.me/5500000000000" target="_blank" rel="noreferrer" className="hover:text-brand-green">Contato</a>
+                  <a href="https://instagram.com/odontohub.app" target="_blank" rel="noreferrer" className={isAcademy ? "hover:text-brand-academy" : "hover:text-brand-green"}>Contato</a>
                   <Link to="/academy/embaixadores" className="hover:text-brand-academy">Embaixadores Academy</Link>
                   <Link to="/" className="hover:text-brand-green">Manifesto</Link>
                 </div>
