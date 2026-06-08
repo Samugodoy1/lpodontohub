@@ -6,6 +6,7 @@ import Academy from './pages/Academy';
 import Ambassadors from './pages/Ambassadors';
 import InstagramPresets from './pages/InstagramPresets';
 import AdminApplications from './pages/AdminApplications';
+import Confirmation from './pages/Confirmation';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 
@@ -73,6 +74,26 @@ function AnimatedRoutes() {
             transition={{ duration: 0.3 }}
           >
             <AdminApplications />
+          </motion.div>
+        } />
+        <Route path="/confirmacao" element={
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Confirmation />
+          </motion.div>
+        } />
+        <Route path="/checkout/confirmado" element={
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Confirmation />
           </motion.div>
         } />
       </Routes>
