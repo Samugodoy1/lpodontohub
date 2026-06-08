@@ -105,38 +105,38 @@ const Mockup = () => {
             <div className="w-16 h-16 bg-brand-green/10 rounded-full flex items-center justify-center text-brand-green mb-6">
               <CheckCircle2 size={32} />
             </div>
-            <p className="text-[10px] md:text-xs text-brand-text-muted mb-1.5 md:mb-2 font-medium">Silêncio Ativo</p>
+            <p className="text-[10px] md:text-xs text-brand-text-muted mb-1.5 md:mb-2 font-medium">Silêncio quando tudo está sob controle</p>
             <h3 className="text-xl md:text-4xl font-semibold text-brand-text mb-4 md:mb-6 tracking-tight max-w-lg leading-tight">
               Tudo certo para hoje. Nenhuma pendência urgente.
             </h3>
             <p className="text-sm text-brand-text-muted max-w-sm mb-8 leading-relaxed font-semibold">
-              6 pacientes confirmados. O financeiro está em equilíbrio. Pode focar integralmente no cuidado clínico.
+              6 pacientes confirmados. O faturamento está em equilíbrio. Pode focar integralmente no cuidado clínico.
             </p>
             <div className="px-6 py-3 bg-white border border-brand-border rounded-2xl text-xs font-bold text-brand-text-muted">
-              Fechar o OdontoHub com confiança
+              Fechar o aplicativo e focar no paciente
             </div>
           </div>
         )}
 
         {scenario === 2 && (
           <div className="pt-8 md:pt-14 px-5 md:px-12 text-center flex-1 pb-24">
-            <p className="text-[10px] md:text-xs text-brand-text-muted mb-1.5 md:mb-2 font-medium">Análise de Caixa e Receita Proativa</p>
+            <p className="text-[10px] md:text-xs text-brand-text-muted mb-1.5 md:mb-2 font-medium">Seu caixa protegido de furos</p>
             <h3 className="text-xl md:text-3xl font-semibold text-brand-text mb-4 md:mb-6 leading-tight max-w-xl mx-auto">
-              Monitoramento preventivo de receita
+              Sua previsão para fechar o mês no azul
             </h3>
             
             <div className="bg-brand-yellow-soft/50 border border-brand-yellow/10 p-5 rounded-2xl flex flex-col md:flex-row gap-4 items-center justify-between text-left max-w-xl mx-auto mb-8 text-brand-text">
               <div className="space-y-1">
-                <span className="text-[8px] md:text-[9px] font-extrabold uppercase tracking-widest text-brand-yellow bg-white/80 py-1 px-2.5 rounded-full inline-block">Projeção Futura</span>
+                <span className="text-[8px] md:text-[9px] font-extrabold uppercase tracking-widest text-brand-yellow bg-white/80 py-1 px-2.5 rounded-full inline-block">Previsão para este mês</span>
                 <p className="text-xs md:text-sm font-bold leading-snug">
-                  Com base nos agendamentos confirmados e receitas a receber, o faturamento deste mês de junho pode fechar 15% abaixo da meta.
+                  Com base nos agendamentos confirmados e receitas a receber, o faturamento deste mês de junho pode fechar 15% abaixo do esperado.
                 </p>
               </div>
               <button className="px-4 py-2 bg-brand-yellow text-white text-xs font-bold rounded-xl shrink-0 hover:bg-opacity-90">Ver Opções</button>
             </div>
 
             <div className="bg-white border border-brand-border rounded-2xl p-6 text-left max-w-xl mx-auto space-y-4">
-              <h4 className="text-xs font-extrabold text-slate-400 uppercase tracking-widest">Ações com propósito recomendadas:</h4>
+              <h4 className="text-xs font-extrabold text-slate-400 uppercase tracking-widest">O que fazer para garantir o fechamento:</h4>
               <div className="flex items-center gap-4 p-3 bg-brand-green-soft/40 border border-brand-green/10 rounded-xl cursor-pointer hover:bg-brand-green-soft/80 transition-colors">
                 <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-brand-green shrink-0 shadow-sm animate-pulse">
                   <Users size={16} />
@@ -181,19 +181,19 @@ export default function Home() {
               O consultório não precisa de mais dados.<br className="hidden md:block" />
               <span className="text-brand-green">Precisa de menos decisões.</span>
             </h1>
-            <p className="text-base md:text-xl text-brand-text-muted max-w-3xl mx-auto mb-10 md:mb-12 leading-relaxed px-4 md:px-0 font-medium">
-              O OdontoHub é o primeiro Sistema de Clareza Clínica (CCS) do Brasil. Ele monitora continuamente o estado da sua clínica e responde com silêncio ou ação direta às duas perguntas que importam: <span className="text-brand-text font-bold">O que merece minha atenção agora? E se posso ficar tranquilo quanto ao resto.</span>
+            <p className="text-base md:text-xl text-brand-text-muted max-w-3xl mx-auto mb-10 md:mb-12 leading-relaxed px-4 md:px-0 font-medium font-semibold">
+              O OdontoHub organiza o seu consultório em um painel limpo e sem distrações. Ele atua como um colega de confiança que cuida de agendamentos e finanças para responder às duas perguntas simples que importam: <span className="text-brand-text font-bold">O que merece minha atenção agora? E posso ficar tranquilo quanto ao resto?</span> Se não houver nada urgente, ele permanece totalmente em silêncio para você focar no seu paciente.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 mb-10 px-4 md:px-0">
               <a href="https://sistema.odontohub.app.br" className="w-full sm:w-auto">
-                <Button className="w-full">Começar grátis como profissional solo</Button>
+                <Button className="w-full">Começar gratuitamente</Button>
               </a>
               <a href="#como-funciona" className="w-full sm:w-auto">
-                <Button variant="outline" className="w-full">Ver comportamento ideal</Button>
+                <Button variant="outline" className="w-full">Ver comportamento do sistema</Button>
               </a>
             </div>
             <p className="text-[10px] md:text-xs font-bold text-brand-text-muted uppercase tracking-widest px-8 md:px-0">
-              Fechar o aplicativo com tranquilidade é a métrica mais honesta do nosso sucesso.
+              Encerrar o dia sabendo que nada importante ficou para trás é o nosso sucesso.
             </p>
           </motion.div>
           
@@ -210,17 +210,17 @@ export default function Home() {
       {/* 3. PROBLEMA + COMPORTAMENTO INTELIGENTE */}
       <Section className="bg-white" id="como-funciona">
         <SectionHeader 
-          title="A odontologia está sufocada por decisões e dados sem contexto."
-          subtitle="A maioria dos softwares despeja dezenas de informações e notificações para reter sua atenção. Nós fazemos o oposto: filtramos o ruído para que sua mente permaneça onde ela realmente importa: diante do paciente."
+          title="A odontologia está sufocada por decisões administrativas e planilhas confusas."
+          subtitle="A maioria dos softwares despeja dezenas de gráficos e notificações inúteis para prender sua atenção no computador. Nós fazemos o oposto: filtramos o ruído para que você foque onde realmente faz a diferença: diante do seu paciente."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-start mb-20 md:mb-32 text-left">
           <div className="space-y-6 md:space-y-8">
-            <h4 className="text-[10px] md:text-xs font-bold text-brand-text/30 uppercase tracking-[0.2em] mb-4 md:mb-6">Sistemas de Registro Tradicionais</h4>
+            <h4 className="text-[10px] md:text-xs font-bold text-brand-text/30 uppercase tracking-[0.2em] mb-4 md:mb-6">Sistemas tradicionais de papelada digital</h4>
             {[
-              { title: "Acúmulo de dados sem significado", text: "Você abre o sistema e vê dezenas de relatórios, listas e históricos vazios. O esforço cognitivo de interpretar o que fazer continua sendo inteiramente seu." },
-              { title: "Gatilhos e notificações para te prender", text: "Métricas baseadas em tempo de sessão diária criam alertas falsos e falsos positivos que só alimentam a ansiedade e desgastam a credibilidade." },
-              { title: "Urgência artificial fabricada", text: "Sistemas que parabenizam rotinas vazias ou disfarçam complexidade técnica de funcionalidade para tornar a migração difícil." }
+              { title: "Acúmulo de dados sem utilidade prática", text: "Você abre o sistema e vê dezenas de relatórios vazios e históricos antigos. O esforço mental de tentar entender o que de fato precisa ser feito continua sendo inteiramente seu." },
+              { title: "Gráficos e notificações para te prender na tela", text: "Alertas desnecessários que fingem urgência só para fazer parecer que o software é útil, deixando a sua rotina mais cansativa e gerando ansiedade desnecessária." },
+              { title: "Celebrando pequenas tarefas normais", text: "Pop-ups invasivos de aprovação que sobrecarregam sua rotina e tratam você como criança, em vez de respeitarem o seu profissionalismo." }
             ].map((item, i) => (
               <div key={i} className="p-6 md:p-8 bg-slate-50/50 rounded-3xl border border-slate-100 flex flex-col gap-1">
                 <p className="font-bold text-brand-text text-base md:text-lg tracking-tight">{item.title}</p>
@@ -230,11 +230,11 @@ export default function Home() {
           </div>
 
           <div className="space-y-6 md:space-y-8 mt-16 md:mt-0">
-            <h4 className="text-[10px] md:text-xs font-bold text-brand-green uppercase tracking-[0.2em] mb-4 md:mb-6">Sistema de Clareza Clínica (CCS)</h4>
+            <h4 className="text-[10px] md:text-xs font-bold text-brand-green uppercase tracking-[0.2em] mb-4 md:mb-6">O Jeito OdontoHub de trabalhar</h4>
             {[
-              { title: "Contexto sobre dados brutos", text: "Não mostramos apenas 'você tem 12 pacientes amanhã'. Mostramos 'você tem 12 pacientes amanhã, e 3 deles precisam de confirmação rígida ainda hoje'." },
-              { title: "Ação direta e imediata", text: "Toda informação entregue pelo OdontoHub responde à pergunta interna: 'E daí?'. Oferecemos o direcionamento claro e a próxima melhor ação em segundos." },
-              { title: "Silêncio ativo valioso", text: "Proteger o silêncio é tão importante quanto emitir alertas reais. Se a clínica está organizada, o sistema cala para que você possa descansar com tranquilidade." }
+              { title: "Contextos claros em vez de números soltos", text: "Não mostramos apenas 'você tem 12 pacientes amanhã'. Mostramos e destacamos o que importa: 'Você tem 12 pacientes amanhã, e 3 deles precisam de confirmação rígida ainda hoje'." },
+              { title: "Direcionamento claro sobre o próximo passo", text: "Toda informação exibida pelo OdontoHub responde à pergunta essencial: 'O que eu preciso fazer com isso?'. Oferecemos a próxima melhor ação em segundos." },
+              { title: "Silêncio ativo para a sua paz de espírito", text: "Proteger o seu sossego é o nosso dever. Se tudo na clínica está organizado e sob controle, o sistema silencia para você poder descansar sem peso na consciência." }
             ].map((item, i) => (
               <div key={i} className="p-6 md:p-8 bg-brand-green-soft/60 rounded-3xl border border-brand-green/5 flex flex-col gap-1">
                 <p className="font-bold text-brand-green text-base md:text-lg tracking-tight">{item.title}</p>
@@ -248,16 +248,16 @@ export default function Home() {
       {/* 4. PRÓXIMA MELHOR AÇÃO */}
       <Section className="bg-white">
         <SectionHeader 
-          title="Nossa Filosofia de Design e Comportamento"
-          subtitle="O produto deve fazer o trabalho cognitivo que o dentista não deveria precisar fazer. Seguimos regras rígidas baseadas na clareza e no respeito ao seu tempo."
+          title="Nossos princípios de simplicidade"
+          subtitle="O produto deve fazer o trabalho administrativo chato para o dentista não precisar se preocupar. Seguimos regras rígidas de respeito ao seu tempo e foco clínico."
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 text-left">
           {[
-            { label: "Princípio 1", title: "Contexto sobre Dados", text: "Dados brutos sem significado do que fazer a seguir são apenas ruído desnecessário.", color: "brand-academy", icon: Brain },
-            { label: "Princípio 2", title: "Ação sobre Informação", text: "Se não há uma ação clara e acionável recomendada, a informação não deve ser exibida.", color: "brand-yellow", icon: Bell },
-            { label: "Princípio 3", title: "Silêncio Ativo", text: "Se nada exige sua intervenção imediata, preservamos o silêncio para a sua paz mental.", color: "brand-green", icon: Clock },
-            { label: "Princípio 4", title: "Simplicidade Externa", text: "Toda a complexidade e inteligência matemática do sistema deve ser invisível.", color: "brand-green", icon: CheckCircle2 }
+            { label: "Diretriz 1", title: "O que fazer em seguida", text: "Dados soltos sem uma ação recomendada para a sua rotina clínica são apenas ruído e desperdício de tempo.", color: "brand-academy", icon: Brain },
+            { label: "Diretriz 2", title: "Ações bem definidas", text: "Se não houver uma solução prática sugerida, nós preferimos poupar você e não exibir o aviso.", color: "brand-yellow", icon: Bell },
+            { label: "Diretriz 3", title: "Preservar seu descanso", text: "Quando tudo no consultório estiver em ordem, nós não inventamos alertas falsos. Aproveite o seu silêncio.", color: "brand-green", icon: Clock },
+            { label: "Diretriz 4", title: "Sem enrolação técnica", text: "Toda a complexidade e programação de bastidores rodam longe dos seus olhos para deixar sua tela limpa.", color: "brand-green", icon: CheckCircle2 }
           ].map((item, i) => (
             <motion.div 
               key={i} 
@@ -277,16 +277,16 @@ export default function Home() {
 
       {/* 5. RECURSOS ESSENCIAIS */}
       <Section className="bg-brand-bg-alt" id="recursos">
-        <SectionHeader title="A clareza operacional simplificada, sem firulas." />
+        <SectionHeader title="Sua rotina simplificada, de uma vez por todas." />
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 text-left">
           {[
-            { t: "Previsão inteligente de agenda", d: "Sabe quando você tem lacunas operacionais vazias e sugere oportunidades de encaixe reais em segundos." },
-            { t: "Visão agir no momento (Acting Now)", d: "Sua única bússola diária. Mostra rapidamente as pendências e sai do caminho." },
-            { t: "Prontuário com foco em evolução", d: "Rápido, estéril de distrações e focado estritamente na facilitação da continuidade clínica." },
-            { t: "Portal silencioso do paciente", d: "Uma extensão via WhatsApp para confirmações e anamneses rápidas, sem perturbar sua linha de telefone." },
-            { t: "Sugestões de encaixe ativas", d: "Nosso algoritmo busca de forma inteligente pacientes que possam comparecer em janelas imprevistas." },
-            { t: "Análise financeira preventiva", d: "Antecipa o balanço de caixa em 3 semanas e avisa sobre deficits operacionais futuros de forma discreta." }
+            { t: "Previsão inteligente de agenda", d: "Identifica janelas vazias na sua semana e sugere retornos de forma discreta para preencher lacunas." },
+            { t: "Painel inteligente do dia", d: "Sua única lista diária de tarefas. Mostra o que precisa de atenção imediata e sai do seu caminho rapidamente." },
+            { t: "Prontuário prático e rápido", d: "Sem campos desnecessários. Registre o histórico clínico de forma rápida, higiênica e sem esforço." },
+            { t: "Confirmações automáticas integradas", d: "Disparos elegantes via WhatsApp para confirmações de consultas e levantamento pré-clínico." },
+            { t: "Reagendamentos simplificados", d: "Localiza de forma automática pacientes que estão esperando vaga em caso de desmarques de última hora." },
+            { t: "Fluxo de caixa sob controle", d: "Projeta as contas e entradas das próximas semanas e avisa com antecedência discreta se houver riscos de caixa." }
           ].map((r, i) => (
             <div key={i} className="p-6 md:p-8 bg-white border border-brand-border rounded-[1.5rem] md:rounded-[2rem] hover:ring-2 hover:ring-brand-green/20 transition-all group">
               <h4 className="font-bold text-base md:text-lg text-brand-text mb-1.5 md:mb-2 group-hover:text-brand-green transition-colors">{r.t}</h4>
@@ -305,7 +305,7 @@ export default function Home() {
               <div className="p-6 pt-10 h-full flex flex-col bg-brand-bg text-left">
                 <div className="flex items-center gap-2 mb-8">
                   <div className="w-6 h-6 bg-brand-green rounded-md flex items-center justify-center text-[10px] text-white font-bold">OH</div>
-                  <span className="text-[10px] font-bold text-brand-green-dark uppercase tracking-widest">Portal do Paciente</span>
+                  <span className="text-[10px] font-bold text-brand-green-dark uppercase tracking-widest">Confirmações no WhatsApp</span>
                 </div>
                 
                 <h6 className="text-xl font-bold text-brand-text mb-6">Olá, Carlos Edu.<br/><span className="text-brand-green text-sm">Sua próxima visita é amanhã às 17h.</span></h6>
@@ -334,18 +334,18 @@ export default function Home() {
           </div>
           
           <div className="w-full md:w-7/12 order-1 md:order-2 text-left">
-            <p className="text-[10px] md:text-xs font-bold text-brand-green uppercase tracking-[0.2em] mb-4">Portal com Respeito</p>
-            <h2 className="text-3xl md:text-5xl font-bold text-brand-text mb-6 leading-tight">O paciente resolve o que precisa, sem ligar para a clínica.</h2>
+            <p className="text-[10px] md:text-xs font-bold text-brand-green uppercase tracking-[0.2em] mb-4">Autonomia para o paciente</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-brand-text mb-6 leading-tight">O paciente confirma o horário sem precisar ligar para a clínica.</h2>
             <p className="text-lg text-brand-text/80 mb-10 leading-relaxed font-medium">
-              O Portal do Paciente OdontoHub é uma extensão simplificada feita para reduzir a dependência telefônica. O próprio paciente confirma horários, atualiza anamneses e recebe orientações pré e pós-operatórias diretamente pelo WhatsApp, sem complicação ou papel.
+              A página de confirmações do OdontoHub reduz a dependência de ligações telefônicas e trocas de mensagens manuais com a recepção. Pelo próprio celular, o paciente confirma seus horários, preenche o questionário de saúde prévio e recebe orientações de cuidados de forma direta e sem papelada física.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
               {[
-                { t: "Confirmar em um toque", d: "Rapidez para o paciente e atualização imediata do status de agendamento no seu monitor." },
-                { t: "Anamnese pelo celular", d: "Ficha médica e histórico preenchidos na comodidade da casa, antes de sentar na cadeira." },
-                { t: "Instruções inteligentes", d: "O próprio sistema cuida do envio de cuidados de pós-operatório via texto claro." },
-                { t: "Zero ansiedade", d: "Timeline simples de evolução clínica compartilhada com o paciente com total ética." }
+                { t: "Confirmar com um toque", d: "Atualização automática e instantânea no painel do seu consultório." },
+                { t: "Ficha clínica pré-preenchida", d: "Histórico básico de saúde preenchido pelo paciente antes do atendimento." },
+                { t: "Alertas pós-procedimento", d: "Instruções importantes enviadas automaticamente após os tratamentos mais delicados." },
+                { t: "Praticidade e discrição", d: "Uma experiência leve e confortável, valorizando o tempo e a privacidade de quem você atende." }
               ].map((f, i) => (
                 <div key={i}>
                   <div className="flex items-center gap-2 mb-2">
@@ -359,18 +359,16 @@ export default function Home() {
           </div>
         </div>
       </Section>
-
-      {/* SEC: PRINCÍPIOS INEGOCIÁVEIS */}
       <Section className="bg-[#FAF9F5] border-y border-brand-border/30">
         <SectionHeader 
-          title="Princípios Inegociáveis definidos na nossa Constituição"
-          subtitle="Estes são os valores que não mudam independentemente de pressões comerciais ou preferências de investidores. Formam o núcleo firme do OdontoHub."
+          title="Princípio de compromisso com o seu tempo"
+          subtitle="Estes são os valores fundamentais do OdontoHub. Formam o nosso compromisso inabalável com a tranquilidade da sua rotina de trabalho."
         />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto text-left px-4 md:px-0">
           {[
-            { num: "I", title: "Nunca aumentaremos artificialmente o seu tempo de uso", p: "O sucesso do OdontoHub é medido na quantidade de vezes que o dentista fecha o aplicativo com tranquilidade — sabendo que, se houvesse algo importante, ele já teria sido avisado pelo sistema." },
-            { num: "II", title: "Nunca venderemos a atenção do dentista para terceiros", p: "Rejeitamos publicidade nativa ou anúncios patrocinados comercialmente. Monetizamos através de assinaturas limpas baseadas exclusivamente em valor e clareza entregues." },
-            { num: "III", title: "Nunca adicionaremos complexidade em nome de parecer completo", p: "Toda funcionalidade que não serve diretamente à clareza clínica e ao alívio cognitivo do profissional é sumariamente descartada ou redefinida." }
+            { num: "I", title: "Nunca prenderemos sua atenção à tela", p: "O sucesso do OdontoHub é medido na quantidade de vezes que o dentista fecha o aplicativo com tranquilidade — sabendo que, se houvesse algo importante, ele já estaria resolvido pelo sistema." },
+            { num: "II", title: "Nunca venderemos seus dados ou exibiremos anúncios", p: "Rejeitamos qualquer publicidade ou anúncios comerciais dentro do sistema. Funcionamos através de assinaturas limpas e focadas exclusivamente em entregar paz de espírito." },
+            { num: "III", title: "Nunca adicionaremos complexidade para parecer completo", p: "Toda funcionalidade que não sirva diretamente à clareza administrativa e ao alívio clínico do profissional é deixada de fora. Nós simplificamos." }
           ].map((mand, idx) => (
             <div key={idx} className="p-8 bg-white border border-brand-border rounded-[2rem] shadow-sm flex flex-col justify-between">
               <div>
@@ -385,21 +383,21 @@ export default function Home() {
 
       <Section id="planos">
         <SectionHeader 
-          title="Comece com a organização básica. Evolua para a clareza clínica completa." 
-          subtitle="O plano Free permite estruturar seu consultório a custo zero. O plano Pro destrava a inteligência recomendada pelo CCS."
+          title="Comece com a organização básica. Evolua para a clareza total." 
+          subtitle="O plano gratuito permite organizar seu consultório a custo zero. O plano Pro destrava as facilidades automáticas do OdontoHub."
         />
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto items-stretch px-2 md:px-0 text-left">
           <div className="premium-card p-8 md:p-10 flex flex-col">
-            <p className="text-[10px] md:text-xs font-bold text-brand-text-muted uppercase tracking-widest mb-1.5 md:mb-2">Estruturação Inicial</p>
-            <h3 className="text-xl md:text-2xl font-bold text-brand-text mb-1">OdontoHub Core Free</h3>
+            <p className="text-[10px] md:text-xs font-bold text-brand-text-muted uppercase tracking-widest mb-1.5 md:mb-2">Organização Essencial</p>
+            <h3 className="text-xl md:text-2xl font-bold text-brand-text mb-1">OdontoHub Gratuito</h3>
             <div className="flex items-baseline gap-1 my-5 md:my-6">
               <span className="text-3xl md:text-4xl font-bold">R$ 0</span>
-              <span className="text-brand-text-muted text-xs md:text-sm">sempre livre</span>
+              <span className="text-brand-text-muted text-xs md:text-sm">grátis para sempre</span>
             </div>
             
             <ul className="space-y-3.5 mb-8 md:mb-12 flex-grow">
-              {["Organização de agenda e horários", "Base de pacientes centralizada", "Fichas clínicas e históricos limpos", "Portal básico de WhatsApp para pacientes", "Interface limpa e silenciosa"].map((feat) => (
+              {["Agenda e horários organizados", "Histórico de pacientes centralizado", "Fichas clínicas limpas", "Disparos básicos via WhatsApp", "Visual limpo e sem anúncios"].map((feat) => (
                 <li key={feat} className="flex items-center gap-3 text-sm text-brand-text/90 font-medium">
                   <CheckCircle2 size={16} className="text-brand-green/60 shrink-0" /> {feat}
                 </li>
@@ -407,21 +405,21 @@ export default function Home() {
             </ul>
             
             <a href="https://sistema.odontohub.app.br" className="w-full">
-              <Button variant="outline" className="w-full py-4 rounded-xl border-2 text-xs uppercase tracking-wider font-extrabold text-brand-green border-brand-green hover:bg-brand-green/5">Criar conta grátis</Button>
+              <Button variant="outline" className="w-full py-4 rounded-xl border-2 text-xs uppercase tracking-wider font-extrabold text-brand-green border-brand-green hover:bg-brand-green/5">Criar conta gratuita</Button>
             </a>
           </div>
 
           <div className="premium-card p-8 md:p-10 flex flex-col !bg-brand-green text-white border-none shadow-2xl relative mt-4 md:mt-0 md:scale-105">
             <div className="absolute -top-3 right-6 md:right-8 bg-brand-green-dark text-[9px] md:text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg text-white">Recomendado</div>
-            <p className="text-[10px] md:text-xs font-bold text-white/50 uppercase tracking-widest mb-1.5 md:mb-2">Clareza operacional máxima</p>
-            <h3 className="text-xl md:text-2xl font-bold mb-1 text-white">OdontoHub Core Pro</h3>
+            <p className="text-[10px] md:text-xs font-bold text-white/50 uppercase tracking-widest mb-1.5 md:mb-2">Paz e automação completa</p>
+            <h3 className="text-xl md:text-2xl font-bold mb-1 text-white">OdontoHub Pro</h3>
             <div className="flex items-baseline gap-1 my-5 md:my-6">
               <span className="text-3xl md:text-4xl font-bold text-white tracking-tight">R$ 99,90</span>
               <span className="text-white/40 text-xs md:text-sm">/mês</span>
             </div>
             
             <ul className="space-y-4 mb-8 md:mb-12 flex-grow">
-              {["Pacientes e prontuários ilimitados", "Algoritmo de sugestão de encaixe", "Recuperação ativa de retornos inteligentes", "Visão concentrada Acting Now", "Análise proativa de balanceamento de caixa", "Sem limitações operacionais de fotos"].map((feat) => (
+              {["Pacientes e prontuários ilimitados", "Sugestões de encaixe automáticas", "Lembretes e retornos inteligentes", "Painel exclusivo do que fazer hoje", "Previsão financeira de caixa discreta", "Espaço ilimitado para fotos clínicas"].map((feat) => (
                 <li key={feat} className="flex items-center gap-3 text-sm font-semibold text-white">
                   <CheckCircle2 size={16} className="text-white/30 shrink-0" /> {feat}
                 </li>
@@ -429,7 +427,7 @@ export default function Home() {
             </ul>
             
             <a href="https://sistema.odontohub.app.br" className="w-full">
-              <Button className="w-full bg-brand-green-dark text-white shadow-xl shadow-brand-green-dark/20 hover:opacity-90 border-none transition-all py-5 text-base font-bold rounded-xl">Ativar clareza Pro</Button>
+              <Button className="w-full bg-brand-green-dark text-white shadow-xl shadow-brand-green-dark/20 hover:opacity-90 border-none transition-all py-5 text-base font-bold rounded-xl">Quero a tranquilidade do Pro</Button>
             </a>
           </div>
         </div>
@@ -442,12 +440,12 @@ export default function Home() {
             <div className="p-2.5 md:p-3 bg-brand-academy-soft w-fit rounded-xl md:rounded-2xl mb-6 md:mb-8">
               <GraduationCap className="text-brand-academy w-5 h-5 md:w-6 md:h-6" />
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold text-brand-text mb-5 md:mb-6 leading-tight">Para quem está estudando:<br className="hidden md:block" /> <span className="text-brand-academy">OdontoHub Academy.</span></h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-brand-text mb-5 md:mb-6 leading-tight">Para quem está na faculdade:<br className="hidden md:block" /> <span className="text-brand-academy">OdontoHub Academy.</span></h2>
             <p className="text-base md:text-lg text-brand-text-muted leading-relaxed mb-6 md:mb-8 font-medium">
-              Especialmente desenhado para as clínicas universitárias de odontologia. O Academy funciona como um preceptor que te dá as listas de materiais adequados e o Modo de Box para guiar o mocho perfeitamente e liberar sua mente do estresse.
+              Especialmente planejado para a realidade das clínicas das universidades de odontologia. O Academy funciona guiando você em cada etapa clínica, organizando materiais e preparando suas anotações para desocupar sua mente do nervosismo operacional.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-8 mb-8 md:mb-10">
-              {["Checklists de instrumental", "Modelo estruturado de evolução", "Sindicotomias e procedimentos guiados", "Exportação segura de fotos clínicas"].map(t => (
+              {["Checklists de instrumental por clínica", "Registro rápido de evolução clínica", "Organização organizada por consultório", "Arquivamento fácil de fotos de tratamento"].map(t => (
                 <div key={t} className="flex items-center gap-2.5 text-sm font-bold text-brand-text">
                   <div className="w-1.5 h-1.5 bg-brand-academy rounded-full shrink-0" /> {t}
                 </div>
@@ -455,7 +453,7 @@ export default function Home() {
             </div>
             <Link to="/academy">
               <Button variant="ghost" className="px-0 flex items-center gap-2 group text-brand-academy hover:text-brand-academy">
-                Navegar para o OdontoHub Academy <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                Ver o OdontoHub Academy <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
           </div>
@@ -522,13 +520,13 @@ export default function Home() {
 
       {/* 8. FAQ */}
       <Section className="bg-white">
-        <SectionHeader title="Direcionando dúvidas frequentes" />
+        <SectionHeader title="Dúvidas frequentes" />
         <div className="max-w-3xl mx-auto space-y-3 md:space-y-4 text-left">
           {[
-            { q: "O OdontoHub é um software de gestão tradicional?", a: "Absolutamente não. Sistemas tradicionais focam em ser plataformas de registro que guardam dados amontoados para consulta posterior. Nós somos um CCS (Clinical Clarity System) — processamos suas lacunas informacionais para apontar caminhos claros de ação, diminuindo seu cansaço e sua tomada de decisão ativa." },
-            { q: "O que o plano Pro adiciona no meu cotidiano?", a: "O plano Free estrutura perfeitamente sua agenda e banco de pacientes. O plano Core Pro destrava nosso motor inteligente: alertas preventivos de balanceamento de faturamento, lembretes de retorno automatizados e sugestões de re-agendamento de horários sem poluição." },
-            { q: "Como a privacidade do paciente é monitorada?", a: "Criptografia forte na nuvem e redundância. Dados de clínicas e anatomia diagnóstica do paciente são mantidos com total zelo dentro de ambientes de alto nível hospitalar, protegidos contra comercialização." },
-            { q: "Eu realmente reduzo o meu tempo no aplicativo?", a: "Sim. A nossa métrica primordial é fazer o dentista abrir, interagir com ações recomendadas em 90 segundos e fechar o aplicativo com total certeza de que as coisas cruciais estão sob controle." }
+            { q: "O OdontoHub é como um sistema odontológico tradicional?", a: "Não. Os sistemas tradicionais funcionam apenas como arquivos digitais para você preencher papéis e relatórios que raramente usa. O OdontoHub faz o oposto: ele lê os dados do seu consultório e transforma tudo em uma lista simples e organizada de afazeres. Se não houver nada pendente ou urgente, o sistema fica em total silêncio para você desligar a mente do trabalho." },
+            { q: "O que eu recebo no plano Pro?", a: "O plano gratuito organiza perfeitamente sua agenda de consultas e fichas de pacientes. O plano Pro ativa os lembretes automáticos para pacientes faltantes, avisos discretos de previsão financeira para planejar o caixa das próximas semanas e facilidades adicionais para simplificar seu dia a dia." },
+            { q: "Como meus dados são protegidos?", a: "Nós tratamos seus dados e os dados de seus pacientes com respeito máximo. Toda a informação é guardada de forma segura e criptografada em servidores protegidos. Nós não exibimos anúncios comerciais e jamais vendemos ou compartilhamos dados com terceiros." },
+            { q: "Eu realmente vou gastar menos tempo na frente do computador?", a: "Esse é o nosso grande objetivo. Criamos o OdontoHub para que você consiga planejar os encaixes da sua semana, confirmar suas consultas e salvar as evoluções clínicas em menos de 2 minutos por dia. Nosso sucesso é ver você fechando o aplicativo sabendo que está tudo sob controle." }
           ].map((faq, i) => (
             <details key={i} className="group rounded-2xl md:rounded-3xl border border-brand-border overflow-hidden bg-brand-bg-alt">
               <summary className="flex items-center justify-between p-5 md:p-6 cursor-pointer font-bold text-brand-text list-none group-open:bg-white transition-colors text-sm md:text-base">
@@ -549,10 +547,10 @@ export default function Home() {
       <Section className="pb-10 md:pb-20 pt-0">
         <div className="bg-brand-green-dark rounded-[2.5rem] md:rounded-[5rem] p-12 md:p-32 text-white text-center relative overflow-hidden mx-5">
           <div className="relative z-10 max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-7xl font-bold mb-8 md:mb-12 leading-tight tracking-tight">Devolva a atenção do consultório à clínica real.</h2>
+            <h2 className="text-4xl md:text-7xl font-bold mb-8 md:mb-12 leading-tight tracking-tight">Traga clareza e tranquilidade de volta para o seu consultório.</h2>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
               <a href="https://sistema.odontohub.app.br" className="w-full sm:w-auto">
-                <Button variant="outline" className="w-full px-12 py-6 !bg-white !text-brand-green-dark border-none font-bold shadow-2xl rounded-2xl">Começar livre e sem sobressaltos</Button>
+                <Button variant="outline" className="w-full px-12 py-6 !bg-white !text-brand-green-dark border-none font-bold shadow-2xl rounded-2xl">Começar gratuitamente</Button>
               </a>
             </div>
           </div>
