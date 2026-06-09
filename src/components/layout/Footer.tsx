@@ -17,7 +17,7 @@ export const Footer = () => {
               <p className="text-xs md:text-sm text-brand-text-muted leading-relaxed">A próxima melhor ação para o dentista {isAcademy ? 'que está aprendendo' : 'solo'}. Tecnologia que entende a rotina clínica real.</p>
             </div>
             
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 md:gap-12 text-xs">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-xs">
               <div className="space-y-3 md:space-y-4">
                 <p className="font-bold text-brand-text tracking-wider uppercase text-[10px]">Produto</p>
                 <div className="flex flex-col gap-2.5 md:gap-3 text-brand-text-muted">
@@ -27,6 +27,14 @@ export const Footer = () => {
                   <Link to="/comparativo" className={isAcademy ? "hover:text-brand-academy" : "hover:text-brand-green"}>Comparativos</Link>
                   <Link to="/blog" className={isAcademy ? "hover:text-brand-academy" : "hover:text-brand-green"}>Blog</Link>
                   <Link to="/presets" className="hover:text-brand-green">Kit Social (Instagram)</Link>
+                </div>
+              </div>
+              <div className="space-y-3 md:space-y-4">
+                <p className="font-bold text-brand-text tracking-wider uppercase text-[10px]">Imprensa & SEO</p>
+                <div className="flex flex-col gap-2.5 md:gap-3 text-brand-text-muted">
+                  <Link to="/software-odontologico" className="hover:text-brand-green">Software Odontológico</Link>
+                  <Link to="/sistemas-para-dentista" className="hover:text-brand-green">Sistemas para Dentista</Link>
+                  <Link to="/app-para-estudante-de-odontologia" className="hover:text-brand-green">App de Odontologia</Link>
                 </div>
               </div>
               <div className="space-y-3 md:space-y-4">

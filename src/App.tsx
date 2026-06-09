@@ -10,6 +10,9 @@ import AdminApplications from './pages/AdminApplications';
 import Confirmation from './pages/Confirmation';
 import Comparison from './pages/Comparison';
 import Blog from './pages/Blog';
+import SoftwareOdontologicoPage from './pages/SoftwareOdontologicoPage';
+import SistemasParaDentistaPage from './pages/SistemasParaDentistaPage';
+import AppsEstudantesOdontologiaPage from './pages/AppsEstudantesOdontologiaPage';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 
@@ -127,6 +130,36 @@ function AnimatedRoutes() {
             transition={{ duration: 0.3 }}
           >
             <Blog />
+          </motion.div>
+        } />
+        <Route path="/software-odontologico" element={
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <SoftwareOdontologicoPage />
+          </motion.div>
+        } />
+        <Route path="/sistemas-para-dentista" element={
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <SistemasParaDentistaPage />
+          </motion.div>
+        } />
+        <Route path="/app-para-estudante-de-odontologia" element={
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <AppsEstudantesOdontologiaPage />
           </motion.div>
         } />
       </Routes>

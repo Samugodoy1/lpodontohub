@@ -51,6 +51,154 @@ export default function Blog() {
 
   const articles: Article[] = [
     {
+      slug: 'sistemas-para-dentista-e-estudante-de-odonto',
+      title: 'Sistemas para Dentista e Acadêmicos: O Guia Definitivo de Tecnologias em 2026',
+      category: 'Gestão',
+      publishDate: '09 de Junho, 2026',
+      readTime: '8 min de leitura',
+      author: 'Redação Editorial OdontoHub',
+      authorRole: 'Guia de Carreira e Tecnologia',
+      summary: 'Está confuso entre escolher um app para estudante de odonto ou pular direto para um software de clínica de grande porte? Entenda as melhores soluções tecnológicas de sistemas para dentista em 2026.',
+      seoKeywords: ['sistemas para dentista', 'software odontologico', 'melhor sistema para dentistas', 'app para estudante de odonto', 'estudante de odonto'],
+      content: (
+        <div className="space-y-6 text-brand-text/80 leading-relaxed font-semibold text-sm md:text-base">
+          <p className="text-lg text-brand-text font-bold mb-4">
+            A jornada desde a universidade como <strong>estudante de odonto</strong> até a abertura do consultório particular como profissional cirurgião-dentista é repleta de escolhas importantes. Dentre elas, decidir qual o <strong>melhor sistema para dentistas</strong> e qual <strong>software odontológico</strong> adotar é crucial para manter a organização e o caixa em ordem.
+          </p>
+          
+          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4">Da Graduação ao Mochos Próprios: Por que Adaptar um Sistema para Dentista Cedo?</h2>
+          <p>
+            Muitos alunos acreditam que ferramentas profissionais ou <strong>sistemas para dentista</strong> são necessários apenas após a obtenção do CRO definitivo. No entanto, aprender a gerenciar pacientes, fotos de procedimentos e tempos clínicos de cicatrização ou ataque ácido desde as disciplinas acadêmicas evita a desorganização que faz muitos jovens formados perderem seus primeiros pacientes.
+          </p>
+          <p>
+            Contar com um especializado <strong>app para estudante de odonto</strong> como o OdontoHub Academy simplifica o fardo de decorar listas extensas de instrumentais de periodontia ou prótese dental, transformando seu celular antigo no assistente clínico de biossegurança ideal.
+          </p>
+
+          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4">Como Escolher o Melhor Sistema para Dentistas em 2026?</h2>
+          <p>
+            Com tantas opções de <strong>software odontológico</strong> no mercado brasileiro, procure por critérios que assegurem sua produtividade:
+          </p>
+          
+          <div className="bg-slate-50 border border-brand-border rounded-xl p-5 my-4 space-y-4">
+            <div>
+              <h4 className="font-extrabold text-brand-text text-sm">1. Usabilidade em Aparelhos Móveis (Mobile First)</h4>
+              <p className="text-xs text-brand-text-muted mt-1">O dia a dia debaixo do mocho clínico não tolera perda de tempo buscando o computador no balcão da secretaria. O sistema precisa rodar com agilidade total na ponta do seu dedo.</p>
+            </div>
+            <div>
+              <h4 className="font-extrabold text-brand-text text-sm">2. Separação Estrita de Dados Pessoais e Clínicos</h4>
+              <p className="text-xs text-brand-text-muted mt-1">Quer focar sua jornada como <strong>estudante de odonto</strong> sem entupir a galeria de fotos de sua família com exames de bocas de pacientes? O seu aplicativo ideal filtra e arquiva imagens direto nas respectivas evoluções de prontuário dos pacientes.</p>
+            </div>
+            <div>
+              <h4 className="font-extrabold text-brand-text text-sm">3. Alertas e Silêncio Ativo de Verdade</h4>
+              <p className="text-xs text-brand-text-muted mt-1">O melhor sistema sabe quando ficar mudo para garantir o seu merecido descanso no final de semana, notificando apenas o que é estritamente urgente sobre a agenda.</p>
+            </div>
+          </div>
+
+          <blockquote className="border-l-4 border-brand-green pl-4 italic text-brand-text/95 bg-brand-green/5 p-4 rounded-r-xl">
+            "A grande virada de chave para clínicas solos e acadêmicos de odontologia em 2026 está em focar em soluções que simplificam, em vez de poluirem a rotina com relatórios intermináveis."
+          </blockquote>
+
+          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4">O Ecossistema OdontoHub Une Todos os Públicos</h2>
+          <p>
+            Seja você um <strong>estudante de odonto</strong> que exige o Modo Box de biossegurança com timers de alta rotação integrados, ou se você é um cirurgião-dentista de consultório solo liderando seus próprios agendamentos e faturamentos sob o modelo de sala alugada — o OdontoHub foi moldado sob medida para o seu dia a dia. É a harmonia ideal de simplicidade, velocidade e preço justo que o destaca como o <strong>melhor sistema para dentistas</strong> de nova geração.
+          </p>
+        </div>
+      )
+    },
+    {
+      slug: 'melhor-sistema-para-dentistas-e-software-odontologico',
+      title: 'Melhor Sistema para Dentistas em 2026: Por que a simplicidade do Software Odontológico moderno vence ferramentas complexas',
+      category: 'Comparativos',
+      publishDate: '09 de Junho, 2026',
+      readTime: '7 min de leitura',
+      author: 'Conselho Consultivo de Tecnologia',
+      authorRole: 'Especialistas em Gestão Odontológica',
+      summary: 'Está procurando o melhor sistema para dentistas em 2026? Descubra por que o segredo de um bom software odontológico não são os relatórios densos, mas sim a clareza operacional para clínicos solo.',
+      seoKeywords: ['melhor sistema para dentistas', 'software odontológico', 'sistemas para dentista', 'sistema para pequenos consultorios', 'odontohub solo'],
+      content: (
+        <div className="space-y-6 text-brand-text/80 leading-relaxed font-semibold text-sm md:text-base">
+          <p className="text-lg text-brand-text font-bold mb-4">
+            Escolher o <strong>melhor sistema para dentistas</strong> é uma das decisões mais estratégicas para quem possui consultório clínico solo ou sala alugada. Com tantas opções no mercado, qual é de fato o <strong>software odontológico</strong> ideal para organizar sua rotina sem sugar sua energia?
+          </p>
+          
+          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4">O Problema dos Sistemas para Dentista Tradicionais</h2>
+          <p>
+            Muitos <strong>sistemas para dentista</strong> foram programados no início dos anos 2010 e pensados para o modo de trabalho de grandes corporações multidisciplinares tradicionais. Eles costumam forçar você a assinar planos caros cheios de recursos burocráticos e um visual entulhado que simplesmente não faz sentido para o dentista contemporâneo que quer trabalhar com paz e agilidade.
+          </p>
+          
+          <blockquote className="border-l-4 border-brand-green pl-4 italic text-brand-text/95 bg-brand-green/5 p-4 rounded-r-xl">
+            "Um bom software odontológico deve ser rápido no celular, simples de operar na cadeira e transparente com os custos."
+          </blockquote>
+
+          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4">Como Identificar o Melhor Sistema para Dentistas Solo?</h2>
+          <p>
+            Se o seu foco de atendimento não é gerenciar dezenas de franquias e burocracia pesada de faturamento cumulativo, o seu <strong>software odontológico</strong> precisa cumprir três pré-requisitos fundamentais:
+          </p>
+
+          <ul className="list-disc pl-5 space-y-3">
+            <li>
+              <strong>Carregar instantaneamente no celular:</strong> Você precisa conseguir olhar e gerenciar sua agenda em poucos segundos no bolso do jaleco, sem depender de computadores grandes e cabos de rede locais.
+            </li>
+            <li>
+              <strong>Automações discretas de confirmação:</strong> O próprio sistema deve cuidar do envio de lembretes inteligentes de confirmação de consultas, economizando seu tempo que seria gasto enviando mensagens manuais no WhatsApp até de noite.
+            </li>
+            <li>
+              <strong>Limites claros de acordo com sua realidade:</strong> Ao invés de taxas mensais que asfixiam sua margem, busque sistemas que oferecem planos flexíveis e uma transição justa de acordo com a sua demanda real.
+            </li>
+          </ul>
+
+          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4">OdontoHub Redefine as Regras do Jogo</h2>
+          <p>
+            O OdontoHub nasceu focado nos requisitos prioritários do clínico geral solo, do recém-formado de sala alugada e do profissional que não tolera poluição visual. Com o nosso sistema, as telas carregam perfeitamente no celular, o agendamento de consultas leva menos de 5 segundos e você monitora o seu fluxo financeiro discreto sem estresse de domingo à noite. É por isso que cada vez mais profissionais o apontam como o <strong>melhor sistema para dentistas</strong> focados em produtividade e sanidade clínica.
+          </p>
+        </div>
+      )
+    },
+    {
+      slug: 'guia-estudante-de-odonto-app-academy',
+      title: 'Estudante de Odonto: O App Definitivo para Organizar Clínicas Acadêmicas com Segurança',
+      category: 'Academy',
+      publishDate: '09 de Junho, 2026',
+      readTime: '6 min de leitura',
+      author: 'Comissão Pedagógica OdontoHub',
+      authorRole: 'Educação para a Carreira Clínica',
+      summary: 'Descubra qual é o melhor app para estudante de odonto que ajuda no controle de fotos clínicas, separação de almoxarifado de instrumentais e roteiros de biossegurança debaixo do mocho.',
+      seoKeywords: ['estudante de odonto', 'app para estudante de odonto', 'odontohub academy', 'instrumental odontologico faculdade', 'modo box odonto'],
+      content: (
+        <div className="space-y-6 text-brand-text/80 leading-relaxed font-semibold text-sm md:text-base">
+          <p className="text-lg text-brand-text font-bold mb-4">
+            A rotina de qualquer <strong>estudante de odonto</strong> na faculdade é marcada por uma enorme montanha de desafios: organizar as primeiras listas de instrumentais do almoxarifado acadêmico, preparar o prontuário físico e atender o paciente sob pressão das avaliações clínicas dos professores preceptores.
+          </p>
+          
+          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4">O que deve ter o melhor App para Estudante de Odonto?</h2>
+          <p>
+            Anteriormente, o aluno de graduação tentava adaptar planilhas confusas em papel, notas soltas do celular ou fotos expostas nos álbuns de fotos pessoais do WhatsApp para resolver o controle clínico de seus casos. No entanto, para ser o melhor <strong>app para estudante de odonto</strong>, o sistema precisa fornecer segurança operacional e biossegurança real:
+          </p>
+
+          <ul className="list-disc pl-5 space-y-3">
+            <li>
+              <strong>Organização Automática de Instrumentais:</strong> Separar kits kits cirúrgicos, curetas e brocas de acordo com a disciplina clínica do dia seguinte de forma visual.
+            </li>
+            <li>
+              <strong>Galeria de Fotos Clínicas Separadas:</strong> Organizar as linhas cronológicas dos tratamentos de pacientes separadas do seu rolo de câmera pessoal.
+            </li>
+            <li>
+              <strong>Modo Box de Biossegurança:</strong> Visualização com alta legibilidade onde o estudante lê as tarefas clínicas e controla os timers de ácido sem encostar as luvas contaminadas na tela do celular.
+            </li>
+          </ul>
+
+          <blockquote className="border-l-4 border-brand-academy pl-4 italic text-brand-text/95 bg-brand-academy/5 p-4 rounded-r-xl">
+            "Não basta acumular livros teóricos de periodontia ou endodontia. O estudante de odonto de excelência se destaca pela organização impecável sob o mocho clínico."
+          </blockquote>
+
+          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4">Conheça o OdontoHub Academy</h2>
+          <p>
+            Desenvolvemos o OdontoHub Academy com a única e exclusiva meta de se tornar o braço direito do <strong>estudante de odonto</strong> de norte a sul do Brasil. Ele elimina a ansiedade de esquecer brocas fundamentais antes do exame clínico na universidade, padroniza as anotações do prontuário para obter aprovação com mérito dos seus professores e fornece as diretrizes do Preceptor Digital para você treinar com tranquilidade na graduação. Comece hoje mesmo gratuitamente e sinta a diferença debaixo do mocho.
+          </p>
+        </div>
+      )
+    },
+    {
       slug: 'o-que-e-clinical-clarity-system',
       title: 'O que é um Clinical Clarity System (CCS) e como ele redefine o Software Odontológico',
       category: 'IA & Tecnologia',
