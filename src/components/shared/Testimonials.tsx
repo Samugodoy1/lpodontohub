@@ -66,16 +66,16 @@ export default function Testimonials() {
     {
       id: 3,
       name: 'Dr. Roberto Arruda',
-      role: 'Diretor de Clínica Multidisciplinar',
+      role: 'Clínico Solo (Sala Alugada)',
       location: 'Campinas - SP',
       avatarBg: 'bg-indigo-50 text-indigo-700',
       avatarText: 'RA',
       stars: 5,
-      quote: 'Eu não conseguia me desligar do consultório aos fins de semana por causa da incerteza do caixa ou de faltas. O OdontoHub organizou tudo com tanta simplicidade que eliminou minha ansiedade de domingo à noite. Agora tenho paz real com a família.',
+      quote: 'O Simples Dental era caro demais para o meu momento de sala alugada, e controlar no papel era uma bagunça que me fazia perder pacientes. O OdontoHub se encaixou perfeito no meu bolso, é incrivelmente simples e me deu o controle total.',
       featured: true,
-      metric: 'Fim do estresse de domingo',
+      metric: 'Economia e controle de bolso',
       category: 'owner',
-      competitorComparison: 'Substituiu o Simples Dental'
+      competitorComparison: 'Focou no Essencial'
     },
     {
       id: 4,
@@ -85,7 +85,7 @@ export default function Testimonials() {
       avatarBg: 'bg-brand-green-soft text-brand-green-dark',
       avatarText: 'MC',
       stars: 5,
-      quote: 'Estava farta de softwares barulhentos mandando alertas no meu descanso. Com o Silêncio Ativo do OdontoHub, o sistema se mantém mudo se tudo corre bem. Chego em casa às 17h30, desligo o celular da clínica e posso dormir em paz.',
+      quote: 'Estava farta de softwares barulhentos mandando alertas no meu descanso. Com o Silêncio Ativo do OdontoHub, o sistema se mantém mudo se tudo corre bem. Chego em casa às 17h30, desligo o celular da clínica e posso dormir in paz.',
       featured: false,
       metric: 'Menos ansiedade operacional',
       category: 'solo'
@@ -106,14 +106,14 @@ export default function Testimonials() {
     {
       id: 6,
       name: 'Dr. Henrique Viana',
-      role: 'Implantodontista & Dono de Consultório',
-      location: 'Florentina - RS',
+      role: 'Dentista Recém-Formado',
+      location: 'Novo Hamburgo - RS',
       avatarBg: 'bg-[#FAF9F5] text-brand-text',
       avatarText: 'HV',
       stars: 5,
-      quote: 'Perdia horas mandando mensagem individual de confirmação ou ligando. Aquilo sugava minha energia diária. Com as automações integradas do OdontoHub, os próprios pacientes confirmam sozinhos. Ganhei 2 horas livres no meu dia.',
+      quote: 'Assim que me formei, me assustei com o custo dos sistemas tradicionais. O OdontoHub foi a salvação para organizar meus primeiros pacientes sem falir. É super direto, prático no celular e não tem aquela poluição visual insuportável.',
       featured: false,
-      metric: '2 horas livres no dia',
+      metric: 'Zero dívidas de software',
       category: 'owner'
     }
   ];
@@ -133,7 +133,7 @@ export default function Testimonials() {
           Recomendado por quem busca clareza profissional.
         </h2>
         <p className="text-xs md:text-sm text-brand-text-muted font-medium">
-          Dentistas independentes, donos de consultórios e acadêmicos que escolheram a simplicidade inteligente contra a poluição visual dos softwares obsoletos.
+          Dentistas recém-formados, clínicos solo de salas alugadas e acadêmicos que escolheram a simplicidade inteligente contra o custo e a complexidade dos softwares obsoletos.
         </p>
       </div>
 
@@ -142,7 +142,7 @@ export default function Testimonials() {
         {[
           { id: 'all', label: 'Todos os Depoimentos' },
           { id: 'solo', label: 'Clínicos Solo' },
-          { id: 'owner', label: 'Donos de Consultórios' },
+          { id: 'owner', label: 'Recém-Formados' },
           { id: 'academy', label: 'Estudantes (Academy)' }
         ].map(filter => (
           <button
