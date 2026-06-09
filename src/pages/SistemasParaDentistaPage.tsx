@@ -26,7 +26,7 @@ export default function SistemasParaDentistaPage() {
         <title>Sistemas para Dentista: Qual o melhor para consultórios em 2026? | OdontoHub</title>
         <meta name="description" content="Análise comparativa profunda de sistemas para dentista. Conecte de forma simples a sua agenda e reduza os custos do seu consultório de sala alugada." />
         <meta name="keywords" content="sistemas para dentista, sistema odontologico, melhor sistema dentista, odontohub, clinico solo, dentista recem-formado" />
-        <link rel="canonical" href="https://odontohub.app.br/sistemas-para-dentista" />
+        <link rel="canonical" href="https://www.odontohub.app.br/sistemas-para-dentista" />
         
         {/* Schema.org Article Structured Data */}
         <script type="application/ld+json">
@@ -39,7 +39,7 @@ export default function SistemasParaDentistaPage() {
             "author": {
               "@type": "Organization",
               "name": "Conselho Editorial OdontoHub",
-              "url": "https://odontohub.app.br"
+              "url": "https://www.odontohub.app.br/"
             },
             "publisher": {
               "@type": "Organization",

@@ -796,8 +796,8 @@ function SchemaMarkup({ currentPost }: { currentPost: Article | null }) {
     : 'blog odontohub, gestão odontológica, software odonto, clinicorp vs simples dental, ia dentes, modo box biossegurança, suporte odontologia';
 
   const pageUrl = currentPost
-    ? `https://odontohub.app.br/blog?post=${currentPost.slug}`
-    : 'https://odontohub.app.br/blog';
+    ? `https://www.odontohub.app.br/blog?post=${currentPost.slug}`
+    : 'https://www.odontohub.app.br/blog';
 
   const ogType = currentPost ? 'article' : 'website';
 
@@ -811,14 +811,14 @@ function SchemaMarkup({ currentPost }: { currentPost: Article | null }) {
         "author": {
           "@type": "Organization",
           "name": currentPost.author,
-          "url": "https://odontohub.app.br/"
+          "url": "https://www.odontohub.app.br/"
         },
         "publisher": {
           "@type": "Organization",
           "name": "OdontoHub",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://odontohub.app.br/logo.svg"
+            "url": "https://www.odontohub.app.br/logo.svg"
           }
         },
         "mainEntityOfPage": {
@@ -838,7 +838,7 @@ function SchemaMarkup({ currentPost }: { currentPost: Article | null }) {
           "name": "OdontoHub",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://odontohub.app.br/logo.svg"
+            "url": "https://www.odontohub.app.br/logo.svg"
           }
         }
       };
@@ -857,13 +857,13 @@ function SchemaMarkup({ currentPost }: { currentPost: Article | null }) {
       <meta property="og:description" content={pageDescription} />
       <meta property="og:url" content={pageUrl} />
       <meta property="og:site_name" content="OdontoHub" />
-      <meta property="og:image" content="https://odontohub.app.br/og-image.png" />
+      <meta property="og:image" content="https://www.odontohub.app.br/og-image.png" />
 
       {/* Twitter Cards Metadata */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={pageTitle} />
       <meta name="twitter:description" content={pageDescription} />
-      <meta name="twitter:image" content="https://odontohub.app.br/og-image.png" />
+      <meta name="twitter:image" content="https://www.odontohub.app.br/og-image.png" />
       <meta name="twitter:url" content={pageUrl} />
 
       {/* Schema Structured JSON-LD */}

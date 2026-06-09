@@ -27,7 +27,7 @@ export default function SoftwareOdontologicoPage() {
         <title>Software Odontológico Simples e Portátil | OdontoHub</title>
         <meta name="description" content="Procurando um software odontológico que elimine a poluição visual e traga clareza operacional? Conheça o OdontoHub, o sistema ideal para clínicos solo e estudantes." />
         <meta name="keywords" content="software odontológico, sistema para dentistas, software odontologia, odontohub, clinica odontologica, gestao consultorio" />
-        <link rel="canonical" href="https://odontohub.app.br/software-odontologico" />
+        <link rel="canonical" href="https://www.odontohub.app.br/software-odontologico" />
         
         {/* Schema.org Article Structured Data */}
         <script type="application/ld+json">
@@ -40,14 +40,14 @@ export default function SoftwareOdontologicoPage() {
             "author": {
               "@type": "Organization",
               "name": "OdontoHub Editorial",
-              "url": "https://odontohub.app.br"
+              "url": "https://www.odontohub.app.br/"
             },
             "publisher": {
               "@type": "Organization",
               "name": "OdontoHub",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://odontohub.app.br/logo.svg"
+                "url": "https://www.odontohub.app.br/logo.svg"
               }
             }
           })}

@@ -26,7 +26,7 @@ export default function AppsEstudantesOdontologiaPage() {
         <title>Apps para Estudantes de Odontologia: O Guia Completo 2026 | OdontoHub</title>
         <meta name="description" content="Quais os melhores apps para estudantes de odontologia em 2026? Descubra o OdontoHub Academy e organize seus instrumentais e prontuários com agilidade." />
         <meta name="keywords" content="apps para estudantes de odontologia, app para estudante de odonto, estudante de odonto, odontologia faculdade, material odontologico, odontohub academy" />
-        <link rel="canonical" href="https://odontohub.app.br/app-para-estudante-de-odontologia" />
+        <link rel="canonical" href="https://www.odontohub.app.br/app-para-estudante-de-odontologia" />
         
         {/* Schema.org BlogPosting Structured Data */}
         <script type="application/ld+json">
@@ -39,7 +39,7 @@ export default function AppsEstudantesOdontologiaPage() {
             "author": {
               "@type": "Organization",
               "name": "Comissão de Educação OdontoHub",
-              "url": "https://odontohub.app.br"
+              "url": "https://www.odontohub.app.br/"
             },
             "publisher": {
               "@type": "Organization",

@@ -22,13 +22,13 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
         "@type": "ListItem",
         "position": 1,
         "name": "Início",
-        "item": "https://odontohub.app.br/"
+        "item": "https://www.odontohub.app.br/"
       },
       ...items.map((item, index) => ({
         "@type": "ListItem",
         "position": index + 2,
         "name": item.name,
-        "item": item.url ? `https://odontohub.app.br${item.url}` : undefined
+        "item": item.url ? `https://www.odontohub.app.br${item.url}` : undefined
       }))
     ]
   };
@@ -83,7 +83,7 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
                     {item.name}
                   </span>
                 )}
-                {item.url && <meta property="item" content={`https://odontohub.app.br${item.url}`} />}
+                {item.url && <meta property="item" content={`https://www.odontohub.app.br${item.url}`} />}
                 <meta property="position" content={String(position)} />
               </span>
             </React.Fragment>

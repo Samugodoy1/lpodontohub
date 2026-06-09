@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Configuration
-const BASE_URL = 'https://odontohub.app.br';
+const BASE_URL = 'https://www.odontohub.app.br';
 const TODAY = new Date().toISOString().split('T')[0];
 
 const staticRoutes = [
