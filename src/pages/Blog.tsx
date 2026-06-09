@@ -22,6 +22,7 @@ import {
 } from 'lucide-react';
 import { Button } from '../components/shared/UI';
 import Breadcrumb from '../components/shared/Breadcrumb';
+import FAQSection from '../components/shared/FAQSection';
 
 interface Article {
   slug: string;
@@ -606,6 +607,9 @@ export default function Blog() {
                   </div>
                 </div>
               )}
+
+              {/* Dynamic Collapsible FAQ Component with Schema.org JSON-LD */}
+              <FAQSection />
 
               {/* Institutional Statement based on page 10 and 13 of Constitution */}
               <div className="max-w-4xl mx-auto bg-slate-50 border border-brand-border rounded-[2rem] p-8 mt-12 flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
