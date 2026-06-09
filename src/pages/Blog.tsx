@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 import { 
   BookOpen, 
   Clock, 
@@ -20,6 +21,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { Button } from '../components/shared/UI';
+import Breadcrumb from '../components/shared/Breadcrumb';
 
 interface Article {
   slug: string;
@@ -380,6 +382,13 @@ export default function Blog() {
               className="max-w-3xl mx-auto"
               id="blog-post-reader-layout"
             >
+              {/* Dynamic Schema breadcrumbs */}
+              <Breadcrumb items={[
+                { name: 'Blog', url: '/blog' },
+                { name: currentPost.category },
+                { name: currentPost.title }
+              ]} />
+
               {/* Back to Blog Button */}
               <button
                 onClick={() => setSearchParams({})}
@@ -478,6 +487,10 @@ export default function Blog() {
               exit={{ opacity: 0 }}
               className="space-y-12"
             >
+              <div className="flex justify-start">
+                <Breadcrumb items={[{ name: 'Blog' }]} />
+              </div>
+
               {/* Blog Title Hero Section */}
               <div className="text-center max-w-3xl mx-auto space-y-4">
                 <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-green/10 text-brand-green-dark rounded-full text-xs font-bold uppercase tracking-wider">
@@ -618,55 +631,93 @@ export default function Blog() {
 
 // Dedicated SEO engine that generates Structured Data markup dynamically in head for LLM / AI Overviews extraction
 function SchemaMarkup({ currentPost }: { currentPost: Article | null }) {
-  useEffect(() => {
-    // Keep reference and clean up on unmount
-    const previousScript = document.getElementById('dynamic-post-schema');
-    if (previousScript) {
-      previousScript.remove();
-    }
+  const pageTitle = currentPost 
+    ? `${currentPost.title} | Blog OdontoHub`
+    : 'Blog OdontoHub — Gestão Clínico-Odontológica, Tecnologia e IA para Dentistas';
+    
+  const pageDescription = currentPost
+    ? currentPost.summary
+    : 'Explore os melhores artigos e guias de usabilidade sobre gestão de consultórios odonto, Inteligência Artificial na odontologia acadêmica e o novo Clinical Clarity System (CCS).';
 
-    if (!currentPost) return;
+  const pageKeywords = currentPost
+    ? currentPost.seoKeywords.join(', ')
+    : 'blog odontohub, gestão odontológica, software odonto, clinicorp vs simples dental, ia dentes, modo box biossegurança, suporte odontologia';
 
-    // Build specific JSON-LD for the active blog post
-    const schemaJSON = {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": currentPost.title,
-      "description": currentPost.summary,
-      "datePublished": "2026-06-09T12:00:00Z", // Sync with actual timeline
-      "author": {
-        "@type": "Organization",
-        "name": currentPost.author,
-        "url": "https://odontohub.app.br/"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "OdontoHub",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://odontohub.app.br/logo.svg"
-        }
-      },
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": `https://odontohub.app.br/blog?post=${currentPost.slug}`
-      },
-      "keywords": currentPost.seoKeywords.join(', ')
-    };
+  const pageUrl = currentPost
+    ? `https://odontohub.app.br/blog?post=${currentPost.slug}`
+    : 'https://odontohub.app.br/blog';
 
-    const script = document.createElement('script');
-    script.id = 'dynamic-post-schema';
-    script.type = 'application/ld+json';
-    script.innerHTML = JSON.stringify(schemaJSON);
-    document.head.appendChild(script);
+  const ogType = currentPost ? 'article' : 'website';
 
-    return () => {
-      const addedScript = document.getElementById('dynamic-post-schema');
-      if (addedScript) {
-        addedScript.remove();
+  const schemaJSON = currentPost
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": currentPost.title,
+        "description": currentPost.summary,
+        "datePublished": "2026-06-09T12:00:00Z",
+        "author": {
+          "@type": "Organization",
+          "name": currentPost.author,
+          "url": "https://odontohub.app.br/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "OdontoHub",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://odontohub.app.br/logo.svg"
+          }
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": pageUrl
+        },
+        "keywords": pageKeywords
       }
-    };
-  }, [currentPost]);
+    : {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Blog OdontoHub",
+        "url": pageUrl,
+        "description": pageDescription,
+        "publisher": {
+          "@type": "Organization",
+          "name": "OdontoHub",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://odontohub.app.br/logo.svg"
+          }
+        }
+      };
 
-  return null;
+  return (
+    <Helmet>
+      {/* Dynamic Title, Description, and Keywords */}
+      <title>{pageTitle}</title>
+      <meta name="description" content={pageDescription} />
+      <meta name="keywords" content={pageKeywords} />
+      <link rel="canonical" href={pageUrl} />
+
+      {/* OpenGraph Protocol / Facebook / LinkedIn */}
+      <meta property="og:type" content={ogType} />
+      <meta property="og:title" content={pageTitle} />
+      <meta property="og:description" content={pageDescription} />
+      <meta property="og:url" content={pageUrl} />
+      <meta property="og:site_name" content="OdontoHub" />
+      <meta property="og:image" content="https://odontohub.app.br/og-image.png" />
+
+      {/* Twitter Cards Metadata */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={pageTitle} />
+      <meta name="twitter:description" content={pageDescription} />
+      <meta name="twitter:image" content="https://odontohub.app.br/og-image.png" />
+      <meta name="twitter:url" content={pageUrl} />
+
+      {/* Schema Structured JSON-LD */}
+      <script type="application/ld+json">
+        {JSON.stringify(schemaJSON)}
+      </script>
+    </Helmet>
+  );
 }

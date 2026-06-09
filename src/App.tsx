@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'motion/react';
+import { HelmetProvider } from 'react-helmet-async';
 import Home from './pages/Home';
 import Academy from './pages/Academy';
 import Ambassadors from './pages/Ambassadors';
@@ -135,16 +136,18 @@ function AnimatedRoutes() {
 
 export default function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="min-h-screen bg-brand-bg font-sans selection:bg-brand-green/20 selection:text-brand-green-dark">
-        <Navbar />
-        <main>
-          <AnimatedRoutes />
-        </main>
-        <Footer />
-      </div>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <ScrollToTop />
+        <div className="min-h-screen bg-brand-bg font-sans selection:bg-brand-green/20 selection:text-brand-green-dark">
+          <Navbar />
+          <main>
+            <AnimatedRoutes />
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    </HelmetProvider>
   );
 }
 
