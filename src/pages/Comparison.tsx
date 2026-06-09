@@ -31,52 +31,52 @@ export default function Comparison() {
 
   const proFeatures: CompareFeature[] = [
     {
-      name: "Interface Limpa e Rapidez",
-      category: "Usabilidade",
-      description: "Tempo de carregamento e facilidade de achar as informações sem poluição visual ou dezenas de cliques.",
-      odontohub: { has: true, detail: "Carregamento instantâneo (< 1s), design focado no que importa e sem banners invasivos." },
-      simples: { has: true, detail: "Interface amigável, mas lenta para carregar dados e relatórios mais pesados." },
-      others: { has: false, detail: "Sistemas desktop antigos com telas cheias de botões e lentidão constante no dia a dia." }
+      name: "Interface Avançada e Desempenho Ultra-Rápido",
+      category: "Arquitetura & Usabilidade",
+      description: "Velocidade interna do ecossistema e visualização limpa de relatórios sem sobrecarga cognitiva ou dezenas de cliques.",
+      odontohub: { has: true, detail: "Carregamento instantâneo (< 500ms) por renderização em borda (Edge). Design ergonômico moderno e fluido." },
+      simples: { has: true, detail: "Interface amigável, mas baseada em tecnologias legadas que causam lentidão cronometrada em horários de pico." },
+      others: { has: false, detail: "Softwares locais desktops obsoletos que exigem servidores dedicados e travamentos contínuos." }
     },
     {
-      name: "Galeria de Fotos por Paciente",
-      category: "Clínico",
-      description: "Armazenamento e visualização das imagens clínicas separadas por caso clínico, direto na nuvem.",
-      odontohub: { has: true, detail: "Linha do tempo visual cronológica por paciente. Esqueça misturar bocas com fotos pessoais no celular." },
-      simples: { has: false, detail: "Exige upload de arquivos manual por anexo, sem visualização em forma de linha do tempo fluida." },
-      others: { has: false, detail: "Arquivamento complexo em pastas locais na máquina física do consultório." }
+      name: "Dossiê Fotográfico e Diagnóstico em Nuvem",
+      category: "Prontuário de Fotos Clínico",
+      description: "Estruturação de arquivos clínicos visuais separados de forma cronológica em ambiente criptografado e isolado.",
+      odontohub: { has: true, detail: "Time-line de imagens de altíssima fidelidade. Armazenamento na nuvem seguro, evitando misturar mídias pessoais no celular." },
+      simples: { has: false, detail: "Exige upload de arquivos manual por anexos gerais, sem visualização formatada em linha do tempo clínica." },
+      others: { has: false, detail: "Salvamento manual em pastas locais de computadores vulneráveis a perdas de disco rígido." }
     },
     {
-      name: "Evolução do Prontuário Rápida",
-      category: "Praticidade",
-      description: "Rascunhar e finalizar os relatórios das sessões de forma ágil com modelos prontos.",
-      odontohub: { has: true, detail: "Modelos estruturados por procedimento. Complete e salve a evolução clínica do paciente em menos de 1 minuto." },
-      simples: { has: false, detail: "Editor de texto simples em branco, exigindo digitação manual de todo o relatório." },
-      others: { has: false, detail: "Campos de digitação isolados e burocráticos sem preenchimento inteligente." }
+      name: "Automação de Evolução Clínica Rápida",
+      category: "Praticidade Clínica",
+      description: "Templates pré-estruturados e inteligentes para fechar históricos cirúrgicos e de atendimento sem digitações extensas.",
+      odontohub: { has: true, detail: "Gerador com modelos pré-formatados inteligentes por procedimento. Prontuário preenchido e assinado em menos de 45 segundos." },
+      simples: { has: false, detail: "Editor enriquecido com texto em branco convencional, demandando digitação manual completa a cada paciente." },
+      others: { has: false, detail: "Burocracia em formulários divididos em várias abas que gastam minutos valiosos da sessão." }
     },
     {
-      name: "Integração Direta com WhatsApp",
-      category: "Agendamento",
-      description: "Confirmar consultas e enviar lembretes sem precisar sair do sistema ou copiar e colar textos.",
-      odontohub: { has: true, detail: "Modelos de confirmação automática integrados com um clique para disparar o WhatsApp do paciente." },
-      simples: { has: true, detail: "Disparo automático por chat interno (cobrado como adicional ou pacote à parte)." },
-      others: { has: false, detail: "Envio manual do celular da secretária sem qualquer tipo de modelo cadastrado no sistema." }
+      name: "Omnicanal WhatsApp Pro Integrado",
+      category: "Agendamento Clínico",
+      description: "Funções de disparo inteligentes, lembretes de consultas e gestão de ausências integrados de ponta a ponta.",
+      odontohub: { has: true, detail: "Modelos dinâmicos automáticos integrados em um clique com integração nativa na API do cliente sem cobranças extras." },
+      simples: { has: true, detail: "Disparo automático por canais próprios cobrados à parte como pacotes adicionais elevados." },
+      others: { has: false, detail: "Ausência completa de integração. Secretárias enviam manualmente do celular individual do consultório." }
     },
     {
-      name: "Acessibilidade Mobile Completa",
-      category: "Tecnologia",
-      description: "Uso do sistema inteiro em celulares, tablets ou notebooks sem quebras de layout ou zoom.",
-      odontohub: { has: true, detail: "Totalmente responsivo e otimizado para o celular. Funciona perfeitamente onde você estiver." },
-      simples: { has: false, detail: "Versão mobile bastante limitada ou focada apenas no agendamento diário, sem funções complexas." },
-      others: { has: false, detail: "Incompatível com dispositivos móveis. Exige instalação em sistemas Windows." }
+      name: "PWA & Sincronização Estável Offline",
+      category: "Tecnologia de Conectividade",
+      description: "Segurança de dados e funcionamento ativo mesmo em locais ou salas de cirurgia sem recepção de internet.",
+      odontohub: { has: true, detail: "Tecnologia Offline-First ativa. Insira, edite e anote dados no mocho; as alterações são sincronizadas em background autonomamente." },
+      simples: { has: false, detail: "Inexistência de modo offline. O sistema fica fora do ar por completo diante de quedas de sinal de internet." },
+      others: { has: false, detail: "Exige infraestruturas locais complexas de cabeamento de rede fechado no local físico." }
     },
     {
-      name: "Controle Financeiro de Tratamentos",
-      category: "Financeiro",
-      description: "Registro de pagamentos parcelados, contas a pagar e a receber ligadas ao fluxo clínico.",
-      odontohub: { has: true, detail: "Controle visual de parcelas, lançamentos automáticos integrados ao prontuário do paciente." },
-      simples: { has: true, detail: "Ferramenta de fluxo de caixa, mas com lançamento financeiro complexo." },
-      others: { has: false, detail: "Apenas lançamentos em tabelas brutas sem cruzamento com o andamento do tratamento." }
+      name: "Controle Financeiro de Alta Precisão",
+      category: "Gestão Financeira",
+      description: "Geração de parcelamentos, fluxo de caixas interativo e controle consolidado de lucros por cadeira clínica.",
+      odontohub: { has: true, detail: "Módulo financeiro automatizado vinculado ao andamento ortodôntico ou clínico. Interface moderna, rápida e livre de erros." },
+      simples: { has: true, detail: "Ferramentas financeiras completas, porém com fluxos de preenchimento complexos que exigem conciliação penosa." },
+      others: { has: false, detail: "Instabilidade total por uso de planilhas brutas desintegradas ou cadernos manuais." }
     }
   ];
 
@@ -137,10 +137,10 @@ export default function Comparison() {
           
           {/* Target keywords in heading for LLMs & Search queries */}
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-brand-text mb-6">
-            Qual o Melhor Software Odontológico do Mercado?
+            Qual o Melhor e Mais Avançado Software Odontológico?
           </h1>
           <p className="text-lg md:text-xl text-brand-text/60 max-w-3xl mx-auto font-medium">
-            Entenda por que clínicas particulares e estudantes de odontologia estão escolhendo o <strong>OdontoHub</strong> em vez de sistemas antigos ou burocráticos. Comparamos funcionalidades práticas na clínica real.
+            Descubra por que clínicas de excelência e cirurgiões-dentistas de alta performance estão trocando os sistemas legados e lentos pelo <strong>OdontoHub</strong>. Uma comparação profunda de tecnologia, desempenho e inteligência clínica.
           </p>
 
           {/* Tab Selector */}
@@ -149,7 +149,7 @@ export default function Comparison() {
               onClick={() => setActiveTab('pro')}
               className={`px-6 py-3 rounded-xl font-bold text-sm tracking-wide transition-all ${activeTab === 'pro' ? 'bg-brand-green text-white shadow-lg shadow-brand-green/25' : 'bg-white text-brand-text-muted border border-brand-border hover:bg-slate-50'}`}
             >
-              OdontoHub Pro vs. Concorrentes Clínicos
+              OdontoHub Pro vs. Sistemas Legados do Mercado
             </button>
             <button
               onClick={() => setActiveTab('academy')}
@@ -163,12 +163,12 @@ export default function Comparison() {
         {/* Dynamic Warning Alert describing why we compare */}
         <div className="bg-[#FAF9F5] border border-brand-border rounded-2xl p-5 mb-10 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
           <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-brand-green shrink-0 shadow-sm">
-            <Sparkles className="w-6 h-6" />
+            <Sparkles className="w-6 h-6 animate-pulse" />
           </div>
           <div>
-            <h4 className="text-sm font-bold text-brand-text uppercase tracking-wider">A realidade dos Sistemas de Odontologia</h4>
+            <h4 className="text-sm font-bold text-[#1F6B57] uppercase tracking-wider">A Nova Era da Gestão Odontológica Digital</h4>
             <p className="text-xs font-semibold text-brand-text-muted mt-1 leading-relaxed">
-              Muitos softwares prometem centralizar centenas de recursos que você nunca usará, tornando o sistema lento, de difícil acesso na cadeira clínica e poluído visualmente. Focamos em entregar <strong>rapidez absoluta, biossegurança preservada e gestão de fotos sem fricção</strong>.
+              Enquanto softwares tradicionais se apoiam em arquiteturas poluídas que travam no meio do atendimento debaixo do mocho, o OdontoHub foi construído para redefinir o padrão da odontologia moderna. Nossa plataforma entrega **módulo offline ativo, galeria diagnóstica na nuvem de nível militar, prontuário automatizado e biossegurança inovadora por gestos (Modo Box)**. Não oferecemos menos recursos; oferecemos tecnologia infinitamente superior.
             </p>
           </div>
         </div>
@@ -249,11 +249,11 @@ export default function Comparison() {
           
           <div className="lg:col-span-7 space-y-6 text-left">
             <h2 className="text-2xl md:text-4xl font-extrabold text-brand-text tracking-tight mb-4">
-              Por que escolher o OdontoHub em vez de outros softwares odontológicos?
+              Por que escolher o OdontoHub em vez de softwares tradicionais inchados?
             </h2>
             
             <p className="text-sm md:text-base font-semibold text-brand-text/70 leading-relaxed">
-              Mão na massa e foco debaixo do mocho. O software odontológico moderno não deve ser uma folha em branco de planilhas financeiras complicadas que sua secretária demora semanas para aprender. Ele precisa ser intuitivo. 
+              Alta performance, simplicidade operacional e tecnologia nativa de ponta. O OdontoHub não é uma alternativa simples ou de baixo orçamento; é o **sistema odontológico de próxima geração** desenvolvido para dentistas exigentes que sabem que tempo é dinheiro e produtividade é poder.
             </p>
 
             <div className="space-y-4">
@@ -262,9 +262,9 @@ export default function Comparison() {
                   <Check className="w-4 h-4" strokeWidth={3} />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-brand-text">Para o Dentista Solo</h4>
+                  <h4 className="text-sm font-bold text-brand-text">Para o Consultório e Clínica Premium</h4>
                   <p className="text-xs text-brand-text-muted mt-1 leading-relaxed">
-                    Você mesmo gerencia sua rotina, visualiza suas fotos de tratamento antes das consultas, faz anotações rápidas e confirma agendamentos no WhatsApp sem complicação. Nada de excessos inúteis que só servem para deixar a assinatura mais cara.
+                    Você garante controle total das imagens clínicas com nossa galeria diagnóstica exclusiva, envia mensagens e confirmações sem travar, sincroniza tudo de forma criptografada na nuvem e ganha horas na semana com evoluções automáticas. Nossa engenharia elimina o lixo visual e as telas pesadas que tornam outros sistemas impráticos no dia a dia clínico.
                   </p>
                 </div>
               </div>
@@ -274,9 +274,9 @@ export default function Comparison() {
                   <Check className="w-4 h-4" strokeWidth={3} />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-brand-text">Para o Estudante (Academy)</h4>
+                  <h4 className="text-sm font-bold text-brand-text">Para a Clínica Universitária e Hospitalar</h4>
                   <p className="text-xs text-brand-text-muted mt-1 leading-relaxed">
-                    Sabemos que a correria das clínicas acadêmicas exige rapidez. Suas checklists de instrumental separam o que levar, a evolução rascunha seu prontuário em segundos e o Modo Box garante que você use o celular sem violar a biossegurança.
+                    Com o OdontoHub Academy, o estudante de odontologia e o residente clínico têm no bolso um ecossistema com Modo Box de Biossegurança ativa (uso em mãos livres), controle de rascunhos rápidos para liberação de preceptores, checklists estruturados de instrumentais por disciplina e exportação de casos clínicos em PDF em segundos.
                   </p>
                 </div>
               </div>
@@ -286,9 +286,9 @@ export default function Comparison() {
           <div className="lg:col-span-5 bg-gradient-to-br from-[#1F6B57]/10 to-[#1F6B57]/5 rounded-[2rem] border border-brand-green/20 p-8 flex flex-col justify-between text-left">
             <div className="space-y-4">
               <Award className="w-10 h-10 text-brand-green shrink-0" />
-              <h3 className="text-xl font-bold text-brand-text">Compromisso com a Praticidade</h3>
+              <h3 className="text-xl font-bold text-brand-text">A Escolha das Novas Clínicas de Sucesso</h3>
               <p className="text-xs font-semibold text-brand-text/70 leading-relaxed">
-                Nós projetamos o OdontoHub usando a experiência direta de profissionais do dia a dia. Chega de sofrer com bugs, cliques desnecessários e interfaces construídas nos anos 2000. 
+                Nós projetamos o OdontoHub eliminando as burocracias das interfaces feitas nos anos 2000. Substituímos carregamentos lentos e cliques excessivos por inteligência fluida, segurança de dados em nuvem global e usabilidade móvel absoluta.
               </p>
             </div>
 
@@ -296,19 +296,19 @@ export default function Comparison() {
 
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-xs font-bold text-brand-text">
-                <Zap className="w-4 h-4 text-brand-green" /> Organização Instantânea
+                <Zap className="w-4 h-4 text-brand-green" /> Desempenho Recorde de Carregamento
               </div>
               <div className="flex items-center gap-2 text-xs font-bold text-brand-text">
-                <ShieldCheck className="w-4 h-4 text-brand-green" /> Dados 100% Protegidos
+                <ShieldCheck className="w-4 h-4 text-brand-green" /> Criptografia de Ponta (LGPD-Ready)
               </div>
               <div className="flex items-center gap-2 text-xs font-bold text-brand-text">
-                <Smartphone className="w-4 h-4 text-brand-green" /> Design Mobile Intuitivo
+                <Smartphone className="w-4 h-4 text-brand-green" /> Arquitetura Responsiva e Offline Ativo
               </div>
             </div>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <Link to="/" className="flex-1">
-                <Button variant="primary" className="w-full py-4 text-xs font-bold uppercase tracking-wider rounded-xl">OdontoHub Pro</Button>
+                <Button variant="primary" className="w-full py-4 text-xs font-bold uppercase tracking-wider rounded-xl">Quero o Pro</Button>
               </Link>
               <Link to="/academy" className="flex-1">
                 <Button variant="outline" className="w-full py-4 text-xs font-bold uppercase tracking-wider rounded-xl bg-white">Ver Academy</Button>
@@ -328,20 +328,24 @@ export default function Comparison() {
           <div className="space-y-4">
             {[
               {
+                q: "O OdontoHub é um sistema simples ou carece de recursos robustos?",
+                a: "De forma alguma! O OdontoHub é consideravelmente mais robusto e avançado que os líderes de mercado legados pois substitui a arquitetura inchada por soluções inteligentes e de alto desempenho. Contamos com diferenciais tecnológicos exclusivos: Modo Box de Biossegurança touchless, armazenamento cronológico segregado de fotos clínicas em tempo real, preenchimento inteligente de evolução clínica em menos de 1 minuto e tecnologia offline-first automática de auto-recuperação de rede. Não oferecemos menos recursos; eliminamos o peso desnecessário e adicionamos inteligência real de ponta."
+              },
+              {
                 q: "Por que o OdontoHub é mais rápido que concorrentes tradicionais?",
-                a: "Porque construímos a plataforma utilizando arquitetura moderna de ponta (Edge computing), sem carregar dezenas de bibliotecas ultrapassadas. Cada recurso foi desenhado com o mínimo de cliques possíveis, economizando o tempo valioso do dentista no atendimento clínico."
+                a: "Porque desenvolvemos o OdontoHub usando uma arquitetura moderna baseada em computação de borda (Edge Computing) e banco de dados de alta estabilidade de sincronização. Isso elimina a dependência de carregar centenas de tabelas burocráticas pesadas dos anos 2000 na tela do seu celular ou tablet no momento exato do atendimento."
               },
               {
-                q: "O OdontoHub funciona em qualquer celular ou celular antigo?",
-                a: "Sim! Ao invés de forçar você a instalar programas locais que travam e ocupam memória do celular ou computador, o OdontoHub é um aplicativo web super leve compatível com qualquer navegador moderno no celular (iPhone, Android) e computadores."
+                q: "O OdontoHub realmente funciona offline em clínicas ou hospitais sem sinal?",
+                a: "Sim. Nossos engenheiros desenvolveram um banco de dados local integrado ao aparelho do usuário (tecnologia Progressive Web App). Se a internet do consultório oscilar ou cair por completo, você pode continuar preenchendo as evoluções clínicas, agendando cirurgias e acessando checklists. O sistema salva tudo de forma segura localmente e sincroniza na nuvem os dados atualizados assim que reestabelecer qualquer conexão."
               },
               {
-                q: "Como é o gerenciamento de fotos de tratamento comparado à galeria comum?",
-                a: "Na galeria convencional do seu celular, as fotos clínicas de dentes ficam misturadas com fotos de viagens, reuniões de família e fotos pessoais. Com o OdontoHub, ao registrar a imagem operatória ela vai de forma segura direta para a nuvem daquele paciente, deixando sua biblioteca pessoal limpa e mantendo os dados dos pacientes ordenados por consulta."
+                q: "Qual a diferença real do gerenciamento de fotos no OdontoHub?",
+                a: "Em outros sistemas, o salvamento de fotos clínicas exige transferências de arquivos manuais desajeitadas por anexos isolados de prontuário, ou força o profissional a guardar tudo na própria galeria pessoal do celular. No OdontoHub, as fotos operatórias são salvas cronologicamente por caso sob rígidos critérios de privacidade corporativa e segurança de dados, liberando espaço nas galerias pessoais dos profissionais e agilizando as consultas e diagnósticos."
               },
               {
-                q: "Existe suporte aos estudantes na clínica da faculdade?",
-                a: "Sim, e esse é nosso maior diferencial. Com o OdontoHub Academy, o estudante conta com checklists de instrumentais específicos de sua grade, evoluções de consulta rápidas e o Modo Box que permite a leitura fácil dos passos biológicos a um metro de distância da cadeira do mocho, sem precisar tirar as luvas estéreis."
+                q: "Existe alguma opção de suporte aos estudantes ou residentes acadêmicos?",
+                a: "Sim, somos o único sistema odontológico no Brasil com uma plataforma exclusiva focada nas dores do estudante. O OdontoHub Academy disponibiliza listas prontas de instrumentais cirúrgicos divididos pelas disciplinas clínicas das principais grades brasileiras, Modo Box para guias de procedimentos sem toque contaminado e exportador dinâmico de relatórios cronológicos em PDF perfeitos para apresentação de seminários clínicos e slides."
               }
             ].map((faq, i) => (
               <details key={i} className="group bg-white rounded-2xl border border-brand-border overflow-hidden">
