@@ -181,8 +181,8 @@ export default function Home() {
               O consultório não precisa de mais dados.<br className="hidden md:block" />
               <span className="text-brand-green">Precisa de menos decisões.</span>
             </h1>
-            <p className="text-base md:text-xl text-brand-text-muted max-w-3xl mx-auto mb-10 md:mb-12 leading-relaxed px-4 md:px-0 font-semibold">
-              O OdontoHub é o primeiro **Clinical Clarity System (CCS)** de próxima geração. Um sistema de clareza operacional e clínica que substitui a papelada e os menus poluídos por respostas exatas às duas únicas perguntas que importam: <span className="text-brand-text font-bold">O que merece minha atenção agora? E posso ficar tranquilo quanto ao resto?</span> Se não houver nada urgente, o sistema permanece em total silêncio para você focar no paciente.
+            <p className="text-base md:text-xl text-brand-text-muted max-w-3xl mx-auto mb-10 md:mb-12 leading-relaxed px-4 md:px-0 font-medium font-semibold">
+              O OdontoHub organiza o seu consultório em um painel limpo e sem distrações. Ele atua como um colega de confiança que cuida de agendamentos e finanças para responder às duas perguntas simples que importam: <span className="text-brand-text font-bold">O que merece minha atenção agora? E posso ficar tranquilo quanto ao resto?</span> Se não houver nada urgente, ele permanece totalmente em silêncio para você focar no seu paciente.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 mb-10 px-4 md:px-0">
               <a href="https://sistema.odontohub.app.br" className="w-full sm:w-auto">
@@ -383,21 +383,21 @@ export default function Home() {
 
       <Section id="planos">
         <SectionHeader 
-          title="Escolha o seu Nível de Clareza Clínica." 
-          subtitle="Acesse a tecnologia do primeiro Clinical Clarity System do país. Comece a organizar as operações essenciais do consultório ou destrave o potencial preditivo completo."
+          title="Comece com a organização básica. Evolua para a clareza total." 
+          subtitle="O plano gratuito permite organizar seu consultório a custo zero. O plano Pro destrava as facilidades automáticas do OdontoHub."
         />
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto items-stretch px-2 md:px-0 text-left">
           <div className="premium-card p-8 md:p-10 flex flex-col">
-            <p className="text-[10px] md:text-xs font-bold text-brand-text-muted uppercase tracking-widest mb-1.5 md:mb-2">Organização Profissional</p>
-            <h3 className="text-xl md:text-2xl font-bold text-brand-text mb-1">OdontoHub Start</h3>
+            <p className="text-[10px] md:text-xs font-bold text-brand-text-muted uppercase tracking-widest mb-1.5 md:mb-2">Organização Essencial</p>
+            <h3 className="text-xl md:text-2xl font-bold text-brand-text mb-1">OdontoHub Gratuito</h3>
             <div className="flex items-baseline gap-1 my-5 md:my-6">
               <span className="text-3xl md:text-4xl font-bold">R$ 0</span>
-              <span className="text-brand-text-muted text-xs md:text-sm">grátis para começar</span>
+              <span className="text-brand-text-muted text-xs md:text-sm">grátis para sempre</span>
             </div>
             
             <ul className="space-y-3.5 mb-8 md:mb-12 flex-grow">
-              {["Agenda e horários organizados cronologicamente", "Dossiê de pacientes unificado", "Fichas clínicas digitais limpas", "Confirmações inteligentes via WhatsApp", "Desempenho super rápido sem anúncios"].map((feat) => (
+              {["Agenda e horários organizados", "Histórico de pacientes centralizado", "Fichas clínicas limpas", "Disparos básicos via WhatsApp", "Visual limpo e sem anúncios"].map((feat) => (
                 <li key={feat} className="flex items-center gap-3 text-sm text-brand-text/90 font-medium">
                   <CheckCircle2 size={16} className="text-brand-green/60 shrink-0" /> {feat}
                 </li>
@@ -405,13 +405,13 @@ export default function Home() {
             </ul>
             
             <a href="https://sistema.odontohub.app.br" className="w-full">
-              <Button variant="outline" className="w-full py-4 rounded-xl border-2 text-xs uppercase tracking-wider font-extrabold text-brand-green border-brand-green hover:bg-brand-green/5">Começar Agora</Button>
+              <Button variant="outline" className="w-full py-4 rounded-xl border-2 text-xs uppercase tracking-wider font-extrabold text-brand-green border-brand-green hover:bg-brand-green/5">Criar conta gratuita</Button>
             </a>
           </div>
 
           <div className="premium-card p-8 md:p-10 flex flex-col !bg-brand-green text-white border-none shadow-2xl relative mt-4 md:mt-0 md:scale-105">
             <div className="absolute -top-3 right-6 md:right-8 bg-brand-green-dark text-[9px] md:text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg text-white">Recomendado</div>
-            <p className="text-[10px] md:text-xs font-bold text-white/50 uppercase tracking-widest mb-1.5 md:mb-2">Paz de Espírito e Alta Performance</p>
+            <p className="text-[10px] md:text-xs font-bold text-white/50 uppercase tracking-widest mb-1.5 md:mb-2">Paz e automação completa</p>
             <h3 className="text-xl md:text-2xl font-bold mb-1 text-white">OdontoHub Pro</h3>
             <div className="flex items-baseline gap-1 my-5 md:my-6">
               <span className="text-3xl md:text-4xl font-bold text-white tracking-tight">R$ 99,90</span>
@@ -419,7 +419,7 @@ export default function Home() {
             </div>
             
             <ul className="space-y-4 mb-8 md:mb-12 flex-grow">
-              {["Pacientes e prontuários ilimitados", "Previsão inteligente de vácuos na agenda", "Automação de lembretes e retornos ativos", "Mapeamento analítico de caixa de 3 semanas", "Prevenção ativa de furos financeiros", "Galeria fotográfica de alta capacidade (Nuvem) "].map((feat) => (
+              {["Pacientes e prontuários ilimitados", "Sugestões de encaixe automáticas", "Lembretes e retornos inteligentes", "Painel exclusivo do que fazer hoje", "Previsão financeira de caixa discreta", "Espaço ilimitado para fotos clínicas"].map((feat) => (
                 <li key={feat} className="flex items-center gap-3 text-sm font-semibold text-white">
                   <CheckCircle2 size={16} className="text-white/30 shrink-0" /> {feat}
                 </li>
@@ -427,7 +427,7 @@ export default function Home() {
             </ul>
             
             <a href="https://sistema.odontohub.app.br" className="w-full">
-              <Button className="w-full bg-brand-green-dark text-white shadow-xl shadow-brand-green-dark/20 hover:opacity-90 border-none transition-all py-5 text-base font-bold rounded-xl">Entrar para a Alta Performance</Button>
+              <Button className="w-full bg-brand-green-dark text-white shadow-xl shadow-brand-green-dark/20 hover:opacity-90 border-none transition-all py-5 text-base font-bold rounded-xl">Quero a tranquilidade do Pro</Button>
             </a>
           </div>
         </div>
@@ -523,10 +523,10 @@ export default function Home() {
         <SectionHeader title="Dúvidas frequentes" />
         <div className="max-w-3xl mx-auto space-y-3 md:space-y-4 text-left">
           {[
-            { q: "O OdontoHub é como um sistema de gestão tradicional?", a: "Absolutamente não. Os softwares de odontologia tradicionais funcionam apenas como bancos de dados frios para você imputar dezenas de tabelas de registro burocrático e gráficos de vaidade sem ação real. O OdontoHub inaugurou uma categoria inteira de tecnologia: o Clinical Clarity System (CCS). Ele monitora o contexto do consultório por baixo dos panos e entrega ativamente apenas o que merece atenção imediata e a próxima ação limpa na superfície, eliminando sua fadiga de decisão debaixo do mocho." },
-            { q: "Qual a diferença entre o OdontoHub Start e o OdontoHub Pro?", a: "O OdontoHub Start organiza as operações essenciais do profissional de forma fluida. O plano Pro destrava as camadas mais avançadas de inteligência clínica de nosso CCS: ferramentas exclusivas como a Previsão Inteligente de Vácuos na Agenda, Dossiê e Galeria Fotográfica de Alta Definição na Nuvem de nível militar, Automação do Omnicanal de Retornos Rápidos integrados ao WhatsApp em um clique, e a Inteligência de Caixa Preditiva (que prevê o faturamento com semanas de antecedência para equilibrar suas contas)." },
-            { q: "Como meus dados clínicos são protegidos?", a: "Seus dados de diagnóstico e imagens de casos são tratados sob o mais estrito rigor clínico e estão em total conformidade com a LGPD. O OdontoHub opera em servidores redundantes de alta integridade de sinal com criptografia militar ponta a ponta. Nós valorizamos a autonomia médica e nunca compartilharemos seus dados nem toleraremos publicidades invasivas de terceiros dentro do seu ambiente cirúrgico." },
-            { q: "De que forma o OdontoHub reduz a fadiga de decisão operacional?", a: "Focamos em aproximar o profissional de seu paciente. Com modelos cirúrgicos inteligentes pré-formatados, você preenche a evolução clínica do paciente em menos de 45 segundos, controla instrumentais estéreis por gestos mãos livres com o exclusivo Modo Box, e revisa os parâmetros principais da sua clínica em menos de 2 minutos diários. O sucesso do nosso produto é determinado por quantas vezes o dentista fecha o aplicativo com total paz de espírito." }
+            { q: "O OdontoHub é como um sistema odontológico tradicional?", a: "Não. Os sistemas tradicionais funcionam apenas como arquivos digitais para você preencher papéis e relatórios que raramente usa. O OdontoHub faz o oposto: ele lê os dados do seu consultório e transforma tudo em uma lista simples e organizada de afazeres. Se não houver nada pendente ou urgente, o sistema fica em total silêncio para você desligar a mente do trabalho." },
+            { q: "O que eu recebo no plano Pro?", a: "O plano gratuito organiza perfeitamente sua agenda de consultas e fichas de pacientes. O plano Pro ativa os lembretes automáticos para pacientes faltantes, avisos discretos de previsão financeira para planejar o caixa das próximas semanas e facilidades adicionais para simplificar seu dia a dia." },
+            { q: "Como meus dados são protegidos?", a: "Nós tratamos seus dados e os dados de seus pacientes com respeito máximo. Toda a informação é guardada de forma segura e criptografada em servidores protegidos. Nós não exibimos anúncios comerciais e jamais vendemos ou compartilhamos dados com terceiros." },
+            { q: "Eu realmente vou gastar menos tempo na frente do computador?", a: "Esse é o nosso grande objetivo. Criamos o OdontoHub para que você consiga planejar os encaixes da sua semana, confirmar suas consultas e salvar as evoluções clínicas em menos de 2 minutos por dia. Nosso sucesso é ver você fechando o aplicativo sabendo que está tudo sob controle." }
           ].map((faq, i) => (
             <details key={i} className="group rounded-2xl md:rounded-3xl border border-brand-border overflow-hidden bg-brand-bg-alt">
               <summary className="flex items-center justify-between p-5 md:p-6 cursor-pointer font-bold text-brand-text list-none group-open:bg-white transition-colors text-sm md:text-base">

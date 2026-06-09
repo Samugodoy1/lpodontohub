@@ -542,10 +542,10 @@ export default function Academy() {
              <div className="bg-[#FAF9F5] border border-brand-border rounded-[2rem] md:rounded-[3rem] p-8 md:p-12 flex flex-col h-full hover:bg-white hover:shadow-2xl transition-all duration-500 text-left">
                 <div className="mb-8 md:mb-10">
                   <div className="flex justify-between items-center mb-2">
-                    <h3 className="text-2xl md:text-3xl font-bold text-brand-text">Academy Basic</h3>
+                    <h3 className="text-2xl md:text-3xl font-bold text-brand-text">Plano Grátis</h3>
                     <span className="text-[9px] font-bold tracking-widest text-[#999] uppercase">Uso individual</span>
                   </div>
-                  <p className="text-brand-text/50 font-semibold text-sm mb-6 leading-relaxed">Organize seus instrumentais e comece a preparar seus checklists por especialidade.</p>
+                  <p className="text-brand-text/50 font-semibold text-sm mb-6 leading-relaxed">Organize seus instrumentais e comece a montar seus checklists sem pagar nada.</p>
                   <div className="text-4xl md:text-5xl font-extrabold text-brand-text mb-2 tracking-tight">Grátis <span className="text-sm font-semibold opacity-40">para sempre</span></div>
                 </div>
 
@@ -555,8 +555,8 @@ export default function Academy() {
                    {[
                      "Até 3 pacientes ativos de uma vez",
                      "Agenda básica de clínicas e matérias",
-                     "Checklists de instrumentais específicos",
-                     "Rascunhos cirúrgicos de evolução clínica",
+                     "Checklists de instrumentais básicos",
+                     "Rascunho simples de evoluções clínicas",
                      "Organize até 50 fotos na galeria",
                      "Lista de materiais de consumo para separar"
                    ].map(f => (
@@ -575,7 +575,7 @@ export default function Academy() {
              <div className="bg-brand-academy border border-brand-academy rounded-[2rem] md:rounded-[3rem] p-8 md:p-12 flex flex-col h-full text-white shadow-2xl shadow-brand-academy/25 group md:hover:scale-[1.02] transition-transform duration-500 mt-4 md:mt-0 text-left">
                 <div className="mb-8 md:mb-10">
                   <div className="flex justify-between items-center mb-2">
-                    <h3 className="text-2xl md:text-3xl font-bold">Academy Unlimited</h3>
+                    <h3 className="text-2xl md:text-3xl font-bold">Plano Ilimitado</h3>
                     <div className="px-3 py-1 bg-white/10 rounded-full text-[8px] md:text-[9px] font-bold tracking-widest uppercase font-mono">Mais Recomendado</div>
                   </div>
                   <p className="text-white/70 font-semibold text-sm mb-6 leading-relaxed bg-white/5 py-1.5 px-3 rounded-lg border border-white/5">Para quem quer salvar todas as fotos e ter o arquivo clínico completo de toda a faculdade.</p>
@@ -623,8 +623,8 @@ export default function Academy() {
                 a: "De jeito nenhum. O Academy é o seu organizador pessoal extraoficial — um caderno inteligente de apoio. Nele você programa seus checklists de materiais e arquiva suas fotos. O preenchimento da ficha clínica oficial continua sendo feito no sistema ou papel exigido pelos professores da sua faculdade." 
               },
               { 
-                q: "A minha conta Academy Basic vai expirar depois de um tempo?", 
-                a: "Nunca. O plano Academy Basic é gratuito de verdade e continuará assim. Você pode organizar até 3 pacientes ativos simultaneamente e armazenar 50 fotos. Se quiser controlar mais casos e guardar mais registros ao longo do curso, você pode assinar o Academy Unlimited quando sentir necessidade de expandir seus limites." 
+                q: "A minha conta grátis vai expirar depois de um tempo?", 
+                a: "Nunca. O plano gratuito é grátis de verdade e continuará assim. Você pode organizar até 3 pacientes ativos simultaneamente e armazenar 50 fotos. Se quiser controlar mais casos e guardar mais registros ao longo do curso, você pode assinar o Ilimitado quando sentir necessidade." 
               },
               { 
                 q: "Funciona sem sinal de internet dentro da clínica?", 
@@ -632,7 +632,7 @@ export default function Academy() {
               },
               { 
                 q: "Como esse aplicativo me ajuda a montar relatórios de fim de semestre?", 
-                a: "No plano Academy Unlimited você consegue exportar um arquivo em PDF completo de cada caso, contendo o histórico estruturado dos procedimentos e a galeria de fotos em ordem cronológica. Em vez de perder horas procurando arquivos misturados no celular na véspera de apresentar o seminário, você gera tudo pronto com poucos cliques." 
+                a: "No plano Ilimitado você consegue exportar um arquivo em PDF completo de cada caso, contendo o histórico estruturado dos procedimentos e a galeria de fotos em ordem cronológica. Em vez de perder horas procurando arquivos misturados no celular na véspera de apresentar o seminário, você gera tudo pronto com poucos cliques." 
               },
             ].map((faq, i) => (
               <details key={i} className="group bg-white rounded-3xl border border-brand-border overflow-hidden">

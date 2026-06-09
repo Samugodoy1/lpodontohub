@@ -25,6 +25,7 @@ export const Footer = () => {
                   <a href="#planos" className="hover:text-brand-green">Planos</a>
                   <Link to={isAcademy ? "/" : "/academy"} className={isAcademy ? "hover:text-brand-academy" : "hover:text-brand-green"}>{isAcademy ? "OdontoHub Pro" : "Academy"}</Link>
                   <Link to="/comparativo" className={isAcademy ? "hover:text-brand-academy" : "hover:text-brand-green"}>Comparativos</Link>
+                  <Link to="/blog" className={isAcademy ? "hover:text-brand-academy" : "hover:text-brand-green"}>Blog</Link>
                   <Link to="/presets" className="hover:text-brand-green">Kit Social (Instagram)</Link>
                 </div>
               </div>
@@ -34,7 +35,7 @@ export const Footer = () => {
                   <Link to="/#recursos" className="hover:text-brand-green">Sobre</Link>
                   <a href="https://instagram.com/odontohub.app" target="_blank" rel="noreferrer" className={isAcademy ? "hover:text-brand-academy" : "hover:text-brand-green"}>Contato</a>
                   <Link to="/academy/embaixadores" className="hover:text-brand-academy">Embaixadores Academy</Link>
-                  <Link to="/" className="hover:text-brand-green">Manifesto</Link>
+                  <Link to="/blog?post=manifesto-fundador-odontologia-sufocada" className={isAcademy ? "hover:text-brand-academy" : "hover:text-brand-green"}>Manifesto</Link>
                 </div>
               </div>
               <div className="space-y-3 md:space-y-4">
