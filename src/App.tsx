@@ -139,7 +139,7 @@ export default function App() {
     <HelmetProvider>
       <Router>
         <ScrollToTop />
-        <div className="min-h-screen bg-brand-bg font-sans selection:bg-brand-green/20 selection:text-brand-green-dark">
+        <div className="min-h-screen bg-brand-bg font-sans selection:bg-brand-green/20 selection:text-brand-green-dark overflow-x-hidden w-full relative">
           <Navbar />
           <main>
             <AnimatedRoutes />

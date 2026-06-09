@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Rounded high-contrast background to pop beautifully on both light and dark Google search results -->
+  <rect width="48" height="48" rx="12" fill="#EAF4F0"/>
+  <!-- Elegant Tooth design corresponding to the OdontoHub identity -->
+  <path d="M24 10C16.5 10 12.5 15 12.5 22.5C12.5 25.5 13.5 28.5 15.5 30.5C16.8 31.8 17.5 33.5 18 35.5C18.2 36.5 19 38 21 38H27C29 38 29.8 36.5 30 35.5C30.5 33.5 31.2 31.8 32.5 30.5C34.5 28.5 35.5 25.5 35.5 22.5C35.5 15 31.5 10 24 10Z" fill="#1F6B57" stroke="#1F6B57" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- Highlight accent inside tooth representing clarity hub -->
+  <circle cx="24" cy="21" r="4" fill="#FFFFFF" opacity="0.9"/>
+</svg>

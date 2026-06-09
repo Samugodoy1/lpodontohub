@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button, Section, SectionHeader } from '../components/shared/UI';
+import Testimonials from '../components/shared/Testimonials';
 
 const Mockup = () => {
   const [scenario, setScenario] = React.useState(0);
@@ -299,7 +300,7 @@ export default function Home() {
       {/* 6. PORTAL DO PACIENTE */}
       <Section className="bg-white overflow-hidden" id="portal">
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
-          <div className="w-full md:w-5/12 order-2 md:order-1">
+          <div className="w-full md:w-5/12 order-2 md:order-1 relative overflow-hidden py-10">
             <div className="relative mx-auto w-[280px] md:w-[320px] aspect-[9/19] bg-brand-bg border-[8px] border-brand-green-dark rounded-[3rem] shadow-2xl overflow-hidden">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 bg-brand-green-dark rounded-b-2xl z-20" />
               <div className="p-6 pt-10 h-full flex flex-col bg-brand-bg text-left">
@@ -330,7 +331,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-brand-green/5 rounded-full blur-3xl" />
+            <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-brand-green/5 rounded-full blur-3xl pointer-events-none" />
           </div>
           
           <div className="w-full md:w-7/12 order-1 md:order-2 text-left">
@@ -381,6 +382,10 @@ export default function Home() {
         </div>
       </Section>
 
+      <Section className="bg-white" id="depoimentos">
+        <Testimonials />
+      </Section>
+
       <Section id="planos">
         <SectionHeader 
           title="Comece com a organização básica. Evolua para a clareza total." 
@@ -397,7 +402,14 @@ export default function Home() {
             </div>
             
             <ul className="space-y-3.5 mb-8 md:mb-12 flex-grow">
-              {["Agenda e horários organizados", "Histórico de pacientes centralizado", "Fichas clínicas limpas", "Disparos básicos via WhatsApp", "Visual limpo e sem anúncios"].map((feat) => (
+              {[
+                "Limite de pacientes ativos",
+                "Limite de agendamentos mensais",
+                "Inteligência Artificial e previsões limitadas",
+                "Histórico de pacientes centralizado",
+                "Fichas clínicas e agendas básicas",
+                "Visual limpo e sem anúncios"
+              ].map((feat) => (
                 <li key={feat} className="flex items-center gap-3 text-sm text-brand-text/90 font-medium">
                   <CheckCircle2 size={16} className="text-brand-green/60 shrink-0" /> {feat}
                 </li>
@@ -419,7 +431,15 @@ export default function Home() {
             </div>
             
             <ul className="space-y-4 mb-8 md:mb-12 flex-grow">
-              {["Pacientes e prontuários ilimitados", "Sugestões de encaixe automáticas", "Lembretes e retornos inteligentes", "Painel exclusivo do que fazer hoje", "Previsão financeira de caixa discreta", "Espaço ilimitado para fotos clínicas"].map((feat) => (
+              {[
+                "Pacientes e prontuários ILIMITADOS",
+                "Agendamentos e calendário ILIMITADOS",
+                "Acesso total e IRRESTRITO à Inteligência Artificial",
+                "Sugestões de encaixe automáticas por IA",
+                "Lembretes e retornos inteligentes ativos",
+                "Painel exclusivo do que fazer hoje",
+                "Previsão financeira de caixa discreta"
+              ].map((feat) => (
                 <li key={feat} className="flex items-center gap-3 text-sm font-semibold text-white">
                   <CheckCircle2 size={16} className="text-white/30 shrink-0" /> {feat}
                 </li>
@@ -545,9 +565,9 @@ export default function Home() {
 
       {/* 9. CTA FINAL */}
       <Section className="pb-10 md:pb-20 pt-0">
-        <div className="bg-brand-green-dark rounded-[2.5rem] md:rounded-[5rem] p-12 md:p-32 text-white text-center relative overflow-hidden mx-5">
+        <div className="bg-brand-green-dark rounded-[2.5rem] md:rounded-[5rem] py-12 px-6 md:p-32 text-white text-center relative overflow-hidden">
           <div className="relative z-10 max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-7xl font-bold mb-8 md:mb-12 leading-tight tracking-tight">Traga clareza e tranquilidade de volta para o seu consultório.</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-7xl font-bold mb-6 md:mb-12 leading-tight tracking-tight">Traga clareza e tranquilidade de volta para o seu consultório.</h2>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
               <a href="https://sistema.odontohub.app.br" className="w-full sm:w-auto">
                 <Button variant="outline" className="w-full px-12 py-6 !bg-white !text-brand-green-dark border-none font-bold shadow-2xl rounded-2xl">Começar gratuitamente</Button>

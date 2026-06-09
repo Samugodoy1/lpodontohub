@@ -14,29 +14,29 @@ export default function FAQSection() {
 
   const faqItems: FAQItem[] = [
     {
-      category: 'Diferencial de Mercado',
-      question: 'O que diferencia o OdontoHub dos softwares de gestão convencionais como o Clinicorp?',
-      answer: 'Ao contrário do Clinicorp (que é estruturado para redes de franquias corporativas complexas com dashboards densos e incontáveis menus), o OdontoHub é um Clinical Clarity System (CCS) desenhado especificamente para o dentista independente e estudantes universitários. Nossa interface tem apenas o que importa, remove redundâncias e é totalmente limpa para navegação rápida de bolso, permitindo fechar o sistema rapidamente com total confiança. Além disso, incluímos o Modo Box de biossegurança ativa e o Preceptor Digital.'
+      category: 'Migração Livre de Atrito',
+      question: 'É fácil migrar de outro sistema para o OdontoHub?',
+      answer: 'Sim, a migração é extremamente simples! Desenvolvemos um importador inteligente que traz seus contatos e fichas de pacientes de sistemas antigos de forma automática. Além disso, você pode criar uma conta e começar a usar do zero em menos de 2 minutos.'
     },
     {
-      category: 'Inteligência e Usabilidade',
-      question: 'Como a IA do OdontoHub trabalha sem poluir a mente do profissional?',
-      answer: 'Nossa Inteligência Artificial é regida pelo princípio do Silêncio Ativo: ela monitora as finanças da sua clínica, seus agendamentos e necessidades de materiais acadêmicos em segundo plano, mas se mantém em silêncio quando tudo corre bem. Quando uma ação corretiva é urgente (ex: detecção de faturamento previsto abaixo do esperado ou falta de materiais para a cirurgia periodontal de amanhã), ela alerta com contexto e oferece uma sugestão clara de resolução acionada em um clique.'
+      category: 'Segurança Total',
+      question: 'Como meus dados são protegidos?',
+      answer: 'Usamos criptografia de nível bancário. Seus dados e históricos clínicos dos pacientes estão 100% seguros e são editáveis apenas por você.'
     },
     {
-      category: 'Estudantes e Academy',
-      question: 'Como o OdontoHub Academy apoia o estudante de odontologia debaixo do mocho?',
-      answer: 'O Academy funciona como um verdadeiro preceptor clínico digital de bolso. Ele analisa os casos e especialidades do seu calendário acadêmico de atendimento na clínica universitária, e entrega micro-conteúdos, checklists de instrumentais e roteiros rápidos de biossegurança cirúrgica fáceis de assimilar minutos antes de você vestir os EPIs e iniciar o atendimento.'
+      category: 'Diferencial Prático',
+      question: 'O que diferencia o OdontoHub de sistemas antigos como o Clinicorp?',
+      answer: 'Diferente de sistemas legados que possuem dezenas de menus poluídos e lentos, o OdontoHub foi construído para o clínico independente. Nosso foco é clareza máxima: você resolve sua rotina clínica em segundos com zero poluição visual.'
     },
     {
-      category: 'Dispositivos e Conectividade',
-      question: 'O OdontoHub funciona em celulares de modelos antigos ou com conexão instável de sinal?',
-      answer: 'Sim, absolutamente. O software foi meticulosamente programado com uma arquitetura "Edge" ultraleve que carrega e reage em menos de um segundo em qualquer smartphone, mesmo que você esteja no subsolo do box clínico da universidade. Seus rascunhos de prontuário, receitas e checklists de biossegurança salvam instantaneamente no cache interno e realizam o backup em nuvem assim que detectarem sinal de rede.'
+      category: 'Alta Conexão',
+      question: 'O OdontoHub funciona em celulares antigos ou sem internet de qualidade?',
+      answer: 'Sim! Com uma arquitetura leve, o sistema salva seus prontuários e checklists no cache interno do aparelho na hora. Assim que o sinal de internet retorna, o backup em nuvem é feito automaticamente de forma transparente.'
     },
     {
-      category: 'Segurança e LGPD',
-      question: 'Como o sistema protege meus prontuários odontológicos e a privacidade dos pacientes?',
-      answer: 'Nossos Mandamentos Fundadores declaram que os dados dos pacientes são sagrados. Utilizamos criptografia de nível hospitalar e segurança em nuvem avançada em ambiente seguro. Nós cumprimos rigorosamente as disposições da LGPD e nunca lucramos com dados de terceiros ou atenção do dentista.'
+      category: 'Foco e Silêncio',
+      question: 'A Inteligência Artificial do sistema vai me atrapalhar ou enviar spam?',
+      answer: 'De forma alguma. Operamos sob o método do Silêncio Ativo: nossa IA monitora dados operacionais silenciosamente em segundo plano, alertando apenas quando uma ação corretiva imediata for essencial para evitar prejuízos.'
     }
   ];
 
