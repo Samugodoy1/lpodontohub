@@ -7,6 +7,7 @@ import Ambassadors from './pages/Ambassadors';
 import InstagramPresets from './pages/InstagramPresets';
 import AdminApplications from './pages/AdminApplications';
 import Confirmation from './pages/Confirmation';
+import Comparison from './pages/Comparison';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 
@@ -94,6 +95,26 @@ function AnimatedRoutes() {
             transition={{ duration: 0.3 }}
           >
             <Confirmation />
+          </motion.div>
+        } />
+        <Route path="/comparativo" element={
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Comparison />
+          </motion.div>
+        } />
+        <Route path="/odontohub-vs-concorrentes" element={
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Comparison />
           </motion.div>
         } />
       </Routes>

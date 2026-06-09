@@ -23,7 +23,8 @@ export const Footer = () => {
                 <div className="flex flex-col gap-2.5 md:gap-3 text-brand-text-muted">
                   <a href="#recursos" className="hover:text-brand-green">Recursos</a>
                   <a href="#planos" className="hover:text-brand-green">Planos</a>
-                  <Link to={isAcademy ? "/" : "/academy"} className="hover:text-brand-green">{isAcademy ? "OdontoHub Pro" : "Academy"}</Link>
+                  <Link to={isAcademy ? "/" : "/academy"} className={isAcademy ? "hover:text-brand-academy" : "hover:text-brand-green"}>{isAcademy ? "OdontoHub Pro" : "Academy"}</Link>
+                  <Link to="/comparativo" className={isAcademy ? "hover:text-brand-academy" : "hover:text-brand-green"}>Comparativos</Link>
                   <Link to="/presets" className="hover:text-brand-green">Kit Social (Instagram)</Link>
                 </div>
               </div>
