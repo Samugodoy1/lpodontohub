@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 import { 
   GraduationCap, 
   CheckCircle2, 
@@ -88,6 +89,17 @@ const FeatureCard = ({ icon: Icon, title, desc, delay = 0, badge }: { icon: any,
 export default function Academy() {
   return (
     <div className="min-h-screen bg-brand-bg">
+      <Helmet>
+        <title>OdontoHub Academy — O Melhor App para Estudante de Odonto do Brasil</title>
+        <meta name="description" content="O aplicativo definitivo feito sob medida para estudantes de odontologia. Organize checklists de matérias e instrumentais, use o Modo Box de biossegurança inteligente sem toques de luvas." />
+        <meta name="keywords" content="app para estudante de odonto, estudante de odonto, odontologia faculdade, material odontologico, checklist odontologia, biossegurança clinica, odontohub academy" />
+        <link rel="canonical" href="https://www.odontohub.app.br/academy" />
+        <meta property="og:title" content="OdontoHub Academy — Seu assistente na clínica da faculdade" />
+        <meta property="og:description" content="O aplicativo definitivo feito sob medida para estudantes de odontologia. Organize checklists de matérias e instrumentais, use o Modo Box de biossegurança." />
+        <meta property="og:url" content="https://www.odontohub.app.br/academy" />
+        <meta name="twitter:title" content="OdontoHub Academy — Seu assistente na clínica da faculdade" />
+        <meta name="twitter:description" content="Organize checklists de matérias e instrumentais, use o Modo Box de biossegurança inteligente sem toques de luvas." />
+      </Helmet>
       {/* 1. HERO SECTION: Re-anchored for instant conversion */}
       <Section className="pt-20 sm:pt-24 md:pt-40 pb-16 md:pb-24 overflow-hidden">
         <div className="max-w-6xl mx-auto">

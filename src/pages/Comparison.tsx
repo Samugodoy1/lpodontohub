@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { 
-  Check, 
+import { Helmet } from 'react-helmet-async';
+import {   Check, 
   X, 
   Sparkles, 
   TrendingUp, 
@@ -127,6 +127,17 @@ export default function Comparison() {
 
   return (
     <div className="min-h-screen bg-[#FAFCFB] pt-28 pb-16 px-4 md:px-6">
+      <Helmet>
+        <title>OdontoHub vs Concorrentes — Análise Técnica de Sistemas Dentários</title>
+        <meta name="description" content="Comparativo técnico detalhado dos melhores softwares odontológicos. Descubra as diferenças entre OdontoHub, Simples Dental, Clinicorp e outras plataformas." />
+        <meta name="keywords" content="sistemas odontológicos comparativo, software de odonto, melhor software odontologico, odontohub vs simples dental, clinicorp vs odontohub" />
+        <link rel="canonical" href="https://www.odontohub.app.br/comparativo" />
+        <meta property="og:title" content="OdontoHub vs Concorrentes — Análise de Sistemas Dentários" />
+        <meta property="og:description" content="Análise comparativa imparcial e técnica. Escolha a melhor plataforma clínica para o seu consultório em 2026." />
+        <meta property="og:url" content="https://www.odontohub.app.br/comparativo" />
+        <meta name="twitter:title" content="OdontoHub vs Concorrentes — Análise de Sistemas Dentários" />
+        <meta name="twitter:description" content="Comparativo do melhor software odontológico do mercado em 2026." />
+      </Helmet>
       <div className="max-w-6xl mx-auto">
         
         {/* Breadcrumb & Intro optimized for search intent */}

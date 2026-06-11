@@ -18,14 +18,14 @@ export const Navbar = () => {
   }, []);
 
   const links = isAcademy ? [
-    { label: 'O problema', href: '#como-funciona' },
-    { label: 'Fluxo Academy', href: '#fluxo' },
+    { label: 'Como funciona', href: '#como-funciona' },
+    { label: 'App para Estudantes', href: '/app-para-estudante-de-odontologia', isLink: true },
     { label: 'Embaixadores', href: '/academy/embaixadores', isLink: true },
     { label: 'Blog', href: '/blog', isLink: true },
     { label: 'Planos', href: '#planos' },
   ] : [
-    { label: 'Como funciona', href: '#como-funciona' },
-    { label: 'Recursos', href: '#recursos' },
+    { label: 'Software Odontológico', href: '/software-odontologico', isLink: true },
+    { label: 'Sistemas para Dentista', href: '/sistemas-para-dentista', isLink: true },
     { label: 'Comparativo', href: '/comparativo', isLink: true },
     { label: 'Blog', href: '/blog', isLink: true },
     { label: 'Planos', href: '#planos' },
@@ -35,13 +35,13 @@ export const Navbar = () => {
   const brandTextColor = isAcademy ? 'text-brand-academy' : 'text-brand-green-dark';
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-lg border-b border-brand-border py-3 md:py-4' : 'bg-transparent py-5 md:py-6'}`}>
-      <div className="max-w-7xl mx-auto px-5 md:px-6 flex items-center justify-between">
-        <Link to="/" className="group">
+    <header role="banner" className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-lg border-b border-brand-border py-4' : 'bg-transparent py-6'}`}>
+      <nav id="primary-navigation" aria-label="Menu Principal" className="max-w-7xl mx-auto px-5 md:px-6 flex items-center justify-between">
+        <Link to="/" className="group" aria-label="OdontoHub Página Inicial">
           <Logo isAcademy={isAcademy} className="items-start" />
         </Link>
 
-        <div className="hidden lg:flex items-center gap-10 text-sm font-semibold text-brand-text-muted">
+        <div className="hidden lg:flex items-center gap-8 text-sm font-semibold text-brand-text-muted">
           {links.map(link => (
             link.isLink ? (
               <Link key={link.label} to={link.href} className={`hover:${isAcademy ? 'text-brand-academy' : 'text-brand-green'} transition-colors font-semibold`}>
@@ -55,7 +55,7 @@ export const Navbar = () => {
           ))}
           {!isAcademy && (
             <Link to="/academy" className="px-3 py-1 bg-brand-academy-soft text-brand-academy rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-brand-academy hover:text-white transition-all">
-               Academy: Para Alunos
+               Academy: Alunos
             </Link>
           )}
         </div>
@@ -69,10 +69,10 @@ export const Navbar = () => {
           </a>
         </div>
 
-        <button className="lg:hidden p-1.5 text-brand-text" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        <button aria-label="Alternar menu no celular" className="lg:hidden p-1.5 text-brand-text" onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-      </div>
+      </nav>
 
       <AnimatePresence>
         {isMenuOpen && (
@@ -104,6 +104,6 @@ export const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </header>
   );
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 import { 
   Calendar, 
   Users, 
@@ -170,6 +171,17 @@ const Menu = (props: any) => <svg {...props} xmlns="http://www.w3.org/2000/svg" 
 export default function Home() {
   return (
     <div className="min-h-screen">
+      <Helmet>
+        <title>OdontoHub — O Software Odontológico do Futuro</title>
+        <meta name="description" content="O sistema moderno definitivo para gerenciar o seu consultório de odontologia e decolar sua produtividade. Agenda WhatsApp, Prontuário Clínico rápido, Evoluções Inteligentes e Modo Box para estudantes." />
+        <meta name="keywords" content="odontohub, software odontologico, sistema para consultorio odontologico, prontuario odontologico digital, estudante de odontologia, biossegurança, odontohub academy" />
+        <link rel="canonical" href="https://www.odontohub.app.br/" />
+        <meta property="og:title" content="OdontoHub — Sua rotina clínica, simplificada" />
+        <meta property="og:description" content="O software moderno definitivo para gerenciar seu consultório. Controle sua agenda de pacientes, registre evoluções clínicas rápidas e organize finanças." />
+        <meta property="og:url" content="https://www.odontohub.app.br/" />
+        <meta name="twitter:title" content="OdontoHub — Sua rotina clínica, simplificada" />
+        <meta name="twitter:description" content="O software moderno definitivo para gerenciar seu consultório. Controle sua agenda, prontuários e organize checklists no Modo Box." />
+      </Helmet>
       {/* 2. HERO */}
       <Section className="pt-32 md:pt-48 pb-10 md:pb-20">
         <div className="text-center">
@@ -268,8 +280,8 @@ export default function Home() {
               <div className={`p-2 md:p-2.5 rounded-xl bg-brand-${item.color.split('-')[1]}-soft text-${item.color} w-fit mb-4 md:mb-6`}>
                 <item.icon size={20} className="md:w-[22px] md:h-[22px]" />
               </div>
-              <h5 className={`text-[9px] md:text-[10px] font-bold text-${item.color} uppercase tracking-widest mb-1`}>{item.label}</h5>
-              <h4 className="font-bold text-brand-text text-base md:text-lg mb-3">{item.title}</h4>
+              <p className={`text-[9px] md:text-[10px] font-bold text-${item.color} uppercase tracking-widest mb-1`}>{item.label}</p>
+              <h3 className="font-bold text-brand-text text-base md:text-lg mb-3">{item.title}</h3>
               <p className="text-brand-text-muted text-xs md:text-sm leading-relaxed font-semibold">{item.text}</p>
             </motion.div>
           ))}
@@ -290,7 +302,7 @@ export default function Home() {
             { t: "Fluxo de caixa sob controle", d: "Projeta as contas e entradas das próximas semanas e avisa com antecedência discreta se houver riscos de caixa." }
           ].map((r, i) => (
             <div key={i} className="p-6 md:p-8 bg-white border border-brand-border rounded-[1.5rem] md:rounded-[2rem] hover:ring-2 hover:ring-brand-green/20 transition-all group">
-              <h4 className="font-bold text-base md:text-lg text-brand-text mb-1.5 md:mb-2 group-hover:text-brand-green transition-colors">{r.t}</h4>
+              <h3 className="font-bold text-base md:text-lg text-brand-text mb-1.5 md:mb-2 group-hover:text-brand-green transition-colors">{r.t}</h3>
               <p className="text-brand-text-muted text-xs md:text-sm leading-relaxed font-semibold">{r.d}</p>
             </div>
           ))}
