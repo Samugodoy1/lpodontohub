@@ -35,3 +35,12 @@
 .premium-shadow {
   box-shadow: 0 20px 40px -15px rgba(29, 79, 62, 0.08);
 }
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

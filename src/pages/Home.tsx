@@ -22,6 +22,7 @@ import {
 import { Link } from 'react-router-dom';
 import { Button, Section, SectionHeader } from '../components/shared/UI';
 import Testimonials from '../components/shared/Testimonials';
+import SystemMockupShowcase from '../components/shared/SystemMockupShowcase';
 
 const Mockup = () => {
   const [scenario, setScenario] = React.useState(0);
@@ -372,26 +373,12 @@ export default function Home() {
           </div>
         </div>
       </Section>
-      <Section className="bg-[#FAF9F5] border-y border-brand-border/30">
+      <Section className="bg-[#FAF9F5] border-y border-brand-border/30" id="demonstracao">
         <SectionHeader 
-          title="Princípio de compromisso com o seu tempo"
-          subtitle="Estes são os valores fundamentais do OdontoHub. Formam o nosso compromisso inabalável com a tranquilidade da sua rotina de trabalho."
+          title="O sistema de gestão por dentro"
+          subtitle="Explore as principais telas reais do OdontoHub. Nossa interface tira a papelada do seu caminho para que você foque inteiramente no seu paciente."
         />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto text-left px-4 md:px-0">
-          {[
-            { num: "I", title: "Nunca prenderemos sua atenção à tela", p: "O sucesso do OdontoHub é medido na quantidade de vezes que o dentista fecha o aplicativo com tranquilidade — sabendo que, se houvesse algo importante, ele já estaria resolvido pelo sistema." },
-            { num: "II", title: "Nunca venderemos seus dados ou exibiremos anúncios", p: "Rejeitamos qualquer publicidade ou anúncios comerciais dentro do sistema. Funcionamos através de assinaturas limpas e focadas exclusivamente em entregar paz de espírito." },
-            { num: "III", title: "Nunca adicionaremos complexidade para parecer completo", p: "Toda funcionalidade que não sirva diretamente à clareza administrativa e ao alívio clínico do profissional é deixada de fora. Nós simplificamos." }
-          ].map((mand, idx) => (
-            <div key={idx} className="p-8 bg-white border border-brand-border rounded-[2rem] shadow-sm flex flex-col justify-between">
-              <div>
-                <span className="text-brand-green font-mono font-black text-2xl md:text-3xl block mb-4">{mand.num}</span>
-                <h4 className="text-lg md:text-xl font-bold tracking-tight text-brand-text mb-3 leading-tight">{mand.title}</h4>
-                <p className="text-xs md:text-sm text-brand-text-muted leading-relaxed font-semibold">{mand.p}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <SystemMockupShowcase />
       </Section>
 
       <Section className="bg-white" id="depoimentos">
