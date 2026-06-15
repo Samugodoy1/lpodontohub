@@ -51,6 +51,154 @@ export default function Blog() {
 
   const articles: Article[] = [
     {
+      slug: 'esquecer-de-ligar-para-paciente-impacto',
+      title: 'O Custo Invisível: O que realmente acontece quando você esquece de ligar para um paciente',
+      category: 'Gestão',
+      publishDate: '14 de Junho, 2026',
+      readTime: '5 min de leitura',
+      author: 'Equipe Editorial OdontoHub',
+      authorRole: 'Revisão Técnica e Educacional',
+      summary: 'Mais do que perder o faturamento imediato, esquecer de avisar sobre uma sutura ou entrega de prótese destrói a confiança que você suou para construir na cadeira técnica do mocho. Entenda o impacto real de um descuido.',
+      seoKeywords: ['esquecer de ligar para paciente', 'perda de paciente odontologia', 'recall de paciente', 'fidelização de pacientes', 'gestao odontologica cro'],
+      content: (
+        <div className="space-y-6 text-brand-text/80 leading-relaxed font-semibold text-sm md:text-base">
+          <p className="text-lg text-brand-text font-bold mb-4">
+            Você acabou de finalizar uma restauração cerâmica perfeita ou uma cirurgia periodontal impecável. O paciente agradece com as bochechas ainda sob efeito anestésico, você preenche a alta clínica, lava as mãos e passa para o próximo atendimento. Mas o trabalho laboratorial de prótese exige entrega em dez dias. O que acontece se seu controle manual falha e você simplesmente esquece de chamá-lo?
+          </p>
+          
+          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4">A erosão silenciosa da reputação profissional</h2>
+          <p>
+            Muitos dentistas acreditam que o prejuízo de esquecer de ligar para o paciente é puramente financeiro — um espaço ocioso ou atraso no recebimento da última parcela de prótese. A verdade é muito mais dolorosa. Trata-se da <strong>perda imediata de autoridade e confiança</strong>.
+          </p>
+          <p>
+            Quando o paciente vai para casa sabendo que o cirurgião-dentista prometeu contatá-lo e o telefone permanece mudo, o estrago mental está feito: ele deduz que a clínica é desorganizada, desleixada com o pós-operatório ou que só se importava com o pagamento inicial. O sentimento de desamparo destrói qualquer probabilidade de indicação pelo clássico boca-a-boca.
+          </p>
+
+          <blockquote className="border-l-4 border-brand-green pl-4 italic text-brand-text/95 bg-brand-green/5 p-4 rounded-r-xl">
+            "Um paciente que liga para saber se a sua coroa já chegou é um paciente constrangido por fazer o trabalho que o sistema da clínica deveria ter feito sozinho."
+          </blockquote>
+
+          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4">Suturas que inflamam e dentes provisórios que soltam</h2>
+          <p>
+            Esquecer de chamar um paciente para consulta clínica de controle ou remoção de suturas de periodontia traz riscos de complicações biológicas sérias. Sondas periodontais ou fios de sutura deixados além do tempo acumulam biofilme, incitam inflamação gengival severa e geram desconforto desnecessário e evitável ao cliente.
+          </p>
+          <p>
+            Com o OdontoHub, as datas limite de controle cirúrgico e retornos laboratoriais de insumos de prótese são mantidas sob controle rígido na ponta do seu dedo. Você se liberta da paranoia de esquecer compromissos críticos enquanto atende focado debaixo do mocho.
+          </p>
+        </div>
+      )
+    },
+    {
+      slug: 'como-is-atender-sozinho-no-consultorio',
+      title: 'A Verdade Crua: Como é atender sozinho e o massacre do "Mocho ao Whatsapp"',
+      category: 'Gestão',
+      publishDate: '13 de Junho, 2026',
+      readTime: '6 min de leitura',
+      author: 'Equipe Editorial OdontoHub',
+      authorRole: 'Revisão Técnica e Educacional',
+      summary: 'Atender, lavar e esterilizar instrumentais, responder mensagens de orçamentos e gerenciar o fluxo de caixa. O cansaço físico e de decisão do dentista solo é real e exige estratégias práticas de sobrevivência.',
+      seoKeywords: ['atender sozinho consultorio', 'dentista solo organizacao', 'cansaço profissional dentista', 'gestao sem secretaria', 'economia consultorio odontologico'],
+      content: (
+        <div className="space-y-6 text-brand-text/80 leading-relaxed font-semibold text-sm md:text-base">
+          <p className="text-lg text-brand-text font-bold mb-4">
+            Quem nunca vivenciou a rotina não sabe: ser um dentista solo sem fôlego para pagar uma secretária nos primeiros meses é um teste heróico de resistência biológica. Você manipula silicone, realiza isolamento absoluto sob pressão, e no minuto seguinte precisa retirar as luvas estéreis correndo para responder a uma mensagem crítica de agendamento que apita no WhatsApp.
+          </p>
+          
+          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4">Porque o cansaço do dentista autônomo é neurológico, não apenas de mocho</h2>
+          <p>
+            Ao final de uma jornada exaustiva, suas costas doem debaixo do mocho e seus dedos estão fadigados pela empunhadura da contra-ângulo de alta rotação. Mas o principal vilão do seu esgotamento é a chamada <strong>fadiga de decisão</strong>.
+          </p>
+          <p>
+            Seu cérebro realiza centenas de micro-decisões por hora: calcular o tempo ideal de polimerização e espessura do incremento de resina, dosar o anestésico local, estimar o preço que cubra a perda do broqueiro e, entre um dente e outro, calcular se o Pix do paciente caiu para pagar o protético amanhã. É um estado constante de alerta.
+          </p>
+
+          <blockquote className="border-l-4 border-brand-green pl-4 italic text-brand-text/95 bg-brand-green/5 p-4 rounded-r-xl">
+            "Para economizar na folha de pagamento de forma inteligente, você precisa terceirizar a burocracia para a tecnologia, não acumular as tarefas no seu cérebro já esgotado."
+          </blockquote>
+
+          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4">Como estruturar a sobrevivência operacional</h2>
+          <p>
+            Se você deseja atuar sozinho de forma lucrativa e manter oCRO resguardado de estresse, siga três passos obrigatórios:
+          </p>
+          <ul className="list-disc pl-5 space-y-2">
+            <li><strong>Estações de esterilização automatizadas:</strong> Padronize a descontaminação por ultrassom e autoclave com fluxos exatos e rápidos.</li>
+            <li><strong>Recepção digital discreta:</strong> Deixe o OdontoHub gerenciar as confirmações e lembretes de consultas na véspera sob silêncio operacional, evitando que você precise telefonar correndo.</li>
+            <li><strong>Prontuários portáteis:</strong> evolua a ficha clínica e fotografe dentes em 5 segundos no celular antes mesmo que o paciente levante da cadeira.</li>
+          </ul>
+        </div>
+      )
+    },
+    {
+      slug: 'o-caos-da-agenda-vazia-na-terca-feira',
+      title: 'O Caos Silencioso da Terça-feira com Agenda Vazia (e como reverter com prevenção)',
+      category: 'Gestão',
+      publishDate: '12 de Junho, 2026',
+      readTime: '5 min de leitura',
+      author: 'Equipe Editorial OdontoHub',
+      authorRole: 'Revisão Técnica e Educacional',
+      summary: 'Olhar para a cadeira de procedimentos vazia às 14h de uma terça-feira sem nenhum paciente gera uma ansiedade profunda que nenhum curso ensina. Veja como as profilaxias periódicas atuam na receita.',
+      seoKeywords: ['agenda vazia consultorio', 'falta de paciente odontologia', 'faturar mais consultorio', 'prevencao odontologica rotina', 'odontohub retornos'],
+      content: (
+        <div className="space-y-6 text-brand-text/80 leading-relaxed font-semibold text-sm md:text-base">
+          <p className="text-lg text-brand-text font-bold mb-4">
+            A terça-feira começou em silêncio. Você entra no consultório de jaleco, confere a agenda no sistema e vê um vazio assustador das 14h às 18h. A ansiedade financeira aperta o peito: as contas de água, aluguel, CRO e as resinas importadas à prestação continuam correndo, mas o faturamento hoje parece estagnado.
+          </p>
+          
+          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4">Gastar rios de dinheiro com marketing ou estruturar seu próprio quintal?</h2>
+          <p>
+            O primeiro impulso de pânico na agenda vazia é contratar assinaturas caras de tráfego pago para anunciar implantes nos motores de busca convencionais. Contudo, atrair novos leads de implantes ou odontologia estética custa caro e costuma trazer pacientes pouco fidelizados.
+          </p>
+          <p>
+            O verdadeiro segredo está em <strong>recolher e reativar os pacientes que já estiveram deitados na sua cadeira</strong>. Quantos pacientes você atendeu para profilaxia, prótese ou reabilitação oral nos últimos doze meses que deveriam voltar para uma nova avaliação preventiva e limpeza biológica de rotina?
+          </p>
+
+          <blockquote className="border-l-4 border-indigo-500 pl-4 italic text-brand-text/95 bg-indigo-50/10 p-4 rounded-r-xl">
+            "A profilaxia de rotina de 6 meses é o coração financeiro de qualquer clínica solo estável. Ela cobre o custo fixo de manutenção enquanto você capta novos casos grandes de forma leve."
+          </blockquote>
+
+          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4">O OdontoHub cria consistência preventiva para você</h2>
+          <p>
+            O nosso sistema analisa quem são os pacientes que completaram seis meses desde a última consulta de higienização ou conferência cirúrgica periodontal e cria listas interativas de retornos ágeis. Envie lembretes personalizados com um toque, poupando que sua recepção digital gaste horas rastreando cadernos molhados de anotações soltas debaixo do mocho.
+          </p>
+        </div>
+      )
+    },
+    {
+      slug: 'o-que-ninguem-ensina-sobre-gestao-clinica-na-faculdade',
+      title: 'O que ninguém ensina sobre gestão clínica e negócios debaixo do Mocho na faculdade',
+      category: 'Academy',
+      publishDate: '11 de Junho, 2026',
+      readTime: '7 min de leitura',
+      author: 'Equipe Editorial OdontoHub',
+      authorRole: 'Revisão Técnica e Educacional',
+      summary: 'Você conclui a graduação sabendo realizar isolamento absoluto e cicatrização periodontal excelentes, mas não faz a mínima ideia de como calcular os custos tributários do dente 14 com prejuízo de broqueiro.',
+      seoKeywords: ['gestao odontologica faculdade', 'estudante de odonto negocios', 'primeiro consultorio dentista', 'odonto academy dicas', 'cro recem formado'],
+      content: (
+        <div className="space-y-6 text-brand-text/80 leading-relaxed font-semibold text-sm md:text-base">
+          <p className="text-lg text-brand-text font-bold mb-4">
+            A academia nos treina magnificamente bem para o isolamento absoluto, a escultura com resinas de alta fidelidade e os tempos de ataque ácido micro-dosados. Mas quando o CRO definitivo é emitido e passamos a gerenciar mochos alugados por hora, descobrimos que o dente 14 é apenas metade do trabalho: a outra metade chama-se negócios e finanças.
+          </p>
+          
+          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4">A ilusão do faturamento bruto na odontologia</h2>
+          <p>
+            O jovem profissional recém-graduado tende a cometer um erro financeiro fatal nos primeiros atendimentos particulares: achar que o dinheiro do Pix que caiu na alta clínica representa lucro de bolso.
+          </p>
+          <p>
+            Se você cobra R$ 200 por uma sessão de profilaxia, deve subtrair minuciosamente: o custo de agulhas e anestésicos locais, o sugador descartável de saliva, o desgaste fisiológico da broca cirúrgica do seu broqueiro, o insumo do protético laboratorial, a taxa de intermediação de pagamento, o imposto tributário profissional e o custo de hora amortizado de sublocação do consultório. Se você não calcula isso, está pagando para trabalhar sem perceber.
+          </p>
+
+          <blockquote className="border-l-4 border-brand-academy pl-4 italic text-brand-text/95 bg-brand-academy/5 p-4 rounded-r-xl">
+            "Aprender a calcular a margem de contribuição clínica antes mesmo de assinar o primeiro aluguel de mocho é a única vacina duradoura contra a falência precoce."
+          </blockquote>
+
+          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4">OdontoHub Academy apoia o início de sua lenda clínica</h2>
+          <p>
+            Para que você não se deparará sozinho com o fardo de gerenciar custos, criamos a suite OdontoHub Academy. Nela, estudantes e jovens graduados têm ferramentas integradas para montagem dos kits cirúrgicos acadêmicos, controle prático e transparente de fotos clínicas de pacientes e roteiros simplificados de biossegurança do Preceptor Digital de forma gratuita. Inicie sua carreira com mentalidade empresarial de mestre desde os mochos da faculdade.
+          </p>
+        </div>
+      )
+    },
+    {
       slug: 'sistemas-para-dentista-e-estudante-de-odonto',
       title: 'Sistemas para Dentista e Acadêmicos: O Guia Definitivo de Tecnologias em 2026',
       category: 'Gestão',

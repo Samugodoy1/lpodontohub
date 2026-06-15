@@ -13,6 +13,12 @@ import Blog from './pages/Blog';
 import SoftwareOdontologicoPage from './pages/SoftwareOdontologicoPage';
 import SistemasParaDentistaPage from './pages/SistemasParaDentistaPage';
 import AppsEstudantesOdontologiaPage from './pages/AppsEstudantesOdontologiaPage';
+import SoftwareOdontologicoAutonomoPage from './pages/SoftwareOdontologicoAutonomoPage';
+import ComoOrganizarRetornosPage from './pages/ComoOrganizarRetornosPage';
+import ComoAdministrarSemSecretariaPage from './pages/ComoAdministrarSemSecretariaPage';
+import ComoEvitarPacientesEsquecidosPage from './pages/ComoEvitarPacientesEsquecidosPage';
+import AgendaRecemFormadosPage from './pages/AgendaRecemFormadosPage';
+import SEOTemplatePage from './pages/SEOTemplatePage';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 
@@ -160,6 +166,66 @@ function AnimatedRoutes() {
             transition={{ duration: 0.3 }}
           >
             <AppsEstudantesOdontologiaPage />
+          </motion.div>
+        } />
+        <Route path="/software-odontologico-autonomo" element={
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <SoftwareOdontologicoAutonomoPage />
+          </motion.div>
+        } />
+        <Route path="/como-organizar-retornos-de-pacientes" element={
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <ComoOrganizarRetornosPage />
+          </motion.div>
+        } />
+        <Route path="/como-administrar-clinica-sem-secretaria" element={
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <ComoAdministrarSemSecretariaPage />
+          </motion.div>
+        } />
+        <Route path="/como-evitar-pacientes-esquecidos" element={
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <ComoEvitarPacientesEsquecidosPage />
+          </motion.div>
+        } />
+        <Route path="/agenda-odontologica-recem-formados" element={
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <AgendaRecemFormadosPage />
+          </motion.div>
+        } />
+        <Route path="/:slug" element={
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <SEOTemplatePage />
           </motion.div>
         } />
       </Routes>

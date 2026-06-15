@@ -70,7 +70,7 @@ export default function SistemasParaDentistaPage() {
           </div>
 
           <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-brand-text leading-tight md:leading-tight">
-            Sistemas para Dentista: Guia definitivo para escolher sem estourar o orçamento
+            Sistemas para Dentista: Guia completo para escolher sem estourar o orçamento
           </h1>
 
           <p className="text-base md:text-lg text-brand-text-muted font-medium leading-relaxed max-w-3xl">

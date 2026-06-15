@@ -35,6 +35,12 @@ export const Footer = () => {
                   <Link to="/software-odontologico" className="hover:text-brand-green">Software Odontológico</Link>
                   <Link to="/sistemas-para-dentista" className="hover:text-brand-green">Sistemas para Dentista</Link>
                   <Link to="/app-para-estudante-de-odontologia" className="hover:text-brand-green">App de Odontologia</Link>
+                  <hr className="border-slate-100 my-1" />
+                  <Link to="/software-odontologico-autonomo" className="hover:text-brand-green font-medium">Software p/ Dentista Autônomo</Link>
+                  <Link to="/como-organizar-retornos-de-pacientes" className="hover:text-brand-green font-medium">Como Organizar Retornos</Link>
+                  <Link to="/como-administrar-clinica-sem-secretaria" className="hover:text-brand-green font-medium">Clínica sem Secretária</Link>
+                  <Link to="/como-evitar-pacientes-esquecidos" className="hover:text-brand-green font-medium">Evitar Pacientes Esquecidos</Link>
+                  <Link to="/agenda-odontologica-recem-formados" className="hover:text-brand-green font-medium">Agenda para Recém-Formados</Link>
                 </div>
               </div>
               <div className="space-y-3 md:space-y-4">
