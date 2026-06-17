@@ -34,28 +34,53 @@ export default function Confirmation() {
   });
 
   const getPlanDetails = () => {
-    if (isAcademy) {
-      return {
-        name: 'Plano OdontoHub Academy Ilimitado',
-        price: 'R$ 24,90',
-        period: 'Mensal',
-        targetColor: 'brand-academy',
-        bgSoft: 'bg-brand-academy-soft',
-        subText: 'Foco exclusivo na autoconfiança debaixo do mocho',
-        redirectUrl: 'https://academy.odontohub.app.br',
-        buttonStyle: 'bg-brand-academy text-white hover:bg-brand-academy/95 shadow-lg shadow-brand-academy/25'
-      };
-    } else {
-      return {
-        name: 'Plano OdontoHub Pro Ilimitado',
-        price: 'R$ 79,90',
-        period: 'Mensal',
-        targetColor: 'brand-green',
-        bgSoft: 'bg-brand-green-soft',
-        subText: 'O sistema definitivo para gestão do seu consultório odonto',
-        redirectUrl: 'https://sistema.odontohub.app.br',
-        buttonStyle: 'bg-brand-green text-white hover:bg-brand-green/95 shadow-lg shadow-brand-green/25'
-      };
+    switch (plan.toLowerCase()) {
+      case 'essencial':
+        return {
+          name: 'Plano OdontoHub Essencial',
+          price: 'R$ 49,90',
+          period: 'Mensal',
+          targetColor: 'brand-green',
+          bgSoft: 'bg-brand-green-soft',
+          subText: 'Gestão ideal para consultórios solo em crescimento',
+          redirectUrl: 'https://sistema.odontohub.app.br',
+          buttonStyle: 'bg-brand-green text-white hover:bg-brand-green/95 shadow-lg shadow-brand-green/25'
+        };
+      case 'clinico':
+        return {
+          name: 'Plano OdontoHub Academy Clínico',
+          price: 'R$ 12,90',
+          period: 'Mensal',
+          targetColor: 'brand-academy',
+          bgSoft: 'bg-brand-academy-soft',
+          subText: 'A organização ideal para as suas clínicas universitárias',
+          redirectUrl: 'https://academy.odontohub.app.br',
+          buttonStyle: 'bg-brand-academy text-white hover:bg-brand-academy/95 shadow-lg shadow-brand-academy/25'
+        };
+      case 'academy':
+      case 'ilimitado':
+         return {
+          name: 'Plano OdontoHub Academy Ilimitado',
+          price: 'R$ 24,90',
+          period: 'Mensal',
+          targetColor: 'brand-academy',
+          bgSoft: 'bg-brand-academy-soft',
+          subText: 'Foco exclusivo na autoconfiança debaixo do mocho',
+          redirectUrl: 'https://academy.odontohub.app.br',
+          buttonStyle: 'bg-brand-academy text-white hover:bg-brand-academy/95 shadow-lg shadow-brand-academy/25'
+        };
+      case 'pro':
+      default:
+        return {
+          name: 'Plano OdontoHub Pro Ilimitado',
+          price: 'R$ 99,90',
+          period: 'Mensal',
+          targetColor: 'brand-green',
+          bgSoft: 'bg-brand-green-soft',
+          subText: 'O sistema definitivo para gestão do seu consultório odonto',
+          redirectUrl: 'https://sistema.odontohub.app.br',
+          buttonStyle: 'bg-brand-green text-white hover:bg-brand-green/95 shadow-lg shadow-brand-green/25'
+        };
     }
   };
 

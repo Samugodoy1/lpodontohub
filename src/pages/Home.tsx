@@ -388,10 +388,10 @@ export default function Home() {
       <Section id="planos">
         <SectionHeader 
           title="Comece com a organização básica. Evolua para a clareza total." 
-          subtitle="O plano gratuito permite organizar seu consultório a custo zero. O plano Pro destrava as facilidades automáticas do OdontoHub."
+          subtitle="Do gratuito ao Pro, escolha a cobertura ideal para as necessidades do seu consultório ou clínica solo."
         />
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto items-stretch px-2 md:px-0 text-left">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto items-stretch px-2 md:px-0 text-left">
           <div className="premium-card p-8 md:p-10 flex flex-col">
             <p className="text-[10px] md:text-xs font-bold text-brand-text-muted uppercase tracking-widest mb-1.5 md:mb-2">Organização Essencial</p>
             <h3 className="text-xl md:text-2xl font-bold text-brand-text mb-1">OdontoHub Gratuito</h3>
@@ -420,8 +420,38 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="premium-card p-8 md:p-10 flex flex-col !bg-brand-green text-white border-none shadow-2xl relative mt-4 md:mt-0 md:scale-105">
-            <div className="absolute -top-3 right-6 md:right-8 bg-brand-green-dark text-[9px] md:text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg text-white">Recomendado</div>
+          <div className="premium-card p-8 md:p-10 flex flex-col border-2 border-brand-green/30 bg-white shadow-lg relative">
+            <div className="absolute -top-3 right-6 bg-brand-green/10 text-brand-green-dark text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-widest border border-brand-green/20">Mais Popular Solo</div>
+            <p className="text-[10px] md:text-xs font-bold text-brand-text-muted uppercase tracking-widest mb-1.5 md:mb-2">Crescimento Sustentável</p>
+            <h3 className="text-xl md:text-2xl font-bold text-brand-text mb-1">OdontoHub Essencial</h3>
+            <div className="flex items-baseline gap-1 my-5 md:my-6">
+              <span className="text-3xl md:text-4xl font-bold text-brand-text">R$ 49,90</span>
+              <span className="text-brand-text-muted text-xs md:text-sm">/mês</span>
+            </div>
+            
+            <ul className="space-y-3.5 mb-8 md:mb-12 flex-grow">
+              {[
+                "Até 150 pacientes e prontuários ativos",
+                "Até 150 agendamentos por mês",
+                "Modelos de mensagens e confirmação manual no WhatsApp",
+                "Histórico clínico e prontuário fotográfico",
+                "Dashboard financeiro simplificado",
+                "Suporte prioritário por e-mail e chat",
+                "Envio avulso de receitas e atestados"
+              ].map((feat) => (
+                <li key={feat} className="flex items-center gap-3 text-sm text-brand-text/95 font-medium">
+                  <CheckCircle2 size={16} className="text-brand-green shrink-0" /> {feat}
+                </li>
+              ))}
+            </ul>
+            
+            <a href="https://sistema.odontohub.app.br" className="w-full">
+              <Button variant="outline" className="w-full py-4 rounded-xl border-2 text-xs uppercase tracking-wider font-extrabold text-[#111827] border-slate-300 hover:bg-slate-50">Assinar Essencial</Button>
+            </a>
+          </div>
+
+          <div className="premium-card p-8 md:p-10 flex flex-col !bg-brand-green text-white border-none shadow-2xl relative">
+            <div className="absolute -top-3 right-6 md:right-8 bg-brand-green-dark text-[9px] md:text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg text-white">Automação Inteligente</div>
             <p className="text-[10px] md:text-xs font-bold text-white/50 uppercase tracking-widest mb-1.5 md:mb-2">Paz e automação completa</p>
             <h3 className="text-xl md:text-2xl font-bold mb-1 text-white">OdontoHub Pro</h3>
             <div className="flex items-baseline gap-1 my-5 md:my-6">

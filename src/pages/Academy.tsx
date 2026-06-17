@@ -549,7 +549,7 @@ export default function Academy() {
              <p className="text-base md:text-xl text-brand-text/50 font-semibold max-w-3xl mx-auto leading-relaxed">Não vendemos seus dados nem exibimos anúncios irritantes. O plano Grátis oferece tudo o que você precisa para começar a organizar sua rotina, e o plano Ilimitado existe para quando você quiser guardar todo seu histórico clínico acadêmico.</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 max-w-5xl mx-auto px-4 md:px-0">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto px-4 md:px-0">
              {/* Plan 1 - Free */}
              <div className="bg-[#FAF9F5] border border-brand-border rounded-[2rem] md:rounded-[3rem] p-8 md:p-12 flex flex-col h-full hover:bg-white hover:shadow-2xl transition-all duration-500 text-left">
                 <div className="mb-8 md:mb-10">
@@ -582,9 +582,42 @@ export default function Academy() {
                   <Button variant="outline" className="w-full py-4 md:py-5 rounded-2xl border-2 font-bold hover:bg-brand-bg-alt uppercase text-xs tracking-wider">Começar gratuitamente</Button>
                 </a>
              </div>
+
+             {/* Plan 2 - Clinical/Standard (Intermediate) */}
+             <div className="bg-white border border-brand-border rounded-[2rem] md:rounded-[3rem] p-8 md:p-12 flex flex-col h-full hover:bg-[#FAF9F5]/40 hover:shadow-2xl transition-all duration-500 text-left relative">
+                <div className="absolute top-5 right-6 bg-[#FAF3FF] text-brand-academy border border-brand-academy/20 text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Mais Equilibrado</div>
+                <div className="mb-8 md:mb-10">
+                   <div className="flex justify-between items-center mb-2">
+                     <h3 className="text-2xl md:text-3xl font-bold text-brand-text">Plano Clínico</h3>
+                   </div>
+                   <p className="text-brand-text/50 font-semibold text-sm mb-6 leading-relaxed">Excelente para organizar suas disciplinas práticas e as imagens de seus atendimentos.</p>
+                   <div className="text-4xl md:text-5xl font-extrabold text-brand-text mb-2 tracking-tight">R$ 12,90 <span className="text-sm font-semibold opacity-40">/mês</span></div>
+                </div>
+
+                <div className="h-px bg-slate-100 w-full mb-8" />
+
+                <div className="flex-grow space-y-4 mb-10 md:mb-12">
+                   {[
+                     "Até 15 pacientes ativos simultâneos",
+                     "Até 500 fotos clínicas na galeria do app",
+                     "Agenda completa de clínicas acadêmicas",
+                     "Checklists instrumentais de todas as matérias",
+                     "Exportação das evoluções clínicas em PDF",
+                     "Modelos estruturados de evolução rápida"
+                   ].map(f => (
+                     <div key={f} className="flex items-start gap-3 text-brand-text/80 font-semibold text-sm">
+                        <CheckCircle2 size={16} className="text-brand-academy shrink-0 mt-0.5" /> <span>{f}</span>
+                     </div>
+                   ))}
+                </div>
+                
+                <a href="https://academy.odontohub.app.br" id="btn-pricing-clinical" className="w-full mt-auto">
+                  <Button variant="outline" className="w-full py-4 md:py-5 rounded-2xl border-2 hover:bg-brand-bg-alt border-brand-academy text-brand-academy font-bold uppercase text-xs tracking-wider">Ativar plano clínico</Button>
+                </a>
+             </div>
              
-             {/* Plan 2 - Student Pro/Unlimited */}
-             <div className="bg-brand-academy border border-brand-academy rounded-[2rem] md:rounded-[3rem] p-8 md:p-12 flex flex-col h-full text-white shadow-2xl shadow-brand-academy/25 group md:hover:scale-[1.02] transition-transform duration-500 mt-4 md:mt-0 text-left">
+             {/* Plan 3 - Student Pro/Unlimited */}
+             <div className="bg-brand-academy border border-brand-academy rounded-[2rem] md:rounded-[3rem] p-8 md:p-12 flex flex-col h-full text-white shadow-2xl shadow-brand-academy/25 group md:hover:scale-[1.02] transition-transform duration-500 text-left relative">
                 <div className="mb-8 md:mb-10">
                   <div className="flex justify-between items-center mb-2">
                     <h3 className="text-2xl md:text-3xl font-bold">Plano Ilimitado</h3>
