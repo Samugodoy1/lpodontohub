@@ -142,8 +142,60 @@
 
 @media (prefers-reduced-motion: reduce) {
   .aurora-blob,
-  .text-gradient-animate {
+  .text-gradient-animate,
+  .marquee-track {
     animation: none;
   }
+}
+
+/* Infinite marquee ticker */
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 32s linear infinite;
+}
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+}
+
+/* Dark surface for high-contrast bands */
+.surface-dark {
+  background:
+    radial-gradient(120% 120% at 0% 0%, rgba(13,148,136,0.22), transparent 55%),
+    radial-gradient(120% 120% at 100% 100%, rgba(16,185,129,0.18), transparent 55%),
+    #0B2A22;
+}
+.grain {
+  background-image: radial-gradient(rgba(255,255,255,0.10) 1px, transparent 1px);
+  background-size: 28px 28px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000, transparent 78%);
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000, transparent 78%);
+}
+
+/* Floating chips around the hero device */
+@keyframes float-chip {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.float-chip {
+  animation: float-chip 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Bento dark feature tile */
+.bento-dark {
+  background:
+    radial-gradient(130% 100% at 0% 0%, rgba(13,148,136,0.30), transparent 60%),
+    linear-gradient(160deg, #124438, #0B2A22);
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-chip { animation: none; }
 }
 
