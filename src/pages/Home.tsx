@@ -1,28 +1,55 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
-import { 
-  Calendar, 
-  Users, 
-  ClipboardList, 
-  Bell, 
-  ChevronRight, 
-  CheckCircle2, 
-  Brain, 
-  Clock, 
-  TrendingUp, 
-  MessageSquare, 
-  GraduationCap, 
+import {
+  Calendar,
+  Users,
+  ClipboardList,
+  Bell,
+  ChevronRight,
+  CheckCircle2,
+  Brain,
+  Clock,
+  TrendingUp,
+  MessageSquare,
+  GraduationCap,
   Layout,
   UserCircle,
   PlusCircle,
   LayoutDashboard,
-  ArrowRight
+  ArrowRight,
+  Sparkles,
+  Star,
+  ShieldCheck,
+  Zap
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button, Section, SectionHeader } from '../components/shared/UI';
 import Testimonials from '../components/shared/Testimonials';
 import SystemMockupShowcase from '../components/shared/SystemMockupShowcase';
+
+// Scroll-triggered reveal wrapper for a layered, intentional entrance
+const Reveal = ({
+  children,
+  delay = 0,
+  y = 28,
+  className = ''
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  y?: number;
+  className?: string;
+}) => (
+  <motion.div
+    initial={{ opacity: 0, y }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: '-80px' }}
+    transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
+    className={className}
+  >
+    {children}
+  </motion.div>
+);
 
 const Mockup = () => {
   const [scenario, setScenario] = React.useState(0);
@@ -184,42 +211,81 @@ export default function Home() {
         <meta name="twitter:description" content="O software moderno definitivo para gerenciar seu consultório. Controle sua agenda, prontuários e organize checklists no Modo Box." />
       </Helmet>
       {/* 2. HERO */}
-      <Section className="pt-32 md:pt-48 pb-10 md:pb-20">
-        <div className="text-center">
+      <section className="relative overflow-hidden pt-32 md:pt-52 pb-12 md:pb-24 px-5 md:px-6">
+        {/* Ambient aurora background */}
+        <div aria-hidden className="absolute inset-0 -z-10 overflow-hidden">
+          <div className="aurora-blob bg-brand-green/25 w-[42rem] h-[42rem] -top-40 -left-40" />
+          <div className="aurora-blob bg-[#0D9488]/20 w-[34rem] h-[34rem] -top-20 right-[-10rem]" style={{ animationDelay: '-5s' }} />
+          <div className="aurora-blob bg-[#10B981]/15 w-[30rem] h-[30rem] top-[24rem] left-1/3" style={{ animationDelay: '-9s' }} />
+          <div className="absolute inset-0 dot-grid opacity-70" />
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-brand-bg" />
+        </div>
+
+        <div className="max-w-7xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
           >
-            <h1 className="text-[2.6rem] md:text-[5.5rem] font-bold tracking-tight text-brand-text mb-6 md:mb-8 leading-[1.05] px-2 md:px-0">
+            {/* Eyebrow badge */}
+            <div className="flex justify-center mb-7 md:mb-9">
+              <span className="glass inline-flex items-center gap-2 rounded-full pl-2 pr-4 py-1.5 text-[11px] md:text-xs font-bold text-brand-green-dark">
+                <span className="inline-flex items-center gap-1.5 bg-brand-green text-white rounded-full px-2.5 py-1 uppercase tracking-wider text-[9px] md:text-[10px]">
+                  <Sparkles size={11} /> Novo
+                </span>
+                Software odontológico que decide o que importa por você
+              </span>
+            </div>
+
+            <h1 className="text-[2.7rem] md:text-[5.5rem] font-extrabold tracking-tight text-brand-text mb-6 md:mb-8 leading-[1.03] px-2 md:px-0">
               O consultório não precisa de mais dados.<br className="hidden md:block" />
-              <span className="text-brand-green">Precisa de menos decisões.</span>
+              <span className="text-gradient-green text-gradient-animate">Precisa de menos decisões.</span>
             </h1>
-            <p className="text-base md:text-xl text-brand-text-muted max-w-3xl mx-auto mb-10 md:mb-12 leading-relaxed px-4 md:px-0 font-medium font-semibold">
+            <p className="text-base md:text-xl text-brand-text-muted max-w-3xl mx-auto mb-10 md:mb-12 leading-relaxed px-4 md:px-0 font-semibold">
               O OdontoHub organiza o seu consultório em um painel limpo e sem distrações. Ele atua como um colega de confiança que cuida de agendamentos e finanças para responder às duas perguntas simples que importam: <span className="text-brand-text font-bold">O que merece minha atenção agora? E posso ficar tranquilo quanto ao resto?</span> Se não houver nada urgente, ele permanece totalmente em silêncio para você focar no seu paciente.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 mb-10 px-4 md:px-0">
-              <a href="https://sistema.odontohub.app.br" className="w-full sm:w-auto">
-                <Button className="w-full">Começar gratuitamente</Button>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 mb-8 px-4 md:px-0">
+              <a href="https://sistema.odontohub.app.br" className="w-full sm:w-auto group">
+                <button className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl font-bold text-base md:text-sm text-white bg-gradient-to-r from-brand-green-dark via-brand-green to-[#0D9488] bg-[length:200%_100%] bg-left hover:bg-right shadow-glow-green transition-[background-position,transform] duration-500 active:scale-95">
+                  Começar gratuitamente
+                  <ArrowRight size={17} className="group-hover:translate-x-1 transition-transform" />
+                </button>
               </a>
               <a href="#como-funciona" className="w-full sm:w-auto">
-                <Button variant="outline" className="w-full">Ver comportamento do sistema</Button>
+                <button className="w-full sm:w-auto px-8 py-4 rounded-2xl font-bold text-base md:text-sm text-brand-text glass hover:border-brand-green/30 transition-colors active:scale-95">
+                  Ver comportamento do sistema
+                </button>
               </a>
             </div>
-            <p className="text-[10px] md:text-xs font-bold text-brand-text-muted uppercase tracking-widest px-8 md:px-0">
+
+            {/* Trust strip */}
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] md:text-xs font-bold text-brand-text-muted mb-2">
+              <span className="inline-flex items-center gap-1.5">
+                <span className="flex -space-x-0.5 text-brand-yellow">
+                  {[0, 1, 2, 3, 4].map((i) => <Star key={i} size={13} className="fill-brand-yellow" />)}
+                </span>
+                Amado por dentistas autônomos
+              </span>
+              <span className="hidden md:inline-flex items-center gap-1.5"><ShieldCheck size={14} className="text-brand-green" /> Dados criptografados</span>
+              <span className="inline-flex items-center gap-1.5"><Zap size={14} className="text-brand-green" /> Grátis para começar</span>
+            </div>
+            <p className="text-[10px] md:text-xs font-bold text-brand-text-muted/70 uppercase tracking-widest px-8 md:px-0">
               Encerrar o dia sabendo que nada importante ficou para trás é o nosso sucesso.
             </p>
           </motion.div>
-          
+
           <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 1 }}
+            initial={{ opacity: 0, scale: 0.98, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="relative"
           >
+            {/* Glow halo behind device */}
+            <div aria-hidden className="absolute left-1/2 top-12 -translate-x-1/2 w-[90%] max-w-3xl h-[28rem] conic-glow blur-3xl rounded-full -z-10 opacity-70" />
             <Mockup />
           </motion.div>
         </div>
-      </Section>
+      </section>
 
       {/* 3. PROBLEMA + COMPORTAMENTO INTELIGENTE */}
       <Section className="bg-white" id="como-funciona">
@@ -228,32 +294,50 @@ export default function Home() {
           subtitle="A maioria dos softwares despeja dezenas de gráficos e notificações inúteis para prender sua atenção no computador. Nós fazemos o oposto: filtramos o ruído para que você foque onde realmente faz a diferença: diante do seu paciente."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-start mb-20 md:mb-32 text-left">
-          <div className="space-y-6 md:space-y-8">
-            <h4 className="text-[10px] md:text-xs font-bold text-brand-text/30 uppercase tracking-[0.2em] mb-4 md:mb-6">Sistemas tradicionais de papelada digital</h4>
+        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-start mb-20 md:mb-32 text-left">
+          {/* Center VS divider */}
+          <div aria-hidden className="hidden md:flex absolute left-1/2 top-14 -translate-x-1/2 z-10 w-12 h-12 rounded-full bg-white border border-brand-border shadow-glow-soft items-center justify-center text-[10px] font-extrabold uppercase tracking-widest text-brand-text-muted">
+            vs
+          </div>
+
+          <div className="space-y-5 md:space-y-6">
+            <h4 className="text-[10px] md:text-xs font-bold text-brand-text/40 uppercase tracking-[0.2em] mb-2 md:mb-4 flex items-center gap-2">
+              <span className="w-6 h-px bg-brand-text/20" /> Sistemas tradicionais de papelada digital
+            </h4>
             {[
               { title: "Acúmulo de dados sem utilidade prática", text: "Você abre o sistema e vê dezenas de relatórios vazios e históricos antigos. O esforço mental de tentar entender o que de fato precisa ser feito continua sendo inteiramente seu." },
               { title: "Gráficos e notificações para te prender na tela", text: "Alertas desnecessários que fingem urgência só para fazer parecer que o software é útil, deixando a sua rotina mais cansativa e gerando ansiedade desnecessária." },
               { title: "Celebrando pequenas tarefas normais", text: "Pop-ups invasivos de aprovação que sobrecarregam sua rotina e tratam você como criança, em vez de respeitarem o seu profissionalismo." }
             ].map((item, i) => (
-              <div key={i} className="p-6 md:p-8 bg-slate-50/50 rounded-3xl border border-slate-100 flex flex-col gap-1">
-                <p className="font-bold text-brand-text text-base md:text-lg tracking-tight">{item.title}</p>
-                <p className="text-sm text-brand-text-muted leading-relaxed font-semibold">{item.text}</p>
-              </div>
+              <Reveal key={i} delay={i * 0.08}>
+                <div className="p-6 md:p-8 bg-slate-50/70 rounded-3xl border border-slate-100 flex flex-col gap-1.5 grayscale-[0.2] opacity-90">
+                  <p className="font-bold text-brand-text/80 text-base md:text-lg tracking-tight line-through decoration-brand-red/40 decoration-1">{item.title}</p>
+                  <p className="text-sm text-brand-text-muted leading-relaxed font-semibold">{item.text}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
 
-          <div className="space-y-6 md:space-y-8 mt-16 md:mt-0">
-            <h4 className="text-[10px] md:text-xs font-bold text-brand-green uppercase tracking-[0.2em] mb-4 md:mb-6">O Jeito OdontoHub de trabalhar</h4>
+          <div className="space-y-5 md:space-y-6 mt-10 md:mt-0">
+            <h4 className="text-[10px] md:text-xs font-bold text-brand-green uppercase tracking-[0.2em] mb-2 md:mb-4 flex items-center gap-2">
+              <span className="w-6 h-px bg-brand-green/40" /> O Jeito OdontoHub de trabalhar
+            </h4>
             {[
               { title: "Contextos claros em vez de números soltos", text: "Não mostramos apenas 'você tem 12 pacientes amanhã'. Mostramos e destacamos o que importa: 'Você tem 12 pacientes amanhã, e 3 deles precisam de confirmação rígida ainda hoje'." },
               { title: "Direcionamento claro sobre o próximo passo", text: "Toda informação exibida pelo OdontoHub responde à pergunta essencial: 'O que eu preciso fazer com isso?'. Oferecemos a próxima melhor ação em segundos." },
               { title: "Silêncio ativo para a sua paz de espírito", text: "Proteger o seu sossego é o nosso dever. Se tudo na clínica está organizado e sob controle, o sistema silencia para você poder descansar sem peso na consciência." }
             ].map((item, i) => (
-              <div key={i} className="p-6 md:p-8 bg-brand-green-soft/60 rounded-3xl border border-brand-green/5 flex flex-col gap-1">
-                <p className="font-bold text-brand-green text-base md:text-lg tracking-tight">{item.title}</p>
-                <p className="text-sm text-brand-green-dark/60 leading-relaxed font-semibold">{item.text}</p>
-              </div>
+              <Reveal key={i} delay={i * 0.08}>
+                <div className="card-lift p-6 md:p-8 !bg-gradient-to-br !from-brand-green-soft/80 !to-white !border-brand-green/10 flex gap-4">
+                  <div className="shrink-0 mt-0.5 w-7 h-7 rounded-full bg-brand-green text-white flex items-center justify-center shadow-sm">
+                    <CheckCircle2 size={16} />
+                  </div>
+                  <div className="flex flex-col gap-1.5">
+                    <p className="font-bold text-brand-green-dark text-base md:text-lg tracking-tight">{item.title}</p>
+                    <p className="text-sm text-brand-green-dark/70 leading-relaxed font-semibold">{item.text}</p>
+                  </div>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -268,23 +352,21 @@ export default function Home() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 text-left">
           {[
-            { label: "Diretriz 1", title: "O que fazer em seguida", text: "Dados soltos sem uma ação recomendada para a sua rotina clínica são apenas ruído e desperdício de tempo.", color: "brand-academy", icon: Brain },
-            { label: "Diretriz 2", title: "Ações bem definidas", text: "Se não houver uma solução prática sugerida, nós preferimos poupar você e não exibir o aviso.", color: "brand-yellow", icon: Bell },
-            { label: "Diretriz 3", title: "Preservar seu descanso", text: "Quando tudo no consultório estiver em ordem, nós não inventamos alertas falsos. Aproveite o seu silêncio.", color: "brand-green", icon: Clock },
-            { label: "Diretriz 4", title: "Sem enrolação técnica", text: "Toda a complexidade e programação de bastidores rodam longe dos seus olhos para deixar sua tela limpa.", color: "brand-green", icon: CheckCircle2 }
+            { label: "Diretriz 1", title: "O que fazer em seguida", text: "Dados soltos sem uma ação recomendada para a sua rotina clínica são apenas ruído e desperdício de tempo.", icon: Brain, tile: "bg-brand-academy-soft text-brand-academy", accent: "text-brand-academy" },
+            { label: "Diretriz 2", title: "Ações bem definidas", text: "Se não houver uma solução prática sugerida, nós preferimos poupar você e não exibir o aviso.", icon: Bell, tile: "bg-brand-yellow-soft text-brand-yellow", accent: "text-brand-yellow" },
+            { label: "Diretriz 3", title: "Preservar seu descanso", text: "Quando tudo no consultório estiver em ordem, nós não inventamos alertas falsos. Aproveite o seu silêncio.", icon: Clock, tile: "bg-brand-green-soft text-brand-green", accent: "text-brand-green" },
+            { label: "Diretriz 4", title: "Sem enrolação técnica", text: "Toda a complexidade e programação de bastidores rodam longe dos seus olhos para deixar sua tela limpa.", icon: CheckCircle2, tile: "bg-brand-green-soft text-brand-green", accent: "text-brand-green" }
           ].map((item, i) => (
-            <motion.div 
-              key={i} 
-              whileHover={{ y: -6 }}
-              className="premium-card p-6 md:p-8 flex flex-col h-full text-left"
-            >
-              <div className={`p-2 md:p-2.5 rounded-xl bg-brand-${item.color.split('-')[1]}-soft text-${item.color} w-fit mb-4 md:mb-6`}>
-                <item.icon size={20} className="md:w-[22px] md:h-[22px]" />
+            <Reveal key={i} delay={i * 0.08} className="h-full">
+              <div className="card-lift p-6 md:p-8 flex flex-col h-full text-left group">
+                <div className={`p-2.5 md:p-3 rounded-2xl w-fit mb-4 md:mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3 ${item.tile}`}>
+                  <item.icon size={20} className="md:w-[22px] md:h-[22px]" />
+                </div>
+                <p className={`text-[9px] md:text-[10px] font-bold uppercase tracking-widest mb-1 ${item.accent}`}>{item.label}</p>
+                <h3 className="font-bold text-brand-text text-base md:text-lg mb-3">{item.title}</h3>
+                <p className="text-brand-text-muted text-xs md:text-sm leading-relaxed font-semibold">{item.text}</p>
               </div>
-              <p className={`text-[9px] md:text-[10px] font-bold text-${item.color} uppercase tracking-widest mb-1`}>{item.label}</p>
-              <h3 className="font-bold text-brand-text text-base md:text-lg mb-3">{item.title}</h3>
-              <p className="text-brand-text-muted text-xs md:text-sm leading-relaxed font-semibold">{item.text}</p>
-            </motion.div>
+            </Reveal>
           ))}
         </div>
       </Section>
@@ -295,17 +377,25 @@ export default function Home() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 text-left">
           {[
-            { t: "Previsão inteligente de agenda", d: "Identifica janelas vazias na sua semana e sugere retornos de forma discreta para preencher lacunas." },
-            { t: "Painel inteligente do dia", d: "Sua única lista diária de tarefas. Mostra o que precisa de atenção imediata e sai do seu caminho rapidamente." },
-            { t: "Prontuário prático e rápido", d: "Sem campos desnecessários. Registre o histórico clínico de forma rápida, higiênica e sem esforço." },
-            { t: "Confirmações automáticas integradas", d: "Disparos elegantes via WhatsApp para confirmações de consultas e levantamento pré-clínico." },
-            { t: "Reagendamentos simplificados", d: "Localiza de forma automática pacientes que estão esperando vaga em caso de desmarques de última hora." },
-            { t: "Fluxo de caixa sob controle", d: "Projeta as contas e entradas das próximas semanas e avisa com antecedência discreta se houver riscos de caixa." }
+            { t: "Previsão inteligente de agenda", d: "Identifica janelas vazias na sua semana e sugere retornos de forma discreta para preencher lacunas.", icon: Calendar },
+            { t: "Painel inteligente do dia", d: "Sua única lista diária de tarefas. Mostra o que precisa de atenção imediata e sai do seu caminho rapidamente.", icon: LayoutDashboard },
+            { t: "Prontuário prático e rápido", d: "Sem campos desnecessários. Registre o histórico clínico de forma rápida, higiênica e sem esforço.", icon: ClipboardList },
+            { t: "Confirmações automáticas integradas", d: "Disparos elegantes via WhatsApp para confirmações de consultas e levantamento pré-clínico.", icon: MessageSquare },
+            { t: "Reagendamentos simplificados", d: "Localiza de forma automática pacientes que estão esperando vaga em caso de desmarques de última hora.", icon: Users },
+            { t: "Fluxo de caixa sob controle", d: "Projeta as contas e entradas das próximas semanas e avisa com antecedência discreta se houver riscos de caixa.", icon: TrendingUp }
           ].map((r, i) => (
-            <div key={i} className="p-6 md:p-8 bg-white border border-brand-border rounded-[1.5rem] md:rounded-[2rem] hover:ring-2 hover:ring-brand-green/20 transition-all group">
-              <h3 className="font-bold text-base md:text-lg text-brand-text mb-1.5 md:mb-2 group-hover:text-brand-green transition-colors">{r.t}</h3>
-              <p className="text-brand-text-muted text-xs md:text-sm leading-relaxed font-semibold">{r.d}</p>
-            </div>
+            <Reveal key={i} delay={(i % 3) * 0.08} className="h-full">
+              <div className="card-lift relative p-6 md:p-8 h-full overflow-hidden group">
+                <span className="absolute top-5 right-6 text-5xl md:text-6xl font-extrabold text-brand-green/[0.06] select-none leading-none">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div className="w-11 h-11 rounded-2xl bg-brand-green-soft text-brand-green flex items-center justify-center mb-5 transition-all duration-300 group-hover:bg-brand-green group-hover:text-white">
+                  <r.icon size={20} />
+                </div>
+                <h3 className="font-bold text-base md:text-lg text-brand-text mb-1.5 md:mb-2 group-hover:text-brand-green transition-colors">{r.t}</h3>
+                <p className="text-brand-text-muted text-xs md:text-sm leading-relaxed font-semibold">{r.d}</p>
+              </div>
+            </Reveal>
           ))}
         </div>
       </Section>
@@ -420,8 +510,8 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="premium-card p-8 md:p-10 flex flex-col border-2 border-brand-green/30 bg-white shadow-lg relative">
-            <div className="absolute -top-3 right-6 bg-brand-green/10 text-brand-green-dark text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-widest border border-brand-green/20">Mais Popular Solo</div>
+          <div className="gradient-ring card-lift p-8 md:p-10 flex flex-col rounded-3xl relative lg:-mt-4 lg:mb-4 shadow-glow-soft">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-green text-white text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-md shadow-brand-green/30 whitespace-nowrap">Mais Popular Solo</div>
             <p className="text-[10px] md:text-xs font-bold text-brand-text-muted uppercase tracking-widest mb-1.5 md:mb-2">Crescimento Sustentável</p>
             <h3 className="text-xl md:text-2xl font-bold text-brand-text mb-1">OdontoHub Essencial</h3>
             <div className="flex items-baseline gap-1 my-5 md:my-6">
@@ -450,8 +540,9 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="premium-card p-8 md:p-10 flex flex-col !bg-brand-green text-white border-none shadow-2xl relative">
-            <div className="absolute -top-3 right-6 md:right-8 bg-brand-green-dark text-[9px] md:text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg text-white">Automação Inteligente</div>
+          <div className="p-8 md:p-10 flex flex-col rounded-3xl text-white border-none shadow-glow-green relative overflow-hidden bg-gradient-to-br from-brand-green-dark via-brand-green to-[#0D9488]">
+            <div aria-hidden className="absolute -top-16 -right-16 w-56 h-56 bg-white/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -top-3 right-6 md:right-8 bg-white/15 backdrop-blur-sm text-[9px] md:text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg text-white border border-white/20">Automação Inteligente</div>
             <p className="text-[10px] md:text-xs font-bold text-white/50 uppercase tracking-widest mb-1.5 md:mb-2">Paz e automação completa</p>
             <h3 className="text-xl md:text-2xl font-bold mb-1 text-white">OdontoHub Pro</h3>
             <div className="flex items-baseline gap-1 my-5 md:my-6">
@@ -594,16 +685,28 @@ export default function Home() {
 
       {/* 9. CTA FINAL */}
       <Section className="pb-10 md:pb-20 pt-0">
-        <div className="bg-brand-green-dark rounded-[2.5rem] md:rounded-[5rem] py-12 px-6 md:p-32 text-white text-center relative overflow-hidden">
-          <div className="relative z-10 max-w-4xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl md:text-7xl font-bold mb-6 md:mb-12 leading-tight tracking-tight">Traga clareza e tranquilidade de volta para o seu consultório.</h2>
+        <div className="rounded-[2.5rem] md:rounded-[5rem] py-14 px-6 md:p-32 text-white text-center relative overflow-hidden bg-gradient-to-br from-brand-green-dark via-brand-green to-brand-green-dark">
+          {/* Ambient mesh */}
+          <div aria-hidden className="absolute inset-0 pointer-events-none">
+            <div className="aurora-blob bg-[#0D9488]/40 w-96 h-96 -top-24 -left-10" />
+            <div className="aurora-blob bg-[#10B981]/30 w-96 h-96 -bottom-24 right-0" style={{ animationDelay: '-6s' }} />
+            <div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.18) 1px, transparent 1px)', backgroundSize: '26px 26px', maskImage: 'radial-gradient(ellipse 60% 60% at 50% 50%, #000, transparent 75%)', WebkitMaskImage: 'radial-gradient(ellipse 60% 60% at 50% 50%, #000, transparent 75%)' }} />
+          </div>
+          <Reveal className="relative z-10 max-w-4xl mx-auto">
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 px-4 py-1.5 text-[11px] md:text-xs font-bold uppercase tracking-widest text-white/80 mb-7">
+              <Sparkles size={13} /> Comece em minutos
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-7xl font-extrabold mb-8 md:mb-12 leading-[1.05] tracking-tight">Traga clareza e tranquilidade de volta para o seu consultório.</h2>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
-              <a href="https://sistema.odontohub.app.br" className="w-full sm:w-auto">
-                <Button variant="outline" className="w-full px-12 py-6 !bg-white !text-brand-green-dark border-none font-bold shadow-2xl rounded-2xl">Começar gratuitamente</Button>
+              <a href="https://sistema.odontohub.app.br" className="w-full sm:w-auto group">
+                <button className="w-full inline-flex items-center justify-center gap-2 px-12 py-5 bg-white text-brand-green-dark font-extrabold shadow-2xl rounded-2xl hover:scale-[1.02] active:scale-95 transition-transform">
+                  Começar gratuitamente
+                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                </button>
               </a>
             </div>
-          </div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-white/[0.03] rounded-full blur-[100px] pointer-events-none" />
+            <p className="mt-6 text-xs md:text-sm font-semibold text-white/60">Sem cartão de crédito · Grátis para sempre no plano inicial</p>
+          </Reveal>
         </div>
       </Section>
     </div>
