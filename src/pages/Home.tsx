@@ -429,6 +429,13 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ============================================ DEPOIMENTOS */}
+      <section className="py-20 md:py-28 px-5 md:px-6" id="depoimentos">
+        <div className="max-w-7xl mx-auto">
+          <Testimonials />
+        </div>
+      </section>
+
       {/* ============================================ PLANOS */}
       <section id="planos" className="py-20 md:py-32 px-5 md:px-6">
         <div className="max-w-7xl mx-auto">
@@ -508,6 +515,38 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ============================================ FAQ */}
+      <section className="bg-white border-t border-brand-border py-20 md:py-28 px-5 md:px-6">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12 md:mb-16">
+            <p className="section-index text-brand-green mb-4">Dúvidas frequentes</p>
+            <h2 className="font-display text-3xl md:text-5xl font-semibold text-brand-text tracking-tight leading-tight">
+              Perguntas que <em className="italic text-brand-green font-medium">todo dentista faz.</em>
+            </h2>
+          </div>
+          <div className="space-y-3">
+            {[
+              { q: 'O OdontoHub é como um sistema odontológico tradicional?', a: 'Não. Os sistemas tradicionais funcionam como arquivos digitais para você preencher papéis e relatórios que raramente usa. O OdontoHub faz o oposto: lê os dados do seu consultório e transforma tudo em uma lista simples de afazeres. Se não houver nada urgente, ele fica em silêncio para você desligar a mente do trabalho.' },
+              { q: 'O que eu recebo no plano Pro?', a: 'O plano gratuito organiza sua agenda e fichas de pacientes. O Pro ativa lembretes automáticos para pacientes faltantes, avisos discretos de previsão financeira para planejar o caixa das próximas semanas e facilidades adicionais para simplificar seu dia a dia.' },
+              { q: 'Como meus dados são protegidos?', a: 'Tratamos seus dados e os de seus pacientes com respeito máximo. Toda a informação é guardada de forma segura e criptografada em servidores protegidos. Não exibimos anúncios e jamais vendemos ou compartilhamos dados com terceiros.' },
+              { q: 'Eu realmente vou gastar menos tempo no computador?', a: 'Esse é o nosso objetivo. Criamos o OdontoHub para você planejar encaixes, confirmar consultas e salvar evoluções em menos de 2 minutos por dia. Nosso sucesso é ver você fechando o app sabendo que está tudo sob controle.' }
+            ].map((faq, i) => (
+              <details key={i} className="group rounded-3xl border border-brand-border overflow-hidden bg-brand-bg-alt">
+                <summary className="flex items-center justify-between p-5 md:p-6 cursor-pointer font-bold text-brand-text list-none group-open:bg-white transition-colors text-base">
+                  {faq.q}
+                  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center group-open:rotate-90 transition-transform shadow-sm shrink-0 ml-4">
+                    <ChevronRight size={16} />
+                  </div>
+                </summary>
+                <div className="p-5 md:p-6 border-t border-brand-border bg-white text-sm text-brand-text/80 leading-relaxed font-medium">
+                  {faq.a}
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ============================================ ACADEMY */}
       <section className="bg-white border-y border-brand-border py-20 md:py-28 px-5 md:px-6" id="academy">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
@@ -574,45 +613,6 @@ export default function Home() {
               </div>
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      {/* ============================================ DEPOIMENTOS */}
-      <section className="py-20 md:py-28 px-5 md:px-6" id="depoimentos">
-        <div className="max-w-7xl mx-auto">
-          <Testimonials />
-        </div>
-      </section>
-
-      {/* ============================================ FAQ */}
-      <section className="bg-white border-t border-brand-border py-20 md:py-28 px-5 md:px-6">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12 md:mb-16">
-            <p className="section-index text-brand-green mb-4">Dúvidas frequentes</p>
-            <h2 className="font-display text-3xl md:text-5xl font-semibold text-brand-text tracking-tight leading-tight">
-              Perguntas que <em className="italic text-brand-green font-medium">todo dentista faz.</em>
-            </h2>
-          </div>
-          <div className="space-y-3">
-            {[
-              { q: 'O OdontoHub é como um sistema odontológico tradicional?', a: 'Não. Os sistemas tradicionais funcionam como arquivos digitais para você preencher papéis e relatórios que raramente usa. O OdontoHub faz o oposto: lê os dados do seu consultório e transforma tudo em uma lista simples de afazeres. Se não houver nada urgente, ele fica em silêncio para você desligar a mente do trabalho.' },
-              { q: 'O que eu recebo no plano Pro?', a: 'O plano gratuito organiza sua agenda e fichas de pacientes. O Pro ativa lembretes automáticos para pacientes faltantes, avisos discretos de previsão financeira para planejar o caixa das próximas semanas e facilidades adicionais para simplificar seu dia a dia.' },
-              { q: 'Como meus dados são protegidos?', a: 'Tratamos seus dados e os de seus pacientes com respeito máximo. Toda a informação é guardada de forma segura e criptografada em servidores protegidos. Não exibimos anúncios e jamais vendemos ou compartilhamos dados com terceiros.' },
-              { q: 'Eu realmente vou gastar menos tempo no computador?', a: 'Esse é o nosso objetivo. Criamos o OdontoHub para você planejar encaixes, confirmar consultas e salvar evoluções em menos de 2 minutos por dia. Nosso sucesso é ver você fechando o app sabendo que está tudo sob controle.' }
-            ].map((faq, i) => (
-              <details key={i} className="group rounded-3xl border border-brand-border overflow-hidden bg-brand-bg-alt">
-                <summary className="flex items-center justify-between p-5 md:p-6 cursor-pointer font-bold text-brand-text list-none group-open:bg-white transition-colors text-base">
-                  {faq.q}
-                  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center group-open:rotate-90 transition-transform shadow-sm shrink-0 ml-4">
-                    <ChevronRight size={16} />
-                  </div>
-                </summary>
-                <div className="p-5 md:p-6 border-t border-brand-border bg-white text-sm text-brand-text/80 leading-relaxed font-medium">
-                  {faq.a}
-                </div>
-              </details>
-            ))}
-          </div>
         </div>
       </section>
 
