@@ -426,6 +426,20 @@ export default function Home() {
             </p>
           </div>
           <SystemMockupShowcase />
+
+          {/* CTA intermediário */}
+          <Reveal className="mt-12 md:mt-16 text-center">
+            <p className="font-display text-2xl md:text-3xl font-semibold text-brand-text tracking-tight mb-6">
+              Convenceu? Leva menos de um minuto para começar.
+            </p>
+            <a href="https://sistema.odontohub.app.br" className="group inline-block">
+              <button className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl font-bold text-base text-white bg-brand-green-dark hover:bg-brand-green shadow-glow-soft transition-colors active:scale-95">
+                Criar minha conta grátis
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </button>
+            </a>
+            <p className="section-index text-brand-text-muted/70 mt-4">Grátis para começar · Sem cartão de crédito</p>
+          </Reveal>
         </div>
       </section>
 
@@ -511,6 +525,15 @@ export default function Home() {
                 <Button className="w-full bg-white text-brand-green-dark shadow-xl hover:bg-white/90 border-none transition-all py-4 text-sm font-extrabold rounded-2xl uppercase tracking-wider">Quero o Pro</Button>
               </a>
             </div>
+          </div>
+
+          {/* Redutor de risco */}
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-7 gap-y-2 text-sm font-semibold text-brand-text-muted">
+            {['Cancele quando quiser', 'Sem fidelidade', 'Seus dados sempre seus', 'Suporte humano de verdade'].map((t) => (
+              <span key={t} className="inline-flex items-center gap-2">
+                <CheckCircle2 size={16} className="text-brand-green" /> {t}
+              </span>
+            ))}
           </div>
         </div>
       </section>
@@ -643,6 +666,16 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ============================================ STICKY CTA (mobile) */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 px-4 pb-4 pt-3 bg-gradient-to-t from-brand-bg via-brand-bg/95 to-transparent">
+        <a href="https://sistema.odontohub.app.br" className="block">
+          <button className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl font-bold text-base text-white bg-brand-green-dark shadow-glow-soft active:scale-95 transition-transform">
+            Começar grátis
+            <ArrowRight size={18} />
+          </button>
+        </a>
+      </div>
     </div>
   );
 }
