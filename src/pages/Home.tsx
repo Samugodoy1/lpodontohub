@@ -494,7 +494,7 @@ export default function Home() {
                 ))}
               </ul>
               <a href="https://sistema.odontohub.app.br" className="w-full">
-                <Button variant="outline" className="w-full py-4 rounded-2xl border-2 text-xs uppercase tracking-wider font-extrabold text-brand-green border-brand-green hover:bg-brand-green/5">Criar conta gratuita</Button>
+                <button className="w-full py-4 rounded-2xl border-2 border-brand-green text-brand-green bg-white hover:bg-brand-green/5 text-xs uppercase tracking-wider font-extrabold transition-colors active:scale-95">Criar conta gratuita</button>
               </a>
             </div>
 
@@ -515,7 +515,7 @@ export default function Home() {
                 ))}
               </ul>
               <a href="https://sistema.odontohub.app.br" className="w-full">
-                <Button variant="outline" className="w-full py-4 rounded-2xl border-2 text-xs uppercase tracking-wider font-extrabold text-[#111827] border-slate-300 hover:bg-slate-50">Assinar Essencial</Button>
+                <button className="w-full py-4 rounded-2xl bg-brand-green text-white hover:bg-brand-green-dark shadow-glow-soft text-xs uppercase tracking-wider font-extrabold transition-colors active:scale-95">Assinar Essencial</button>
               </a>
             </div>
 
@@ -536,7 +536,7 @@ export default function Home() {
                 ))}
               </ul>
               <a href="https://sistema.odontohub.app.br" className="w-full">
-                <Button className="w-full bg-white text-brand-green-dark shadow-xl hover:bg-white/90 border-none transition-all py-4 text-sm font-extrabold rounded-2xl uppercase tracking-wider">Quero o Pro</Button>
+                <button className="w-full py-4 rounded-2xl bg-white text-brand-green-dark hover:bg-white/90 shadow-xl text-sm font-extrabold uppercase tracking-wider transition-colors active:scale-95">Quero o Pro</button>
               </a>
             </div>
           </div>
