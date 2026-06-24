@@ -125,32 +125,30 @@ export default function Testimonials() {
 
   return (
     <div className="space-y-12" id="social-proof-landing-section">
-      <div className="flex flex-col items-center text-center space-y-4 max-w-2xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-green/10 text-brand-green-dark rounded-full text-xs font-bold uppercase tracking-wider">
-          <Star size={12} className="fill-current text-brand-green" /> Prova Social Real
-        </div>
-        <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-brand-text">
-          Recomendado por quem busca clareza profissional.
+      <div className="flex flex-col items-center text-center space-y-5 max-w-2xl mx-auto">
+        <p className="section-index text-brand-green">Depoimentos</p>
+        <h2 className="font-display text-3xl md:text-5xl font-semibold tracking-tight text-brand-text leading-tight">
+          Recomendado por quem busca <em className="italic text-brand-green font-medium">clareza profissional.</em>
         </h2>
-        <p className="text-xs md:text-sm text-brand-text-muted font-medium">
-          Dentistas recém-formados, clínicos solo de salas alugadas e acadêmicos que escolheram a simplicidade inteligente contra o custo e a complexidade dos softwares obsoletos.
+        <p className="text-base md:text-lg text-brand-text-muted font-medium leading-relaxed">
+          Dentistas recém-formados, clínicos solo de salas alugadas e acadêmicos que escolheram a simplicidade inteligente — no lugar do custo e da complexidade dos softwares obsoletos.
         </p>
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex flex-wrap gap-2 justify-center items-center max-w-xl mx-auto p-1.5 bg-slate-50 border border-brand-border/60 rounded-2xl" id="testimonials-filter-bar">
+      <div className="flex flex-wrap gap-1.5 justify-center items-center max-w-2xl mx-auto p-1.5 bg-white border border-brand-border rounded-full" id="testimonials-filter-bar">
         {[
-          { id: 'all', label: 'Todos os Depoimentos' },
+          { id: 'all', label: 'Todos' },
           { id: 'solo', label: 'Clínicos Solo' },
           { id: 'owner', label: 'Recém-Formados' },
-          { id: 'academy', label: 'Estudantes (Academy)' }
+          { id: 'academy', label: 'Estudantes' }
         ].map(filter => (
           <button
             key={filter.id}
             onClick={() => setActiveFilter(filter.id as any)}
-            className={`px-4 py-2 rounded-xl text-xs font-extrabold transition-all ${
+            className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
               activeFilter === filter.id
-                ? 'bg-white text-brand-text shadow-sm border border-brand-border/40'
+                ? 'bg-brand-green text-white shadow-sm'
                 : 'text-brand-text-muted hover:text-brand-text'
             }`}
           >
@@ -160,7 +158,7 @@ export default function Testimonials() {
       </div>
 
       {/* Grid containing Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch" id="testimonials-grid">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 items-stretch" id="testimonials-grid">
         <AnimatePresence mode="popLayout">
           {filteredTestimonials.map((testimonial) => (
             <motion.div
@@ -170,49 +168,50 @@ export default function Testimonials() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className={`p-6 md:p-8 rounded-[2rem] border relative flex flex-col justify-between transition-all duration-300 ${
+              className={`p-7 md:p-8 rounded-[2rem] border relative flex flex-col justify-between transition-all duration-300 ${
                 testimonial.featured
-                  ? 'bg-gradient-to-br from-white to-brand-green-soft/10 border-brand-green/30 shadow-md shadow-brand-green/5'
-                  : 'bg-white border-brand-border/80 shadow-sm hover:border-slate-300'
+                  ? 'bg-gradient-to-br from-brand-green-soft/50 to-white border-brand-green/20 shadow-glow-soft'
+                  : 'bg-white border-brand-border shadow-sm hover:border-brand-green/20'
               }`}
             >
-              <div className="space-y-4">
+              <div className="space-y-5">
                 {/* Upper Star Rating and Metrics */}
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <div className="flex items-center gap-0.5 text-brand-yellow">
                     {[...Array(testimonial.stars)].map((_, i) => (
-                      <Star key={i} size={14} className="fill-current text-brand-yellow" />
+                      <Star key={i} size={15} className="fill-current text-brand-yellow" />
                     ))}
                   </div>
 
                   {testimonial.competitorComparison && (
-                    <span className="text-[9px] font-extrabold px-2.5 py-0.5 rounded-full bg-slate-100 text-brand-text-muted border border-brand-border/30 whitespace-nowrap">
+                    <span className="section-index !text-[9px] px-2.5 py-1 rounded-full bg-brand-bg text-brand-text-muted border border-brand-border whitespace-nowrap">
                       {testimonial.competitorComparison}
                     </span>
                   )}
                 </div>
 
                 {/* Main Quote Text */}
-                <p className="text-xs md:text-[13px] font-semibold text-brand-text/80 leading-relaxed italic">
-                  "{testimonial.quote}"
+                <Quote size={22} className="text-brand-green/20" />
+                <p className="font-display text-base md:text-lg font-normal text-brand-text leading-relaxed">
+                  {testimonial.quote}
                 </p>
               </div>
 
-              {/* Lower Profile detail with flex wrap to prevent horizontal spill */}
-              <div className="pt-6 mt-6 border-t border-brand-border/40 flex flex-wrap items-center justify-between gap-y-3 gap-x-2">
+              {/* Lower Profile detail */}
+              <div className="pt-6 mt-6 border-t border-brand-border/60 flex flex-wrap items-center justify-between gap-y-3 gap-x-2">
                 <div className="flex items-center gap-3 min-w-0 max-w-full">
-                  <div className={`w-10 h-10 rounded-full flex items-center justify-center font-extrabold text-sm shrink-0 ${testimonial.avatarBg}`}>
+                  <div className={`w-11 h-11 rounded-full flex items-center justify-center font-bold text-sm shrink-0 ${testimonial.avatarBg}`}>
                     {testimonial.avatarText}
                   </div>
                   <div className="min-w-0">
-                    <span className="text-xs font-black text-brand-text block truncate">{testimonial.name}</span>
-                    <span className="text-[10px] font-bold text-brand-text-muted block truncate">{testimonial.role}</span>
+                    <span className="text-sm font-bold text-brand-text block truncate">{testimonial.name}</span>
+                    <span className="text-[11px] font-semibold text-brand-text-muted block truncate">{testimonial.role} · {testimonial.location}</span>
                   </div>
                 </div>
 
                 {/* Metric Badge */}
                 <div className="shrink-0 max-w-full">
-                  <span className={`text-[10px] font-extrabold px-2.5 py-1 rounded-lg block whitespace-normal ${
+                  <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full block whitespace-normal ${
                     testimonial.category === 'academy' ? 'bg-brand-academy-soft text-brand-academy' : 'bg-brand-green-soft text-brand-green-dark'
                   }`}>
                     {testimonial.metric}
@@ -224,35 +223,31 @@ export default function Testimonials() {
         </AnimatePresence>
       </div>
 
-      {/* Conversion Banner optimized for actions */}
-      <div className="bg-brand-green-dark text-white rounded-[2rem] p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative shadow-xl">
-        <div className="space-y-2 text-left relative z-10 max-w-xl">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-brand-green bg-white/10 px-3 py-1 rounded-full">
-            Estabilidade & Crescimento
-          </span>
-          <h3 className="text-xl md:text-2xl font-black tracking-tight">
-            Liberdade profissional começa a custar zero reais.
+      {/* Conversion Banner */}
+      <div className="surface-dark text-white rounded-[2.5rem] p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-7 overflow-hidden relative">
+        <div aria-hidden className="absolute inset-0 grain opacity-40" />
+        <div className="space-y-3 text-left relative z-10 max-w-xl">
+          <p className="section-index text-[#7FD9C4]">Estabilidade &amp; crescimento</p>
+          <h3 className="font-display text-2xl md:text-3xl font-semibold tracking-tight leading-tight">
+            Liberdade profissional começa a <em className="italic text-[#7FD9C4] font-medium">custar zero reais.</em>
           </h3>
-          <p className="text-xs text-white/70 font-semibold leading-relaxed">
-            Mais de 94% dos clínicos relatam uma redução acentuada no cansaço mental diário já na primeira semana de uso do OdontoHub.
+          <p className="text-sm text-white/70 font-medium leading-relaxed">
+            A maioria dos clínicos relata uma redução acentuada no cansaço mental diário já na primeira semana de uso do OdontoHub.
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto relative z-10">
+        <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto relative z-10 shrink-0">
           <a href="https://sistema.odontohub.app.br" className="w-full sm:w-auto">
-            <button className="w-full bg-white text-[#154639] hover:bg-white/95 border-none shadow-lg text-xs font-black uppercase tracking-wider py-4 px-6 rounded-xl transition-all duration-200 active:scale-95 text-center flex items-center justify-center">
-              Criar Conta Gratuita
+            <button className="w-full bg-white text-brand-green-dark hover:bg-white/90 shadow-lg text-sm font-extrabold py-4 px-7 rounded-2xl transition-all active:scale-95 inline-flex items-center justify-center gap-2">
+              Criar conta gratuita <ArrowRight size={16} />
             </button>
           </a>
           <a href="#planos" className="w-full sm:w-auto">
-            <button className="w-full bg-transparent text-white border-2 border-white/30 hover:bg-white/10 text-xs font-black uppercase tracking-wider py-4 px-6 rounded-xl transition-all duration-200 active:scale-95 text-center flex items-center justify-center">
-              Ver Tabela de Preços
+            <button className="w-full bg-white/10 text-white border border-white/20 hover:bg-white/15 text-sm font-bold py-4 px-7 rounded-2xl transition-all active:scale-95">
+              Ver os planos
             </button>
           </a>
         </div>
-
-        {/* Decorative background vectors */}
-        <div className="absolute top-0 right-0 w-48 h-48 bg-white/5 rounded-full blur-2xl -mr-16 -mt-16 pointer-events-none" />
       </div>
     </div>
   );

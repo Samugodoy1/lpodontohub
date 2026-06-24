@@ -5,34 +5,32 @@ import {
   Calendar,
   Users,
   ClipboardList,
-  Bell,
-  ChevronRight,
   CheckCircle2,
-  Brain,
   Clock,
   TrendingUp,
   MessageSquare,
   GraduationCap,
   Layout,
-  UserCircle,
-  PlusCircle,
-  LayoutDashboard,
   ArrowRight,
-  Sparkles,
-  Star,
+  ChevronRight,
+  CalendarPlus,
+  HeartPulse,
+  FileText,
+  Plus,
   ShieldCheck,
-  Zap
+  CircleDollarSign
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Button, Section, SectionHeader } from '../components/shared/UI';
+import { Button } from '../components/shared/UI';
 import Testimonials from '../components/shared/Testimonials';
 import SystemMockupShowcase from '../components/shared/SystemMockupShowcase';
 
-// Scroll-triggered reveal wrapper for a layered, intentional entrance
+/* ---------------------------------------------------------------- helpers */
+
 const Reveal = ({
   children,
   delay = 0,
-  y = 28,
+  y = 24,
   className = ''
 }: {
   children: React.ReactNode;
@@ -51,152 +49,108 @@ const Reveal = ({
   </motion.div>
 );
 
-const Mockup = () => {
-  const [scenario, setScenario] = React.useState(0);
+const Check = ({ children }: { children: React.ReactNode }) => (
+  <li className="flex items-start gap-3 text-[15px] md:text-base font-semibold text-brand-text">
+    <CheckCircle2 size={18} className="text-brand-green shrink-0 mt-0.5" /> {children}
+  </li>
+);
 
-  return (
-    <div className="relative w-full max-w-4xl mx-auto mt-12 md:mt-20 p-1.5 md:p-3 bg-white rounded-[2.5rem] md:rounded-[3rem] shadow-2xl border border-brand-border overflow-hidden">
-      {/* Selector bar */}
-      <div className="flex flex-wrap items-center justify-center gap-1.5 md:gap-3 p-3 bg-slate-50/80 border-b border-brand-border rounded-t-[2.2rem] md:rounded-t-[2.7rem]">
-        {[
-          { label: "Segunda-feira às 7h30", desc: "Começando a semana" },
-          { label: "Dia tranquilo", desc: "Silêncio ativo" },
-          { label: "Análise preventiva", desc: "Visão de caixa de 3 semanas" }
-        ].map((item, idx) => (
-          <button
-            key={idx}
-            onClick={() => setScenario(idx)}
-            className={`px-4 py-2.5 rounded-2xl transition-all duration-300 text-left flex flex-col gap-0.5 ${
-              scenario === idx 
-                ? 'bg-brand-green text-white shadow-lg shadow-brand-green/10 scale-102' 
-                : 'hover:bg-slate-100 text-brand-text'
-            }`}
-          >
-            <span className="text-[10px] md:text-xs font-bold leading-none">{item.label}</span>
-            <span className={`text-[8px] md:text-[9px] ${scenario === idx ? 'text-white/60' : 'text-brand-text-muted font-medium'}`}>{item.desc}</span>
-          </button>
-        ))}
+const Avatar = ({ initials, ring = false }: { initials: string; ring?: boolean }) => (
+  <div className="relative shrink-0">
+    <div className="w-9 h-9 rounded-full bg-brand-green-soft text-brand-green-dark border border-brand-green/15 flex items-center justify-center font-bold text-xs">
+      {initials}
+    </div>
+    {ring && <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-brand-yellow border-2 border-white rounded-full" />}
+  </div>
+);
+
+/* The green "next appointment" card — the brand's signature block */
+const NextAppointment = ({ compact = false }: { compact?: boolean }) => (
+  <div className={`bg-gradient-to-br from-brand-green-dark to-[#0d3a2f] text-white rounded-3xl relative overflow-hidden ${compact ? 'p-5' : 'p-6 md:p-7'}`}>
+    <div aria-hidden className="absolute -top-10 -right-10 w-40 h-40 bg-white/5 rounded-full blur-2xl" />
+    <p className="text-[10px] font-bold text-white/50 uppercase tracking-[0.15em] mb-2">Próximo atendimento</p>
+    <h4 className="font-display text-2xl md:text-3xl font-semibold tracking-tight leading-none">Roberto Carlos</h4>
+    <div className="flex gap-2 mt-3">
+      <span className="px-3 py-1 bg-white/12 rounded-full text-[10px] font-bold uppercase tracking-wider">Agendado</span>
+      <span className="px-3 py-1 bg-white/8 rounded-full text-[10px] font-bold uppercase tracking-wider">em 41 min</span>
+    </div>
+    <div className="flex items-end justify-between mt-6">
+      <div>
+        <p className="text-[10px] font-bold text-white/40 uppercase tracking-[0.15em] mb-1">Procedimento</p>
+        <p className="font-bold text-sm md:text-base">Canal · dente 23</p>
       </div>
-
-      <div className="bg-brand-bg-alt rounded-b-[2rem] md:rounded-b-[2.5rem] flex flex-col min-h-[500px] md:min-h-[600px] overflow-hidden relative">
-        {scenario === 0 && (
-          <div className="pt-8 md:pt-14 px-5 md:px-12 text-center flex-1 pb-24">
-            <p className="text-[10px] md:text-xs text-brand-text-muted mb-1.5 md:mb-2 font-medium">Bom dia, Dr. Guilherme 👋</p>
-            <h3 className="text-xl md:text-3xl font-semibold text-brand-text mb-4 md:mb-6 leading-tight max-w-xl mx-auto">
-              Hoje você tem 8 atendimentos. 2 pacientes ainda não confirmaram.
-            </h3>
-            
-            <div className="bg-brand-yellow-soft/50 border border-brand-yellow/10 p-4 md:p-5 rounded-2xl flex items-center justify-between gap-3 text-left max-w-lg mx-auto mb-8 md:mb-10 text-brand-text">
-              <div className="flex items-center gap-3 font-semibold">
-                <div className="w-2.5 h-2.5 bg-brand-yellow rounded-full shrink-0 animate-pulse" />
-                <p className="text-xs md:text-sm leading-tight font-medium">
-                  Quer que eu envie lembretes automáticos agora?
-                </p>
-              </div>
-              <button className="px-3.5 py-1.5 bg-brand-yellow text-white text-[10px] font-bold rounded-lg shrink-0 hover:bg-opacity-90">Confirmar</button>
-            </div>
-
-            <div className="bg-brand-green-dark text-white p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] text-left relative overflow-hidden shadow-xl max-w-xl mx-auto group">
-              <div className="relative z-10">
-                <p className="text-[8px] md:text-[10px] font-bold text-white/50 uppercase tracking-widest mb-1.5 md:mb-2">Próximo Atendimento Clínico</p>
-                <div className="flex justify-between items-start mb-6 md:mb-10">
-                  <div>
-                    <h4 className="text-2xl md:text-4xl font-bold tracking-tight">João Silva</h4>
-                    <div className="flex gap-1.5 md:gap-2 mt-2 md:mt-3">
-                      <span className="px-2 md:px-3 py-0.5 md:py-1 bg-white/15 rounded-lg text-[8px] md:text-[10px] font-bold uppercase tracking-wider">Extração avançada</span>
-                      <span className="px-2 md:px-3 py-0.5 md:py-1 bg-white/10 rounded-lg text-[8px] md:text-[10px] font-bold uppercase tracking-wider">Última visita: 18 meses</span>
-                    </div>
-                  </div>
-                  <div className="w-10 h-10 md:w-12 md:h-12 bg-white/10 rounded-xl md:rounded-2xl flex items-center justify-center text-lg md:text-xl font-bold">J</div>
-                </div>
-
-                <div className="flex justify-between items-end mb-6 md:mb-8">
-                  <div>
-                    <p className="text-[8px] md:text-[10px] font-bold text-white/50 uppercase tracking-widest mb-1">Procedimento</p>
-                    <p className="text-base md:text-lg font-bold">Extração do 38 • Raiz Residual</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-[8px] md:text-[10px] font-bold text-white/50 uppercase tracking-widest mb-1">Horário</p>
-                    <p className="text-xl md:text-2xl font-bold">10:00</p>
-                  </div>
-                </div>
-
-                <div className="space-y-2 md:space-y-3">
-                  <button className="w-full py-3.5 md:py-4 bg-white text-brand-green-dark rounded-xl md:rounded-2xl font-bold text-xs md:text-sm hover:opacity-90 transition-opacity">Visualizar Histórico Resumido</button>
-                </div>
-              </div>
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-3xl -mr-16 -mt-16" />
-            </div>
-          </div>
-        )}
-
-        {scenario === 1 && (
-          <div className="pt-8 md:pt-16 px-5 md:px-12 text-center flex-1 pb-24 flex flex-col justify-center items-center">
-            <div className="w-16 h-16 bg-brand-green/10 rounded-full flex items-center justify-center text-brand-green mb-6">
-              <CheckCircle2 size={32} />
-            </div>
-            <p className="text-[10px] md:text-xs text-brand-text-muted mb-1.5 md:mb-2 font-medium">Silêncio quando tudo está sob controle</p>
-            <h3 className="text-xl md:text-4xl font-semibold text-brand-text mb-4 md:mb-6 tracking-tight max-w-lg leading-tight">
-              Tudo certo para hoje. Nenhuma pendência urgente.
-            </h3>
-            <p className="text-sm text-brand-text-muted max-w-sm mb-8 leading-relaxed font-semibold">
-              6 pacientes confirmados. O faturamento está em equilíbrio. Pode focar integralmente no cuidado clínico.
-            </p>
-            <div className="px-6 py-3 bg-white border border-brand-border rounded-2xl text-xs font-bold text-brand-text-muted">
-              Fechar o aplicativo e focar no paciente
-            </div>
-          </div>
-        )}
-
-        {scenario === 2 && (
-          <div className="pt-8 md:pt-14 px-5 md:px-12 text-center flex-1 pb-24">
-            <p className="text-[10px] md:text-xs text-brand-text-muted mb-1.5 md:mb-2 font-medium">Seu caixa protegido de furos</p>
-            <h3 className="text-xl md:text-3xl font-semibold text-brand-text mb-4 md:mb-6 leading-tight max-w-xl mx-auto">
-              Sua previsão para fechar o mês no azul
-            </h3>
-            
-            <div className="bg-brand-yellow-soft/50 border border-brand-yellow/10 p-5 rounded-2xl flex flex-col md:flex-row gap-4 items-center justify-between text-left max-w-xl mx-auto mb-8 text-brand-text">
-              <div className="space-y-1">
-                <span className="text-[8px] md:text-[9px] font-extrabold uppercase tracking-widest text-brand-yellow bg-white/80 py-1 px-2.5 rounded-full inline-block">Previsão para este mês</span>
-                <p className="text-xs md:text-sm font-bold leading-snug">
-                  Com base nos agendamentos confirmados e receitas a receber, o faturamento deste mês de junho pode fechar 15% abaixo do esperado.
-                </p>
-              </div>
-              <button className="px-4 py-2 bg-brand-yellow text-white text-xs font-bold rounded-xl shrink-0 hover:bg-opacity-90">Ver Opções</button>
-            </div>
-
-            <div className="bg-white border border-brand-border rounded-2xl p-6 text-left max-w-xl mx-auto space-y-4">
-              <h4 className="text-xs font-extrabold text-slate-400 uppercase tracking-widest">O que fazer para garantir o fechamento:</h4>
-              <div className="flex items-center gap-4 p-3 bg-brand-green-soft/40 border border-brand-green/10 rounded-xl cursor-pointer hover:bg-brand-green-soft/80 transition-colors">
-                <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-brand-green shrink-0 shadow-sm animate-pulse">
-                  <Users size={16} />
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-brand-text">3 pacientes de prótese precisam de retorno</p>
-                  <p className="text-[10px] text-brand-text-muted font-medium">Última consulta foi há 6 meses. Sugerir reagendamento?</p>
-                </div>
-                <button className="ml-auto px-3 py-1 bg-brand-green text-white text-[10px] font-bold rounded">Disparar</button>
-              </div>
-            </div>
-          </div>
-        )}
-
-        <div className="absolute bottom-0 left-0 right-0 h-14 md:h-16 bg-white border-t border-brand-border flex items-center justify-around px-4 md:px-8">
-          {[LayoutDashboard, Calendar, Users, TrendingUp, Menu].map((Icon, i) => (
-            <div key={i} className={`flex flex-col items-center gap-0.5 md:gap-1 ${i === 0 ? 'text-brand-green' : 'text-slate-300'}`}>
-              <Icon size={18} className="md:w-5 md:h-5" />
-              <span className="text-[7px] md:text-[8px] font-bold uppercase tracking-wider">{['Início', 'Agenda', 'Pacientes', 'Financ.', 'Mais'][i]}</span>
-            </div>
-          ))}
-        </div>
+      <div className="text-right">
+        <p className="text-[10px] font-bold text-white/40 uppercase tracking-[0.15em] mb-1">Horário</p>
+        <p className="font-display text-2xl md:text-3xl font-semibold leading-none">16:00</p>
       </div>
     </div>
-  );
-};
+    {!compact && (
+      <button className="mt-6 w-full py-3.5 bg-white text-brand-green-dark rounded-2xl font-bold text-sm hover:bg-white/90 transition-colors">
+        Atender
+      </button>
+    )}
+  </div>
+);
 
-const Menu = (props: any) => <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>;
+/* Editorial section header with mono index label */
+const FeatureRow = ({
+  index,
+  label,
+  title,
+  body,
+  bullets,
+  flip = false,
+  children
+}: {
+  index: string;
+  label: string;
+  title: React.ReactNode;
+  body: React.ReactNode;
+  bullets: string[];
+  flip?: boolean;
+  children: React.ReactNode;
+}) => (
+  <section className="py-16 md:py-28 px-5 md:px-6 scroll-mt-24">
+    <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <Reveal className={flip ? 'lg:order-2' : ''}>
+        <p className="section-index text-brand-green mb-5">
+          {index} <span className="text-brand-text-muted/50">— {label}</span>
+        </p>
+        <h2 className="font-display text-3xl md:text-[2.75rem] font-semibold text-brand-text leading-[1.08] tracking-tight mb-6">
+          {title}
+        </h2>
+        <p className="text-base md:text-lg text-brand-text-muted leading-relaxed font-medium mb-8 max-w-xl">
+          {body}
+        </p>
+        <ul className="space-y-3.5">
+          {bullets.map((b) => <Check key={b}>{b}</Check>)}
+        </ul>
+      </Reveal>
+      <Reveal delay={0.1} className={`relative ${flip ? 'lg:order-1' : ''}`}>
+        <div aria-hidden className="absolute -inset-6 bg-brand-green/[0.04] rounded-[3rem] blur-2xl -z-10" />
+        {children}
+      </Reveal>
+    </div>
+  </section>
+);
+
+/* ---------------------------------------------------------------- page */
 
 export default function Home() {
+  // Sticky mobile CTA: only after scrolling past the hero, and hidden near
+  // the final CTA so it never duplicates a visible "Começar grátis" button.
+  const [showStickyCta, setShowStickyCta] = React.useState(false);
+  React.useEffect(() => {
+    const onScroll = () => {
+      const scrolled = window.scrollY > 720;
+      const nearBottom = window.innerHeight + window.scrollY > document.body.offsetHeight - 760;
+      setShowStickyCta(scrolled && !nearBottom);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
     <div className="min-h-screen">
       <Helmet>
@@ -210,505 +164,534 @@ export default function Home() {
         <meta name="twitter:title" content="OdontoHub — Sua rotina clínica, simplificada" />
         <meta name="twitter:description" content="O software moderno definitivo para gerenciar seu consultório. Controle sua agenda, prontuários e organize checklists no Modo Box." />
       </Helmet>
-      {/* 2. HERO */}
-      <section className="relative overflow-hidden pt-32 md:pt-52 pb-12 md:pb-24 px-5 md:px-6">
-        {/* Ambient aurora background */}
-        <div aria-hidden className="absolute inset-0 -z-10 overflow-hidden">
-          <div className="aurora-blob bg-brand-green/25 w-[42rem] h-[42rem] -top-40 -left-40" />
-          <div className="aurora-blob bg-[#0D9488]/20 w-[34rem] h-[34rem] -top-20 right-[-10rem]" style={{ animationDelay: '-5s' }} />
-          <div className="aurora-blob bg-[#10B981]/15 w-[30rem] h-[30rem] top-[24rem] left-1/3" style={{ animationDelay: '-9s' }} />
-          <div className="absolute inset-0 dot-grid opacity-70" />
-          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-brand-bg" />
+
+      {/* ============================================ HERO */}
+      <section className="relative overflow-hidden pt-32 md:pt-44 pb-16 md:pb-24 px-5 md:px-6">
+        <div aria-hidden className="absolute inset-0 -z-10">
+          <div className="absolute inset-0 dot-grid opacity-50" />
+          <div className="absolute top-[-12rem] right-[-10rem] w-[40rem] h-[40rem] bg-brand-green/[0.07] rounded-full blur-3xl" />
         </div>
 
-        <div className="max-w-7xl mx-auto text-center">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          {/* Copy */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-7"
           >
-            {/* Eyebrow badge */}
-            <div className="flex justify-center mb-7 md:mb-9">
-              <span className="glass inline-flex items-center gap-2 rounded-full pl-2 pr-4 py-1.5 text-[11px] md:text-xs font-bold text-brand-green-dark">
-                <span className="inline-flex items-center gap-1.5 bg-brand-green text-white rounded-full px-2.5 py-1 uppercase tracking-wider text-[9px] md:text-[10px]">
-                  <Sparkles size={11} /> Novo
-                </span>
-                Software odontológico que decide o que importa por você
-              </span>
-            </div>
+            <span className="inline-flex items-center gap-2 rounded-full bg-brand-green-soft border border-brand-green/15 pl-3 pr-4 py-1.5 text-[11px] md:text-xs font-bold text-brand-green-dark uppercase tracking-[0.12em] mb-7">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-green animate-pulse" />
+              Software de gestão para consultório odontológico
+            </span>
 
-            <h1 className="text-[2.7rem] md:text-[5.5rem] font-extrabold tracking-tight text-brand-text mb-6 md:mb-8 leading-[1.03] px-2 md:px-0">
-              O consultório não precisa de mais dados.<br className="hidden md:block" />
-              <span className="text-gradient-green text-gradient-animate">Precisa de menos decisões.</span>
+            <h1 className="font-display text-5xl sm:text-6xl md:text-[5.5rem] font-semibold text-brand-text leading-[0.98] tracking-tight mb-7">
+              Menos caos.<br />
+              <em className="not-italic md:italic text-brand-green font-medium">Mais clareza para cuidar.</em>
             </h1>
-            <p className="text-base md:text-xl text-brand-text-muted max-w-3xl mx-auto mb-10 md:mb-12 leading-relaxed px-4 md:px-0 font-semibold">
-              O OdontoHub organiza o seu consultório em um painel limpo e sem distrações. Ele atua como um colega de confiança que cuida de agendamentos e finanças para responder às duas perguntas simples que importam: <span className="text-brand-text font-bold">O que merece minha atenção agora? E posso ficar tranquilo quanto ao resto?</span> Se não houver nada urgente, ele permanece totalmente em silêncio para você focar no seu paciente.
+
+            <p className="text-lg md:text-xl text-brand-text-muted leading-relaxed font-medium max-w-xl mb-9">
+              Você se formou para cuidar de gente, não para virar gestor da noite para o dia. O <span className="font-bold text-brand-text">OdontoHub</span> cuida da agenda, dos pacientes, do prontuário e do financeiro — e mostra o que precisa da sua atenção hoje.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 mb-8 px-4 md:px-0">
+
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-7">
               <a href="https://sistema.odontohub.app.br" className="w-full sm:w-auto group">
-                <button className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl font-bold text-base md:text-sm text-white bg-gradient-to-r from-brand-green-dark via-brand-green to-[#0D9488] bg-[length:200%_100%] bg-left hover:bg-right shadow-glow-green transition-[background-position,transform] duration-500 active:scale-95">
-                  Começar gratuitamente
-                  <ArrowRight size={17} className="group-hover:translate-x-1 transition-transform" />
+                <button className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl font-bold text-base text-white bg-brand-green-dark hover:bg-brand-green shadow-glow-soft transition-colors active:scale-95">
+                  Começar grátis
+                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                 </button>
               </a>
-              <a href="#como-funciona" className="w-full sm:w-auto">
-                <button className="w-full sm:w-auto px-8 py-4 rounded-2xl font-bold text-base md:text-sm text-brand-text glass hover:border-brand-green/30 transition-colors active:scale-95">
-                  Ver comportamento do sistema
-                </button>
+              <a href="#como-funciona" className="text-sm font-bold text-brand-text hover:text-brand-green transition-colors inline-flex items-center gap-1.5">
+                Ver como funciona <ChevronRight size={16} />
               </a>
             </div>
 
-            {/* Trust strip */}
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] md:text-xs font-bold text-brand-text-muted mb-2">
-              <span className="inline-flex items-center gap-1.5">
-                <span className="flex -space-x-0.5 text-brand-yellow">
-                  {[0, 1, 2, 3, 4].map((i) => <Star key={i} size={13} className="fill-brand-yellow" />)}
-                </span>
-                Amado por dentistas autônomos
-              </span>
-              <span className="hidden md:inline-flex items-center gap-1.5"><ShieldCheck size={14} className="text-brand-green" /> Dados criptografados</span>
-              <span className="inline-flex items-center gap-1.5"><Zap size={14} className="text-brand-green" /> Grátis para começar</span>
-            </div>
-            <p className="text-[10px] md:text-xs font-bold text-brand-text-muted/70 uppercase tracking-widest px-8 md:px-0">
-              Encerrar o dia sabendo que nada importante ficou para trás é o nosso sucesso.
+            <p className="section-index text-brand-text-muted/70">
+              Grátis para começar · Sem cartão de crédito · Pronto em minutos
             </p>
           </motion.div>
 
+          {/* Phone mockup + floating finance chip */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.98, y: 20 }}
+            initial={{ opacity: 0, scale: 0.96, y: 24 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="relative"
+            transition={{ delay: 0.25, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:col-span-5 relative flex justify-center"
           >
-            {/* Glow halo behind device */}
-            <div aria-hidden className="absolute left-1/2 top-12 -translate-x-1/2 w-[90%] max-w-3xl h-[28rem] conic-glow blur-3xl rounded-full -z-10 opacity-70" />
-            <Mockup />
+            <div aria-hidden className="absolute inset-0 bg-brand-green/[0.06] rounded-full blur-3xl scale-90" />
+            {/* Phone frame */}
+            <div className="relative w-[290px] sm:w-[320px] bg-[#0f1714] rounded-[2.8rem] p-2.5 shadow-2xl border border-black/5">
+              <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-28 h-6 bg-[#0f1714] rounded-b-2xl z-20" />
+              <div className="bg-brand-bg rounded-[2.3rem] overflow-hidden h-[560px] px-5 pt-12 pb-5 flex flex-col">
+                <p className="text-xs text-brand-text-muted font-semibold mb-1">Boa tarde, doutor 👋</p>
+                <h3 className="font-display text-2xl font-semibold text-brand-text leading-tight tracking-tight mb-5">
+                  Mais 2 e o dia está feito.
+                </h3>
+                <NextAppointment compact />
+                <div className="mt-4 flex items-center justify-between bg-white border border-brand-border rounded-2xl px-4 py-3">
+                  <span className="text-xs font-bold text-brand-text">Precisam de atenção</span>
+                  <span className="text-xs font-bold text-brand-yellow">5</span>
+                </div>
+                <div className="mt-3 flex items-center gap-3 px-1">
+                  <Avatar initials="M" ring />
+                  <div className="min-w-0">
+                    <p className="text-xs font-bold text-brand-text leading-none">Moacir Gonçalves</p>
+                    <p className="text-[10px] text-brand-text-muted mt-1">1 sem · sem retorno</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Floating finance chip */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.6 }}
+              className="float-chip absolute -top-3 right-0 lg:top-16 lg:-right-6 glass rounded-2xl pl-2.5 pr-3.5 py-2.5 flex items-center gap-2.5 shadow-glow-soft"
+            >
+              <span className="w-8 h-8 lg:w-9 lg:h-9 rounded-xl bg-brand-green-soft text-brand-green flex items-center justify-center shrink-0">
+                <CircleDollarSign size={17} />
+              </span>
+              <div className="text-left">
+                <p className="text-[9px] lg:text-[10px] font-bold text-brand-text-muted uppercase tracking-wider">Faturamento hoje</p>
+                <p className="font-display text-base lg:text-lg font-semibold text-brand-text leading-none">R$ 2.250</p>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* 3. PROBLEMA + COMPORTAMENTO INTELIGENTE */}
-      <Section className="bg-white" id="como-funciona">
-        <SectionHeader 
-          title="A odontologia está sufocada por decisões administrativas e planilhas confusas."
-          subtitle="A maioria dos softwares despeja dezenas de gráficos e notificações inúteis para prender sua atenção no computador. Nós fazemos o oposto: filtramos o ruído para que você foque onde realmente faz a diferença: diante do seu paciente."
-        />
-
-        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-start mb-20 md:mb-32 text-left">
-          {/* Center VS divider */}
-          <div aria-hidden className="hidden md:flex absolute left-1/2 top-14 -translate-x-1/2 z-10 w-12 h-12 rounded-full bg-white border border-brand-border shadow-glow-soft items-center justify-center text-[10px] font-extrabold uppercase tracking-widest text-brand-text-muted">
-            vs
-          </div>
-
-          <div className="space-y-5 md:space-y-6">
-            <h4 className="text-[10px] md:text-xs font-bold text-brand-text/40 uppercase tracking-[0.2em] mb-2 md:mb-4 flex items-center gap-2">
-              <span className="w-6 h-px bg-brand-text/20" /> Sistemas tradicionais de papelada digital
-            </h4>
-            {[
-              { title: "Acúmulo de dados sem utilidade prática", text: "Você abre o sistema e vê dezenas de relatórios vazios e históricos antigos. O esforço mental de tentar entender o que de fato precisa ser feito continua sendo inteiramente seu." },
-              { title: "Gráficos e notificações para te prender na tela", text: "Alertas desnecessários que fingem urgência só para fazer parecer que o software é útil, deixando a sua rotina mais cansativa e gerando ansiedade desnecessária." },
-              { title: "Celebrando pequenas tarefas normais", text: "Pop-ups invasivos de aprovação que sobrecarregam sua rotina e tratam você como criança, em vez de respeitarem o seu profissionalismo." }
-            ].map((item, i) => (
-              <Reveal key={i} delay={i * 0.08}>
-                <div className="p-6 md:p-8 bg-slate-50/70 rounded-3xl border border-slate-100 flex flex-col gap-1.5 grayscale-[0.2] opacity-90">
-                  <p className="font-bold text-brand-text/80 text-base md:text-lg tracking-tight line-through decoration-brand-red/40 decoration-1">{item.title}</p>
-                  <p className="text-sm text-brand-text-muted leading-relaxed font-semibold">{item.text}</p>
+      {/* ============================================ 01 — INÍCIO */}
+      <div className="bg-white border-y border-brand-border/60" id="como-funciona">
+        <FeatureRow
+          index="01"
+          label="Início"
+          title={<>Abre o app e <em className="italic text-brand-green font-medium">já sabe o que fazer agora.</em></>}
+          body="Próximo paciente, quem precisa de retorno, quanto entrou hoje. A tela inicial não é um painel cheio de gráfico — é o seu dia, em ordem."
+          bullets={[
+            'Próximo atendimento sempre no topo',
+            'Lista de quem precisa de atenção',
+            'Adicionar paciente ou consulta em 1 toque'
+          ]}
+        >
+          <div className="bg-white border border-brand-border rounded-[2rem] shadow-glow-soft p-5 md:p-6 max-w-md mx-auto">
+            <div className="flex items-center justify-between mb-4">
+              <span className="font-display text-xl font-semibold text-brand-text">Hoje</span>
+              <span className="section-index text-brand-text-muted">2 consultas</span>
+            </div>
+            <NextAppointment />
+            <div className="flex items-center justify-between mt-6 mb-3">
+              <span className="flex items-center gap-2 text-sm font-bold text-brand-text">
+                <span className="w-[3px] h-4 bg-brand-yellow rounded-full" /> Precisam de atenção
+              </span>
+              <span className="text-xs font-bold text-brand-yellow">5</span>
+            </div>
+            <div className="space-y-3">
+              {[
+                { n: 'Moacir Gonçalves', m: '1 sem · sem retorno', i: 'M' },
+                { n: 'Juraci Alvarenga', m: '4 dias · sem retorno', i: 'J' }
+              ].map((p) => (
+                <div key={p.n} className="flex items-center gap-3">
+                  <Avatar initials={p.i} ring />
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm font-bold text-brand-text leading-none">{p.n}</p>
+                    <p className="text-xs text-brand-text-muted mt-1">{p.m}</p>
+                  </div>
+                  <ChevronRight size={16} className="text-brand-border" />
                 </div>
-              </Reveal>
+              ))}
+            </div>
+          </div>
+        </FeatureRow>
+      </div>
+
+      {/* ============================================ 02 — AGENDA */}
+      <FeatureRow
+        index="02"
+        label="Agenda"
+        flip
+        title={<>Sua semana inteira <em className="italic text-brand-green font-medium">numa olhada.</em></>}
+        body="Veja os horários livres, encaixe quem está esperando e deixe o sistema sugerir os melhores momentos. Desmarcou? Ele já avisa quem pode entrar no lugar."
+        bullets={[
+          'Visão de dia, semana e mês',
+          'Encaixes inteligentes sugeridos por IA',
+          'Confirmações automáticas no WhatsApp'
+        ]}
+      >
+        <div className="bg-white border border-brand-border rounded-[2rem] shadow-glow-soft p-5 md:p-6 max-w-md mx-auto">
+          <div className="flex items-center justify-between mb-4">
+            <span className="font-display text-xl font-semibold text-brand-text">Quinta · 11 jun</span>
+            <span className="px-3 py-1 bg-brand-green text-white rounded-full text-[10px] font-bold uppercase tracking-wider">Hoje</span>
+          </div>
+          <div className="space-y-2.5">
+            {[
+              { h: '08:00', n: 'Benedito Souza', p: 'Profilaxia', tone: 'blue' },
+              { h: '11:00', n: 'Moacir Gonçalves', p: 'Restauração · 32', tone: 'purple' },
+              { h: '16:00', n: 'Roberto Carlos', p: 'Canal · 23', tone: 'green' }
+            ].map((s) => (
+              <div key={s.h} className="flex items-stretch gap-3">
+                <span className="section-index text-brand-text-muted/70 pt-2 w-12 shrink-0">{s.h}</span>
+                <div className={`flex-1 rounded-2xl px-4 py-3 border-l-4 ${
+                  s.tone === 'green' ? 'bg-brand-green-soft border-brand-green' :
+                  s.tone === 'purple' ? 'bg-brand-academy-soft border-brand-academy' :
+                  'bg-sky-50 border-sky-400'
+                }`}>
+                  <p className="text-sm font-bold text-brand-text leading-none">{s.n}</p>
+                  <p className="text-xs text-brand-text-muted mt-1.5">{s.p}</p>
+                </div>
+              </div>
+            ))}
+            <div className="flex items-center gap-3">
+              <span className="section-index text-brand-text-muted/40 w-12 shrink-0 pl-0.5">17:00</span>
+              <button className="flex-1 rounded-2xl border border-dashed border-brand-border text-brand-text-muted text-xs font-bold py-3 flex items-center justify-center gap-1.5 hover:border-brand-green hover:text-brand-green transition-colors">
+                <Plus size={14} /> Horário livre
+              </button>
+            </div>
+          </div>
+        </div>
+      </FeatureRow>
+
+      {/* ============================================ 03 — FINANCEIRO */}
+      <div className="bg-white border-y border-brand-border/60">
+        <FeatureRow
+          index="03"
+          label="Financeiro"
+          title={<>Quanto entrou, quanto entra <em className="italic text-brand-green font-medium">e o que falta receber.</em></>}
+          body="Sem planilha paralela. Cada atendimento vira lançamento, e você vê o caixa do mês fechar no azul — com projeção e aviso antecipado se algo sair do esperado."
+          bullets={[
+            'Receitas e despesas em um só lugar',
+            'Projeção de caixa das próximas semanas',
+            'Controle de convênios, Pix e inadimplência'
+          ]}
+        >
+          <div className="bg-white border border-brand-border rounded-[2rem] shadow-glow-soft p-6 md:p-7 max-w-md mx-auto">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-brand-green-soft text-brand-green-dark text-[11px] font-bold rounded-full border border-brand-green/15 mb-4">
+              <TrendingUp size={12} /> +80% vs. mês passado 🔥
+            </span>
+            <p className="font-display text-5xl md:text-6xl font-semibold text-brand-text tracking-tight leading-none">R$ 2.250</p>
+            <p className="text-sm text-brand-text-muted font-medium mt-3">
+              Projeção: <span className="font-bold text-brand-text">R$ 2.935</span> · Margem: <span className="font-bold text-brand-text">91%</span>
+            </p>
+            <div className="mt-6 space-y-2.5">
+              {[
+                { n: 'Afonso Torres', d: 'Profilaxia', v: '+ R$ 150' },
+                { n: 'Beatriz Helena', d: 'Restauração', v: '+ R$ 320' }
+              ].map((m) => (
+                <div key={m.n} className="flex items-center justify-between bg-brand-bg rounded-2xl px-4 py-3">
+                  <div>
+                    <p className="text-sm font-bold text-brand-text leading-none">{m.n}</p>
+                    <p className="text-[11px] text-brand-text-muted mt-1">{m.d}</p>
+                  </div>
+                  <span className="text-sm font-bold text-brand-green">{m.v}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </FeatureRow>
+      </div>
+
+      {/* ============================================ 04 — PORTAL DO PACIENTE */}
+      <FeatureRow
+        index="04"
+        label="Portal do paciente"
+        flip
+        title={<>Seu paciente com um portal só dele. <em className="italic text-brand-green font-medium">Você com cara de clínica grande.</em></>}
+        body="Cada paciente recebe um link próprio pra pedir consulta, atualizar a ficha e ver o tratamento. Profissionalismo que normalmente só consultório grande tem — no seu, desde o primeiro dia."
+        bullets={[
+          'Pedido de consulta direto pelo link',
+          'Ficha médica que o paciente atualiza sozinho',
+          'Cuidados pós-atendimento e contato rápido'
+        ]}
+      >
+        <div className="bg-white border border-brand-border rounded-[2rem] shadow-glow-soft p-6 md:p-8 max-w-md mx-auto">
+          <div className="flex items-center gap-3 mb-7">
+            <div className="w-11 h-11 rounded-full bg-brand-green-dark text-white flex items-center justify-center font-bold text-sm">SG</div>
+            <div>
+              <p className="text-sm font-bold text-brand-text leading-none">Dr. Samuel Godoy</p>
+              <p className="text-xs text-brand-text-muted mt-1">Portal do Paciente</p>
+            </div>
+          </div>
+          <h4 className="font-display text-3xl font-semibold text-brand-text tracking-tight">Olá, Gabriel 👋</h4>
+          <p className="text-sm text-brand-text-muted font-medium mt-2 mb-6">Você não tem consultas marcadas.</p>
+          <div className="space-y-3">
+            {[
+              { l: 'Pedir uma consulta', i: CalendarPlus },
+              { l: 'Atualizar minha ficha médica', i: FileText },
+              { l: 'Cuidados após o atendimento', i: HeartPulse }
+            ].map((a) => (
+              <button key={a.l} className="w-full flex items-center gap-3 px-4 py-4 rounded-2xl border border-brand-border text-left font-bold text-sm text-brand-text hover:border-brand-green hover:bg-brand-green-soft/40 transition-colors">
+                <a.i size={18} className="text-brand-green shrink-0" /> {a.l}
+              </button>
             ))}
           </div>
+        </div>
+      </FeatureRow>
 
-          <div className="space-y-5 md:space-y-6 mt-10 md:mt-0">
-            <h4 className="text-[10px] md:text-xs font-bold text-brand-green uppercase tracking-[0.2em] mb-2 md:mb-4 flex items-center gap-2">
-              <span className="w-6 h-px bg-brand-green/40" /> O Jeito OdontoHub de trabalhar
-            </h4>
-            {[
-              { title: "Contextos claros em vez de números soltos", text: "Não mostramos apenas 'você tem 12 pacientes amanhã'. Mostramos e destacamos o que importa: 'Você tem 12 pacientes amanhã, e 3 deles precisam de confirmação rígida ainda hoje'." },
-              { title: "Direcionamento claro sobre o próximo passo", text: "Toda informação exibida pelo OdontoHub responde à pergunta essencial: 'O que eu preciso fazer com isso?'. Oferecemos a próxima melhor ação em segundos." },
-              { title: "Silêncio ativo para a sua paz de espírito", text: "Proteger o seu sossego é o nosso dever. Se tudo na clínica está organizado e sob controle, o sistema silencia para você poder descansar sem peso na consciência." }
-            ].map((item, i) => (
-              <Reveal key={i} delay={i * 0.08}>
-                <div className="card-lift p-6 md:p-8 !bg-gradient-to-br !from-brand-green-soft/80 !to-white !border-brand-green/10 flex gap-4">
-                  <div className="shrink-0 mt-0.5 w-7 h-7 rounded-full bg-brand-green text-white flex items-center justify-center shadow-sm">
-                    <CheckCircle2 size={16} />
-                  </div>
-                  <div className="flex flex-col gap-1.5">
-                    <p className="font-bold text-brand-green-dark text-base md:text-lg tracking-tight">{item.title}</p>
-                    <p className="text-sm text-brand-green-dark/70 leading-relaxed font-semibold">{item.text}</p>
-                  </div>
-                </div>
-              </Reveal>
+      {/* ============================================ POR DENTRO DO SISTEMA */}
+      <section className="bg-[#FAF9F5] border-y border-brand-border/40 py-20 md:py-28 px-5 md:px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12 md:mb-16 max-w-2xl mx-auto">
+            <p className="section-index text-brand-green mb-4">Demonstração</p>
+            <h2 className="font-display text-3xl md:text-5xl font-semibold text-brand-text tracking-tight leading-tight mb-5">
+              O sistema de gestão <em className="italic text-brand-green font-medium">por dentro.</em>
+            </h2>
+            <p className="text-base md:text-lg text-brand-text-muted leading-relaxed font-medium">
+              Explore as telas reais do OdontoHub. A interface tira a papelada do caminho para você focar inteiramente no seu paciente.
+            </p>
+          </div>
+          <SystemMockupShowcase />
+
+          {/* CTA intermediário */}
+          <Reveal className="mt-12 md:mt-16 text-center">
+            <p className="font-display text-2xl md:text-3xl font-semibold text-brand-text tracking-tight mb-6">
+              Convenceu? Leva menos de um minuto para começar.
+            </p>
+            <a href="https://sistema.odontohub.app.br" className="group inline-block">
+              <button className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl font-bold text-base text-white bg-brand-green-dark hover:bg-brand-green shadow-glow-soft transition-colors active:scale-95">
+                Criar minha conta grátis
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </button>
+            </a>
+            <p className="section-index text-brand-text-muted/70 mt-4">Grátis para começar · Sem cartão de crédito</p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ============================================ DEPOIMENTOS */}
+      <section className="py-20 md:py-28 px-5 md:px-6" id="depoimentos">
+        <div className="max-w-7xl mx-auto">
+          <Testimonials />
+        </div>
+      </section>
+
+      {/* ============================================ PLANOS */}
+      <section id="planos" className="py-20 md:py-32 px-5 md:px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12 md:mb-16 max-w-2xl mx-auto">
+            <p className="section-index text-brand-green mb-4">Planos &amp; preços</p>
+            <h2 className="font-display text-3xl md:text-5xl font-semibold text-brand-text tracking-tight leading-tight mb-5">
+              Comece de graça. <em className="italic text-brand-green font-medium">Evolua quando fizer sentido.</em>
+            </h2>
+            <p className="text-base md:text-lg text-brand-text-muted leading-relaxed font-medium">
+              Do gratuito ao Pro, escolha a cobertura ideal para o seu consultório ou clínica solo.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-7 max-w-6xl mx-auto items-stretch text-left">
+            {/* Free */}
+            <div className="bg-white border border-brand-border rounded-[2rem] p-8 md:p-10 flex flex-col">
+              <p className="section-index text-brand-text-muted mb-2">Organização essencial</p>
+              <h3 className="font-display text-2xl font-semibold text-brand-text mb-1">Gratuito</h3>
+              <div className="flex items-baseline gap-1.5 my-5">
+                <span className="font-display text-4xl font-semibold">R$ 0</span>
+                <span className="text-brand-text-muted text-sm">grátis para sempre</span>
+              </div>
+              <ul className="space-y-3 mb-10 flex-grow">
+                {['Limite de pacientes ativos', 'Limite de agendamentos mensais', 'IA e previsões limitadas', 'Histórico de pacientes centralizado', 'Fichas clínicas e agendas básicas', 'Visual limpo e sem anúncios'].map((f) => (
+                  <li key={f} className="flex items-center gap-3 text-sm text-brand-text/90 font-medium">
+                    <CheckCircle2 size={16} className="text-brand-green/50 shrink-0" /> {f}
+                  </li>
+                ))}
+              </ul>
+              <a href="https://sistema.odontohub.app.br" className="w-full">
+                <button className="w-full py-4 rounded-2xl border-2 border-brand-green text-brand-green bg-white hover:bg-brand-green/5 text-xs uppercase tracking-wider font-extrabold transition-colors active:scale-95">Criar conta gratuita</button>
+              </a>
+            </div>
+
+            {/* Essencial */}
+            <div className="gradient-ring card-lift rounded-[2rem] p-8 md:p-10 flex flex-col relative lg:-mt-4 lg:mb-4 shadow-glow-soft">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-green text-white text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-md shadow-brand-green/30 whitespace-nowrap">Mais popular solo</div>
+              <p className="section-index text-brand-text-muted mb-2">Crescimento sustentável</p>
+              <h3 className="font-display text-2xl font-semibold text-brand-text mb-1">Essencial</h3>
+              <div className="flex items-baseline gap-1.5 my-5">
+                <span className="font-display text-4xl font-semibold text-brand-text">R$ 49,90</span>
+                <span className="text-brand-text-muted text-sm">/mês</span>
+              </div>
+              <ul className="space-y-3 mb-10 flex-grow">
+                {['Até 150 pacientes e prontuários ativos', 'Até 150 agendamentos por mês', 'Modelos de mensagens e confirmação no WhatsApp', 'Histórico clínico e prontuário fotográfico', 'Dashboard financeiro simplificado', 'Suporte prioritário por e-mail e chat', 'Envio avulso de receitas e atestados'].map((f) => (
+                  <li key={f} className="flex items-center gap-3 text-sm text-brand-text/95 font-medium">
+                    <CheckCircle2 size={16} className="text-brand-green shrink-0" /> {f}
+                  </li>
+                ))}
+              </ul>
+              <a href="https://sistema.odontohub.app.br" className="w-full">
+                <button className="w-full py-4 rounded-2xl bg-brand-green text-white hover:bg-brand-green-dark shadow-glow-soft text-xs uppercase tracking-wider font-extrabold transition-colors active:scale-95">Assinar Essencial</button>
+              </a>
+            </div>
+
+            {/* Pro */}
+            <div className="p-8 md:p-10 flex flex-col rounded-[2rem] text-white border-none shadow-glow-green relative overflow-hidden bg-gradient-to-br from-brand-green-dark via-brand-green to-[#0D9488]">
+              <div aria-hidden className="absolute -top-16 -right-16 w-56 h-56 bg-white/10 rounded-full blur-3xl pointer-events-none" />
+              <p className="section-index text-white/50 mb-2">Paz e automação completa</p>
+              <h3 className="font-display text-2xl font-semibold mb-1 text-white">Pro</h3>
+              <div className="flex items-baseline gap-1.5 my-5">
+                <span className="font-display text-4xl font-semibold text-white tracking-tight">R$ 99,90</span>
+                <span className="text-white/40 text-sm">/mês</span>
+              </div>
+              <ul className="space-y-3.5 mb-10 flex-grow">
+                {['Pacientes e prontuários ILIMITADOS', 'Agendamentos e calendário ILIMITADOS', 'Acesso total e irrestrito à IA', 'Sugestões de encaixe automáticas por IA', 'Lembretes e retornos inteligentes ativos', 'Painel exclusivo do que fazer hoje', 'Previsão financeira de caixa discreta'].map((f) => (
+                  <li key={f} className="flex items-center gap-3 text-sm font-semibold text-white">
+                    <CheckCircle2 size={16} className="text-white/40 shrink-0" /> {f}
+                  </li>
+                ))}
+              </ul>
+              <a href="https://sistema.odontohub.app.br" className="w-full">
+                <button className="w-full py-4 rounded-2xl bg-white text-brand-green-dark hover:bg-white/90 shadow-xl text-sm font-extrabold uppercase tracking-wider transition-colors active:scale-95">Quero o Pro</button>
+              </a>
+            </div>
+          </div>
+
+          {/* Redutor de risco */}
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-7 gap-y-2 text-sm font-semibold text-brand-text-muted">
+            {['Cancele quando quiser', 'Sem fidelidade', 'Seus dados sempre seus', 'Suporte humano de verdade'].map((t) => (
+              <span key={t} className="inline-flex items-center gap-2">
+                <CheckCircle2 size={16} className="text-brand-green" /> {t}
+              </span>
             ))}
           </div>
         </div>
-      </Section>
+      </section>
 
-      {/* 4. PRÓXIMA MELHOR AÇÃO */}
-      <Section className="bg-white">
-        <SectionHeader 
-          title="Nossos princípios de simplicidade"
-          subtitle="O produto deve fazer o trabalho administrativo chato para o dentista não precisar se preocupar. Seguimos regras rígidas de respeito ao seu tempo e foco clínico."
-        />
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 text-left">
-          {[
-            { label: "Diretriz 1", title: "O que fazer em seguida", text: "Dados soltos sem uma ação recomendada para a sua rotina clínica são apenas ruído e desperdício de tempo.", icon: Brain, tile: "bg-brand-academy-soft text-brand-academy", accent: "text-brand-academy" },
-            { label: "Diretriz 2", title: "Ações bem definidas", text: "Se não houver uma solução prática sugerida, nós preferimos poupar você e não exibir o aviso.", icon: Bell, tile: "bg-brand-yellow-soft text-brand-yellow", accent: "text-brand-yellow" },
-            { label: "Diretriz 3", title: "Preservar seu descanso", text: "Quando tudo no consultório estiver em ordem, nós não inventamos alertas falsos. Aproveite o seu silêncio.", icon: Clock, tile: "bg-brand-green-soft text-brand-green", accent: "text-brand-green" },
-            { label: "Diretriz 4", title: "Sem enrolação técnica", text: "Toda a complexidade e programação de bastidores rodam longe dos seus olhos para deixar sua tela limpa.", icon: CheckCircle2, tile: "bg-brand-green-soft text-brand-green", accent: "text-brand-green" }
-          ].map((item, i) => (
-            <Reveal key={i} delay={i * 0.08} className="h-full">
-              <div className="card-lift p-6 md:p-8 flex flex-col h-full text-left group">
-                <div className={`p-2.5 md:p-3 rounded-2xl w-fit mb-4 md:mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3 ${item.tile}`}>
-                  <item.icon size={20} className="md:w-[22px] md:h-[22px]" />
-                </div>
-                <p className={`text-[9px] md:text-[10px] font-bold uppercase tracking-widest mb-1 ${item.accent}`}>{item.label}</p>
-                <h3 className="font-bold text-brand-text text-base md:text-lg mb-3">{item.title}</h3>
-                <p className="text-brand-text-muted text-xs md:text-sm leading-relaxed font-semibold">{item.text}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
-
-      {/* 5. RECURSOS ESSENCIAIS */}
-      <Section className="bg-brand-bg-alt" id="recursos">
-        <SectionHeader title="Sua rotina simplificada, de uma vez por todas." />
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 text-left">
-          {[
-            { t: "Previsão inteligente de agenda", d: "Identifica janelas vazias na sua semana e sugere retornos de forma discreta para preencher lacunas.", icon: Calendar },
-            { t: "Painel inteligente do dia", d: "Sua única lista diária de tarefas. Mostra o que precisa de atenção imediata e sai do seu caminho rapidamente.", icon: LayoutDashboard },
-            { t: "Prontuário prático e rápido", d: "Sem campos desnecessários. Registre o histórico clínico de forma rápida, higiênica e sem esforço.", icon: ClipboardList },
-            { t: "Confirmações automáticas integradas", d: "Disparos elegantes via WhatsApp para confirmações de consultas e levantamento pré-clínico.", icon: MessageSquare },
-            { t: "Reagendamentos simplificados", d: "Localiza de forma automática pacientes que estão esperando vaga em caso de desmarques de última hora.", icon: Users },
-            { t: "Fluxo de caixa sob controle", d: "Projeta as contas e entradas das próximas semanas e avisa com antecedência discreta se houver riscos de caixa.", icon: TrendingUp }
-          ].map((r, i) => (
-            <Reveal key={i} delay={(i % 3) * 0.08} className="h-full">
-              <div className="card-lift relative p-6 md:p-8 h-full overflow-hidden group">
-                <span className="absolute top-5 right-6 text-5xl md:text-6xl font-extrabold text-brand-green/[0.06] select-none leading-none">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <div className="w-11 h-11 rounded-2xl bg-brand-green-soft text-brand-green flex items-center justify-center mb-5 transition-all duration-300 group-hover:bg-brand-green group-hover:text-white">
-                  <r.icon size={20} />
-                </div>
-                <h3 className="font-bold text-base md:text-lg text-brand-text mb-1.5 md:mb-2 group-hover:text-brand-green transition-colors">{r.t}</h3>
-                <p className="text-brand-text-muted text-xs md:text-sm leading-relaxed font-semibold">{r.d}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
-
-      {/* 6. PORTAL DO PACIENTE */}
-      <Section className="bg-white overflow-hidden" id="portal">
-        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
-          <div className="w-full md:w-5/12 order-2 md:order-1 relative overflow-hidden py-10">
-            <div className="relative mx-auto w-[280px] md:w-[320px] aspect-[9/19] bg-brand-bg border-[8px] border-brand-green-dark rounded-[3rem] shadow-2xl overflow-hidden">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 bg-brand-green-dark rounded-b-2xl z-20" />
-              <div className="p-6 pt-10 h-full flex flex-col bg-brand-bg text-left">
-                <div className="flex items-center gap-2 mb-8">
-                  <div className="w-6 h-6 bg-brand-green rounded-md flex items-center justify-center text-[10px] text-white font-bold">OH</div>
-                  <span className="text-[10px] font-bold text-brand-green-dark uppercase tracking-widest">Confirmações no WhatsApp</span>
-                </div>
-                
-                <h6 className="text-xl font-bold text-brand-text mb-6">Olá, Carlos Edu.<br/><span className="text-brand-green text-sm">Sua próxima visita é amanhã às 17h.</span></h6>
-                
-                <div className="space-y-3">
-                  {[
-                    { label: "Confirmar minha ida", icon: CheckCircle2, color: "bg-brand-green text-white" },
-                    { label: "Orientações da cirurgia", icon: ClipboardList, color: "bg-white text-brand-text border border-brand-border" },
-                    { label: "Atualizar ficha médica", icon: UserCircle, color: "bg-white text-brand-text border border-brand-border" },
-                    { label: "Dúvidas pós-atendimento", icon: MessageSquare, color: "bg-white text-brand-text border border-brand-border" }
-                  ].map((btn, i) => (
-                    <div key={i} className={`p-4 rounded-2xl flex items-center gap-3 font-bold text-xs shadow-sm ${btn.color}`}>
-                      <btn.icon size={16} />
-                      {btn.label}
-                    </div>
-                  ))}
-                </div>
-                
-                <div className="mt-auto p-4 bg-brand-academy-soft rounded-2xl border border-brand-academy/10">
-                  <p className="text-[10px] font-bold text-brand-academy uppercase mb-1">Dica de hoje</p>
-                  <p className="text-[10px] text-brand-text/70 leading-relaxed font-medium">Beba bastante água após o procedimento de amanhã.</p>
-                </div>
-              </div>
-            </div>
-            <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-brand-green/5 rounded-full blur-3xl pointer-events-none" />
+      {/* ============================================ FAQ */}
+      <section className="bg-white border-t border-brand-border py-20 md:py-28 px-5 md:px-6">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-12 md:mb-16">
+            <p className="section-index text-brand-green mb-4">Dúvidas frequentes</p>
+            <h2 className="font-display text-3xl md:text-5xl font-semibold text-brand-text tracking-tight leading-tight">
+              Perguntas que <em className="italic text-brand-green font-medium">todo dentista faz.</em>
+            </h2>
           </div>
-          
-          <div className="w-full md:w-7/12 order-1 md:order-2 text-left">
-            <p className="text-[10px] md:text-xs font-bold text-brand-green uppercase tracking-[0.2em] mb-4">Autonomia para o paciente</p>
-            <h2 className="text-3xl md:text-5xl font-bold text-brand-text mb-6 leading-tight">O paciente confirma o horário sem precisar ligar para a clínica.</h2>
-            <p className="text-lg text-brand-text/80 mb-10 leading-relaxed font-medium">
-              A página de confirmações do OdontoHub reduz a dependência de ligações telefônicas e trocas de mensagens manuais com a recepção. Pelo próprio celular, o paciente confirma seus horários, preenche o questionário de saúde prévio e recebe orientações de cuidados de forma direta e sem papelada física.
-            </p>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
-              {[
-                { t: "Confirmar com um toque", d: "Atualização automática e instantânea no painel do seu consultório." },
-                { t: "Ficha clínica pré-preenchida", d: "Histórico básico de saúde preenchido pelo paciente antes do atendimento." },
-                { t: "Alertas pós-procedimento", d: "Instruções importantes enviadas automaticamente após os tratamentos mais delicados." },
-                { t: "Praticidade e discrição", d: "Uma experiência leve e confortável, valorizando o tempo e a privacidade de quem você atende." }
-              ].map((f, i) => (
-                <div key={i}>
-                  <div className="flex items-center gap-2 mb-2">
-                    <CheckCircle2 size={16} className="text-brand-green" />
-                    <span className="font-bold text-brand-text text-sm">{f.t}</span>
+          <div className="space-y-3">
+            {[
+              { q: 'O OdontoHub é como um sistema odontológico tradicional?', a: 'Não. Os sistemas tradicionais funcionam como arquivos digitais para você preencher papéis e relatórios que raramente usa. O OdontoHub faz o oposto: lê os dados do seu consultório e transforma tudo em uma lista simples de afazeres. Se não houver nada urgente, ele fica em silêncio para você desligar a mente do trabalho.' },
+              { q: 'O que eu recebo no plano Pro?', a: 'O plano gratuito organiza sua agenda e fichas de pacientes. O Pro ativa lembretes automáticos para pacientes faltantes, avisos discretos de previsão financeira para planejar o caixa das próximas semanas e facilidades adicionais para simplificar seu dia a dia.' },
+              { q: 'Como meus dados são protegidos?', a: 'Tratamos seus dados e os de seus pacientes com respeito máximo. Toda a informação é guardada de forma segura e criptografada em servidores protegidos. Não exibimos anúncios e jamais vendemos ou compartilhamos dados com terceiros.' },
+              { q: 'Eu realmente vou gastar menos tempo no computador?', a: 'Esse é o nosso objetivo. Criamos o OdontoHub para você planejar encaixes, confirmar consultas e salvar evoluções em menos de 2 minutos por dia. Nosso sucesso é ver você fechando o app sabendo que está tudo sob controle.' }
+            ].map((faq, i) => (
+              <details key={i} className="group rounded-3xl border border-brand-border overflow-hidden bg-brand-bg-alt">
+                <summary className="flex items-center justify-between p-5 md:p-6 cursor-pointer font-bold text-brand-text list-none group-open:bg-white transition-colors text-base">
+                  {faq.q}
+                  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center group-open:rotate-90 transition-transform shadow-sm shrink-0 ml-4">
+                    <ChevronRight size={16} />
                   </div>
-                  <p className="text-xs text-brand-text-muted leading-relaxed font-semibold pl-6">{f.d}</p>
+                </summary>
+                <div className="p-5 md:p-6 border-t border-brand-border bg-white text-sm text-brand-text/80 leading-relaxed font-medium">
+                  {faq.a}
                 </div>
-              ))}
-            </div>
+              </details>
+            ))}
           </div>
         </div>
-      </Section>
-      <Section className="bg-[#FAF9F5] border-y border-brand-border/30" id="demonstracao">
-        <SectionHeader 
-          title="O sistema de gestão por dentro"
-          subtitle="Explore as principais telas reais do OdontoHub. Nossa interface tira a papelada do seu caminho para que você foque inteiramente no seu paciente."
-        />
-        <SystemMockupShowcase />
-      </Section>
+      </section>
 
-      <Section className="bg-white" id="depoimentos">
-        <Testimonials />
-      </Section>
-
-      <Section id="planos">
-        <SectionHeader 
-          title="Comece com a organização básica. Evolua para a clareza total." 
-          subtitle="Do gratuito ao Pro, escolha a cobertura ideal para as necessidades do seu consultório ou clínica solo."
-        />
-        
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto items-stretch px-2 md:px-0 text-left">
-          <div className="premium-card p-8 md:p-10 flex flex-col">
-            <p className="text-[10px] md:text-xs font-bold text-brand-text-muted uppercase tracking-widest mb-1.5 md:mb-2">Organização Essencial</p>
-            <h3 className="text-xl md:text-2xl font-bold text-brand-text mb-1">OdontoHub Gratuito</h3>
-            <div className="flex items-baseline gap-1 my-5 md:my-6">
-              <span className="text-3xl md:text-4xl font-bold">R$ 0</span>
-              <span className="text-brand-text-muted text-xs md:text-sm">grátis para sempre</span>
+      {/* ============================================ ACADEMY */}
+      <section className="bg-white border-y border-brand-border py-20 md:py-28 px-5 md:px-6" id="academy">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
+          <Reveal className="w-full md:w-1/2">
+            <div className="p-3 bg-brand-academy-soft w-fit rounded-2xl mb-7">
+              <GraduationCap className="text-brand-academy w-6 h-6" />
             </div>
-            
-            <ul className="space-y-3.5 mb-8 md:mb-12 flex-grow">
-              {[
-                "Limite de pacientes ativos",
-                "Limite de agendamentos mensais",
-                "Inteligência Artificial e previsões limitadas",
-                "Histórico de pacientes centralizado",
-                "Fichas clínicas e agendas básicas",
-                "Visual limpo e sem anúncios"
-              ].map((feat) => (
-                <li key={feat} className="flex items-center gap-3 text-sm text-brand-text/90 font-medium">
-                  <CheckCircle2 size={16} className="text-brand-green/60 shrink-0" /> {feat}
-                </li>
-              ))}
-            </ul>
-            
-            <a href="https://sistema.odontohub.app.br" className="w-full">
-              <Button variant="outline" className="w-full py-4 rounded-xl border-2 text-xs uppercase tracking-wider font-extrabold text-brand-green border-brand-green hover:bg-brand-green/5">Criar conta gratuita</Button>
-            </a>
-          </div>
-
-          <div className="gradient-ring card-lift p-8 md:p-10 flex flex-col rounded-3xl relative lg:-mt-4 lg:mb-4 shadow-glow-soft">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-green text-white text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-md shadow-brand-green/30 whitespace-nowrap">Mais Popular Solo</div>
-            <p className="text-[10px] md:text-xs font-bold text-brand-text-muted uppercase tracking-widest mb-1.5 md:mb-2">Crescimento Sustentável</p>
-            <h3 className="text-xl md:text-2xl font-bold text-brand-text mb-1">OdontoHub Essencial</h3>
-            <div className="flex items-baseline gap-1 my-5 md:my-6">
-              <span className="text-3xl md:text-4xl font-bold text-brand-text">R$ 49,90</span>
-              <span className="text-brand-text-muted text-xs md:text-sm">/mês</span>
-            </div>
-            
-            <ul className="space-y-3.5 mb-8 md:mb-12 flex-grow">
-              {[
-                "Até 150 pacientes e prontuários ativos",
-                "Até 150 agendamentos por mês",
-                "Modelos de mensagens e confirmação manual no WhatsApp",
-                "Histórico clínico e prontuário fotográfico",
-                "Dashboard financeiro simplificado",
-                "Suporte prioritário por e-mail e chat",
-                "Envio avulso de receitas e atestados"
-              ].map((feat) => (
-                <li key={feat} className="flex items-center gap-3 text-sm text-brand-text/95 font-medium">
-                  <CheckCircle2 size={16} className="text-brand-green shrink-0" /> {feat}
-                </li>
-              ))}
-            </ul>
-            
-            <a href="https://sistema.odontohub.app.br" className="w-full">
-              <Button variant="outline" className="w-full py-4 rounded-xl border-2 text-xs uppercase tracking-wider font-extrabold text-[#111827] border-slate-300 hover:bg-slate-50">Assinar Essencial</Button>
-            </a>
-          </div>
-
-          <div className="p-8 md:p-10 flex flex-col rounded-3xl text-white border-none shadow-glow-green relative overflow-hidden bg-gradient-to-br from-brand-green-dark via-brand-green to-[#0D9488]">
-            <div aria-hidden className="absolute -top-16 -right-16 w-56 h-56 bg-white/10 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -top-3 right-6 md:right-8 bg-white/15 backdrop-blur-sm text-[9px] md:text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg text-white border border-white/20">Automação Inteligente</div>
-            <p className="text-[10px] md:text-xs font-bold text-white/50 uppercase tracking-widest mb-1.5 md:mb-2">Paz e automação completa</p>
-            <h3 className="text-xl md:text-2xl font-bold mb-1 text-white">OdontoHub Pro</h3>
-            <div className="flex items-baseline gap-1 my-5 md:my-6">
-              <span className="text-3xl md:text-4xl font-bold text-white tracking-tight">R$ 99,90</span>
-              <span className="text-white/40 text-xs md:text-sm">/mês</span>
-            </div>
-            
-            <ul className="space-y-4 mb-8 md:mb-12 flex-grow">
-              {[
-                "Pacientes e prontuários ILIMITADOS",
-                "Agendamentos e calendário ILIMITADOS",
-                "Acesso total e IRRESTRITO à Inteligência Artificial",
-                "Sugestões de encaixe automáticas por IA",
-                "Lembretes e retornos inteligentes ativos",
-                "Painel exclusivo do que fazer hoje",
-                "Previsão financeira de caixa discreta"
-              ].map((feat) => (
-                <li key={feat} className="flex items-center gap-3 text-sm font-semibold text-white">
-                  <CheckCircle2 size={16} className="text-white/30 shrink-0" /> {feat}
-                </li>
-              ))}
-            </ul>
-            
-            <a href="https://sistema.odontohub.app.br" className="w-full">
-              <Button className="w-full bg-brand-green-dark text-white shadow-xl shadow-brand-green-dark/20 hover:opacity-90 border-none transition-all py-5 text-base font-bold rounded-xl">Quero a tranquilidade do Pro</Button>
-            </a>
-          </div>
-        </div>
-      </Section>
-
-      {/* 7. TEASER ACADEMY */}
-      <Section className="bg-brand-bg-alt border-y border-brand-border" id="academy">
-        <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 px-2 md:px-12 text-left">
-          <div className="w-full md:w-1/2">
-            <div className="p-2.5 md:p-3 bg-brand-academy-soft w-fit rounded-xl md:rounded-2xl mb-6 md:mb-8">
-              <GraduationCap className="text-brand-academy w-5 h-5 md:w-6 md:h-6" />
-            </div>
-            <h2 className="text-3xl md:text-5xl font-bold text-brand-text mb-5 md:mb-6 leading-tight">Para quem está na faculdade:<br className="hidden md:block" /> <span className="text-brand-academy">OdontoHub Academy.</span></h2>
-            <p className="text-base md:text-lg text-brand-text-muted leading-relaxed mb-6 md:mb-8 font-medium">
-              Especialmente planejado para a realidade das clínicas das universidades de odontologia. O Academy funciona guiando você em cada etapa clínica, organizando materiais e preparando suas anotações para desocupar sua mente do nervosismo operacional.
+            <p className="section-index text-brand-academy mb-4">Para estudantes</p>
+            <h2 className="font-display text-3xl md:text-5xl font-semibold text-brand-text mb-6 leading-tight tracking-tight">
+              Ainda na faculdade?<br /><em className="italic text-brand-academy font-medium">Conheça o Academy.</em>
+            </h2>
+            <p className="text-base md:text-lg text-brand-text-muted leading-relaxed mb-8 font-medium max-w-xl">
+              Planejado para a realidade das clínicas das universidades. O Academy guia você em cada etapa clínica, organiza materiais e prepara suas anotações para desocupar a mente do nervosismo operacional.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-8 mb-8 md:mb-10">
-              {["Checklists de instrumental por clínica", "Registro rápido de evolução clínica", "Organização organizada por consultório", "Arquivamento fácil de fotos de tratamento"].map(t => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-8 mb-9">
+              {['Checklists de instrumental por clínica', 'Registro rápido de evolução clínica', 'Organização por consultório', 'Arquivamento fácil de fotos'].map((t) => (
                 <div key={t} className="flex items-center gap-2.5 text-sm font-bold text-brand-text">
                   <div className="w-1.5 h-1.5 bg-brand-academy rounded-full shrink-0" /> {t}
                 </div>
               ))}
             </div>
-            <Link to="/academy">
-              <Button variant="ghost" className="px-0 flex items-center gap-2 group text-brand-academy hover:text-brand-academy">
-                Ver o OdontoHub Academy <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </Button>
+            <Link to="/academy" className="inline-flex items-center gap-2 font-bold text-brand-academy group">
+              Ver o OdontoHub Academy <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
-          </div>
-          <div className="w-full md:w-1/2 mt-12 md:mt-0">
-             <div className="relative group mx-auto max-w-[400px] md:max-w-none">
-                <div className="absolute -inset-4 bg-brand-academy/5 rounded-[3rem] blur-2xl group-hover:bg-brand-academy/10 transition-all duration-700" />
-                <div className="relative bg-white border border-brand-border rounded-[2rem] md:rounded-[3rem] shadow-2xl overflow-hidden flex flex-col group-hover:shadow-brand-academy/10 transition-all duration-700">
-                  {/* Academy UI Mockup */}
-                  <div className="p-6 md:p-10 space-y-6 md:space-y-8 bg-white">
-                     <div className="space-y-1 md:space-y-1.5">
-                        <p className="text-[9px] md:text-xs font-bold text-slate-400">Boa noite, Samuel</p>
-                        <h3 className="text-lg md:text-3xl font-semibold text-brand-text tracking-tight leading-tight">Sem pressa. O próximo caso já está na mão.</h3>
-                     </div>
+          </Reveal>
 
-                     <div className="bg-brand-academy rounded-[1.2rem] md:rounded-[2rem] p-4 md:p-8 text-white relative overflow-hidden">
-                        <div className="relative z-10">
-                           <p className="text-[7px] md:text-[10px] font-bold text-white/50 uppercase tracking-widest mb-1.5 md:mb-2">Próximo</p>
-                           <div className="flex justify-between items-start">
-                              <div>
-                                 <h4 className="text-base md:text-2xl font-bold tracking-tight">Marcos Roberto Junior</h4>
-                                 <div className="flex gap-1.5 mt-2 md:mt-3">
-                                    <span className="px-2 md:px-3 py-0.5 md:py-1 bg-white/20 rounded-full text-[6px] md:text-[9px] font-bold uppercase tracking-widest">Agendado</span>
-                                    <span className="px-2 md:px-3 py-0.5 md:py-1 bg-white/10 rounded-full text-[6px] md:text-[9px] font-bold uppercase tracking-widest">Amanhã, 09:30</span>
-                                 </div>
-                              </div>
-                              <div className="w-10 h-10 md:w-12 md:h-12 bg-white/20 rounded-lg md:rounded-xl flex items-center justify-center text-xs md:text-lg font-bold shrink-0">M</div>
-                           </div>
-                        </div>
-                        <div className="absolute top-0 right-0 w-32 md:w-48 h-32 md:h-48 bg-white/5 rounded-full blur-2xl md:blur-3xl -mr-16 md:-mr-24 -mt-16 md:-mt-24" />
-                     </div>
-
-                     <div className="bg-slate-50 border border-slate-100 rounded-xl md:rounded-2xl p-4 md:p-6 flex items-center gap-3 md:gap-4">
-                        <div className="w-8 h-8 md:w-10 md:h-10 bg-white rounded-lg md:rounded-xl flex items-center justify-center text-brand-academy shadow-sm shrink-0">
-                           <Clock size={16} />
-                        </div>
-                        <div>
-                           <p className="text-[7px] md:text-[10px] font-bold text-slate-400 uppercase tracking-widest">Agenda a seguir</p>
-                           <p className="font-bold text-brand-text text-[10px] md:text-sm">Lucas Medeiros • Extração</p>
-                        </div>
-                     </div>
+          <Reveal delay={0.1} className="w-full md:w-1/2">
+            <div className="relative mx-auto max-w-[420px]">
+              <div aria-hidden className="absolute -inset-4 bg-brand-academy/5 rounded-[3rem] blur-2xl" />
+              <div className="relative bg-white border border-brand-border rounded-[2.5rem] shadow-glow-soft overflow-hidden">
+                <div className="p-7 md:p-9 space-y-6">
+                  <div>
+                    <p className="text-xs font-bold text-brand-text-muted">Boa noite, Samuel</p>
+                    <h3 className="font-display text-2xl font-semibold text-brand-text tracking-tight leading-tight mt-1">Sem pressa. O próximo caso já está na mão.</h3>
                   </div>
-
-                  {/* Tab Bar */}
-                  <div className="h-12 md:h-16 bg-white border-t border-slate-100 flex items-center justify-around px-4 md:px-6">
-                     <div className="flex flex-col items-center gap-0.5 md:gap-1 text-brand-academy">
-                        <Layout size={14} className="md:size-4" />
-                        <span className="text-[6px] md:text-[9px] font-bold uppercase">Rotina</span>
-                     </div>
-                     <div className="flex flex-col items-center gap-1 text-slate-300">
-                        <Calendar size={14} />
-                     </div>
-                     <div className="flex flex-col items-center gap-1 text-slate-300">
-                        <Users size={14} />
-                     </div>
-                     <div className="flex flex-col items-center gap-1 text-slate-300">
-                        <ClipboardList size={14} />
-                     </div>
+                  <div className="bg-brand-academy rounded-[1.5rem] p-6 text-white relative overflow-hidden">
+                    <div aria-hidden className="absolute -top-12 -right-12 w-36 h-36 bg-white/10 rounded-full blur-2xl" />
+                    <p className="text-[10px] font-bold text-white/50 uppercase tracking-[0.15em] mb-2">Próximo</p>
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <h4 className="font-display text-xl font-semibold tracking-tight">Marcos Roberto Jr.</h4>
+                        <div className="flex gap-1.5 mt-3">
+                          <span className="px-3 py-1 bg-white/20 rounded-full text-[9px] font-bold uppercase tracking-widest">Agendado</span>
+                          <span className="px-3 py-1 bg-white/10 rounded-full text-[9px] font-bold uppercase tracking-widest">Amanhã, 09:30</span>
+                        </div>
+                      </div>
+                      <div className="w-11 h-11 bg-white/20 rounded-xl flex items-center justify-center font-bold shrink-0">M</div>
+                    </div>
+                  </div>
+                  <div className="bg-brand-bg border border-brand-border rounded-2xl p-5 flex items-center gap-4">
+                    <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-brand-academy shadow-sm shrink-0"><Clock size={18} /></div>
+                    <div>
+                      <p className="text-[10px] font-bold text-brand-text-muted uppercase tracking-[0.15em]">Agenda a seguir</p>
+                      <p className="font-bold text-brand-text text-sm">Lucas Medeiros · Extração</p>
+                    </div>
                   </div>
                 </div>
-             </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* 8. FAQ */}
-      <Section className="bg-white">
-        <SectionHeader title="Dúvidas frequentes" />
-        <div className="max-w-3xl mx-auto space-y-3 md:space-y-4 text-left">
-          {[
-            { q: "O OdontoHub é como um sistema odontológico tradicional?", a: "Não. Os sistemas tradicionais funcionam apenas como arquivos digitais para você preencher papéis e relatórios que raramente usa. O OdontoHub faz o oposto: ele lê os dados do seu consultório e transforma tudo em uma lista simples e organizada de afazeres. Se não houver nada pendente ou urgente, o sistema fica em total silêncio para você desligar a mente do trabalho." },
-            { q: "O que eu recebo no plano Pro?", a: "O plano gratuito organiza perfeitamente sua agenda de consultas e fichas de pacientes. O plano Pro ativa os lembretes automáticos para pacientes faltantes, avisos discretos de previsão financeira para planejar o caixa das próximas semanas e facilidades adicionais para simplificar seu dia a dia." },
-            { q: "Como meus dados são protegidos?", a: "Nós tratamos seus dados e os dados de seus pacientes com respeito máximo. Toda a informação é guardada de forma segura e criptografada em servidores protegidos. Nós não exibimos anúncios comerciais e jamais vendemos ou compartilhamos dados com terceiros." },
-            { q: "Eu realmente vou gastar menos tempo na frente do computador?", a: "Esse é o nosso grande objetivo. Criamos o OdontoHub para que você consiga planejar os encaixes da sua semana, confirmar suas consultas e salvar as evoluções clínicas em menos de 2 minutos por dia. Nosso sucesso é ver você fechando o aplicativo sabendo que está tudo sob controle." }
-          ].map((faq, i) => (
-            <details key={i} className="group rounded-2xl md:rounded-3xl border border-brand-border overflow-hidden bg-brand-bg-alt">
-              <summary className="flex items-center justify-between p-5 md:p-6 cursor-pointer font-bold text-brand-text list-none group-open:bg-white transition-colors text-sm md:text-base">
-                {faq.q}
-                <div className="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white flex items-center justify-center group-open:rotate-180 transition-transform shadow-sm shrink-0 ml-4">
-                  <ChevronRight size={14} className="md:w-4 md:h-4" />
+                <div className="h-14 bg-white border-t border-brand-border flex items-center justify-around px-6">
+                  <div className="flex flex-col items-center gap-1 text-brand-academy"><Layout size={16} /><span className="text-[8px] font-bold uppercase">Rotina</span></div>
+                  <Calendar size={16} className="text-slate-300" />
+                  <Users size={16} className="text-slate-300" />
+                  <ClipboardList size={16} className="text-slate-300" />
                 </div>
-              </summary>
-              <div className="p-5 md:p-6 border-t border-brand-border bg-white text-xs md:text-sm text-brand-text/80 leading-relaxed font-semibold">
-                {faq.a}
               </div>
-            </details>
-          ))}
+            </div>
+          </Reveal>
         </div>
-      </Section>
+      </section>
 
-      {/* 9. CTA FINAL */}
-      <Section className="pb-10 md:pb-20 pt-0">
-        <div className="rounded-[2.5rem] md:rounded-[5rem] py-14 px-6 md:p-32 text-white text-center relative overflow-hidden bg-gradient-to-br from-brand-green-dark via-brand-green to-brand-green-dark">
-          {/* Ambient mesh */}
-          <div aria-hidden className="absolute inset-0 pointer-events-none">
-            <div className="aurora-blob bg-[#0D9488]/40 w-96 h-96 -top-24 -left-10" />
-            <div className="aurora-blob bg-[#10B981]/30 w-96 h-96 -bottom-24 right-0" style={{ animationDelay: '-6s' }} />
-            <div className="absolute inset-0 opacity-30" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.18) 1px, transparent 1px)', backgroundSize: '26px 26px', maskImage: 'radial-gradient(ellipse 60% 60% at 50% 50%, #000, transparent 75%)', WebkitMaskImage: 'radial-gradient(ellipse 60% 60% at 50% 50%, #000, transparent 75%)' }} />
-          </div>
-          <Reveal className="relative z-10 max-w-4xl mx-auto">
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 px-4 py-1.5 text-[11px] md:text-xs font-bold uppercase tracking-widest text-white/80 mb-7">
-              <Sparkles size={13} /> Comece em minutos
-            </span>
-            <h2 className="text-2xl sm:text-3xl md:text-7xl font-extrabold mb-8 md:mb-12 leading-[1.05] tracking-tight">Traga clareza e tranquilidade de volta para o seu consultório.</h2>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
-              <a href="https://sistema.odontohub.app.br" className="w-full sm:w-auto group">
-                <button className="w-full inline-flex items-center justify-center gap-2 px-12 py-5 bg-white text-brand-green-dark font-extrabold shadow-2xl rounded-2xl hover:scale-[1.02] active:scale-95 transition-transform">
-                  Começar gratuitamente
+      {/* ============================================ CTA FINAL */}
+      <section className="px-5 md:px-6 pb-16 md:pb-24">
+        <div className="max-w-7xl mx-auto">
+          <div className="surface-dark relative overflow-hidden rounded-[2.5rem] md:rounded-[4rem] py-20 md:py-32 px-6 md:px-16 text-center text-white">
+            <div aria-hidden className="absolute inset-0 grain opacity-40" />
+            <div aria-hidden className="aurora-blob bg-[#0D9488]/30 w-[30rem] h-[30rem] -top-20 -left-10" />
+            <Reveal className="relative z-10 max-w-4xl mx-auto">
+              <h2 className="font-display text-4xl sm:text-5xl md:text-7xl font-semibold leading-[1.04] tracking-tight mb-7">
+                Sistemas controlam a clínica.<br />
+                <em className="italic text-[#7FD9C4] font-medium">O OdontoHub te ajuda a conduzir o dia.</em>
+              </h2>
+              <p className="text-lg md:text-xl text-white/70 font-medium max-w-2xl mx-auto mb-10">
+                Crie sua conta e organize seu primeiro paciente, sua primeira consulta e seu primeiro dia. De graça, sem cartão.
+              </p>
+              <a href="https://sistema.odontohub.app.br" className="group inline-block">
+                <button className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-white text-brand-green-dark font-extrabold text-base rounded-2xl shadow-2xl hover:scale-[1.02] active:scale-95 transition-transform">
+                  Criar minha conta grátis
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                 </button>
               </a>
-            </div>
-            <p className="mt-6 text-xs md:text-sm font-semibold text-white/60">Sem cartão de crédito · Grátis para sempre no plano inicial</p>
-          </Reveal>
+              <p className="section-index text-white/50 mt-7 flex items-center justify-center gap-2 flex-wrap">
+                <ShieldCheck size={14} /> Grátis para começar · Sem cartão de crédito · Pronto em minutos
+              </p>
+            </Reveal>
+          </div>
         </div>
-      </Section>
+      </section>
+
+      {/* ============================================ STICKY CTA (mobile) */}
+      <div
+        className={`lg:hidden fixed bottom-0 left-0 right-0 z-40 px-4 pb-4 pt-3 bg-gradient-to-t from-brand-bg via-brand-bg/95 to-transparent transition-transform duration-300 ${showStickyCta ? 'translate-y-0' : 'translate-y-full pointer-events-none'}`}
+      >
+        <a href="https://sistema.odontohub.app.br" className="block">
+          <button className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl font-bold text-base text-white bg-brand-green-dark shadow-glow-soft active:scale-95 transition-transform">
+            Começar grátis
+            <ArrowRight size={18} />
+          </button>
+        </a>
+      </div>
     </div>
   );
 }

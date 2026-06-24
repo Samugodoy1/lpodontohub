@@ -53,10 +53,10 @@ export default function SystemMockupShowcase() {
   return (
     <div className="w-full max-w-5xl mx-auto my-8 px-4 sm:px-0">
       {/* Interactive Mockup Window with chrome skin */}
-      <div className="bg-slate-950 rounded-2xl md:rounded-3xl shadow-2xl border border-slate-800 overflow-hidden">
-        
+      <div className="bg-[#0f1714] rounded-2xl md:rounded-3xl shadow-2xl border border-white/10 overflow-hidden">
+
         {/* Browser Tabs/Top Bar */}
-        <div className="bg-[#1E293B] px-4 pt-3 pb-2 flex flex-col gap-2 select-none border-b border-slate-800">
+        <div className="bg-[#16241e] px-4 pt-3 pb-2 flex flex-col gap-2 select-none border-b border-white/10">
           <div className="flex items-center justify-between">
             {/* Window control circles */}
             <div className="flex items-center gap-1.5">
@@ -65,23 +65,23 @@ export default function SystemMockupShowcase() {
               <span className="w-3 h-3 rounded-full bg-green-500/90 inline-block" />
             </div>
             {/* Chrome Tabs mockup matching Screenshot 1 */}
-            <div className="flex items-center gap-1 text-[11px] font-medium text-slate-400 max-w-full overflow-x-auto scrollbar-none pl-4 shrink-0">
-              <div className="hidden lg:block px-3 py-1.5 bg-slate-800/40 rounded-t-lg truncate max-w-[150px] opacity-60">OdontoHub Academy</div>
-              <div className="hidden sm:block px-3 py-1.5 bg-slate-800/40 rounded-t-lg truncate max-w-[150px] opacity-60">OdontoHub — O Software</div>
-              <div className="hidden md:block px-3 py-1.5 bg-slate-800/40 rounded-t-lg truncate max-w-[150px] opacity-60">OdontoHub | Google AI Studio</div>
-              <div className="px-3.5 py-1.5 bg-[#FAF9F5] text-slate-800 rounded-t-lg truncate max-w-[170px] font-semibold shadow-xs flex items-center gap-1 shrink-0">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <div className="flex items-center gap-1 text-[11px] font-medium text-white/40 max-w-full overflow-x-auto scrollbar-none pl-4 shrink-0">
+              <div className="hidden lg:block px-3 py-1.5 bg-white/5 rounded-t-lg truncate max-w-[150px] opacity-60">OdontoHub Academy</div>
+              <div className="hidden sm:block px-3 py-1.5 bg-white/5 rounded-t-lg truncate max-w-[150px] opacity-60">OdontoHub — O Software</div>
+              <div className="hidden md:block px-3 py-1.5 bg-white/5 rounded-t-lg truncate max-w-[150px] opacity-60">OdontoHub | Google AI Studio</div>
+              <div className="px-3.5 py-1.5 bg-[#FAF9F5] text-brand-text rounded-t-lg truncate max-w-[170px] font-semibold shadow-xs flex items-center gap-1 shrink-0">
+                <span className="w-2 h-2 rounded-full bg-brand-green animate-pulse" />
                 OdontoHub Sistema
               </div>
             </div>
-            <div className="text-[10px] text-slate-500 font-bold hidden md:block">OdontoHub Engine v1.4</div>
+            <div className="text-[10px] text-white/30 font-bold hidden md:block">OdontoHub Engine v1.4</div>
           </div>
 
           {/* Browser Address Bar */}
           <div className="flex items-center gap-2">
-            <div className="flex items-center gap-1 px-4 py-1.5 bg-slate-800/90 text-slate-400 rounded-md text-[11px] font-semibold font-mono w-full max-w-lg shadow-inner">
-              <Lock size={11} className="text-emerald-500 shrink-0" />
-              <span className="text-slate-300">sistema.odontohub.app.br</span>
+            <div className="flex items-center gap-1 px-4 py-1.5 bg-white/5 text-white/50 rounded-md text-[11px] font-semibold font-mono w-full max-w-lg shadow-inner">
+              <Lock size={11} className="text-brand-green shrink-0" />
+              <span className="text-white/70">sistema.odontohub.app.br</span>
             </div>
           </div>
         </div>
