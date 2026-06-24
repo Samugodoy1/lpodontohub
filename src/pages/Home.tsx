@@ -137,6 +137,20 @@ const FeatureRow = ({
 /* ---------------------------------------------------------------- page */
 
 export default function Home() {
+  // Sticky mobile CTA: only after scrolling past the hero, and hidden near
+  // the final CTA so it never duplicates a visible "Começar grátis" button.
+  const [showStickyCta, setShowStickyCta] = React.useState(false);
+  React.useEffect(() => {
+    const onScroll = () => {
+      const scrolled = window.scrollY > 720;
+      const nearBottom = window.innerHeight + window.scrollY > document.body.offsetHeight - 760;
+      setShowStickyCta(scrolled && !nearBottom);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
     <div className="min-h-screen">
       <Helmet>
@@ -233,14 +247,14 @@ export default function Home() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.6 }}
-              className="float-chip absolute top-16 -right-2 sm:right-0 lg:-right-6 glass rounded-2xl pl-3 pr-4 py-3 flex items-center gap-3 shadow-glow-soft"
+              className="float-chip absolute -top-3 right-0 lg:top-16 lg:-right-6 glass rounded-2xl pl-2.5 pr-3.5 py-2.5 flex items-center gap-2.5 shadow-glow-soft"
             >
-              <span className="w-9 h-9 rounded-xl bg-brand-green-soft text-brand-green flex items-center justify-center">
-                <CircleDollarSign size={18} />
+              <span className="w-8 h-8 lg:w-9 lg:h-9 rounded-xl bg-brand-green-soft text-brand-green flex items-center justify-center shrink-0">
+                <CircleDollarSign size={17} />
               </span>
               <div className="text-left">
-                <p className="text-[10px] font-bold text-brand-text-muted uppercase tracking-wider">Faturamento hoje</p>
-                <p className="font-display text-lg font-semibold text-brand-text leading-none">R$ 2.250</p>
+                <p className="text-[9px] lg:text-[10px] font-bold text-brand-text-muted uppercase tracking-wider">Faturamento hoje</p>
+                <p className="font-display text-base lg:text-lg font-semibold text-brand-text leading-none">R$ 2.250</p>
               </div>
             </motion.div>
           </motion.div>
@@ -668,7 +682,9 @@ export default function Home() {
       </section>
 
       {/* ============================================ STICKY CTA (mobile) */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 px-4 pb-4 pt-3 bg-gradient-to-t from-brand-bg via-brand-bg/95 to-transparent">
+      <div
+        className={`lg:hidden fixed bottom-0 left-0 right-0 z-40 px-4 pb-4 pt-3 bg-gradient-to-t from-brand-bg via-brand-bg/95 to-transparent transition-transform duration-300 ${showStickyCta ? 'translate-y-0' : 'translate-y-full pointer-events-none'}`}
+      >
         <a href="https://sistema.odontohub.app.br" className="block">
           <button className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-2xl font-bold text-base text-white bg-brand-green-dark shadow-glow-soft active:scale-95 transition-transform">
             Começar grátis
