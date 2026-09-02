@@ -44,7 +44,7 @@ export const Navbar = () => {
     ? `${isScrolled || isMenuOpen ? 'bg-[rgba(22,22,23,0.86)]' : 'bg-[rgba(22,22,23,0.72)]'} text-[#f5f5f7] border-b border-white/[0.08]`
     : `${isScrolled || isMenuOpen ? 'bg-white/80' : 'bg-white/50'} text-apple-ink border-b border-black/[0.08]`;
 
-  const linkHover = dark ? 'hover:text-white' : isAcademy ? 'hover:text-brand-academy' : 'hover:text-black';
+  const linkHover = dark ? 'hover:text-white' : 'hover:text-black';
   const muted = dark ? 'text-[#f5f5f7]/80' : 'text-apple-ink/80';
 
   return (

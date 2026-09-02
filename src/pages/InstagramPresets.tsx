@@ -50,7 +50,7 @@ import { Button } from '../components/shared/UI';
 const PresetSection = ({ title, children }: { title: string, children: React.ReactNode }) => (
   <div className="mb-24 lg:mb-32">
     <div className="flex items-center gap-6 mb-12 lg:mb-16">
-      <h3 className="text-[10px] lg:text-xs font-black text-brand-text/40 uppercase tracking-[0.5em] whitespace-nowrap">{title}</h3>
+      <h3 className="text-[12px] text-apple-gray whitespace-nowrap">{title}</h3>
       <div className="h-px w-full bg-slate-100" />
     </div>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-14">
@@ -264,27 +264,27 @@ export default function InstagramPresets() {
   const [activeTab, setActiveTab] = useState<'feed' | 'stories' | 'highlights'>('feed');
 
   return (
-    <div className="min-h-screen bg-[#FDFDFF]">
+    <div className="min-h-screen bg-apple-surface">
       {/* Minimal Header */}
-      <header className="pt-24 lg:pt-32 pb-12 border-b border-slate-50 bg-white shadow-sm">
+      <header className="pt-24 lg:pt-32 pb-12 border-b border-apple-line bg-apple-surface">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center lg:text-left">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 lg:gap-16">
             <div className="max-w-3xl">
               <div className="flex items-center justify-center lg:justify-start gap-3 mb-8">
-                <div className="h-0.5 w-10 bg-brand-green" />
-                <span className="text-[10px] font-black text-brand-green uppercase tracking-[0.4em]">Social Content Kit v2.5</span>
+                <div className="h-px w-10 bg-apple-line" />
+                <span className="text-[12px] text-apple-gray">Social Content Kit v2.5</span>
               </div>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter text-brand-text mb-8 leading-[0.95]">
+              <h1 className="text-[40px] md:text-[64px] font-semibold tracking-tight text-apple-ink mb-6 leading-[1.05]">
                 Dê vida ao seu<br/> 
-                <span className="text-brand-green">branding digital.</span>
+                branding digital.
               </h1>
               <p className="text-base md:text-lg text-brand-text/50 font-medium leading-relaxed">
                 Pack de artes profissionais para feed, stories e destaques. Otimizado para máxima autoridade no Instagram @odontohub.app.
               </p>
             </div>
             <div className="shrink-0 flex items-center justify-center lg:justify-start gap-4 py-2 px-6 bg-slate-50 rounded-full border border-slate-100">
-               <Instagram size={16} className="text-brand-green" />
-               <span className="text-xs font-black text-brand-text uppercase tracking-widest">Brand Kit Oficial</span>
+               <Instagram size={16} className="text-apple-ink" />
+               <span className="text-[12px] text-apple-ink">Brand Kit Oficial</span>
             </div>
           </div>
         </div>
@@ -296,9 +296,9 @@ export default function InstagramPresets() {
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`px-8 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${
+                className={`px-6 py-2.5 rounded-full text-[13px] transition-all ${
                   activeTab === tab 
-                    ? 'bg-white text-brand-text shadow-sm ring-1 ring-slate-200/50' 
+                    ? 'bg-[#1d1d1f] text-white' 
                     : 'text-slate-400 hover:text-brand-text hover:bg-white/50'
                 }`}
               >
@@ -549,7 +549,7 @@ export default function InstagramPresets() {
                 <h4 className="text-3xl lg:text-4xl font-black text-white tracking-tighter leading-none">
                    Confirmar nunca foi<br/>tão rápido.
                 </h4>
-                <p className="text-[10px] font-black text-brand-green uppercase tracking-[0.4em]">Whatsapp Integration</p>
+                <p className="text-[12px] text-apple-gray">Whatsapp Integration</p>
              </div>
           </InstagramPost>
 
@@ -816,7 +816,7 @@ export default function InstagramPresets() {
                 <h4 className="text-3xl lg:text-4xl font-black text-white tracking-tighter leading-[1.1]">
                    Escolha dos<br/>Líderes.
                 </h4>
-                <p className="text-[10px] font-black text-brand-green uppercase tracking-[0.4em]">Rank #1 em Gestão Médica</p>
+                <p className="text-[12px] text-apple-gray">Rank #1 em Gestão Médica</p>
              </div>
           </InstagramPost>
 
@@ -1255,7 +1255,7 @@ export default function InstagramPresets() {
             {/* HIGHLIGHTS */}
             <div className="mb-24 lg:mb-32">
               <div className="flex items-center gap-6 mb-16 lg:mb-20">
-                <h3 className="text-[10px] lg:text-xs font-black text-brand-text/40 uppercase tracking-[0.5em] whitespace-nowrap">Capas para Destaques</h3>
+                <h3 className="text-[12px] text-apple-gray whitespace-nowrap">Capas para Destaques</h3>
                 <div className="h-px w-full bg-slate-100" />
               </div>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-14">

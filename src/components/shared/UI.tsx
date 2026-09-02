@@ -1,26 +1,26 @@
 import React from 'react';
 
-export const Button = ({ 
-  children, 
-  variant = 'primary', 
-  className = '', 
-  ...props 
-}: { 
-  children: React.ReactNode, 
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'academy', 
-  className?: string 
+export const Button = ({
+  children,
+  variant = 'primary',
+  className = '',
+  ...props
+}: {
+  children: React.ReactNode;
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'academy';
+  className?: string;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>) => {
   const variants = {
-    primary: 'bg-brand-green text-white hover:bg-brand-green/90 shadow-lg shadow-brand-green/20 active:scale-95',
-    secondary: 'bg-brand-green-dark text-white hover:bg-brand-green-dark/90 active:scale-95',
-    academy: 'bg-brand-academy text-white hover:bg-brand-academy/90 shadow-lg shadow-brand-academy/20 active:scale-95',
-    outline: 'border border-brand-border bg-white text-brand-text hover:bg-brand-bg-alt active:scale-95',
-    ghost: 'text-brand-text-muted hover:text-brand-green transition-colors'
+    primary: 'bg-[#0071e3] text-white hover:bg-[#0077ed]',
+    secondary: 'bg-[#1d1d1f] text-white hover:bg-black',
+    academy: 'bg-[#0071e3] text-white hover:bg-[#0077ed]',
+    outline: 'bg-[#f5f5f7] text-[#1d1d1f] hover:bg-[#e8e8ed]',
+    ghost: 'text-[#2997ff] hover:underline bg-transparent',
   };
 
   return (
-    <button 
-      className={`px-5 py-4 md:px-6 md:py-3.5 rounded-2xl font-bold transition-all duration-200 disabled:opacity-50 text-base md:text-sm ${variants[variant]} ${className}`}
+    <button
+      className={`inline-flex items-center justify-center px-[22px] py-3 rounded-full font-normal text-[17px] tracking-tight transition-colors duration-200 disabled:opacity-50 active:scale-[0.98] ${variants[variant]} ${className}`}
       {...props}
     >
       {children}
@@ -28,39 +28,37 @@ export const Button = ({
   );
 };
 
-export const Section = ({ 
-  children, 
-  className = '', 
-  id = '' 
-}: { 
-  children: React.ReactNode, 
-  className?: string, 
-  id?: string 
+export const Section = ({
+  children,
+  className = '',
+  id = '',
+}: {
+  children: React.ReactNode;
+  className?: string;
+  id?: string;
 }) => (
-  <section id={id} className={`py-16 md:py-32 px-5 md:px-6 scroll-mt-20 md:scroll-mt-24 ${className}`}>
-    <div className="max-w-7xl mx-auto">
-      {children}
-    </div>
+  <section id={id} className={`py-20 md:py-28 px-5 scroll-mt-14 ${className}`}>
+    <div className="max-w-[980px] mx-auto">{children}</div>
   </section>
 );
 
-export const SectionHeader = ({ 
-  title, 
-  subtitle, 
+export const SectionHeader = ({
+  title,
+  subtitle,
   centered = true,
-  titleClassName = ''
-}: { 
-  title: string, 
-  subtitle?: string, 
-  centered?: boolean,
-  titleClassName?: string
+  titleClassName = '',
+}: {
+  title: string;
+  subtitle?: string;
+  centered?: boolean;
+  titleClassName?: string;
 }) => (
-  <div className={`mb-12 md:mb-20 ${centered ? 'text-center' : 'text-left'}`}>
-    <h2 className={`text-3xl md:text-5xl font-bold tracking-tight text-brand-text mb-5 md:mb-6 leading-tight ${titleClassName}`}>
+  <div className={`mb-12 md:mb-16 ${centered ? 'text-center' : 'text-left'}`}>
+    <h2 className={`text-[32px] md:text-[48px] font-semibold tracking-tight text-apple-ink leading-[1.08] ${titleClassName}`}>
       {title}
     </h2>
     {subtitle && (
-      <p className="text-base md:text-lg text-brand-text/80 max-w-2xl mx-auto leading-relaxed font-medium">
+      <p className="text-[17px] md:text-[21px] text-apple-gray max-w-2xl mx-auto mt-4 leading-relaxed font-normal">
         {subtitle}
       </p>
     )}

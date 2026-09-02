@@ -17,7 +17,7 @@ export default function ComoEvitarPacientesEsquecidosPage() {
   const currentDate = new Date().toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
 
   return (
-    <div className="min-h-screen bg-[#FAFCFB] pt-28 pb-16 px-4 md:px-6">
+    <div className="min-h-screen bg-apple-surface pt-24 pb-20 px-5">
       <Helmet>
         <title>Como Evitar Pacientes Esquecidos no Consultório | OdontoHub</title>
         <meta name="description" content="Perdendo pacientes que ficam esperando coroa ou remoção de suturas? Descubra o método Clinical Clarity para nunca mais esquecer de contatar um paciente." />
@@ -56,11 +56,11 @@ export default function ComoEvitarPacientesEsquecidosPage() {
           transition={{ duration: 0.5 }}
           className="text-center md:text-left space-y-6 mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-green/10 text-brand-green-dark rounded-full text-xs font-bold uppercase tracking-wider">
+          <div className="text-[12px] text-apple-gray">
             <Sparkles size={14} className="text-brand-green" /> Segurança Clínica & Reputação
           </div>
 
-          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-brand-text leading-tight md:leading-tight">
+          <h1 className="text-[40px] md:text-[48px] font-semibold tracking-tight text-apple-ink leading-[1.08]">
             Como evitar <span className="text-brand-green">Pacientes Esquecidos</span> na entrega de próteses ou pós-operatórios
           </h1>
 
@@ -80,7 +80,7 @@ export default function ComoEvitarPacientesEsquecidosPage() {
         </motion.div>
 
         {/* Core Problem Narrative */}
-        <div className="prose prose-slate max-w-none text-brand-text/80 space-y-6 md:space-y-8 text-sm md:text-base leading-relaxed font-semibold">
+        <div className="apple-prose max-w-none space-y-6">
           <p className="text-lg font-bold text-brand-text leading-snug">
             Toda boa clínica já passou por isso: o paciente faz um molde ou escaneamento odontológico para confecção de coroa ou coroa provisória, e a peça vai ao laboratório de prótese. O tempo passa, a rotina com atendimentos avança e ninguém lembra de avisar o paciente sobre o retorno da coroa. Semanas depois, ele entra em contato constrangido e decepcionado.
           </p>
@@ -92,7 +92,7 @@ export default function ComoEvitarPacientesEsquecidosPage() {
             </div>
           </div>
 
-          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4 border-l-4 border-brand-green pl-3">
+          <h2 className="text-[24px] md:text-[28px] font-semibold tracking-tight text-apple-ink pt-4">
             O Método "Atendimento Sem Gargalos"
           </h2>
           <p>
@@ -111,12 +111,12 @@ export default function ComoEvitarPacientesEsquecidosPage() {
             </li>
           </ul>
 
-          <blockquote className="border-l-4 border-brand-green bg-[#EAF4F0]/30 rounded-r-2xl p-5 my-6 italic text-brand-text font-medium leading-relaxed">
+          <blockquote className="my-8 text-[24px] font-semibold tracking-tight leading-snug text-apple-ink">
             "Esquecer de avisar um paciente que a coroa chegou do laboratório arruinava nossa reputação. O OdontoHub unificou nossos agendamentos operacionais de próteses de forma tão infalível que restabelecemos a satisfação dos nossos clientes."<br />
             <span className="text-xs font-bold text-brand-text-muted not-italic block mt-1">— Relato de Cirurgião-Dentista (Reabilitação Oral, RJ) • Revisado pela Equipe Editorial OdontoHub</span>
           </blockquote>
 
-          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4 border-l-4 border-indigo-500 pl-3">
+          <h2 className="text-[24px] md:text-[28px] font-semibold tracking-tight text-apple-ink pt-4">
             O OdontoHub é o guardião silencioso da sua tranquilidade
           </h2>
           <p>
@@ -125,19 +125,19 @@ export default function ComoEvitarPacientesEsquecidosPage() {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-12 p-8 md:p-10 rounded-3xl bg-brand-green-dark text-white relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
+        <div className="mt-12 p-8 md:p-10 rounded-[28px] bg-black text-white flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -mr-20 -mt-20" />
           
           <div className="space-y-4 max-w-xl relative z-10 text-center md:text-left">
-            <h3 className="text-2xl font-extrabold leading-tight">Retome a reputação de excelência clínica do seu consultório</h3>
-            <p className="text-xs md:text-sm text-brand-green-light font-medium leading-relaxed">
+            <h3 className="text-[24px] font-semibold tracking-tight">Retome a reputação de excelência clínica do seu consultório</h3>
+            <p className="text-[15px] text-white/60 leading-relaxed">
               Diga adeus à culpa de perder o cronograma de pós-operatórios de tratamentos de periodontia. Experimente o OdontoHub grátis agora mesmo.
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto relative z-10">
             <Link to="/" className="w-full sm:w-auto">
-              <Button variant="outline" className="w-full py-4 px-8 text-xs font-bold uppercase tracking-wider rounded-xl bg-white !text-brand-green-dark border-none hover:bg-white/95 shadow-lg">
+              <Button variant="outline" className="w-full py-4 px-8  bg-white !text-brand-green-dark border-none hover:bg-white/95 shadow-lg">
                 Provar Grátis
               </Button>
             </Link>

@@ -19,7 +19,7 @@ export default function ComoOrganizarRetornosPage() {
   const currentDate = new Date().toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
 
   return (
-    <div className="min-h-screen bg-[#FAFCFB] pt-28 pb-16 px-4 md:px-6">
+    <div className="min-h-screen bg-apple-surface pt-24 pb-20 px-5">
       <Helmet>
         <title>Como Organizar Retornos de Pacientes de Forma Automática | OdontoHub</title>
         <meta name="description" content="Perdendo pacientes que terminam o tratamento e não voltam? Aprenda a estruturar uma rotina de retornos odontológicos automáticos de 6 meses sem chatice." />
@@ -68,11 +68,11 @@ export default function ComoOrganizarRetornosPage() {
           transition={{ duration: 0.5 }}
           className="text-center md:text-left space-y-6 mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-green/10 text-brand-green-dark rounded-full text-xs font-bold uppercase tracking-wider">
+          <div className="text-[12px] text-apple-gray">
             <Sparkles size={14} className="text-brand-green" /> Estratégia de Faturamento Clínico
           </div>
 
-          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-brand-text leading-tight md:leading-tight">
+          <h1 className="text-[40px] md:text-[48px] font-semibold tracking-tight text-apple-ink leading-[1.08]">
             Como organizar <span className="text-brand-green">Retornos de Pacientes</span> no consultório sem parecer chato ou inconveniente
           </h1>
 
@@ -92,7 +92,7 @@ export default function ComoOrganizarRetornosPage() {
         </motion.div>
 
         {/* Narrative & Practical Steps */}
-        <div className="prose prose-slate max-w-none text-brand-text/80 space-y-6 md:space-y-8 text-sm md:text-base leading-relaxed font-semibold">
+        <div className="apple-prose max-w-none space-y-6">
           <p className="text-lg font-bold text-brand-text leading-snug">
             Um dos maiores vazamentos de caixa em pequenos consultórios particulares é a <strong>perda de retornos de pacientes</strong>. O paciente realiza uma restauração estética excelente ou uma cirurgia delicada, paga o tratamento, recebe alta clínica e vai embora. Se você não possui um sistema ativo de lembretes, ele simplesmente se esquecerá de voltar dali a seis meses.
           </p>
@@ -104,7 +104,7 @@ export default function ComoOrganizarRetornosPage() {
             </div>
           </div>
 
-          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4 border-l-4 border-brand-green pl-3">
+          <h2 className="text-[24px] md:text-[28px] font-semibold tracking-tight text-apple-ink pt-4">
             Passo a Passo: Como criar um funil de retornos ativo
           </h2>
           <p>
@@ -125,28 +125,28 @@ export default function ComoOrganizarRetornosPage() {
 
           {/* Bento Features Visual Representation */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-            <div className="p-6 bg-white rounded-2xl border border-brand-border premium-shadow space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-brand-green-soft text-brand-green flex items-center justify-center">
+            <div className="p-6 bg-white rounded-[28px] space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-apple-surface text-apple-ink flex items-center justify-center">
                 <MessageSquare size={20} />
               </div>
-              <h4 className="font-extrabold text-brand-text text-sm">Mensagens Personalizadas Preventivas</h4>
+              <h4 className="font-semibold text-apple-ink text-[17px]">Mensagens Personalizadas Preventivas</h4>
               <p className="text-xs text-brand-text-muted font-medium leading-relaxed">
                 Configure modelos humanizados de mensagens preventivas no Whatsapp. Sem jargões chatos ou propostas agressivas, apenas zelo profissional de saúde.
               </p>
             </div>
 
-            <div className="p-6 bg-white rounded-2xl border border-brand-border premium-shadow space-y-3">
+            <div className="p-6 bg-white rounded-[28px] space-y-3">
               <div className="w-10 h-10 rounded-xl bg-[#FAF9F5] text-indigo-600 flex items-center justify-center">
                 <Heart size={20} />
               </div>
-              <h4 className="font-extrabold text-brand-text text-sm">Linha do Tempo Preventiva</h4>
+              <h4 className="font-semibold text-apple-ink text-[17px]">Linha do Tempo Preventiva</h4>
               <p className="text-xs text-brand-text-muted font-medium leading-relaxed">
                 Prontuário OdontoHub integrado à saúde do paciente. Nosso sistema sabe organizar listas dinâmicas de retornos baseadas no tratamento anterior e status do paciente.
               </p>
             </div>
           </div>
 
-          <blockquote className="border-l-4 border-brand-green bg-[#EAF4F0]/30 rounded-r-2xl p-5 my-6 italic text-brand-text font-medium leading-relaxed">
+          <blockquote className="my-8 text-[24px] font-semibold tracking-tight leading-snug text-apple-ink">
             "O OdontoHub facilitou imensamente a identificação de pacientes inativos. Conseguimos estruturar um fluxo de retornos mais constante no trimestre usando lembretes do aplicativo, auxiliando a organizar faturamento e preencher horários livres."<br />
             <span className="text-xs font-bold text-brand-text-muted not-italic block mt-1">— Relato de Cirurgião-Dentista (Periodontia, MG) • Revisado pela Equipe Editorial OdontoHub</span>
           </blockquote>
@@ -160,19 +160,19 @@ export default function ComoOrganizarRetornosPage() {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-12 p-8 md:p-10 rounded-3xl bg-brand-green-dark text-white relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
+        <div className="mt-12 p-8 md:p-10 rounded-[28px] bg-black text-white flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -mr-20 -mt-20" />
           
           <div className="space-y-4 max-w-xl relative z-10 text-center md:text-left">
-            <h3 className="text-2xl font-extrabold leading-tight">Elimine a agenda vazia nas terças-feiras</h3>
-            <p className="text-xs md:text-sm text-brand-green-light font-medium leading-relaxed">
+            <h3 className="text-[24px] font-semibold tracking-tight">Elimine a agenda vazia nas terças-feiras</h3>
+            <p className="text-[15px] text-white/60 leading-relaxed">
               Descubra o poder de manter os seus pacientes antigos conectados ativamente com o seu consultório de forma automatizada e ética.
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto relative z-10">
             <Link to="/" className="w-full sm:w-auto">
-              <Button variant="outline" className="w-full py-4 px-8 text-xs font-bold uppercase tracking-wider rounded-xl bg-white !text-brand-green-dark border-none hover:bg-white/95 shadow-lg">
+              <Button variant="outline" className="w-full py-4 px-8  bg-white !text-brand-green-dark border-none hover:bg-white/95 shadow-lg">
                 Provar Gratuitamente
               </Button>
             </Link>

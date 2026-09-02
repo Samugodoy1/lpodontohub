@@ -660,7 +660,7 @@ export default function Blog() {
   const currentPost = currentPostSlug ? getArticleBySlug(currentPostSlug) : null;
 
   return (
-    <div className="min-h-screen bg-[#FAFCFB] pt-28 pb-16 px-4 md:px-6">
+    <div className="min-h-screen bg-apple-surface pt-24 pb-20 px-5">
       
       {/* Dynamic SEO Structure per Page State */}
       <SchemaMarkup currentPost={currentPost} />
@@ -689,10 +689,10 @@ export default function Blog() {
               {/* Back to Blog Button */}
               <button
                 onClick={() => setSearchParams({})}
-                className="inline-flex items-center gap-2 text-brand-text-muted hover:text-brand-green font-bold text-xs uppercase tracking-wider mb-8 transition-colors"
+                className="inline-flex items-center gap-2 text-brand-text-muted hover:text-apple-ink font-bold text-xs mb-8 transition-colors"
                 id="btn-back-to-blog"
               >
-                <ArrowLeft size={16} /> Voltar ao Canal de Notícias
+                <ArrowLeft size={16} /> Blog
               </button>
 
               {/* Category indicator / Tag badge */}
@@ -711,14 +711,14 @@ export default function Blog() {
               </div>
 
               {/* Big Title */}
-              <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-brand-text mb-6 leading-tight">
+              <h1 className="text-[40px] md:text-[56px] font-semibold tracking-tight text-apple-ink mb-6 leading-[1.08]">
                 {currentPost.title}
               </h1>
 
               {/* Author Credits Block */}
-              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-5 bg-slate-50 border border-brand-border rounded-2xl mb-8 gap-4">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center py-5 mb-8 border-b border-apple-line gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-[#Eaf4f0] text-brand-green flex items-center justify-center font-bold text-md">
+                  <div className="w-10 h-10 rounded-full bg-apple-surface text-apple-ink flex items-center justify-center font-bold text-md">
                     <User size={18} />
                   </div>
                   <div>
@@ -750,24 +750,24 @@ export default function Blog() {
               </div>
 
               {/* Call to Action banner at the foot of each post */}
-              <div className="mt-12 p-8 rounded-3xl bg-gradient-to-br from-[#1F6B57]/10 to-[#1F6B57]/5 border border-brand-green/20 text-left relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="mt-12 p-8 rounded-3xl bg-black text-white border-none text-left relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="space-y-3 max-w-lg">
-                  <div className="inline-flex items-center gap-2 text-brand-green-dark text-xs uppercase font-extrabold px-3 py-1 bg-white/60 border border-brand-green/10 rounded-full">
+                  <div className="text-[12px] text-white/50">
                     <Sparkles size={12} /> Transforme seu Consultatório
                   </div>
-                  <h3 className="text-xl font-bold text-brand-text">Pronto para ter clareza clínica e operacional total?</h3>
-                  <p className="text-xs font-semibold text-brand-text-muted leading-relaxed">
+                  <h3 className="text-[21px] font-semibold tracking-tight text-white">Pronto para ter clareza clínica e operacional total?</h3>
+                  <p className="text-[15px] font-normal text-white/60 leading-relaxed">
                     Deixe para trás o excesso ou complexidade dos sistemas de odonto obsoletos. Junte-se a milhares de clínicos solo e estudantes que usam o OdontoHub todos os dias.
                   </p>
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-3 shrink-0 w-full md:w-auto">
                   <Link to="/" className="w-full sm:w-auto">
-                    <Button variant="primary" className="w-full py-4 px-6 text-xs font-bold uppercase tracking-wider rounded-xl">Testar Grátis</Button>
+                    <Button variant="primary">Começar</Button>
                   </Link>
                   {currentPost.category === 'Academy' && (
                     <Link to="/academy" className="w-full sm:w-auto">
-                      <Button variant="outline" className="w-full py-4 px-6 text-xs font-bold uppercase tracking-wider rounded-xl bg-white text-brand-academy border-brand-academy/30 hover:bg-slate-50">Explorar Academy</Button>
+                      <Button variant="outline">Academy</Button>
                     </Link>
                   )}
                 </div>
@@ -790,12 +790,12 @@ export default function Blog() {
 
               {/* Blog Title Hero Section */}
               <div className="text-center max-w-3xl mx-auto space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-green/10 text-brand-green-dark rounded-full text-xs font-bold uppercase tracking-wider">
+                <div className="text-[12px] text-apple-gray">
                   <BookOpen size={14} className="text-brand-green" /> Conhecimento Odontológico
                 </div>
                 
                 {/* Specific SEO optimized keywords in display heading */}
-                <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-brand-text leading-tight">
+                <h1 className="text-[40px] md:text-[56px] font-semibold tracking-tight text-apple-ink leading-[1.08]">
                   Blog OdontoHub: <br className="hidden md:inline" />Sua rotina odontológica, sem rodeios.
                 </h1>
                 
@@ -805,7 +805,7 @@ export default function Blog() {
               </div>
 
               {/* Search, Filters and Sorting toolbar */}
-              <div className="bg-white border border-brand-border rounded-2xl p-4 md:p-6 premium-shadow max-w-4xl mx-auto flex flex-col md:flex-row gap-4 items-center justify-between" id="blog-toolbar">
+              <div className="bg-white rounded-[28px] p-4 md:p-6 max-w-4xl mx-auto flex flex-col md:flex-row gap-4 items-center justify-between" id="blog-toolbar">
                 
                 {/* Custom Styled Search Input */}
                 <div className="relative w-full md:w-80">
@@ -815,7 +815,7 @@ export default function Blog() {
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     placeholder="Pesquisar artigos por palavra-chave..."
-                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-brand-border bg-slate-50 text-xs font-semibold text-brand-text focus:outline-none focus:ring-2 focus:ring-brand-green/20 focus:border-brand-green transition-all"
+                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-brand-border bg-slate-50 text-xs font-semibold text-brand-text focus:outline-none focus:ring-2 focus:ring-[#0071e3]/20 transition-all"
                     id="blog-search-field"
                   />
                 </div>
@@ -828,7 +828,7 @@ export default function Blog() {
                       onClick={() => setSelectedCategory(cat)}
                       className={`px-3.5 py-2 rounded-lg text-xs font-bold transition-all transition-colors ${
                         selectedCategory === cat 
-                          ? 'bg-brand-green text-white shadow-sm' 
+                          ? 'bg-[#1d1d1f] text-white' 
                           : 'bg-slate-50 text-brand-text-muted hover:bg-slate-100 border border-brand-border/40'
                       }`}
                     >
@@ -847,7 +847,7 @@ export default function Blog() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: idx * 0.08 }}
-                      className="bg-white border border-brand-border rounded-[2rem] overflow-hidden flex flex-col justify-between hover:border-brand-green/30 hover:shadow-xl hover:shadow-brand-green/5 transition-all duration-300 premium-shadow group"
+                      className="bg-white rounded-[28px] overflow-hidden flex flex-col justify-between  transition-all duration-300 premium-shadow group"
                     >
                       {/* Card internal body wrapper */}
                       <div className="p-6 md:p-8 space-y-4">
@@ -866,7 +866,7 @@ export default function Blog() {
                           </span>
                         </div>
 
-                        <h3 className="text-lg md:text-xl font-bold text-brand-text leading-snug group-hover:text-brand-green transition-colors line-clamp-2">
+                        <h3 className="text-lg md:text-xl font-bold text-brand-text leading-snug group-hover:text-apple-ink transition-colors line-clamp-2">
                           {article.title}
                         </h3>
 

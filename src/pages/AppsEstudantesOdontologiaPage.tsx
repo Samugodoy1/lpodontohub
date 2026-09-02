@@ -21,7 +21,7 @@ export default function AppsEstudantesOdontologiaPage() {
   const currentDate = new Date().toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
 
   return (
-    <div className="min-h-screen bg-[#FAFCFB] pt-28 pb-16 px-4 md:px-6">
+    <div className="min-h-screen bg-apple-surface pt-24 pb-20 px-5">
       <Helmet>
         <title>Apps para Estudantes de Odontologia: O Guia Completo 2026 | OdontoHub</title>
         <meta name="description" content="Quais os melhores apps para estudantes de odontologia em 2026? Descubra o OdontoHub Academy e organize seus instrumentais e prontuários com agilidade." />
@@ -65,11 +65,11 @@ export default function AppsEstudantesOdontologiaPage() {
           transition={{ duration: 0.5 }}
           className="text-center md:text-left space-y-6 mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-academy-soft text-brand-academy rounded-full text-xs font-bold uppercase tracking-wider">
+          <div className="text-[12px] text-apple-gray">
             <BookOpen size={14} className="text-brand-academy" /> Formação Odontológica Acadêmica
           </div>
 
-          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-brand-text leading-tight md:leading-tight">
+          <h1 className="text-[40px] md:text-[48px] font-semibold tracking-tight text-apple-ink leading-[1.08]">
             Apps para estudantes de odontologia: Como se organizar debaixo do mocho
           </h1>
 
@@ -93,7 +93,7 @@ export default function AppsEstudantesOdontologiaPage() {
         </motion.div>
 
         {/* Content Details */}
-        <div className="prose prose-slate max-w-none text-brand-text/80 space-y-6 md:space-y-8 text-sm md:text-base leading-relaxed font-semibold">
+        <div className="apple-prose max-w-none space-y-6">
           <p className="text-lg font-bold text-brand-text leading-snug">
             Se você é um <strong>estudante de odonto</strong> na graduação, já sabe o fardo que é organizar cada semestre letivo: dezenas de kits de instrumentais odontológicos cirúrgicos, listas imensas da dental, triagem de pacientes para atendimento clínico e a preparação do prontuário acadêmico para aprovação do professor preceptor. A tecnologia certa elimina todo esse caos.
           </p>
@@ -110,21 +110,21 @@ export default function AppsEstudantesOdontologiaPage() {
 
           {/* Special Features Grid for students */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-            <div className="p-6 bg-white rounded-2xl border border-brand-border premium-shadow space-y-3">
+            <div className="p-6 bg-white rounded-[28px] space-y-3">
               <div className="w-10 h-10 rounded-xl bg-brand-academy-soft text-brand-academy flex items-center justify-center font-bold">
                 <Dna size={20} />
               </div>
-              <h4 className="font-extrabold text-brand-text text-sm">Organizador de Materiais e Clinicas</h4>
+              <h4 className="font-semibold text-apple-ink text-[17px]">Organizador de Materiais e Clinicas</h4>
               <p className="text-xs text-brand-text-muted font-medium leading-relaxed font-semibold">
                 Nunca mais esqueça as curetas, brocas cirúrgicas ou a espátula de inserção antes da aula. Organize kits de instrumentais e controle os pertences do almoxarifado de forma ultra-visual.
               </p>
             </div>
 
-            <div className="p-6 bg-white rounded-2xl border border-brand-border premium-shadow space-y-3">
+            <div className="p-6 bg-white rounded-[28px] space-y-3">
               <div className="w-10 h-10 rounded-xl bg-slate-50 text-brand-text flex items-center justify-center font-bold">
                 <Smartphone size={20} />
               </div>
-              <h4 className="font-extrabold text-brand-text text-sm">O Extraordinário Modo Box Ativo</h4>
+              <h4 className="font-semibold text-apple-ink text-[17px]">O Extraordinário Modo Box Ativo</h4>
               <p className="text-xs text-brand-text-muted font-medium leading-relaxed font-semibold">
                 Leia checklists de procedimentos a distância e use os cronômetros de tempo de ataque ácido integrados sem precisar encostar suas luvas biológicas contaminadas na tela do celular. Visibilidade incomparável.
               </p>
@@ -136,7 +136,7 @@ export default function AppsEstudantesOdontologiaPage() {
             <span className="text-xs font-bold text-brand-text-muted not-italic block mt-1">— Mateus Calheiros (Acadêmico de Odontologia - UFRGS)</span>
           </blockquote>
 
-          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4 border-l-4 border-indigo-500 pl-3">
+          <h2 className="text-[24px] md:text-[28px] font-semibold tracking-tight text-apple-ink pt-4">
             OdontoHub Academy: O Líder em Apps para Estudante de Odonto do Brasil
           </h2>
           <p>
@@ -161,7 +161,7 @@ export default function AppsEstudantesOdontologiaPage() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -mr-20 -mt-20" />
           
           <div className="space-y-4 max-w-xl relative z-10 text-center md:text-left">
-            <h3 className="text-2xl font-extrabold leading-tight">Elimine a ansiedade debaixo do mocho clínico</h3>
+            <h3 className="text-[24px] font-semibold tracking-tight">Elimine a ansiedade debaixo do mocho clínico</h3>
             <p className="text-xs md:text-sm text-brand-academy-soft font-semibold leading-relaxed">
               Assuma de forma assertiva e impecável a organização de suas clínicas de graduação com o suporte do maior aplicativo voltado a estudantes do Brasil. Teste gratuitamente hoje mesmo!
             </p>
@@ -169,12 +169,12 @@ export default function AppsEstudantesOdontologiaPage() {
 
           <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto relative z-10">
             <Link to="/academy" className="w-full sm:w-auto">
-              <Button variant="outline" className="w-full py-4 px-8 text-xs font-bold uppercase tracking-wider rounded-xl bg-white !text-brand-academy border-none hover:bg-white/95 shadow-lg active:scale-97 transition-all">
+              <Button variant="outline" className="w-full py-4 px-8  bg-white !text-brand-academy border-none hover:bg-white/95 shadow-lg active:scale-97 transition-all">
                 Acessar Academy
               </Button>
             </Link>
             <Link to="/" className="w-full sm:w-auto">
-              <Button variant="outline" className="w-full py-4 px-8 text-xs font-bold uppercase tracking-wider rounded-xl bg-transparent text-white border-white/20 hover:bg-white/10">
+              <Button variant="outline" className="w-full py-4 px-8  bg-transparent text-white border-white/20 hover:bg-white/10">
                 Página Inicial
               </Button>
             </Link>
