@@ -238,7 +238,7 @@ export default function App() {
     <HelmetProvider>
       <Router>
         <ScrollToTop />
-        <div className="min-h-screen bg-brand-bg font-sans selection:bg-brand-green/20 selection:text-brand-green-dark overflow-x-hidden w-full relative">
+        <div className="min-h-screen bg-apple-surface font-sans selection:bg-[#0071e3]/25 selection:text-apple-ink overflow-x-hidden w-full relative">
           <Navbar />
           <main>
             <AnimatedRoutes />
