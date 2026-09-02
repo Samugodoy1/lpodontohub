@@ -78,7 +78,10 @@ export const Navbar = () => {
           </a>
           <a
             href={startHref}
-            className="inline-flex items-center rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white text-[12px] px-3.5 py-[5px] transition-colors"
+            className={`inline-flex items-center rounded-full text-white text-[12px] px-3.5 py-[5px] transition-[filter,background] ${
+              isAcademy ? 'hover:brightness-110' : 'bg-[#0071e3] hover:bg-[#0077ed]'
+            }`}
+            style={isAcademy ? { background: 'var(--neo)' } : undefined}
           >
             Começar
           </a>
@@ -114,7 +117,10 @@ export const Navbar = () => {
                 )
               )}
               <div className="flex gap-3 pt-4 text-[17px] font-normal">
-                <a href={startHref} className="apple-btn !text-[15px] !py-2.5 !px-5">
+                <a
+                  href={startHref}
+                  className={`${isAcademy ? 'neo-btn' : 'apple-btn'} !text-[15px] !py-2.5 !px-5`}
+                >
                   Começar
                 </a>
                 <a href={loginHref} className={`self-center ${dark ? 'text-[#2997ff]' : 'text-[#0066cc]'}`}>
