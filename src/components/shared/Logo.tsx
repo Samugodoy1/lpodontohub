@@ -7,11 +7,7 @@ interface LogoProps {
 }
 
 export const Logo = ({ className = '', isAcademy = false, inverted = false }: LogoProps) => {
-  const color = inverted
-    ? 'text-white'
-    : isAcademy
-      ? 'text-brand-academy'
-      : 'text-apple-ink';
+  const color = inverted ? 'text-white' : 'text-apple-ink';
 
   return (
     <div className={`flex items-baseline gap-1.5 leading-none ${className}`}>
@@ -19,7 +15,10 @@ export const Logo = ({ className = '', isAcademy = false, inverted = false }: Lo
         OdontoHub
       </span>
       {isAcademy && (
-        <span className={`text-[11px] font-normal tracking-tight ${inverted ? 'text-white/60' : 'text-brand-academy'}`}>
+        <span
+          className={`text-[11px] font-normal tracking-tight ${inverted ? 'text-white/60' : ''}`}
+          style={inverted ? undefined : { color: 'var(--neo)' }}
+        >
           Academy
         </span>
       )}
