@@ -5,68 +5,78 @@ import { Logo } from '../shared/Logo';
 export const Footer = () => {
   const location = useLocation();
   const isAcademy = location.pathname.startsWith('/academy');
-  const brandColor = isAcademy ? 'text-brand-academy' : 'text-brand-green-dark';
-  const iconBg = isAcademy ? 'bg-brand-academy' : 'bg-brand-green';
+
+  const colTitle = 'text-[12px] font-semibold text-apple-ink mb-3';
+  const linkClass = 'text-[12px] text-apple-gray-2 hover:text-apple-ink hover:underline underline-offset-2';
 
   return (
-    <footer className="py-12 md:py-16 px-5 md:px-6 bg-white">
-        <div className="max-w-7xl mx-auto pt-12 md:pt-16 border-t border-brand-border">
-          <div className="flex flex-col md:flex-row justify-between gap-10 md:gap-12 mb-12 md:mb-16">
-            <div className="max-w-xs">
-              <Logo isAcademy={isAcademy} className="!items-start mb-5 md:mb-6" />
-              <p className="text-xs md:text-sm text-brand-text-muted leading-relaxed">A próxima melhor ação para o dentista {isAcademy ? 'que está aprendendo' : 'solo'}. Tecnologia que entende a rotina clínica real.</p>
-            </div>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-xs">
-              <div className="space-y-3 md:space-y-4">
-                <p className="font-bold text-brand-text tracking-wider uppercase text-[10px]">Produto</p>
-                <div className="flex flex-col gap-2.5 md:gap-3 text-brand-text-muted">
-                  <a href="#recursos" className="hover:text-brand-green">Recursos</a>
-                  <a href="#planos" className="hover:text-brand-green">Planos</a>
-                  <Link to={isAcademy ? "/" : "/academy"} className={isAcademy ? "hover:text-brand-academy" : "hover:text-brand-green"}>{isAcademy ? "OdontoHub Pro" : "Academy"}</Link>
-                  <Link to="/comparativo" className={isAcademy ? "hover:text-brand-academy" : "hover:text-brand-green"}>Comparativos</Link>
-                  <Link to="/blog" className={isAcademy ? "hover:text-brand-academy" : "hover:text-brand-green"}>Blog</Link>
-                  <Link to="/presets" className="hover:text-brand-green">Kit Social (Instagram)</Link>
-                </div>
-              </div>
-              <div className="space-y-3 md:space-y-4">
-                <p className="font-bold text-brand-text tracking-wider uppercase text-[10px]">Imprensa & SEO</p>
-                <div className="flex flex-col gap-2.5 md:gap-3 text-brand-text-muted">
-                  <Link to="/software-odontologico" className="hover:text-brand-green">Software Odontológico</Link>
-                  <Link to="/sistemas-para-dentista" className="hover:text-brand-green">Sistemas para Dentista</Link>
-                  <Link to="/app-para-estudante-de-odontologia" className="hover:text-brand-green">App de Odontologia</Link>
-                  <hr className="border-slate-100 my-1" />
-                  <Link to="/software-odontologico-autonomo" className="hover:text-brand-green font-medium">Software p/ Dentista Autônomo</Link>
-                  <Link to="/como-organizar-retornos-de-pacientes" className="hover:text-brand-green font-medium">Como Organizar Retornos</Link>
-                  <Link to="/como-administrar-clinica-sem-secretaria" className="hover:text-brand-green font-medium">Clínica sem Secretária</Link>
-                  <Link to="/como-evitar-pacientes-esquecidos" className="hover:text-brand-green font-medium">Evitar Pacientes Esquecidos</Link>
-                  <Link to="/agenda-odontologica-recem-formados" className="hover:text-brand-green font-medium">Agenda para Recém-Formados</Link>
-                </div>
-              </div>
-              <div className="space-y-3 md:space-y-4">
-                <p className="font-bold text-brand-text tracking-wider uppercase text-[10px]">Empresa</p>
-                <div className="flex flex-col gap-2.5 md:gap-3 text-brand-text-muted">
-                  <Link to="/#recursos" className="hover:text-brand-green">Sobre</Link>
-                  <a href="https://instagram.com/odontohub.app" target="_blank" rel="noreferrer" className={isAcademy ? "hover:text-brand-academy" : "hover:text-brand-green"}>Contato</a>
-                  <Link to="/academy/embaixadores" className="hover:text-brand-academy">Embaixadores Academy</Link>
-                  <Link to="/blog?post=manifesto-fundador-odontologia-sufocada" className={isAcademy ? "hover:text-brand-academy" : "hover:text-brand-green"}>Manifesto</Link>
-                </div>
-              </div>
-              <div className="space-y-3 md:space-y-4">
-                <p className="font-bold text-brand-text tracking-wider uppercase text-[10px]">Legal</p>
-                <div className="flex flex-col gap-2.5 md:gap-3 text-brand-text-muted">
-                  <Link to="/" className="hover:text-brand-green">Termos</Link>
-                  <Link to="/" className="hover:text-brand-green">Privacidade</Link>
-                </div>
-              </div>
+    <footer className="bg-apple-surface text-apple-gray-2">
+      <div className="max-w-[980px] mx-auto px-5 pt-10 pb-8">
+        <p className="text-[12px] leading-relaxed border-b border-apple-line pb-5 mb-7">
+          OdontoHub é um sistema de gestão para dentistas e estudantes de odontologia.
+          Agenda, prontuário, confirmações e finanças — com o mínimo de ruído.
+        </p>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
+          <div>
+            <p className={colTitle}>Explorar</p>
+            <div className="flex flex-col gap-2.5">
+              <a href="/#agenda" className={linkClass}>Agenda</a>
+              <a href="/#paciente" className={linkClass}>Paciente</a>
+              <a href="/#planos" className={linkClass}>Planos</a>
+              <Link to="/academy" className={linkClass}>Academy</Link>
+              <Link to="/comparativo" className={linkClass}>Comparativo</Link>
+              <Link to="/blog" className={linkClass}>Blog</Link>
             </div>
           </div>
-          
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-[9px] md:text-[10px] font-bold text-brand-text-muted uppercase tracking-[0.2em] text-center md:text-left">
-            <p>© {new Date().getFullYear()} OdontoHub. Todos os direitos reservados.</p>
-            <p>Feito para ajudar dentistas {isAcademy ? 'estudantes' : ''} a dormirem melhor.</p>
+          <div>
+            <p className={colTitle}>OdontoHub</p>
+            <div className="flex flex-col gap-2.5">
+              <Link to="/software-odontologico" className={linkClass}>Software odontológico</Link>
+              <Link to="/sistemas-para-dentista" className={linkClass}>Sistemas para dentista</Link>
+              <Link to="/software-odontologico-autonomo" className={linkClass}>Dentista autônomo</Link>
+              <Link to="/app-para-estudante-de-odontologia" className={linkClass}>App para estudantes</Link>
+              <Link to="/presets" className={linkClass}>Kit social</Link>
+            </div>
+          </div>
+          <div>
+            <p className={colTitle}>Guia</p>
+            <div className="flex flex-col gap-2.5">
+              <Link to="/como-organizar-retornos-de-pacientes" className={linkClass}>Organizar retornos</Link>
+              <Link to="/como-administrar-clinica-sem-secretaria" className={linkClass}>Clínica sem secretária</Link>
+              <Link to="/como-evitar-pacientes-esquecidos" className={linkClass}>Pacientes esquecidos</Link>
+              <Link to="/agenda-odontologica-recem-formados" className={linkClass}>Recém-formados</Link>
+            </div>
+          </div>
+          <div>
+            <p className={colTitle}>Conta</p>
+            <div className="flex flex-col gap-2.5">
+              <a href={isAcademy ? 'https://academy.odontohub.app.br' : 'https://sistema.odontohub.app.br'} className={linkClass}>
+                Entrar
+              </a>
+              <a href={isAcademy ? 'https://academy.odontohub.app.br' : 'https://sistema.odontohub.app.br'} className={linkClass}>
+                Começar grátis
+              </a>
+              <Link to="/academy/embaixadores" className={linkClass}>Embaixadores</Link>
+              <a href="https://instagram.com/odontohub.app" target="_blank" rel="noreferrer" className={linkClass}>
+                Instagram
+              </a>
+              <Link to="/" className={linkClass}>Privacidade</Link>
+              <Link to="/" className={linkClass}>Termos</Link>
+            </div>
           </div>
         </div>
-      </footer>
+
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pt-4 border-t border-apple-line">
+          <div>
+            <Logo isAcademy={isAcademy} className="mb-3 opacity-90" />
+            <p className="text-[12px] text-apple-gray">
+              Copyright © {new Date().getFullYear()} OdontoHub. Todos os direitos reservados.
+            </p>
+          </div>
+          <p className="text-[12px] text-apple-gray">Brasil</p>
+        </div>
+      </div>
+    </footer>
   );
 };

@@ -3,20 +3,26 @@ import React from 'react';
 interface LogoProps {
   className?: string;
   isAcademy?: boolean;
+  inverted?: boolean;
 }
 
-export const Logo = ({ className = "", isAcademy = false }: LogoProps) => {
-  const brandColorClass = isAcademy ? "text-brand-academy" : "text-brand-green-dark";
-  const subText = isAcademy ? "ACADEMY" : "GESTÃO PARA DENTISTAS";
+export const Logo = ({ className = '', isAcademy = false, inverted = false }: LogoProps) => {
+  const color = inverted
+    ? 'text-white'
+    : isAcademy
+      ? 'text-brand-academy'
+      : 'text-apple-ink';
 
   return (
-    <div className={`flex flex-col leading-none ${className}`}>
-      <span className={`text-xl md:text-2xl font-black tracking-tight ${brandColorClass}`}>
-        ODONTOHUB
+    <div className={`flex items-baseline gap-1.5 leading-none ${className}`}>
+      <span className={`text-[19px] md:text-[21px] font-semibold tracking-tight ${color}`}>
+        OdontoHub
       </span>
-      <span className={`text-[6px] md:text-[8px] font-medium tracking-[0.25em] mt-1 opacity-70 ${brandColorClass}`}>
-        {subText}
-      </span>
+      {isAcademy && (
+        <span className={`text-[11px] font-normal tracking-tight ${inverted ? 'text-white/60' : 'text-brand-academy'}`}>
+          Academy
+        </span>
+      )}
     </div>
   );
 };
