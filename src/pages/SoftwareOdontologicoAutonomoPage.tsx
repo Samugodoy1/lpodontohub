@@ -22,7 +22,7 @@ export default function SoftwareOdontologicoAutonomoPage() {
   const currentDate = new Date().toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
 
   return (
-    <div className="min-h-screen bg-[#FAFCFB] pt-28 pb-16 px-4 md:px-6">
+    <div className="min-h-screen bg-apple-surface pt-24 pb-20 px-5">
       <Helmet>
         <title>Software Odontológico para Dentista Autônomo | OdontoHub</title>
         <meta name="description" content="Trabalha sozinho e não quer um sistema poluído? Conheça o OdontoHub, o software odontológico ideal para o dentista autônomo com agilidade mobile e preço justo." />
@@ -61,11 +61,11 @@ export default function SoftwareOdontologicoAutonomoPage() {
           transition={{ duration: 0.5 }}
           className="text-center md:text-left space-y-6 mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-green/10 text-brand-green-dark rounded-full text-xs font-bold uppercase tracking-wider">
+          <div className="text-[12px] text-apple-gray">
             <Sparkles size={14} className="text-brand-green" /> Foco no Clínico Solo
           </div>
 
-          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-brand-text leading-tight md:leading-tight">
+          <h1 className="text-[40px] md:text-[48px] font-semibold tracking-tight text-apple-ink leading-[1.08]">
             O primeiro <span className="text-brand-green">Software Odontológico</span> projetado para a solidão produtiva do Dentista Autônomo
           </h1>
 
@@ -85,12 +85,12 @@ export default function SoftwareOdontologicoAutonomoPage() {
         </motion.div>
 
         {/* Core Problem Narrative */}
-        <div className="prose prose-slate max-w-none text-brand-text/80 space-y-6 md:space-y-8 text-sm md:text-base leading-relaxed font-semibold">
+        <div className="apple-prose max-w-none space-y-6">
           <p className="text-lg font-bold text-brand-text leading-snug">
             Ser um <strong>dentista autônomo</strong> no Brasil significa acumular deveres: você divide seu tempo mudando de luvas entre tratamentos de periodontia ou ortodontia, respondendo agendamentos no Whatsapp, atualizando orçamentos e emitindo recibos. Por que, então, usar um software corporativo denso projetado para grandes franquias?
           </p>
 
-          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4 border-l-4 border-brand-green pl-3">
+          <h2 className="text-[24px] md:text-[28px] font-semibold tracking-tight text-apple-ink pt-4">
             O desafio de atuar sem secretária ou sob sala alugada
           </h2>
           <p>
@@ -99,35 +99,35 @@ export default function SoftwareOdontologicoAutonomoPage() {
 
           {/* Key Pain Solvers Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-            <div className="p-6 bg-white rounded-2xl border border-brand-border premium-shadow space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-brand-green-soft text-brand-green flex items-center justify-center">
+            <div className="p-6 bg-white rounded-[28px] space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-apple-surface text-apple-ink flex items-center justify-center">
                 <Smartphone size={20} />
               </div>
-              <h4 className="font-extrabold text-brand-text text-sm">Prontuário sob o Mocho</h4>
+              <h4 className="font-semibold text-apple-ink text-[17px]">Prontuário sob o Mocho</h4>
               <p className="text-xs text-brand-text-muted font-medium leading-relaxed">
                 Tire fotos clínicas rápidas e monte a galeria cronológica do paciente sem misturar com sua galeria pessoal. Veja o histórico em 2 segundos enquanto o paciente enxágua a boca.
               </p>
             </div>
 
-            <div className="p-6 bg-white rounded-2xl border border-brand-border premium-shadow space-y-3">
+            <div className="p-6 bg-white rounded-[28px] space-y-3">
               <div className="w-10 h-10 rounded-xl bg-[#FAF9F5] text-amber-600 flex items-center justify-center">
                 <Activity size={20} />
               </div>
-              <h4 className="font-extrabold text-brand-text text-sm">Confirmação Sem Interrupções</h4>
+              <h4 className="font-semibold text-apple-ink text-[17px]">Confirmação Sem Interrupções</h4>
               <p className="text-xs text-brand-text-muted font-medium leading-relaxed">
                 Pare de paralisar os atendimentos para digitar mensagens complexas. O sistema avisa o paciente e confirma o agendamento automaticamente, garantindo paz operacional.
               </p>
             </div>
           </div>
 
-          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4 border-l-4 border-indigo-500 pl-3">
+          <h2 className="text-[24px] md:text-[28px] font-semibold tracking-tight text-apple-ink pt-4">
             Clinical Clarity System: O segredo da simplicidade ativa
           </h2>
           <p>
             Criamos uma metodologia focada no essencial do trabalho autônomo. O OdontoHub não polui a tela com alertas desnecessários. Se o seu dinheiro entrou pelo Pix, se as confirmações estão em dia e se a sua terça-feira está agendada perfeitamente, o aplicativo se cala. Oferecemos o merecido descanso cognitivo que o profissional liberal tanto busca ao chegar em casa.
           </p>
 
-          <blockquote className="border-l-4 border-brand-green bg-[#EAF4F0]/30 rounded-r-2xl p-5 my-6 italic text-brand-text font-medium leading-relaxed">
+          <blockquote className="my-8 text-[24px] font-semibold tracking-tight leading-snug text-apple-ink">
             "Eu gastava mais de uma hora por noite respondendo confirmações pelo Whatsapp. Com o OdontoHub, as respostas acontecem sozinhas enquanto faço as restaurações."<br />
             <span className="text-xs font-bold text-brand-text-muted not-italic block mt-1">— Relato de Cirurgião-Dentista (Clínica Geral, SP) • Revisado pela Equipe Editorial OdontoHub</span>
           </blockquote>
@@ -141,19 +141,19 @@ export default function SoftwareOdontologicoAutonomoPage() {
         </div>
 
         {/* CTA Banner */}
-        <div className="mt-12 p-8 md:p-10 rounded-3xl bg-brand-green-dark text-white relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
+        <div className="mt-12 p-8 md:p-10 rounded-[28px] bg-black text-white flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -mr-20 -mt-20" />
           
           <div className="space-y-4 max-w-xl relative z-10 text-center md:text-left">
-            <h3 className="text-2xl font-extrabold leading-tight font-sans">Retome as rédeas do seu tempo clínico</h3>
-            <p className="text-xs md:text-sm text-brand-green-light font-medium leading-relaxed">
+            <h3 className="text-[24px] font-semibold tracking-tight font-sans">Retome as rédeas do seu tempo clínico</h3>
+            <p className="text-[15px] text-white/60 leading-relaxed">
               Descubra por que somos o software mais recomendado por cirurgiões-dentistas solo no país. Cadastro 100% gratuito, sem cartão exigido na inscrição.
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto relative z-10">
             <Link to="/" className="w-full sm:w-auto">
-              <Button variant="outline" className="w-full py-4 px-8 text-xs font-bold uppercase tracking-wider rounded-xl bg-white !text-brand-green-dark border-none hover:bg-white/95 shadow-lg">
+              <Button variant="outline" className="w-full py-4 px-8  bg-white !text-brand-green-dark border-none hover:bg-white/95 shadow-lg">
                 Começar Grátis
               </Button>
             </Link>

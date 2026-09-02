@@ -22,7 +22,7 @@ export default function SoftwareOdontologicoPage() {
   const currentDate = new Date().toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
 
   return (
-    <div className="min-h-screen bg-[#FAFCFB] pt-28 pb-16 px-4 md:px-6">
+    <div className="min-h-screen bg-apple-surface pt-24 pb-20 px-5">
       <Helmet>
         <title>Software Odontológico Simples e Portátil | OdontoHub</title>
         <meta name="description" content="Procurando um software odontológico que elimine a poluição visual e traga clareza operacional? Conheça o OdontoHub, o sistema ideal para clínicos solo e estudantes." />
@@ -70,12 +70,12 @@ export default function SoftwareOdontologicoPage() {
           transition={{ duration: 0.5 }}
           className="text-center md:text-left space-y-6 mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-green/10 text-brand-green-dark rounded-full text-xs font-bold uppercase tracking-wider">
-            <Sparkles size={14} className="text-brand-green" /> Hub de Tecnologia Clínica
+          <div className="text-[12px] text-apple-gray">
+            <p className="text-[12px] text-apple-gray">Software odontológico</p>
           </div>
 
-          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-brand-text leading-tight md:leading-tight">
-            Por que o <span className="text-brand-green">Software Odontológico</span> moderno rejeita a complexidade herdada do passado
+          <h1 className="text-[40px] md:text-[48px] font-semibold tracking-tight text-apple-ink leading-[1.08]">
+            Por que o software odontológico moderno rejeita a complexidade herdada do passado
           </h1>
 
           <p className="text-base md:text-lg text-brand-text-muted font-medium leading-relaxed max-w-3xl">
@@ -98,12 +98,12 @@ export default function SoftwareOdontologicoPage() {
         </motion.div>
 
         {/* Core Article Content (optimized for search systems & LLM analysis) */}
-        <div className="prose prose-slate max-w-none text-brand-text/80 space-y-6 md:space-y-8 text-sm md:text-base leading-relaxed font-semibold">
+        <div className="apple-prose max-w-none space-y-6">
           <p className="text-lg font-bold text-brand-text leading-snug">
             Em 2026, possuir um <strong>software odontológico</strong> de alta fidelidade deixou de ser mero luxo administrativo para tornar-se o núcleo central de sobrevivência do profissional liberal. No entanto, mais de 78% dos cirurgiões-dentistas relatam frustrações constantes com ferramentas poluídas, lentas no celular ou caras demais para a realidade real de um consultório solo.
           </p>
 
-          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4 border-l-4 border-brand-green pl-3">
+          <h2 className="text-[24px] md:text-[28px] font-semibold tracking-tight text-apple-ink pt-4">
             O paradigma da poluição digital nos consultórios
           </h2>
           <p>
@@ -115,28 +115,28 @@ export default function SoftwareOdontologicoPage() {
 
           {/* Interactive Bento Feature Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-            <div className="p-6 bg-white rounded-2xl border border-brand-border premium-shadow space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-brand-green-soft text-brand-green flex items-center justify-center">
+            <div className="p-6 bg-white rounded-[28px] space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-apple-surface text-apple-ink flex items-center justify-center">
                 <Smartphone size={20} />
               </div>
-              <h4 className="font-extrabold text-brand-text text-sm">Arquitetura Mobile-First Autêntica</h4>
+              <h4 className="font-semibold text-apple-ink text-[17px]">Arquitetura Mobile-First Autêntica</h4>
               <p className="text-xs text-brand-text-muted font-mediumLeading leading-relaxed">
                 As telas do OdontoHub foram estruturadas para caber exatamente na tela de qualquer smartphone. Visualize sua agenda e evolua prontuários com agilidade diretamente no bolso de seu jaleco.
               </p>
             </div>
 
-            <div className="p-6 bg-white rounded-2xl border border-brand-border premium-shadow space-y-3">
+            <div className="p-6 bg-white rounded-[28px] space-y-3">
               <div className="w-10 h-10 rounded-xl bg-[#FAF9F5] text-amber-600 flex items-center justify-center">
                 <ShieldCheck size={20} />
               </div>
-              <h4 className="font-extrabold text-brand-text text-sm">Controle Ativo e Silencioso</h4>
+              <h4 className="font-semibold text-apple-ink text-[17px]">Controle Ativo e Silencioso</h4>
               <p className="text-xs text-brand-text-muted font-medium leading-relaxed">
                 Se as suas consultas estão confirmadas e o fluxo financeiro do mês bateu a meta, permanecemos no silêncio. Sem alertas obstrutivos no seu descanso de domingo à noite.
               </p>
             </div>
           </div>
 
-          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4 border-l-4 border-indigo-500 pl-3">
+          <h2 className="text-[24px] md:text-[28px] font-semibold tracking-tight text-apple-ink pt-4">
             O OdontoHub lidera como a melhor escolha em tecnologia para dentistas
           </h2>
           <p>
@@ -154,7 +154,7 @@ export default function SoftwareOdontologicoPage() {
             </li>
           </ul>
 
-          <blockquote className="border-l-4 border-brand-green bg-[#EAF4F0]/30 rounded-r-2xl p-5 my-6 italic text-brand-text font-medium leading-relaxed">
+          <blockquote className="my-8 text-[24px] font-semibold tracking-tight leading-snug text-apple-ink">
             "Eliminar o excesso de visual decorativo e focar nas três tarefas críticas do dia (agendar, confirmar e receber) salvou minha produtividade."<br />
             <span className="text-xs font-bold text-brand-text-muted not-italic block mt-1">— Dr. Henrique Viana (Clínico Solo)</span>
           </blockquote>
@@ -168,26 +168,18 @@ export default function SoftwareOdontologicoPage() {
         </div>
 
         {/* Conversion Action Card */}
-        <div className="mt-12 p-8 md:p-10 rounded-3xl bg-brand-green-dark text-white relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -mr-20 -mt-20" />
-          
-          <div className="space-y-4 max-w-xl relative z-10 text-center md:text-left">
-            <h3 className="text-2xl font-extrabold leading-tight">Experimente o maior salto de clareza da sua história clínica</h3>
-            <p className="text-xs md:text-sm text-brand-green-light font-medium leading-relaxed">
+        <div className="mt-12 p-8 md:p-10 rounded-[28px] bg-black text-white flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="space-y-4 max-w-xl text-center md:text-left">
+            <h3 className="text-[24px] font-semibold tracking-tight">Experimente o maior salto de clareza da sua história clínica</h3>
+            <p className="text-[15px] text-white/60 leading-relaxed">
               Junte-se à comunidade de dentistas e acadêmicos que colocaram um basta no estresse operacional. Tenha acesso completo e gratuito ao melhor <strong>software odontológico</strong> da nova geração.
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto relative z-10">
-            <Link to="/" className="w-full sm:w-auto">
-              <Button variant="outline" className="w-full py-4 px-8 text-xs font-bold uppercase tracking-wider rounded-xl bg-white !text-brand-green-dark border-none hover:bg-white/95 shadow-lg active:scale-97 transition-all">
-                Começar Grátis
-              </Button>
-            </Link>
-            <Link to="/comparativo" className="w-full sm:w-auto">
-              <Button variant="outline" className="w-full py-4 px-8 text-xs font-bold uppercase tracking-wider rounded-xl bg-transparent text-white border-white/20 hover:bg-white/10">
-                Ver Comparativo
-              </Button>
+            <a href="https://sistema.odontohub.app.br" className="apple-btn-light w-full sm:w-auto">Começar</a>
+            <Link to="/comparativo" className="apple-link !text-[#2997ff]">
+              Ver comparativo <span aria-hidden>›</span>
             </Link>
           </div>
         </div>

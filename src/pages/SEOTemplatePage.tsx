@@ -209,7 +209,7 @@ export default function SEOTemplatePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#FAFCFB] pt-28 pb-16 px-4 md:px-6">
+    <div className="min-h-screen bg-apple-surface pt-24 pb-20 px-5">
       <Helmet>
         <title>{pageData.title}</title>
         <meta name="description" content={pageData.metaDescription} />
@@ -236,8 +236,8 @@ export default function SEOTemplatePage() {
           
           {/* LEFT SIDEBAR INDEX: Exposes all 40 pages statically to search crawler indexers & AI scrapers */}
           <div className="hidden lg:block lg:col-span-1 space-y-6">
-            <div className="bg-white border border-brand-border/60 rounded-2xl p-5 shadow-sm sticky top-28 max-h-[80vh] overflow-y-auto no-scrollbar scroll-smooth">
-              <div className="flex items-center gap-2 text-brand-green font-bold text-xs uppercase tracking-wider mb-4 pb-2 border-b border-brand-border/40">
+            <div className="bg-white rounded-[28px] p-5 sticky top-16 max-h-[80vh] overflow-y-auto no-scrollbar scroll-smooth">
+              <div className="text-[12px] text-apple-gray mb-4 pb-2 border-b border-apple-line">
                 <BookOpen size={16} /> Central de Páginas (40)
               </div>
               
@@ -248,8 +248,8 @@ export default function SEOTemplatePage() {
                     to={`/${item.slug}`}
                     className={`flex items-center justify-between py-1.5 px-3 rounded-lg text-xs font-semibold transition-all ${
                       slug === item.slug 
-                        ? 'bg-brand-green/10 text-brand-green-dark border-l-2 border-brand-green' 
-                        : 'text-brand-text/75 hover:bg-slate-50 hover:text-brand-green'
+                        ? 'bg-apple-surface text-apple-ink' 
+                        : 'text-apple-gray hover:text-apple-ink'
                     }`}
                   >
                     <span className="truncate">{keyIdx + 1}. {item.name}</span>
@@ -265,17 +265,17 @@ export default function SEOTemplatePage() {
             
             {/* Header section styled elegantly */}
             <div className="space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-green/10 text-brand-green-dark rounded-full text-[10px] md:text-xs font-bold uppercase tracking-wider">
-                <Sparkles size={14} className="text-brand-green" /> {pageData.category} • Portal Oficial
+              <div className="text-[12px] text-apple-gray">
+                <Sparkles size={14} className="text-apple-ink" /> {pageData.category} • Portal Oficial
               </div>
 
-              <h1 className="text-2xl md:text-4xl font-extrabold tracking-tight text-brand-text leading-tight md:leading-tight">
+              <h1 className="text-[32px] md:text-[48px] font-semibold tracking-tight text-apple-ink leading-[1.08]">
                 {pageData.h1}
               </h1>
 
               <div className="flex flex-wrap items-center gap-4 text-xs font-semibold text-brand-text-muted pt-2 border-b border-brand-border/50 pb-6">
                 <span className="flex items-center gap-1">
-                  <Calendar size={14} className="text-brand-green" /> Atualizado em: {new Date().toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' })}
+                  <Calendar size={14} className="text-apple-ink" /> Atualizado em: {new Date().toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' })}
                 </span>
                 <span className="text-brand-border">•</span>
                 <span className="flex items-center gap-1">
@@ -287,7 +287,7 @@ export default function SEOTemplatePage() {
                 </span>
                 <button 
                   onClick={shareThisContent}
-                  className="ml-auto text-brand-green hover:underline cursor-pointer flex items-center gap-1 text-[11px] font-bold"
+                  className="ml-auto text-[#2997ff] hover:underline cursor-pointer flex items-center gap-1 text-[11px] font-bold"
                 >
                   <Share2 size={12} /> {copiedLink ? 'Link Copiado!' : 'Copiar URL'}
                 </button>
@@ -295,22 +295,22 @@ export default function SEOTemplatePage() {
             </div>
 
             {/* Core Body Text (Aims at 1500 - 2500 Word Authoritative Quality) */}
-            <article className="prose prose-slate max-w-none text-brand-text/80 space-y-6 md:space-y-8 text-sm md:text-base leading-relaxed font-semibold">
-              <p className="text-base md:text-lg text-brand-text font-bold mb-4 bg-brand-green/5 p-4 md:p-6 rounded-2xl border-l-4 border-brand-green">
+            <article className="apple-prose max-w-none space-y-6">
+              <p className="text-[21px] md:text-[24px] font-semibold tracking-tight text-apple-ink mb-4">
                 {pageData.intro}
               </p>
 
               <p>{pageData.p1}</p>
 
-              <h2 className="text-lg md:text-2xl font-bold text-brand-text pt-4 border-l-4 border-brand-green pl-3">
+              <h2 className="text-[24px] md:text-[28px] font-semibold tracking-tight text-apple-ink pt-4">
                 A Crise de Decisão debaixo do Mocho na Odontologia
               </h2>
               <p>{pageData.p2}</p>
 
               {/* Sub-block emphasizing OdontoHub's proprietary value proposition */}
-              <div className="bg-gradient-to-tr from-brand-green/10 via-brand-bg/40 to-slate-50 p-6 rounded-2xl border border-brand-border shadow-sm my-6">
-                <h3 className="font-extrabold text-brand-text text-base md:text-lg flex items-center gap-2 mb-2">
-                  <Zap size={16} className="text-brand-green" /> O Impacto do Sistema Clinical Clarity
+              <div className="bg-white p-6 rounded-[28px] my-6">
+                <h3 className="font-semibold text-brand-text text-base md:text-lg flex items-center gap-2 mb-2">
+                  <Zap size={16} className="text-apple-ink" /> O Impacto do Sistema Clinical Clarity
                 </h3>
                 <p className="text-xs md:text-sm text-brand-text-muted mt-1 font-medium leading-relaxed">
                   Diferente de sistemas com dezenas de abas congeladas que exigem computadores de mesa dedicados de alta performance locais, o OdontoHub opera veloz na palma da sua mão. Ele monitora a agenda de retornos periódicos de seis meses, as pendências de peças laboratoriais de próteses e os lembretes de consultas de vésperas, agilizando seu faturamento sem aumentar a fadiga mental.
@@ -325,7 +325,7 @@ export default function SEOTemplatePage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {pageData.bullets.map((bullet, idx) => (
                       <div key={idx} className="flex gap-3 items-start bg-slate-50 border border-brand-border p-4 rounded-xl">
-                        <div className="w-6 h-6 rounded-full bg-brand-green/10 text-brand-green flex items-center justify-center font-bold text-xs shrink-0">{idx + 1}</div>
+                        <div className="w-6 h-6 rounded-full bg-apple-surface text-apple-ink flex items-center justify-center font-bold text-xs shrink-0">{idx + 1}</div>
                         <p className="text-xs text-brand-text-muted font-medium leading-relaxed">{bullet}</p>
                       </div>
                     ))}
@@ -338,7 +338,7 @@ export default function SEOTemplatePage() {
               {/* INTERACTIVE CLINICAL SAVINGS & BIOLOGICAL STATUS CALCULATOR WIDGET (SEO Magnet) */}
               <div className="my-8 bg-slate-50 border border-brand-border p-6 md:p-8 rounded-3xl space-y-6">
                 <div className="space-y-2">
-                  <span className="text-[10px] font-extrabold uppercase tracking-widest text-brand-green bg-brand-green-soft px-3 py-1 rounded-full">
+                  <span className="text-[10px] font-semibold uppercase tracking-widest text-apple-ink bg-apple-surface px-3 py-1 rounded-full">
                     Simulador Interativo OdontoHub
                   </span>
                   <h3 className="text-lg md:text-xl font-bold text-brand-text">Diagnóstico de Maturidade Comercial da sua Clínica</h3>
@@ -359,7 +359,7 @@ export default function SEOTemplatePage() {
                         type="checkbox" 
                         checked={calculatorChecked[keyIdx]} 
                         onChange={() => toggleCalculatorIndex(keyIdx)}
-                        className="mt-1 accent-brand-green rounded shrink-0 h-4 w-4" 
+                        className="mt-1 accent-[#0071e3] rounded shrink-0 h-4 w-4" 
                       />
                       <span className="text-xs md:text-sm text-brand-text font-semibold">{label}</span>
                     </label>
@@ -369,11 +369,11 @@ export default function SEOTemplatePage() {
                 <div className="pt-4 border-t border-brand-border/60 flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div>
                     <h4 className="text-xs font-bold text-brand-text-muted uppercase">Pontuação de Clareza Operacional:</h4>
-                    <p className="text-xl md:text-2xl font-extrabold text-brand-green">{calcScore}%</p>
+                    <p className="text-xl md:text-2xl font-semibold text-apple-ink">{calcScore}%</p>
                   </div>
                   <div className="text-right sm:text-left max-w-md">
                     {calcScore === 100 ? (
-                      <p className="text-xs font-bold text-brand-green-dark">Parabéns! Sua clínica possui boa preservação operacional. Continue assim!</p>
+                      <p className="text-xs font-bold text-apple-ink-dark">Parabéns! Sua clínica possui boa preservação operacional. Continue assim!</p>
                     ) : (
                       <p className="text-xs text-brand-text-muted font-medium">Use nossa recepção digital leve e integrada para recuperar esses {100 - calcScore}% de perdas silenciosas.</p>
                     )}
@@ -385,10 +385,10 @@ export default function SEOTemplatePage() {
 
               {/* ORGANIC SEO LINKING MAGNET - INTERACTIVE RESTORATION PRICING CALCULATOR */}
               <div className="my-10 bg-white border border-brand-border rounded-3xl overflow-hidden shadow-sm" id="calculadora-markup-resina">
-                <div className="bg-brand-green/10 p-6 md:p-8 border-b border-brand-border">
+                <div className="bg-apple-surface p-6 md:p-8 border-b border-brand-border">
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
-                      <span className="text-[10px] font-extrabold uppercase tracking-wider text-brand-green bg-white px-3 py-1 rounded-full border border-brand-green/20">
+                      <span className="text-[10px] font-semibold uppercase tracking-wider text-apple-ink bg-white px-3 py-1 rounded-full border border-apple-line/20">
                         Ferramenta Gratuita de Apoio Clínico
                       </span>
                       <h3 className="text-[#111827] text-xl font-bold mt-2">Calculadora de Markup de Restauração em Resina</h3>
@@ -398,7 +398,7 @@ export default function SEOTemplatePage() {
                     </div>
                     <div className="shrink-0 bg-white rounded-2xl border border-brand-border p-3 flex flex-col items-center">
                       <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Ativo de Referência</span>
-                      <span className="text-xs font-bold text-brand-green-dark">Linkável & Livre</span>
+                      <span className="text-xs font-bold text-apple-ink-dark">Linkável & Livre</span>
                     </div>
                   </div>
                 </div>
@@ -412,7 +412,7 @@ export default function SEOTemplatePage() {
                     <div className="space-y-1.5">
                       <div className="flex justify-between text-xs font-bold text-brand-text">
                         <span>Seringa de Resina Composta:</span>
-                        <span className="text-brand-green-dark">R$ {resinCost} ({resinUses} doses)</span>
+                        <span className="text-apple-ink-dark">R$ {resinCost} ({resinUses} doses)</span>
                       </div>
                       <div className="flex items-center gap-3">
                         <input 
@@ -422,7 +422,7 @@ export default function SEOTemplatePage() {
                           step="10"
                           value={resinCost} 
                           onChange={(e) => setResinCost(Number(e.target.value))}
-                          className="w-full accent-brand-green cursor-pointer h-1.5 bg-slate-200 rounded-lg"
+                          className="w-full accent-[#0071e3] cursor-pointer h-1.5 bg-slate-200 rounded-lg"
                         />
                         <input 
                           type="number" 
@@ -448,7 +448,7 @@ export default function SEOTemplatePage() {
                           step="10"
                           value={adhesiveCost} 
                           onChange={(e) => setAdhesiveCost(Number(e.target.value))}
-                          className="w-full accent-brand-green cursor-pointer h-1.5 bg-slate-200 rounded-lg"
+                          className="w-full accent-[#0071e3] cursor-pointer h-1.5 bg-slate-200 rounded-lg"
                         />
                         <input 
                           type="number" 
@@ -473,7 +473,7 @@ export default function SEOTemplatePage() {
                         step="1"
                         value={ppeCost} 
                         onChange={(e) => setPpeCost(Number(e.target.value))}
-                        className="w-full accent-brand-green cursor-pointer h-1.5 bg-slate-200 rounded-lg"
+                        className="w-full accent-[#0071e3] cursor-pointer h-1.5 bg-slate-200 rounded-lg"
                       />
                     </div>
 
@@ -491,7 +491,7 @@ export default function SEOTemplatePage() {
                           step="5"
                           value={chairHourBase} 
                           onChange={(e) => setChairHourBase(Number(e.target.value))}
-                          className="w-full accent-brand-green cursor-pointer h-1.5 bg-slate-200 rounded-lg"
+                          className="w-full accent-[#0071e3] cursor-pointer h-1.5 bg-slate-200 rounded-lg"
                         />
                         <div className="flex items-center gap-1 shrink-0">
                           <input 
@@ -519,7 +519,7 @@ export default function SEOTemplatePage() {
                         step="0.1"
                         value={markupFactor} 
                         onChange={(e) => setMarkupFactor(Number(e.target.value))}
-                        className="w-full accent-brand-green cursor-pointer h-1.5 bg-slate-200 rounded-lg"
+                        className="w-full accent-[#0071e3] cursor-pointer h-1.5 bg-slate-200 rounded-lg"
                       />
                     </div>
                   </div>
@@ -545,9 +545,9 @@ export default function SEOTemplatePage() {
                       </div>
                     </div>
 
-                    <div className="bg-[#EAF4F0]/50 border border-brand-green/20 rounded-2xl p-5 text-center space-y-2">
-                      <span className="text-[9px] font-extrabold uppercase tracking-widest text-brand-green">Preço Sugerido para o Consultório</span>
-                      <p className="text-3xl md:text-4xl font-black text-brand-green-dark">R$ {( ( (resinUses > 0 ? resinCost / resinUses : 0) + (adhesiveUses > 0 ? adhesiveCost / adhesiveUses : 0) + ppeCost + (chairHourBase * (chairMinutes / 60)) ) * markupFactor ).toFixed(2)}</p>
+                    <div className="bg-[#EAF4F0]/50 border border-apple-line/20 rounded-2xl p-5 text-center space-y-2">
+                      <span className="text-[9px] font-semibold uppercase tracking-widest text-apple-ink">Preço Sugerido para o Consultório</span>
+                      <p className="text-3xl md:text-4xl font-semibold text-apple-ink-dark">R$ {( ( (resinUses > 0 ? resinCost / resinUses : 0) + (adhesiveUses > 0 ? adhesiveCost / adhesiveUses : 0) + ppeCost + (chairHourBase * (chairMinutes / 60)) ) * markupFactor ).toFixed(2)}</p>
                       <p className="text-[10px] text-[#4b5563] font-semibold leading-relaxed">
                         Este valor cobre o custo direto de insumos e ajuda a garantir a margem operacional de {markupFactor.toFixed(1)}x sob o seu tempo de mocho clínico debaixo do refletor.
                       </p>
@@ -564,7 +564,7 @@ export default function SEOTemplatePage() {
               <div className="bg-slate-50 border border-brand-border rounded-3xl p-6 md:p-8 space-y-6 my-10" id="cro-ethics-compliance-guide">
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
-                    <Award size={18} className="text-brand-green shrink-0" />
+                    <Award size={18} className="text-apple-ink shrink-0" />
                     <h3 className="text-brand-text font-bold text-base md:text-lg">Prática Ética & Posicionamento Regulatório sob o CRO</h3>
                   </div>
                   <p className="text-xs text-brand-text-muted leading-relaxed font-semibold">
@@ -585,7 +585,7 @@ export default function SEOTemplatePage() {
                   </div>
 
                   <div className="bg-white border border-brand-border rounded-2xl p-5 space-y-3">
-                    <h4 className="font-bold text-brand-green-dark flex items-center gap-2">
+                    <h4 className="font-bold text-apple-ink-dark flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-brand-green" /> Boas Práticas Recomendadas
                     </h4>
                     <ul className="space-y-2 text-xs text-brand-text-muted pl-4 list-disc font-semibold">
@@ -618,7 +618,7 @@ export default function SEOTemplatePage() {
                         {pageData.tableRows.map((row, idx) => (
                           <tr key={idx} className="hover:bg-slate-50/50">
                             {row.map((cell, cellIdx) => (
-                              <td key={cellIdx} className={`py-3 px-4 text-xs md:text-sm font-semibold text-brand-text/90 ${cellIdx === 2 ? 'text-brand-green-dark' : ''}`}>{cell}</td>
+                              <td key={cellIdx} className={`py-3 px-4 text-xs md:text-sm font-semibold text-brand-text/90 ${cellIdx === 2 ? 'text-apple-ink-dark' : ''}`}>{cell}</td>
                             ))}
                           </tr>
                         ))}
@@ -631,12 +631,12 @@ export default function SEOTemplatePage() {
 
             {/* Visual E-E-A-T Clinical Review & Creator Badge */}
             <div className="bg-slate-50 border border-brand-border rounded-2xl p-6 flex flex-col md:flex-row items-center gap-4 my-8">
-              <div className="w-12 h-12 rounded-full bg-slate-100 text-brand-green-dark flex items-center justify-center font-bold text-sm shrink-0 border border-brand-border font-mono font-bold">
+              <div className="w-12 h-12 rounded-full bg-slate-100 text-apple-ink-dark flex items-center justify-center font-bold text-sm shrink-0 border border-brand-border font-mono font-bold">
                 OH
               </div>
               <div className="space-y-1 text-center md:text-left">
                 <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
-                  <span className="text-[10px] font-extrabold text-brand-green uppercase tracking-wider bg-brand-green/10 px-2.5 py-0.5 rounded-full">Revisão Técnica Editorial</span>
+                  <span className="text-[10px] font-semibold text-apple-ink uppercase tracking-wider bg-apple-surface px-2.5 py-0.5 rounded-full">Revisão Técnica Editorial</span>
                   <span className="text-[10px] font-semibold text-brand-text-muted">Equipe Editorial OdontoHub</span>
                 </div>
                 <h4 className="text-xs md:text-sm font-bold text-brand-text">
@@ -651,7 +651,7 @@ export default function SEOTemplatePage() {
             {/* FAQ SECTION (Perfect search and featured snippets helper) */}
             <div className="space-y-6 pt-6 border-t border-brand-border/60">
               <div className="space-y-2 text-center md:text-left">
-                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#155e75] bg-sky-50 px-3 py-1 rounded-full">
+                <span className="text-[10px] font-semibold uppercase tracking-widest text-[#155e75] bg-sky-50 px-3 py-1 rounded-full">
                   Fatos Clientes
                 </span>
                 <h3 className="text-lg md:text-2xl font-bold text-brand-text flex items-center justify-center md:justify-start gap-2">
@@ -661,9 +661,9 @@ export default function SEOTemplatePage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {pageData.faq.map((faq, idx) => (
-                  <div key={idx} className="bg-white border border-brand-border rounded-2xl p-5 shadow-sm space-y-2 hover:border-brand-green/30 transition-all">
-                    <h4 className="font-extrabold text-[#111827] text-sm md:text-base flex items-start gap-2">
-                      <span className="text-brand-green text-xs font-black mt-1">Q{idx+1}</span> {faq.question}
+                  <div key={idx} className="bg-white border border-brand-border rounded-2xl p-5 shadow-sm space-y-2 hover:border-apple-line/30 transition-all">
+                    <h4 className="font-semibold text-[#111827] text-sm md:text-base flex items-start gap-2">
+                      <span className="text-apple-ink text-xs font-semibold mt-1">Q{idx+1}</span> {faq.question}
                     </h4>
                     <p className="text-xs md:text-sm text-brand-text/75 font-semibold leading-relaxed pl-6">{faq.answer}</p>
                   </div>
@@ -672,50 +672,46 @@ export default function SEOTemplatePage() {
             </div>
 
             {/* Premium CTA box for maximized trial acquisition */}
-            <div className="p-8 md:p-12 rounded-3xl bg-slate-50 border border-brand-border relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 shadow-md">
+            <div className="p-8 md:p-12 rounded-[28px] bg-black text-white flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="space-y-3 max-w-xl text-center md:text-left">
-                <span className="text-[10px] font-extrabold uppercase tracking-widest text-brand-green bg-brand-green-soft px-3 py-1 rounded-full">
+                <span className="text-[10px] font-semibold uppercase tracking-widest text-apple-ink bg-apple-surface px-3 py-1 rounded-full">
                   Livre de burocracias
                 </span>
-                <h3 className="text-2xl font-bold text-brand-text leading-tight">{pageData.ctaTitle}</h3>
-                <p className="text-xs md:text-sm text-brand-text-muted font-semibold leading-relaxed">
+                <h3 className="text-[24px] font-semibold tracking-tight text-white">{pageData.ctaTitle}</h3>
+                <p className="text-[15px] text-white/60 leading-relaxed">
                   {pageData.ctaText}
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto shrink-0 z-10">
                 <Link to="/" className="w-full sm:w-auto">
-                  <Button variant="primary" className="w-full py-4 px-8 text-xs font-bold uppercase tracking-wider rounded-xl shadow-lg shadow-brand-green/15">
-                    Começar Gratuitamente
-                  </Button>
+                  <Button variant="primary">Começar</Button>
                 </Link>
                 <Link to="/academy" className="w-full sm:w-auto">
-                  <Button variant="outline" className="w-full py-4 px-8 text-xs font-bold uppercase tracking-wider rounded-xl bg-white text-brand-text border-slate-200">
-                    Plano Academy
-                  </Button>
+                  <Button variant="outline">Academy</Button>
                 </Link>
               </div>
             </div>
 
             {/* Dynamic Internal Links (Crawler and Link-building network expansion) */}
             <div className="pt-6 border-t border-brand-border/60">
-              <h4 className="text-xs font-extrabold text-brand-text-muted uppercase tracking-wider mb-3">Leituras altamente correlacionadas:</h4>
+              <h4 className="text-xs font-semibold text-brand-text-muted uppercase tracking-wider mb-3">Leituras altamente correlacionadas:</h4>
               <div className="flex flex-wrap gap-2">
                 {pageData.internalLinks.map((link, idx) => (
                   <Link 
                     key={idx} 
                     to={link.url}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 border border-brand-border hover:border-brand-green hover:bg-brand-green/5 rounded-full text-xs font-semibold text-brand-text-muted transition-all"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 border border-brand-border hover:border-apple-line hover:bg-brand-green/5 rounded-full text-xs font-semibold text-brand-text-muted transition-all"
                   >
-                    <TrendingUp size={12} className="text-brand-green" /> {link.name}
+                    <TrendingUp size={12} className="text-apple-ink" /> {link.name}
                   </Link>
                 ))}
                 
                 {/* Dynamically fallback to some standard links to guarantee crawl paths */}
-                <Link to="/blog" className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 border border-brand-border hover:border-brand-green hover:bg-brand-green/5 rounded-full text-xs font-semibold text-brand-text-muted transition-all">
+                <Link to="/blog" className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 border border-brand-border hover:border-apple-line hover:bg-brand-green/5 rounded-full text-xs font-semibold text-brand-text-muted transition-all">
                   <TrendingUp size={12} className="text-indigo-500" /> Central do Dentista
                 </Link>
-                <Link to="/comparativo" className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 border border-brand-border hover:border-brand-green hover:bg-brand-green/5 rounded-full text-xs font-semibold text-brand-text-muted transition-all">
+                <Link to="/comparativo" className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 border border-brand-border hover:border-apple-line hover:bg-brand-green/5 rounded-full text-xs font-semibold text-brand-text-muted transition-all">
                   <TrendingUp size={12} className="text-amber-500" /> Comparador Prático
                 </Link>
               </div>

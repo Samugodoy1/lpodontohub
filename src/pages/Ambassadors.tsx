@@ -36,9 +36,9 @@ const BenefitCard = ({ icon: Icon, title, desc, delay = 0 }: any) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.5, delay }}
-    className="p-8 bg-slate-50 rounded-[2.5rem] border border-transparent hover:border-brand-academy/20 hover:bg-white hover:shadow-xl transition-all duration-500 group"
+    className="p-8 bg-slate-50 rounded-[28px] border border-transparent  transition-all duration-500 group"
   >
-    <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:bg-brand-academy group-hover:text-white transition-all">
+    <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-8 shadow-sm  transition-all">
       <Icon size={28} />
     </div>
     <h4 className="text-xl font-bold text-brand-text mb-4 tracking-tight">{title}</h4>
@@ -52,10 +52,10 @@ const FaqItem = ({ question, answer }: { question: string, answer: string, key?:
     <div className="border-b border-slate-100 last:border-0 overflow-hidden">
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between py-6 text-left hover:text-brand-academy transition-colors transition-all"
+        className="w-full flex items-center justify-between py-6 text-left hover:text-apple-ink transition-colors transition-all"
       >
         <span className="font-bold text-brand-text">{question}</span>
-        {isOpen ? <Minus size={18} className="text-brand-academy" /> : <Plus size={18} className="text-slate-300" />}
+        {isOpen ? <Minus size={18} className="text-apple-ink" /> : <Plus size={18} className="text-slate-300" />}
       </button>
       <AnimatePresence>
         {isOpen && (
@@ -134,19 +134,17 @@ export default function Ambassadors() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-             <Link to="/academy" className="inline-flex items-center gap-2 group mb-10 text-brand-text/40 hover:text-brand-academy transition-colors text-xs font-bold uppercase tracking-widest">
+             <Link to="/academy" className="inline-flex items-center gap-2 group mb-10 text-brand-text/40 hover:text-apple-ink transition-colors text-xs font-bold ">
               <ChevronLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Voltar para Academy
             </Link>
             
             <div className="block" />
             
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-brand-academy/5 border border-brand-academy/10 text-brand-academy rounded-full text-[10px] font-bold uppercase tracking-widest mb-10 shadow-sm shadow-brand-academy/5">
-              <Star size={12} className="fill-brand-academy" /> Programa seletivo para estudantes
-            </div>
+            <p className="text-[12px] text-apple-gray mb-8">Programa para estudantes</p>
             
             <h1 className="text-[2.6rem] md:text-7xl font-bold tracking-tight text-brand-text mb-10 leading-[1.05]">
               Você vive a rotina da odonto.<br className="hidden md:block" />
-              Agora pode <span className="text-brand-academy italic">representá-la.</span>
+              Agora pode <span className="text-apple-ink italic">representá-la.</span>
             </h1>
             
             <p className="text-lg md:text-xl text-brand-text/50 max-w-2xl mx-auto mb-12 leading-relaxed font-medium">
@@ -155,18 +153,16 @@ export default function Ambassadors() {
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a href="#form">
-                <Button variant="academy" className="px-10 py-5 text-lg font-bold shadow-2xl shadow-brand-academy/20 rounded-2xl">
-                  Quero ser embaixador
-                </Button>
+                <Button>Quero ser embaixador</Button>
               </a>
               <a href="#como-funciona">
-                <Button variant="ghost" className="text-brand-text/60 hover:text-brand-academy flex items-center justify-center gap-2 font-bold group">
+                <Button variant="ghost" className="text-brand-text/60 hover:text-apple-ink flex items-center justify-center gap-2 font-bold group">
                   Ver como funciona <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                 </Button>
               </a>
             </div>
             
-            <p className="mt-10 text-[10px] md:text-xs font-bold text-slate-300 uppercase tracking-widest">
+            <p className="mt-10 text-[10px] md:text-xs font-bold text-slate-300 ">
               A inscrição não garante aprovação. Perfis passam por análise.
             </p>
           </motion.div>
@@ -180,7 +176,7 @@ export default function Ambassadors() {
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-brand-text mb-10">Antes de atender, clareza.</h2>
             <div className="space-y-6 text-lg text-brand-text/50 font-medium leading-relaxed">
               <p>Quem faz clínica sabe: o atendimento não começa quando o paciente senta na cadeira.</p>
-              <p className="text-brand-text !text-brand-academy">Começa antes.</p>
+              <p className="text-brand-text !text-apple-ink">Começa antes.</p>
               <p>Na hora de revisar o caso. Separar material. Lembrar a última evolução. Entender o próximo passo. Organizar o que ficou espalhado.</p>
               <p>O Academy existe para deixar esse caminho mais leve. E os embaixadores são os estudantes que ajudam essa ideia a chegar em mais pessoas.</p>
             </div>
@@ -197,12 +193,12 @@ export default function Ambassadors() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div className="p-10 md:p-14 bg-brand-academy-soft border border-brand-academy/10 rounded-[3rem]">
+            <div className="p-10 md:p-14 bg-white rounded-[28px]">
               <div className="flex items-center gap-3 mb-10">
-                <div className="w-10 h-10 bg-brand-academy text-white rounded-full flex items-center justify-center">
+                <div className="w-10 h-10 bg-[#0071e3] text-white rounded-full flex items-center justify-center">
                   <CheckCircle2 size={24} />
                 </div>
-                <h3 className="text-xl font-bold text-brand-academy uppercase tracking-widest">Esse programa é para você se:</h3>
+                <h3 className="text-xl font-bold text-apple-ink ">Esse programa é para você se:</h3>
               </div>
               <ul className="space-y-6">
                 {[
@@ -220,12 +216,12 @@ export default function Ambassadors() {
               </ul>
             </div>
 
-            <div className="p-10 md:p-14 bg-slate-50 border border-slate-100 rounded-[3rem]">
+            <div className="p-10 md:p-14 bg-slate-50 border border-slate-100 rounded-[28px]">
               <div className="flex items-center gap-3 mb-10">
                 <div className="w-10 h-10 bg-slate-200 text-slate-400 rounded-full flex items-center justify-center">
                   <XCircle size={24} />
                 </div>
-                <h3 className="text-xl font-bold text-slate-500 uppercase tracking-widest">Talvez não seja se:</h3>
+                <h3 className="text-xl font-bold text-slate-500 ">Talvez não seja se:</h3>
               </div>
               <ul className="space-y-6">
                 {[
@@ -247,7 +243,7 @@ export default function Ambassadors() {
       </Section>
 
       {/* Seção 3 — O que é ser embaixador */}
-      <Section className="bg-brand-academy py-32 text-white relative overflow-hidden">
+      <Section className="bg-black py-32 text-white relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-5 relative z-10 text-center">
           <h2 className="text-3xl md:text-5xl font-bold mb-10 tracking-tight leading-tight">Ser embaixador não é só ter um cupom. É representar uma visão.</h2>
           <div className="text-lg md:text-xl font-medium leading-relaxed opacity-90 space-y-8 max-w-3xl mx-auto">
@@ -276,10 +272,10 @@ export default function Ambassadors() {
                 { n: "05", t: "Comissão", d: "Assinaturas feitas com seu cupom geram comissão recorrente.", icon: Trophy }
               ].map((step, i) => (
                 <div key={i} className="flex flex-col items-center md:items-start text-center md:text-left group prose">
-                   <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center text-brand-academy mb-6 group-hover:bg-brand-academy group-hover:text-white transition-all shadow-sm">
+                   <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center text-apple-ink mb-6  transition-all shadow-sm">
                       <step.icon size={24} strokeWidth={1.5} />
                    </div>
-                   <span className="text-[10px] font-black text-slate-300 uppercase tracking-widest mb-2">{step.n}</span>
+                   <span className="text-[10px] font-semibold text-slate-300  mb-2">{step.n}</span>
                    <h4 className="text-lg font-bold text-brand-text mb-3 leading-none">{step.t}</h4>
                    <p className="text-xs text-brand-text/40 font-medium leading-relaxed">{step.d}</p>
                 </div>
@@ -323,7 +319,7 @@ export default function Ambassadors() {
                         { icon: Smartphone, t: "Portabilidade", d: "Menos papel, mais clareza no atendimento." }
                      ].map((item, i) => (
                         <div key={i} className="space-y-3">
-                           <item.icon size={32} className="text-brand-academy" strokeWidth={1} />
+                           <item.icon size={32} className="text-apple-ink" strokeWidth={1} />
                            <h4 className="font-bold text-brand-text">{item.t}</h4>
                            <p className="text-sm text-brand-text/50 font-medium leading-relaxed">{item.d}</p>
                         </div>
@@ -331,12 +327,12 @@ export default function Ambassadors() {
                   </div>
                </div>
                <div className="w-full lg:w-1/2">
-                  <div className="p-10 md:p-14 bg-slate-900 rounded-[3rem] text-white">
+                  <div className="p-10 md:p-14 bg-slate-900 rounded-[28px] text-white">
                      <h3 className="text-2xl font-bold mb-6">Importante:</h3>
                      <p className="text-lg text-white/60 mb-8 font-medium leading-relaxed">
                         O Academy não substitui faculdade, professores ou protocolos oficiais. Ele funciona como uma camada de organização pessoal para ajudar o aluno a chegar menos perdido.
                      </p>
-                     <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold uppercase tracking-widest">
+                     <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold ">
                        Clinical Empowerment
                      </div>
                   </div>
@@ -357,15 +353,15 @@ export default function Ambassadors() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="p-6 bg-white rounded-2xl border border-slate-100">
-                <span className="block text-brand-academy font-bold mb-2 uppercase text-[10px] tracking-widest">Jovem</span>
+                <span className="block text-apple-ink font-bold mb-2 uppercase text-[10px] tracking-widest">Jovem</span>
                 <span className="text-xs text-brand-text/60 font-medium">Mas não irresponsável.</span>
               </div>
               <div className="p-6 bg-white rounded-2xl border border-slate-100">
-                <span className="block text-brand-academy font-bold mb-2 uppercase text-[10px] tracking-widest">Bonita</span>
+                <span className="block text-apple-ink font-bold mb-2 uppercase text-[10px] tracking-widest">Bonita</span>
                 <span className="text-xs text-brand-text/60 font-medium">Mas não vazia.</span>
               </div>
               <div className="p-6 bg-white rounded-2xl border border-slate-100">
-                <span className="block text-brand-academy font-bold mb-2 uppercase text-[10px] tracking-widest">Leve</span>
+                <span className="block text-apple-ink font-bold mb-2 uppercase text-[10px] tracking-widest">Leve</span>
                 <span className="text-xs text-brand-text/60 font-medium">Mas não superficial.</span>
               </div>
             </div>
@@ -383,7 +379,7 @@ export default function Ambassadors() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32">
             <div className="space-y-10">
-              <h3 className="text-2xl font-bold text-brand-academy border-b-2 border-brand-academy/20 pb-4 inline-block">Pode</h3>
+              <h3 className="text-2xl font-bold text-apple-ink border-b-2 border-brand-academy/20 pb-4 inline-block">Pode</h3>
               <ul className="space-y-6">
                 {[
                   "Mostrar sua rotina usando o Academy no dia a dia;",
@@ -394,7 +390,7 @@ export default function Ambassadors() {
                   "Adaptar as ideias do kit para sua própria voz e estilo."
                 ].map((item, i) => (
                   <li key={i} className="flex gap-4 items-start font-bold text-brand-text">
-                    <CheckCircle2 size={24} className="text-brand-academy shrink-0" />
+                    <CheckCircle2 size={24} className="text-apple-ink shrink-0" />
                     {item}
                   </li>
                 ))}
@@ -427,7 +423,7 @@ export default function Ambassadors() {
       <Section className="py-32 bg-slate-50 border-y border-slate-100">
         <div className="max-w-4xl mx-auto px-5 text-center">
           <h2 className="text-[2.6rem] md:text-7xl font-bold tracking-tight text-brand-text mb-12 leading-[1.05]">
-            Sua rotina pode ir <span className="text-brand-academy">mais longe.</span>
+            Sua rotina pode ir <span className="text-apple-ink">mais longe.</span>
           </h2>
           <div className="text-lg md:text-xl text-brand-text/50 font-medium leading-relaxed space-y-6 max-w-3xl mx-auto">
             <p>Se você compartilha a rotina da clínica, você ajuda alguém a se sentir menos sozinho. Uma dica de material, uma forma de organizar o caso, uma experiência real contada com responsabilidade.</p>
@@ -436,7 +432,7 @@ export default function Ambassadors() {
           
           <div className="mt-16">
             <a href="#form">
-              <Button variant="academy" className="px-16 py-6 rounded-[2rem] font-black text-xl shadow-2xl shadow-brand-academy/30">
+              <Button variant="academy" className="px-16 py-6 rounded-[2rem] font-semibold text-xl ">
                 Quero me inscrever
               </Button>
             </a>
@@ -460,53 +456,53 @@ export default function Ambassadors() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onSubmit={handleSubmit}
-                className="space-y-8 bg-white p-10 md:p-14 rounded-[3rem] border border-slate-100 shadow-2xl shadow-slate-200/50"
+                className="space-y-8 bg-white p-10 md:p-14 rounded-[28px] border border-slate-100 shadow-2xl shadow-slate-200/50"
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Nome Completo</label>
+                    <label className="text-[10px] font-semibold  text-slate-400">Nome Completo</label>
                     <input 
                       required 
                       type="text" 
                       name="fullName"
                       value={formData.fullName}
                       onChange={handleChange}
-                      className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" 
+                      className="apple-input" 
                       placeholder="Ex: Ana Souza" 
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Instagram</label>
+                    <label className="text-[10px] font-semibold  text-slate-400">Instagram</label>
                     <input 
                       required 
                       type="text" 
                       name="instagram"
                       value={formData.instagram}
                       onChange={handleChange}
-                      className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" 
+                      className="apple-input" 
                       placeholder="@seuusuario" 
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">TikTok</label>
+                    <label className="text-[10px] font-semibold  text-slate-400">TikTok</label>
                     <input 
                       type="text" 
                       name="tiktok"
                       value={formData.tiktok}
                       onChange={handleChange}
-                      className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" 
+                      className="apple-input" 
                       placeholder="@seuusuario" 
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">WhatsApp</label>
+                    <label className="text-[10px] font-semibold  text-slate-400">WhatsApp</label>
                     <input 
                       required 
                       type="text" 
                       name="whatsapp"
                       value={formData.whatsapp}
                       onChange={handleChange}
-                      className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" 
+                      className="apple-input" 
                       placeholder="(00) 00000-0000" 
                     />
                   </div>
@@ -514,26 +510,26 @@ export default function Ambassadors() {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Faculdade</label>
+                    <label className="text-[10px] font-semibold  text-slate-400">Faculdade</label>
                     <input 
                       required 
                       type="text" 
                       name="faculty"
                       value={formData.faculty}
                       onChange={handleChange}
-                      className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" 
+                      className="apple-input" 
                       placeholder="Ex: USP" 
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Período</label>
+                    <label className="text-[10px] font-semibold  text-slate-400">Período</label>
                     <input 
                       required 
                       type="text" 
                       name="period"
                       value={formData.period}
                       onChange={handleChange}
-                      className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" 
+                      className="apple-input" 
                       placeholder="Ex: 7º Período" 
                     />
                   </div>
@@ -541,24 +537,24 @@ export default function Ambassadors() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Cidade / Estado</label>
+                    <label className="text-[10px] font-semibold  text-slate-400">Cidade / Estado</label>
                     <input 
                       required 
                       type="text" 
                       name="cityState"
                       value={formData.cityState}
                       onChange={handleChange}
-                      className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" 
+                      className="apple-input" 
                       placeholder="Cidade - UF" 
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Já atende em clínica?</label>
+                    <label className="text-[10px] font-semibold  text-slate-400">Já atende em clínica?</label>
                     <select 
                       name="attendingClinic"
                       value={formData.attendingClinic}
                       onChange={handleChange}
-                      className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none appearance-none"
+                      className="apple-input focus:ring-2 focus:ring-[#0071e3] outline-none appearance-none"
                     >
                       <option>Sim</option>
                       <option>Não, mas começo em breve</option>
@@ -569,65 +565,65 @@ export default function Ambassadors() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Posts p/ semana</label>
+                    <label className="text-[10px] font-semibold  text-slate-400">Posts p/ semana</label>
                     <input 
                       required 
                       type="number" 
                       name="postsPerWeek"
                       value={formData.postsPerWeek}
                       onChange={handleChange}
-                      className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" 
+                      className="apple-input" 
                       placeholder="0" 
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Seguidores</label>
+                    <label className="text-[10px] font-semibold  text-slate-400">Seguidores</label>
                     <input 
                       required 
                       type="text" 
                       name="followers"
                       value={formData.followers}
                       onChange={handleChange}
-                      className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" 
+                      className="apple-input" 
                       placeholder="Ex: 3k" 
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Views Stories</label>
+                    <label className="text-[10px] font-semibold  text-slate-400">Views Stories</label>
                     <input 
                       required 
                       type="text" 
                       name="storyViews"
                       value={formData.storyViews}
                       onChange={handleChange}
-                      className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none" 
+                      className="apple-input" 
                       placeholder="Média" 
                     />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Por que você quer ser embaixador?</label>
+                  <label className="text-[10px] font-semibold  text-slate-400">Por que você quer ser embaixador?</label>
                   <textarea 
                     required 
                     rows={4} 
                     name="motivation"
                     value={formData.motivation}
                     onChange={handleChange}
-                    className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none resize-none" 
+                    className="apple-input focus:ring-2 focus:ring-[#0071e3] outline-none resize-none" 
                     placeholder="Conte sobre sua conexão com o Academy." 
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Como você fala sobre sua rotina?</label>
+                  <label className="text-[10px] font-semibold  text-slate-400">Como você fala sobre sua rotina?</label>
                   <textarea 
                     required 
                     rows={4} 
                     name="contentStyle"
                     value={formData.contentStyle}
                     onChange={handleChange}
-                    className="w-full bg-slate-50 border-none rounded-2xl p-4 font-medium focus:ring-2 focus:ring-brand-academy outline-none resize-none" 
+                    className="apple-input focus:ring-2 focus:ring-[#0071e3] outline-none resize-none" 
                     placeholder="Como é o seu estilo de conteúdo?" 
                   />
                 </div>
@@ -640,7 +636,7 @@ export default function Ambassadors() {
                     name="termsAccepted"
                     checked={formData.termsAccepted}
                     onChange={handleChange}
-                    className="w-5 h-5 rounded border-slate-200 text-brand-academy focus:ring-brand-academy mt-0.5" 
+                    className="w-5 h-5 rounded border-slate-200 text-apple-ink focus:ring-[#0071e3] mt-0.5" 
                   />
                   <label htmlFor="terms" className="text-xs font-bold text-slate-500 cursor-pointer leading-relaxed">Eu aceito seguir as diretrizes éticas e de comunicação da marca e entendo que a inscrição passa por análise.</label>
                 </div>
@@ -648,21 +644,21 @@ export default function Ambassadors() {
                 <Button 
                   type="submit" 
                   disabled={loading}
-                  className="w-full py-6 rounded-2xl font-black text-lg bg-brand-academy text-white shadow-xl shadow-brand-academy/20 uppercase tracking-widest disabled:opacity-50"
+                  className="w-full py-6 rounded-2xl font-semibold text-lg bg-[#0071e3] text-white   disabled:opacity-50"
                 >
                   {loading ? 'Enviando...' : 'Enviar inscrição'}
                 </Button>
                 
-                <p className="text-center text-[10px] font-bold text-slate-300 uppercase tracking-widest px-4 leading-relaxed">Selecionamos perfis com conteúdo constante, comunicação ética e conexão real com estudantes de odontologia.</p>
+                <p className="text-center text-[10px] font-bold text-slate-300  px-4 leading-relaxed">Selecionamos perfis com conteúdo constante, comunicação ética e conexão real com estudantes de odontologia.</p>
               </motion.form>
             ) : (
               <motion.div 
                 key="success"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="bg-white p-12 md:p-20 rounded-[3rem] border border-slate-100 shadow-2xl shadow-brand-academy/5 text-center flex flex-col items-center"
+                className="bg-white p-12 md:p-20 rounded-[28px] border border-slate-100  text-center flex flex-col items-center"
               >
-                <div className="w-20 h-20 bg-brand-academy/10 text-brand-academy rounded-full flex items-center justify-center mb-8">
+                <div className="w-20 h-20 bg-brand-academy/10 text-apple-ink rounded-full flex items-center justify-center mb-8">
                   <CheckCircle2 size={48} />
                 </div>
                 <h3 className="text-3xl md:text-4xl font-bold text-brand-text mb-6">Inscrição recebida.</h3>
@@ -673,7 +669,7 @@ export default function Ambassadors() {
                 <Button 
                   onClick={() => setSubmitted(false)}
                   variant="ghost" 
-                  className="mt-10 text-brand-academy font-bold"
+                  className="mt-10 text-apple-ink font-bold"
                 >
                   Fazer outra inscrição
                 </Button>
@@ -687,10 +683,10 @@ export default function Ambassadors() {
       <Section className="bg-slate-50/50 py-32">
         <div className="max-w-4xl mx-auto px-5">
           <div className="flex items-center gap-4 mb-16">
-            <HelpCircle size={32} className="text-brand-academy" />
+            <HelpCircle size={32} className="text-apple-ink" />
             <h2 className="text-3xl font-bold tracking-tight text-brand-text">Dúvidas frequentes</h2>
           </div>
-          <div className="bg-white rounded-[3rem] border border-slate-100 p-8 md:p-12">
+          <div className="bg-white rounded-[28px] border border-slate-100 p-8 md:p-12">
             {[
               { q: "Preciso ter muitos seguidores?", a: "Não. A gente olha mais para alinhamento, constância, comunicação e conexão real com estudantes de odontologia. Microcriadores são muito bem-vindos." },
               { q: "O programa é pago?", a: "Não. Você não paga para se inscrever. Embaixadores aprovados recebem um cupom personalizado e comissão por assinaturas feitas com esse cupom." },
@@ -707,7 +703,7 @@ export default function Ambassadors() {
 
       <footer className="py-32 text-center border-t border-slate-100 px-5">
         <p className="text-lg md:text-xl font-bold text-brand-text max-w-2xl mx-auto mb-10 leading-relaxed">Não estamos procurando divulgadores. Estamos escolhendo representantes de uma forma mais clara de viver a odontologia.</p>
-        <div className="text-[10px] font-black text-slate-300 uppercase tracking-[0.5em]">© 2026 ODONTOHUB ACADEMY S.A.</div>
+        <div className="text-[10px] font-semibold text-slate-300 uppercase tracking-[0.5em]">© 2026 ODONTOHUB ACADEMY S.A.</div>
       </footer>
     </div>
   );

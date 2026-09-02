@@ -20,7 +20,7 @@ export default function ComoAdministrarSemSecretariaPage() {
   const currentDate = new Date().toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' });
 
   return (
-    <div className="min-h-screen bg-[#FAFCFB] pt-28 pb-16 px-4 md:px-6">
+    <div className="min-h-screen bg-apple-surface pt-24 pb-20 px-5">
       <Helmet>
         <title>Como Administrar uma Clínica sem Secretária com Sucesso | OdontoHub</title>
         <meta name="description" content="Atender no mocho e gerenciar consultório sem secretária é exaustivo. Aprenda dicas de automação odontológica para comandar a recepção pelo celular com o OdontoHub." />
@@ -59,11 +59,11 @@ export default function ComoAdministrarSemSecretariaPage() {
           transition={{ duration: 0.5 }}
           className="text-center md:text-left space-y-6 mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-green/10 text-brand-green-dark rounded-full text-xs font-bold uppercase tracking-wider">
+          <div className="text-[12px] text-apple-gray">
             <Sparkles size={14} className="text-brand-green" /> Liberdade de Operação e Custos
           </div>
 
-          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-brand-text leading-tight md:leading-tight">
+          <h1 className="text-[40px] md:text-[48px] font-semibold tracking-tight text-apple-ink leading-[1.08]">
             Como administrar uma <span className="text-brand-green">Clínica sem Secretária</span> sem enlouquecer com o Whatsapp
           </h1>
 
@@ -83,7 +83,7 @@ export default function ComoAdministrarSemSecretariaPage() {
         </motion.div>
 
         {/* Storytelling & Real Issues */}
-        <div className="prose prose-slate max-w-none text-brand-text/80 space-y-6 md:space-y-8 text-sm md:text-base leading-relaxed font-semibold">
+        <div className="apple-prose max-w-none space-y-6">
           <p className="text-lg font-bold text-brand-text leading-snug">
             Trabalhar sem secretária é uma escolha comum e inteligente de muitos cirurgiões-dentistas: reduz as despesas de folha de pagamento, elimina desentendimentos internos de recepção e permite manter um contato extremamente próximo e humanizado com seus pacientes. No entanto, o custo disso costuma ser a <strong>estafa de tempo</strong>.
           </p>
@@ -92,7 +92,7 @@ export default function ComoAdministrarSemSecretariaPage() {
             O grande caos ocorre quando você está realizando um procedimento delicado — como uma endodontia complexa ou colocação de lentes de contato dentárias — e seu Whatsapp ferve de mensagens pedindo orçamentos ou horários. Responder tarde significa perder o paciente para o concorrente que respondeu em minutos. Responder durante os atendimentos compromete a biossegurança e o foco técnico.
           </p>
 
-          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4 border-l-4 border-brand-green pl-3">
+          <h2 className="text-[24px] md:text-[28px] font-semibold tracking-tight text-apple-ink pt-4">
             O Método da "Secretária Virtual Silenciosa"
           </h2>
           <p>
@@ -100,28 +100,28 @@ export default function ComoAdministrarSemSecretariaPage() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
-            <div className="p-6 bg-white rounded-2xl border border-brand-border premium-shadow space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-brand-green-soft text-brand-green flex items-center justify-center">
+            <div className="p-6 bg-white rounded-[28px] space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-apple-surface text-apple-ink flex items-center justify-center">
                 <CalendarCheck size={20} />
               </div>
-              <h4 className="font-extrabold text-[#1F2937] text-sm">Agendamento autônomo guiado</h4>
+              <h4 className="font-semibold text-[#1F2937] text-sm">Agendamento autônomo guiado</h4>
               <p className="text-xs text-brand-text-muted font-medium leading-relaxed">
                 Envie um link personalizado onde o próprio paciente visualiza as suas vagas abertas de forma discreta e realiza a reserva, integrando diretamente com o seu calendário clínico do OdontoHub.
               </p>
             </div>
 
-            <div className="p-6 bg-white rounded-2xl border border-brand-border premium-shadow space-y-3">
+            <div className="p-6 bg-white rounded-[28px] space-y-3">
               <div className="w-10 h-10 rounded-xl bg-[#FAF9F5] text-indigo-600 flex items-center justify-center">
                 <MessageSquare size={20} />
               </div>
-              <h4 className="font-extrabold text-[#1F2937] text-sm">Confirmações automáticas integradas</h4>
+              <h4 className="font-semibold text-[#1F2937] text-sm">Confirmações automáticas integradas</h4>
               <p className="text-xs text-brand-text-muted font-medium leading-relaxed">
                 O sistema entra em contato na véspera com links de confirmação em 1 clique. Você sabe exatamente quem confirmou sem ter que gastar tempo digitando de noite ou no almoço.
               </p>
             </div>
           </div>
 
-          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4 border-l-4 border-indigo-500 pl-3">
+          <h2 className="text-[24px] md:text-[28px] font-semibold tracking-tight text-apple-ink pt-4">
             Vantagens do modelo Clinical Clarity System
           </h2>
           <p>
@@ -133,7 +133,7 @@ export default function ComoAdministrarSemSecretariaPage() {
             <li><strong>Design calmo e limpo:</strong> Seus olhos merecem paz. Nossas cores e espaçamentos foram balanceados para reduzir a tensão no final do dia de trabalho.</li>
           </ul>
 
-          <blockquote className="border-l-4 border-brand-green bg-[#EAF4F0]/30 rounded-r-2xl p-5 my-6 italic text-brand-text font-medium leading-relaxed">
+          <blockquote className="my-8 text-[24px] font-semibold tracking-tight leading-snug text-apple-ink">
             "Eu hesitei muito em montar meu consultório sozinha com medo de não dar conta da recepção. O OdontoHub cuida das minhas confirmações e agendamentos de forma tão lisa que meus pacientes pensam que tenho uma secretária dedicada nos bastidores do WhatsApp."<br />
             <span className="text-xs font-bold text-brand-text-muted not-italic block mt-1">— Relato de Cirurgião-Dentista (Ortodontia, PR) • Revisado pela Equipe Editorial OdontoHub</span>
           </blockquote>
@@ -147,19 +147,19 @@ export default function ComoAdministrarSemSecretariaPage() {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-12 p-8 md:p-10 rounded-3xl bg-brand-green-dark text-white relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
+        <div className="mt-12 p-8 md:p-10 rounded-[28px] bg-black text-white flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -mr-20 -mt-20" />
           
           <div className="space-y-4 max-w-xl relative z-10 text-center md:text-left">
-            <h3 className="text-2xl font-extrabold leading-tight">Experimente a paz de um consultório automatizado</h3>
-            <p className="text-xs md:text-sm text-brand-green-light font-medium leading-relaxed">
+            <h3 className="text-[24px] font-semibold tracking-tight">Experimente a paz de um consultório automatizado</h3>
+            <p className="text-[15px] text-white/60 leading-relaxed">
               Descubra hoje mesmo o sistema que entende o silêncio e zela pelo seu tempo clínico sob o mocho. Inicialmente gratuito de experimentar.
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto relative z-10">
             <Link to="/" className="w-full sm:w-auto">
-              <Button variant="outline" className="w-full py-4 px-8 text-xs font-bold uppercase tracking-wider rounded-xl bg-white !text-brand-green-dark border-none hover:bg-white/95 shadow-lg">
+              <Button variant="outline" className="w-full py-4 px-8  bg-white !text-brand-green-dark border-none hover:bg-white/95 shadow-lg">
                 Começar Teste Grátis
               </Button>
             </Link>
