@@ -289,7 +289,6 @@ details > summary::-webkit-details-marker {
 .neo-page {
   color: #1d1d1f;
   background: #fff4ed;
-  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .neo-btn {
