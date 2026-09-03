@@ -1,39 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { motion } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { Reveal, START_ACADEMY } from '../components/shared/Apple';
-
-type NeoColorway = {
-  id: string;
-  name: string;
-  neo: string;
-  soft: string;
-  wash: string;
-};
-
-const COLORWAYS: NeoColorway[] = [
-  { id: 'laranja', name: 'Laranja', neo: '#FF6B2C', soft: '#FFD8C4', wash: '#FFF4ED' },
-  { id: 'lima', name: 'Lima', neo: '#34C759', soft: '#C8F5D4', wash: '#F0FBF3' },
-  { id: 'azul', name: 'Azul', neo: '#32ADE6', soft: '#C5EBFA', wash: '#F0F9FD' },
-  { id: 'rosa', name: 'Rosa', neo: '#FF6482', soft: '#FFD0D9', wash: '#FFF0F3' },
-  { id: 'violeta', name: 'Violeta', neo: '#BF5AF2', soft: '#E8C8FA', wash: '#F8F0FD' },
-];
-
-const FEATURES = [
-  { t: 'Dossiê de pacientes', d: 'Dados, planejamento e anotações. Um lugar. Sem papéis soltos.' },
-  { t: 'Checklists por disciplina', d: 'O que levar. O que esterilizar. Sem esquecer o instrumental.' },
-  { t: 'Modo Box', d: 'Letras grandes. Celular apoiado. Sem tocar a tela de luvas.' },
-  { t: 'Galeria segura', d: 'Fotos do caso no paciente. Fora do rolo pessoal.' },
-  { t: 'Evoluções prontas', d: 'Modelos limpos. Assinatura do preceptor em segundos.' },
-  { t: 'Progresso sem cobrança', d: 'O que você já fez. Sem ranking. Sem gamificação.' },
-];
-
-const MOMENTS = [
-  { n: '01', t: 'Antes.', d: 'Separe o instrumental pelo checklist da disciplina. Nada esquecido na esterilização.' },
-  { n: '02', t: 'No box.', d: 'Modo Box: alto contraste, passos visíveis a um metro. Biossegurança intacta.' },
-  { n: '03', t: 'Depois.', d: 'Fotos no paciente. Evolução rascunhada. Feche o app e vá embora.' },
-];
+import { COLORWAYS, type NeoColorway } from '../components/academy/neo';
+import {
+  BoxDemo,
+  DestaquesStrip,
+  FeatureGallery,
+  HighlightNav,
+  MomentsExplorer,
+  StickyTray,
+} from '../components/academy/NeoInteractive';
 
 const PLANS = [
   {
@@ -92,13 +70,16 @@ function clearNeoVars() {
   root.style.removeProperty('--neo-wash');
 }
 
-function AcademyDevice() {
+function AcademyDevice({ name }: { name: string }) {
+  const [ready, setReady] = useState(true);
+  const greeting = name.trim() || 'Samuel';
+
   return (
     <div className="neo-device overflow-hidden text-left">
       <div className="p-7 md:p-10 bg-white">
         <div className="flex items-center justify-between gap-4 mb-6">
           <div>
-            <p className="text-[13px] text-apple-gray">Oi, Samuel</p>
+            <p className="text-[13px] text-apple-gray">Oi, {greeting}</p>
             <p className="text-[15px] font-semibold tracking-tight text-apple-ink">7º semestre · UNIFOR</p>
           </div>
           <span
@@ -111,23 +92,29 @@ function AcademyDevice() {
         <h3 className="text-[22px] md:text-[28px] font-semibold tracking-tight text-apple-ink leading-[1.12] mb-7">
           Tudo pronto para o seu próximo atendimento.
         </h3>
-        <div
+        <motion.div
+          layout
           className="rounded-[22px] p-6 md:p-7 text-white"
           style={{ background: 'var(--neo)' }}
         >
           <p className="text-[11px] uppercase tracking-[0.14em] text-white/70 mb-2">Quinta, 14:00 · Cadeira 08</p>
           <p className="text-[22px] md:text-[26px] font-semibold tracking-tight">Marcos Roberto Jr.</p>
           <p className="mt-2 text-[14px] text-white/80">Dentística · Isolamento absoluto</p>
-        </div>
-        <div className="mt-4 rounded-[18px] px-5 py-4 flex items-center justify-between" style={{ background: 'var(--neo-wash)' }}>
+        </motion.div>
+        <button
+          type="button"
+          onClick={() => setReady((value) => !value)}
+          className="mt-4 w-full rounded-[18px] px-5 py-4 flex items-center justify-between text-left"
+          style={{ background: 'var(--neo-wash)' }}
+        >
           <div>
             <p className="text-[11px] text-apple-gray">O seu checklist</p>
             <p className="text-[14px] text-apple-ink">Kit de isolamento separado</p>
           </div>
           <span className="text-[13px] font-medium" style={{ color: 'var(--neo)' }}>
-            Pronto
+            {ready ? 'Pronto' : 'A separar'}
           </span>
-        </div>
+        </button>
       </div>
     </div>
   );
@@ -135,6 +122,7 @@ function AcademyDevice() {
 
 export default function Academy() {
   const [color, setColor] = useState<NeoColorway>(COLORWAYS[0]);
+  const [name, setName] = useState('Samuel');
 
   useEffect(() => {
     applyNeoVars(color);
@@ -164,14 +152,16 @@ export default function Academy() {
         <meta property="og:url" content="https://www.odontohub.app.br/academy" />
       </Helmet>
 
-      <section className="relative overflow-hidden pt-28 md:pt-36 pb-16 md:pb-24 px-5">
-        <div
+      <section id="cores" className="relative overflow-hidden pt-28 md:pt-36 pb-16 md:pb-24 px-5 scroll-mt-24">
+        <motion.div
           className="neo-blob w-[420px] h-[420px] -top-24 -left-24 opacity-70"
-          style={{ background: color.soft }}
+          animate={{ background: color.soft }}
+          transition={{ duration: 0.55 }}
         />
-        <div
+        <motion.div
           className="neo-blob w-[360px] h-[360px] top-32 -right-16 opacity-55"
-          style={{ background: color.soft }}
+          animate={{ background: color.soft }}
+          transition={{ duration: 0.55 }}
         />
         <div className="relative max-w-[980px] mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}>
@@ -211,8 +201,32 @@ export default function Academy() {
                   />
                 ))}
               </div>
-              <p className="mt-3 text-[13px] font-medium tracking-tight text-apple-ink">{color.name}</p>
+              <p className="mt-3 text-[13px] font-medium tracking-tight text-apple-ink h-5">
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={color.id}
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -6 }}
+                    transition={{ duration: 0.22 }}
+                    className="inline-block"
+                  >
+                    {color.name}
+                  </motion.span>
+                </AnimatePresence>
+              </p>
             </fieldset>
+
+            <label className="mt-8 inline-flex flex-col items-center gap-2">
+              <span className="text-[13px] text-apple-gray">Como te chamamos?</span>
+              <input
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+                maxLength={24}
+                aria-label="O seu nome"
+                className="w-[200px] text-center text-[17px] font-semibold tracking-tight bg-transparent outline-none border-b border-black/10 focus:border-[var(--neo)] pb-1"
+              />
+            </label>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -220,10 +234,13 @@ export default function Academy() {
             transition={{ delay: 0.25, duration: 1.1, ease: [0.25, 0.1, 0.25, 1] }}
             className="relative mt-14 md:mt-20 max-w-[640px] mx-auto"
           >
-            <AcademyDevice />
+            <AcademyDevice name={name} />
           </motion.div>
         </div>
       </section>
+
+      <HighlightNav color={color} />
+      <DestaquesStrip color={color} />
 
       <section className="px-5 py-24 md:py-32" style={{ background: color.wash }}>
         <div className="max-w-[820px] mx-auto text-center">
@@ -240,51 +257,26 @@ export default function Academy() {
         </div>
       </section>
 
-      <section className="bg-white px-5 py-24 md:py-32">
+      <section id="essencial" className="bg-white px-5 py-24 md:py-32 scroll-mt-28">
         <div className="max-w-[980px] mx-auto">
           <Reveal className="text-center mb-14">
             <h2 className="apple-display-ink text-[40px] md:text-[56px]">O essencial. O seu.</h2>
+            <p className="apple-subhead text-[19px] mt-4">Explore os detalhes. Toque no que for seu.</p>
           </Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
-            {FEATURES.map((item) => (
-              <React.Fragment key={item.t}>
-                <Reveal className="h-full">
-                  <div
-                    className="h-full rounded-[28px] px-8 py-10"
-                    style={{ background: item.t === 'Modo Box' ? color.soft : color.wash }}
-                  >
-                    <h3 className="text-[24px] font-semibold tracking-tight mb-3">{item.t}</h3>
-                    <p className="text-[17px] text-apple-gray leading-relaxed">{item.d}</p>
-                  </div>
-                </Reveal>
-              </React.Fragment>
-            ))}
-          </div>
+          <FeatureGallery color={color} />
         </div>
       </section>
 
-      <section id="como-funciona" className="px-5 py-24 md:py-32 scroll-mt-12" style={{ background: color.wash }}>
+      <section id="como-funciona" className="px-5 py-24 md:py-32 scroll-mt-28" style={{ background: color.wash }}>
         <div className="max-w-[980px] mx-auto">
           <Reveal className="text-center mb-16">
             <h2 className="apple-display-ink text-[40px] md:text-[56px]">Três momentos. Seus.</h2>
           </Reveal>
-          <div className="space-y-16 md:space-y-20">
-            {MOMENTS.map((item) => (
-              <React.Fragment key={item.n}>
-                <Reveal>
-                  <p className="text-[13px] mb-3 tabular-nums" style={{ color: color.neo }}>
-                    {item.n}
-                  </p>
-                  <h3 className="text-[28px] md:text-[40px] font-semibold tracking-tight leading-[1.12]">{item.t}</h3>
-                  <p className="apple-subhead text-[17px] md:text-[21px] mt-3 max-w-[560px]">{item.d}</p>
-                </Reveal>
-              </React.Fragment>
-            ))}
-          </div>
+          <MomentsExplorer color={color} />
         </div>
       </section>
 
-      <section className="px-5 py-24 md:py-32 text-white" style={{ background: color.neo }}>
+      <section id="modo-box" className="px-5 py-24 md:py-32 text-white scroll-mt-28" style={{ background: color.neo }}>
         <div className="max-w-[980px] mx-auto grid md:grid-cols-2 gap-14 items-center">
           <Reveal>
             <p className="text-[19px] font-semibold tracking-tight text-white/80 mb-2">Modo Box</p>
@@ -296,31 +288,15 @@ export default function Academy() {
             <p className="text-[19px] mt-5 max-w-[440px] text-white/80 leading-snug">
               Luvas. Sem toque. O celular apoiado. O próximo passo, grande o suficiente para só olhar.
             </p>
+            <p className="text-[14px] text-white/60 mt-6">Toque no passo. Ou deixe o Academy avançar sozinho.</p>
           </Reveal>
           <Reveal>
-            <div className="mx-auto w-[260px] aspect-[9/19] rounded-[44px] bg-white p-[10px] shadow-[0_28px_60px_-20px_rgba(0,0,0,0.28)]">
-              <div className="relative h-full w-full rounded-[36px] overflow-hidden bg-[#fbfbfd] text-left px-6 pt-14">
-                <p className="text-[12px] text-apple-gray mb-6">Exodontia simples</p>
-                <h6 className="text-[22px] font-semibold tracking-tight text-apple-ink mb-8">Passo 3 de 4</h6>
-                <div className="space-y-3 text-[14px] text-apple-ink">
-                  <p className="text-apple-gray line-through">Antissepsia</p>
-                  <p className="text-apple-gray line-through">Anestesia</p>
-                  <p className="font-semibold">Sindesmotomia</p>
-                  <p className="text-apple-gray">Luxação</p>
-                </div>
-                <div
-                  className="absolute bottom-6 left-6 right-6 rounded-2xl px-4 py-3 text-[13px] font-medium text-white text-center"
-                  style={{ background: color.neo }}
-                >
-                  O seu passo
-                </div>
-              </div>
-            </div>
+            <BoxDemo color={color} />
           </Reveal>
         </div>
       </section>
 
-      <section id="planos" className="bg-white px-5 py-24 md:py-32 scroll-mt-12">
+      <section id="planos" className="bg-white px-5 py-24 md:py-32 scroll-mt-28">
         <div className="max-w-[980px] mx-auto">
           <Reveal className="text-center mb-14">
             <h2 className="apple-display-ink text-[40px] md:text-[56px]">Escolha o seu Academy.</h2>
@@ -386,7 +362,7 @@ export default function Academy() {
         </div>
       </section>
 
-      <section className="px-5 py-24 md:py-36 text-white" style={{ background: color.neo }}>
+      <section id="academy-cta" className="px-5 py-24 md:py-36 text-white" style={{ background: color.neo }}>
         <div className="max-w-[780px] mx-auto text-center">
           <h2 className="text-[36px] md:text-[56px] font-semibold tracking-tight leading-[1.05] mb-5">
             Entre na clínica do seu jeito.
@@ -397,6 +373,8 @@ export default function Academy() {
           </a>
         </div>
       </section>
+
+      <StickyTray color={color} colorways={COLORWAYS} onColor={setColor} />
     </div>
   );
 }
