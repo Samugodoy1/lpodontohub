@@ -90,38 +90,60 @@ export function useSectionSpy(ids: string[]) {
 
 export function HighlightNav({ color }: { color: NeoColorway }) {
   const active = useSectionSpy(HIGHLIGHTS.map((item) => item.id));
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const hero = document.getElementById('cores');
+    if (!hero) return undefined;
+    const observer = new IntersectionObserver(
+      ([entry]) => setShow(!entry.isIntersecting),
+      { threshold: 0.12 },
+    );
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <div className="sticky top-12 z-40">
-      <div
-        className="border-b border-black/[0.06] backdrop-blur-[20px] backdrop-saturate-150"
-        style={{ background: `color-mix(in srgb, ${color.wash} 82%, white)` }}
-      >
-        <div className="max-w-[980px] mx-auto px-5 h-12 flex items-center justify-between gap-6">
-          <p className="hidden sm:block text-[12px] text-apple-gray shrink-0">Comece pelos destaques</p>
-          <div className="flex items-center gap-1 overflow-x-auto scrollbar-none">
-            {HIGHLIGHTS.map((item) => {
-              const isActive = active === item.id;
-              return (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => scrollToId(item.id)}
-                  className="text-[12px] px-3 py-1.5 rounded-full transition-colors whitespace-nowrap"
-                  style={
-                    isActive
-                      ? { background: color.neo, color: '#fff' }
-                      : { color: '#1d1d1f' }
-                  }
-                >
-                  {item.label}
-                </button>
-              );
-            })}
+    <AnimatePresence>
+      {show && (
+        <motion.div
+          initial={{ y: -16, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -16, opacity: 0 }}
+          transition={{ duration: 0.28, ease }}
+          className="fixed top-12 left-0 right-0 z-40"
+        >
+          <div
+            className="border-b border-black/[0.06] backdrop-blur-[20px] backdrop-saturate-150"
+            style={{ background: `color-mix(in srgb, ${color.wash} 82%, white)` }}
+          >
+            <div className="max-w-[980px] mx-auto px-5 h-12 flex items-center justify-between gap-6">
+              <p className="hidden sm:block text-[12px] text-apple-gray shrink-0">Comece pelos destaques</p>
+              <div className="flex items-center gap-1 overflow-x-auto scrollbar-none">
+                {HIGHLIGHTS.map((item) => {
+                  const isActive = active === item.id;
+                  return (
+                    <button
+                      key={item.id}
+                      type="button"
+                      onClick={() => scrollToId(item.id)}
+                      className="text-[12px] px-3 py-1.5 rounded-full transition-colors whitespace-nowrap"
+                      style={
+                        isActive
+                          ? { background: color.neo, color: '#fff' }
+                          : { color: '#1d1d1f' }
+                      }
+                    >
+                      {item.label}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
 
@@ -441,18 +463,9 @@ export function MomentsExplorer({ color }: { color: NeoColorway }) {
                 {item.n}
               </p>
               <h3 className="text-[28px] md:text-[36px] font-semibold tracking-tight leading-[1.12]">{item.t}</h3>
-              <AnimatePresence initial={false}>
-                {selected && (
-                  <motion.p
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="apple-subhead text-[17px] md:text-[19px] mt-3 overflow-hidden"
-                  >
-                    {item.d}
-                  </motion.p>
-                )}
-              </AnimatePresence>
+              {selected && (
+                <p className="apple-subhead text-[17px] md:text-[19px] mt-3">{item.d}</p>
+              )}
             </button>
           );
         })}
@@ -461,17 +474,14 @@ export function MomentsExplorer({ color }: { color: NeoColorway }) {
         <p className="text-[13px] mb-5" style={{ color: color.neo }}>
           {moment.n} {moment.t}
         </p>
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.3, ease }}
-          >
-            <MomentStage index={index} />
-          </motion.div>
-        </AnimatePresence>
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.25, ease }}
+        >
+          <MomentStage index={index} />
+        </motion.div>
       </div>
     </div>
   );
