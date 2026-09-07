@@ -26,7 +26,7 @@ const FEATURES = [
   { t: 'Modo Box', d: 'Letras grandes. Celular apoiado. Sem tocar a tela de luvas.' },
   { t: 'Galeria segura', d: 'Fotos do caso no paciente. Fora do rolo pessoal.' },
   { t: 'Evoluções prontas', d: 'Modelos limpos. Assinatura do preceptor em segundos.' },
-  { t: 'Progresso sem cobrança', d: 'O que você já fez. Sem ranking. Sem gamificação.' },
+  { t: 'Treino da Cola', d: 'Lições curtas. Vidas. Ofensiva diária. A mesma matéria, jogando.' },
 ];
 
 const MOMENTS = [
@@ -75,6 +75,14 @@ const FAQS = [
   {
     q: 'Como montar o relatório de fim de semestre?',
     a: 'No Ilimitado, cada caso vira um PDF com histórico e fotos em ordem.',
+  },
+  {
+    q: 'O que é o Treino da Cola?',
+    a: 'Lições curtas sobre a clínica. Vidas e ofensiva diária. A cola continua para ler. O treino é para praticar.',
+  },
+  {
+    q: 'Preciso jogar para usar o Academy?',
+    a: 'Não. Casos, checklists e a cola existem sem o jogo. O treino é opcional.',
   },
 ];
 
@@ -157,7 +165,7 @@ export default function Academy() {
         <title>OdontoHub Academy — Para a clínica da faculdade</title>
         <meta
           name="description"
-          content="OdontoHub Academy organiza checklists, evoluções e o Modo Box para estudantes de odontologia. Grátis para começar."
+          content="OdontoHub Academy organiza checklists, evoluções, Modo Box e o Treino da Cola para estudantes de odontologia. Grátis para começar."
         />
         <link rel="canonical" href="https://www.odontohub.app.br/academy" />
         <meta property="og:title" content="OdontoHub Academy — Para a clínica da faculdade" />
@@ -184,7 +192,7 @@ export default function Academy() {
               Do seu jeito.
             </h1>
             <p className="apple-subhead text-[19px] md:text-[24px] max-w-[560px] mx-auto mb-9">
-              Checklists. Evolução. Modo Box.
+              Checklists. Evolução. Modo Box. Treino da Cola.
               <br className="hidden md:block" /> Você entra no atendimento com a cabeça limpa.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
@@ -251,7 +259,7 @@ export default function Academy() {
                 <Reveal className="h-full">
                   <div
                     className="h-full rounded-[28px] px-8 py-10"
-                    style={{ background: item.t === 'Modo Box' ? color.soft : color.wash }}
+                    style={{ background: item.t === 'Modo Box' || item.t === 'Treino da Cola' ? color.soft : color.wash }}
                   >
                     <h3 className="text-[24px] font-semibold tracking-tight mb-3">{item.t}</h3>
                     <p className="text-[17px] text-apple-gray leading-relaxed">{item.d}</p>
@@ -313,6 +321,86 @@ export default function Academy() {
                   style={{ background: color.neo }}
                 >
                   O seu passo
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section id="cola" className="px-5 py-24 md:py-32 scroll-mt-12" style={{ background: color.wash }}>
+        <div className="max-w-[980px] mx-auto grid md:grid-cols-2 gap-14 items-center">
+          <Reveal>
+            <p className="text-[19px] font-semibold tracking-tight mb-2" style={{ color: color.neo }}>
+              Treino da Cola
+            </p>
+            <h2 className="apple-display-ink text-[40px] md:text-[56px]">
+              Aprenda a clínica
+              <br />
+              jogando.
+            </h2>
+            <p className="apple-subhead text-[19px] mt-5 max-w-[440px]">
+              Lições curtas. Vidas. Ofensiva diária. A cola continua para ler. O treino é para praticar.
+            </p>
+            <p className="text-[15px] text-apple-gray mt-6 leading-relaxed max-w-[440px]">
+              Exame clínico com a Dra. Val. Radiologia com o Kaio. Nina cobra a meta do dia. No grátis, um pouco por dia.
+            </p>
+            <div className="mt-8 grid grid-cols-3 gap-3 max-w-[360px]">
+              {[
+                { n: '1', l: 'ofensiva' },
+                { n: '5', l: 'vidas' },
+                { n: '2', l: 'nível' },
+              ].map((item) => (
+                <div key={item.l} className="rounded-[18px] bg-white px-3 py-4 text-center">
+                  <p className="text-[22px] font-semibold tracking-tight" style={{ color: color.neo }}>
+                    {item.n}
+                  </p>
+                  <p className="text-[12px] text-apple-gray mt-1">{item.l}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 sm:items-center">
+              <a href={START_ACADEMY} className="neo-btn">
+                Treinar
+              </a>
+              <a href={START_ACADEMY} className="neo-link">
+                Ler a cola <span aria-hidden>›</span>
+              </a>
+            </div>
+          </Reveal>
+          <Reveal>
+            <div className="mx-auto w-[260px] aspect-[9/19] rounded-[44px] bg-white p-[10px] shadow-[0_28px_60px_-20px_rgba(0,0,0,0.18)]">
+              <div className="relative h-full w-full rounded-[36px] overflow-hidden text-left px-6 pt-12" style={{ background: '#fff' }}>
+                <p className="text-[12px] text-apple-gray mb-1">Nina</p>
+                <p className="text-[20px] font-semibold tracking-tight text-apple-ink leading-[1.15] mb-8">
+                  Meta do dia batida. Se quiser mais uma, eu topo.
+                </p>
+                <p className="text-[12px] mb-4" style={{ color: color.neo }}>
+                  A sua trilha
+                </p>
+                <div className="flex items-center gap-3 mb-8">
+                  <span className="w-10 h-10 rounded-full flex items-center justify-center text-white text-[14px]" style={{ background: '#34C759' }}>
+                    ✓
+                  </span>
+                  <span className="w-10 h-10 rounded-full flex items-center justify-center text-white text-[14px]" style={{ background: '#34C759' }}>
+                    ✓
+                  </span>
+                  <span className="w-10 h-10 rounded-full flex items-center justify-center text-white text-[15px]" style={{ background: '#FFB020' }}>
+                    ★
+                  </span>
+                  <span className="w-10 h-10 rounded-full flex items-center justify-center text-white text-[16px]" style={{ background: color.neo }}>
+                    ·
+                  </span>
+                </div>
+                <p className="text-[12px] text-apple-gray mb-2">Radiologia · Lição 1</p>
+                <p className="text-[18px] font-semibold tracking-tight text-apple-ink leading-[1.2]">
+                  Coloque a leitura na ordem.
+                </p>
+                <div
+                  className="absolute bottom-6 left-6 right-6 rounded-full px-4 py-3 text-[14px] font-medium text-white text-center"
+                  style={{ background: color.neo }}
+                >
+                  Treinar
                 </div>
               </div>
             </div>

@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 import { toPng } from 'html-to-image';
 
 type Line = 'pro' | 'academy' | 'cola';
-type Tab = 'feed' | 'stories' | 'destaques' | 'modelos' | 'cola';
+type Tab = 'feed' | 'stories' | 'destaques' | 'modelos' | 'cola' | 'pessoas';
 type Surface = 'black' | 'white' | 'surface' | 'blue' | 'neo' | 'wash' | 'cola' | 'colaWash';
 
 const COLA = {
@@ -133,12 +133,16 @@ function Canvas({
   format,
   surface,
   neo,
+  photo,
+  photoTone,
   children,
   canvasRef,
 }: {
   format: 'feed' | 'square' | 'story';
   surface: Surface;
   neo?: Neo;
+  photo?: string;
+  photoTone?: 'light' | 'dark';
   children: React.ReactNode;
   canvasRef: React.RefObject<HTMLDivElement | null>;
 }) {
@@ -147,28 +151,58 @@ function Canvas({
     <div
       ref={canvasRef}
       className={`relative w-full overflow-hidden ${ratio}`}
-      style={surfaceStyle(surface, neo)}
+      style={{
+        ...surfaceStyle(surface, neo),
+        ...(photo
+          ? {
+              backgroundImage: `url(${photo})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }
+          : {}),
+      }}
     >
+      {photo && (
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              photoTone === 'dark'
+                ? 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 48%)'
+                : 'linear-gradient(to top, rgba(255,255,255,0.55) 0%, transparent 42%)',
+          }}
+        />
+      )}
       <div className="absolute inset-0 flex flex-col p-10 md:p-12">{children}</div>
     </div>
   );
 }
 
-function Wordmark({ surface, academy = false, neo }: { surface: Surface; academy?: boolean; neo?: Neo }) {
-  const color = ink(surface);
+function Wordmark({
+  surface,
+  academy = false,
+  neo,
+  tone,
+}: {
+  surface: Surface;
+  academy?: boolean;
+  neo?: Neo;
+  tone?: 'light' | 'dark';
+}) {
+  const color = tone === 'dark' ? '#f5f5f7' : tone === 'light' ? '#1d1d1f' : ink(surface);
+  const academyColor =
+    tone === 'dark'
+      ? 'rgba(255,255,255,0.7)'
+      : tone === 'light'
+        ? neo?.neo ?? COLA.neo
+        : surface === 'wash' || surface === 'white' || surface === 'surface' || surface === 'colaWash'
+          ? neo?.neo ?? COLA.neo
+          : 'rgba(255,255,255,0.7)';
   return (
     <p className="text-[13px] font-semibold tracking-tight" style={{ color }}>
       OdontoHub
       {academy && (
-        <span
-          className="ml-1.5 font-normal"
-          style={{
-            color:
-              surface === 'wash' || surface === 'white' || surface === 'surface' || surface === 'colaWash'
-                ? neo?.neo ?? COLA.neo
-                : 'rgba(255,255,255,0.7)',
-          }}
-        >
+        <span className="ml-1.5 font-normal" style={{ color: academyColor }}>
           Academy
         </span>
       )}
@@ -196,34 +230,82 @@ type Preset = {
   cta?: string;
   placeholder?: string;
   speaker?: string;
+  photo?: string;
+  photoTone?: 'light' | 'dark';
+  photoLayout?: 'billboard' | 'poem' | 'split' | 'center';
+  ctaAlt?: string;
 };
 
 function PresetArt({ preset }: { preset: Preset }) {
   const ref = useRef<HTMLDivElement>(null);
-  const tone = muted(preset.surface);
-  const color = ink(preset.surface);
+  const photoTone = preset.photoTone;
+  const tone = photoTone === 'dark' ? 'rgba(255,255,255,0.68)' : photoTone === 'light' ? '#6e6e73' : muted(preset.surface);
+  const color = photoTone === 'dark' ? '#f5f5f7' : photoTone === 'light' ? '#1d1d1f' : ink(preset.surface);
   const accent =
-    preset.line === 'cola'
-      ? preset.surface === 'cola'
-        ? '#fff'
-        : COLA.neo
-      : preset.line === 'academy'
-        ? preset.surface === 'neo'
-          ? '#fff'
-          : preset.neo?.neo ?? '#FF6B2C'
-        : preset.surface === 'black'
-          ? '#2997ff'
-          : '#0071e3';
+    photoTone === 'dark'
+      ? '#f5f5f7'
+      : photoTone === 'light'
+        ? preset.line === 'cola'
+          ? COLA.neo
+          : '#0071e3'
+        : preset.line === 'cola'
+          ? preset.surface === 'cola'
+            ? '#fff'
+            : COLA.neo
+          : preset.line === 'academy'
+            ? preset.surface === 'neo'
+              ? '#fff'
+              : preset.neo?.neo ?? '#FF6B2C'
+            : preset.surface === 'black'
+              ? '#2997ff'
+              : '#0071e3';
 
   const lightCard = preset.surface === 'wash' || preset.surface === 'white' || preset.surface === 'surface' || preset.surface === 'colaWash';
+  const layout = preset.photoLayout;
+  const bodyAlign =
+    layout === 'poem'
+      ? 'flex-1 flex flex-col justify-start items-end text-right pt-2'
+      : layout === 'center'
+        ? 'flex-1 flex flex-col justify-center items-center text-center'
+        : preset.photo
+          ? 'flex-1 flex flex-col justify-end'
+          : 'flex-1 flex flex-col justify-center';
 
   return (
     <div>
-      <Canvas format={preset.format} surface={preset.surface} neo={preset.neo} canvasRef={ref}>
-        <Wordmark surface={preset.surface} academy={preset.line !== 'pro'} neo={preset.line === 'cola' ? COLA : preset.neo} />
+      <Canvas
+        format={preset.format}
+        surface={preset.surface}
+        neo={preset.neo}
+        photo={preset.photo}
+        photoTone={preset.photoLayout === 'split' ? undefined : preset.photoTone}
+        canvasRef={ref}
+      >
+        {layout !== 'split' && (
+          <Wordmark
+            surface={preset.surface}
+            academy={preset.line !== 'pro'}
+            neo={preset.line === 'cola' ? COLA : preset.neo}
+            tone={photoTone}
+          />
+        )}
 
-        {preset.kind === 'hero' && (
-          <div className="flex-1 flex flex-col justify-center">
+        {preset.photoLayout === 'split' && (
+          <div className="flex-1 flex items-center -mx-10 md:-mx-12">
+            {(preset.items ?? ['A matéria.', 'O jogo.']).map((item, index) => (
+              <p
+                key={item}
+                className="w-1/2 text-center text-[22px] md:text-[26px] font-semibold tracking-tight"
+                style={{ color: index === 0 ? '#f5f5f7' : '#fff' }}
+              >
+                {item}
+              </p>
+            ))}
+          </div>
+        )}
+
+        {preset.photoLayout !== 'split' && preset.kind === 'hero' && (
+          <div className={bodyAlign}>
             {preset.kicker && (
               <p className="text-[13px] mb-3" style={{ color: accent }}>
                 {preset.kicker}
@@ -256,8 +338,8 @@ function PresetArt({ preset }: { preset: Preset }) {
           </div>
         )}
 
-        {preset.kind === 'list' && (
-          <div className="flex-1 flex flex-col justify-center">
+        {preset.photoLayout !== 'split' && preset.kind === 'list' && (
+          <div className={bodyAlign}>
             <h3 className="text-[28px] md:text-[34px] font-semibold tracking-tight leading-[1.08] mb-8" style={{ color }}>
               {preset.headline}
             </h3>
@@ -268,6 +350,11 @@ function PresetArt({ preset }: { preset: Preset }) {
                 </li>
               ))}
             </ul>
+            {preset.sub && (
+              <p className="mt-8 text-[13px] font-semibold tracking-tight" style={{ color }}>
+                {preset.sub}
+              </p>
+            )}
           </div>
         )}
 
@@ -311,24 +398,53 @@ function PresetArt({ preset }: { preset: Preset }) {
           </div>
         )}
 
-        {preset.kind === 'cta' && (
-          <div className="flex-1 flex flex-col justify-center">
+        {preset.photoLayout !== 'split' && preset.kind === 'cta' && (
+          <div className={bodyAlign}>
+            {preset.kicker && (
+              <p className="text-[13px] mb-3" style={{ color: accent }}>
+                {preset.kicker}
+              </p>
+            )}
             <h3 className="text-[32px] md:text-[40px] font-semibold tracking-tight leading-[1.05] whitespace-pre-line" style={{ color }}>
               {preset.headline}
             </h3>
             {preset.sub && (
-              <p className="mt-4 text-[16px]" style={{ color: tone }}>
+              <p className="mt-4 text-[16px] whitespace-pre-line" style={{ color: tone }}>
                 {preset.sub}
               </p>
             )}
-            <div
-              className="mt-8 self-start rounded-full px-5 py-2.5 text-[15px]"
-              style={{
-                background: preset.surface === 'black' || preset.surface === 'neo' || preset.surface === 'cola' ? '#fff' : accent,
-                color: preset.surface === 'black' || preset.surface === 'neo' || preset.surface === 'cola' ? '#1d1d1f' : '#fff',
-              }}
-            >
-              {preset.cta ?? 'Começar'}
+            <div className={`mt-8 flex flex-wrap gap-3 ${layout === 'center' ? 'justify-center' : ''}`}>
+              <div
+                className="rounded-full px-5 py-2.5 text-[15px]"
+                style={{
+                  background:
+                    preset.photo && photoTone === 'light'
+                      ? '#0071e3'
+                      : preset.surface === 'black' || preset.surface === 'neo' || preset.surface === 'cola'
+                        ? '#fff'
+                        : accent,
+                  color:
+                    preset.photo && photoTone === 'light'
+                      ? '#fff'
+                      : preset.surface === 'black' || preset.surface === 'neo' || preset.surface === 'cola'
+                        ? '#1d1d1f'
+                        : '#fff',
+                }}
+              >
+                {preset.cta ?? 'Começar'}
+              </div>
+              {preset.ctaAlt && (
+                <div
+                  className="rounded-full px-5 py-2.5 text-[15px]"
+                  style={{
+                    border: `1.5px solid ${preset.photo && photoTone === 'light' ? '#0071e3' : accent}`,
+                    color: preset.photo && photoTone === 'light' ? '#0071e3' : accent,
+                    background: photoTone === 'dark' ? 'transparent' : '#fff',
+                  }}
+                >
+                  {preset.ctaAlt}
+                </div>
+              )}
             </div>
           </div>
         )}
@@ -448,9 +564,11 @@ function PresetArt({ preset }: { preset: Preset }) {
           </div>
         )}
 
-        <p className="text-[11px] mt-auto pt-6" style={{ color: tone }}>
-          @odontohub.app
-        </p>
+        {!preset.photo && (
+          <p className="text-[11px] mt-auto pt-6" style={{ color: tone }}>
+            @odontohub.app
+          </p>
+        )}
       </Canvas>
       <ArtMeta
         title={preset.title}
@@ -1191,6 +1309,150 @@ const COLA_FEED: Preset[] = [
   },
 ];
 
+const PHOTO_FEED: Preset[] = [
+  {
+    id: 'photo-studio-hero',
+    title: 'Estúdio · Academy',
+    line: 'academy',
+    format: 'feed',
+    surface: 'white',
+    neo: NEOS[0],
+    kind: 'cta',
+    photo: '/presets/apple-studio-student.png',
+    photoTone: 'light',
+    photoLayout: 'billboard',
+    kicker: 'OdontoHub Academy',
+    headline: 'Academy',
+    sub: 'A clínica da faculdade.\nDo seu jeito.',
+    cta: 'Saiba mais',
+    ctaAlt: 'Começar',
+    caption: 'A clínica da faculdade. Do seu jeito.\n\nComece em academy.odontohub.app.br',
+  },
+  {
+    id: 'photo-glow-poem',
+    title: 'Luz · Cinco minutos',
+    line: 'academy',
+    format: 'feed',
+    surface: 'black',
+    kind: 'list',
+    photo: '/presets/apple-glow-study.png',
+    photoTone: 'dark',
+    photoLayout: 'poem',
+    headline: 'Cinco minutos.',
+    items: ['Antes de dormir.', 'Uma pergunta.', 'Uma resposta.', 'A clínica fica.'],
+    sub: 'Feito para dentistas pela Odontohub.',
+    caption: 'Cinco minutos. A clínica fica.\n\nTreino da Cola — academy.odontohub.app.br',
+  },
+  {
+    id: 'photo-phone-line',
+    title: 'Privacidade · Cola',
+    line: 'cola',
+    format: 'feed',
+    surface: 'black',
+    kind: 'hero',
+    photo: '/presets/apple-phone-hand.png',
+    photoTone: 'dark',
+    photoLayout: 'center',
+    headline: 'Treino da Cola.\nÉ Academy.',
+    caption: 'Treino da Cola. É Academy.\n\nacademy.odontohub.app.br',
+  },
+  {
+    id: 'photo-split',
+    title: 'Split · Matéria e jogo',
+    line: 'cola',
+    format: 'feed',
+    surface: 'white',
+    kind: 'hero',
+    photo: '/presets/apple-split-learning.png',
+    photoTone: 'light',
+    photoLayout: 'split',
+    headline: '',
+    items: ['A matéria.', 'O jogo.'],
+    caption: 'A matéria. O jogo.\n\nTreino da Cola no Academy — academy.odontohub.app.br',
+  },
+  {
+    id: 'photo-clinic',
+    title: 'Clínica · Treino',
+    line: 'academy',
+    format: 'feed',
+    surface: 'white',
+    neo: NEOS[1],
+    kind: 'cta',
+    photo: '/presets/apple-clinic-phone.png',
+    photoTone: 'light',
+    photoLayout: 'billboard',
+    kicker: 'OdontoHub Academy',
+    headline: 'Treino da Cola',
+    sub: 'A matéria vira jogo.\nVocê escolhe o ritmo.',
+    cta: 'Treinar',
+    ctaAlt: 'Ler a cola',
+    caption: 'A matéria vira jogo. Você escolhe o ritmo.\n\nComece em academy.odontohub.app.br',
+  },
+];
+
+const PHOTO_STORIES: Preset[] = [
+  {
+    id: 'photo-story-studio',
+    title: 'Story · Estúdio',
+    line: 'academy',
+    format: 'story',
+    surface: 'white',
+    neo: NEOS[0],
+    kind: 'cta',
+    photo: '/presets/apple-studio-story.png',
+    photoTone: 'light',
+    photoLayout: 'billboard',
+    kicker: 'OdontoHub Academy',
+    headline: 'Academy',
+    sub: 'A clínica da faculdade.\nDo seu jeito.',
+    cta: 'Saiba mais',
+    ctaAlt: 'Começar',
+    caption: 'A clínica da faculdade. Do seu jeito.\n\nacademy.odontohub.app.br',
+  },
+  {
+    id: 'photo-story-glow',
+    title: 'Story · Luz',
+    line: 'academy',
+    format: 'story',
+    surface: 'black',
+    kind: 'list',
+    photo: '/presets/apple-glow-study.png',
+    photoTone: 'dark',
+    photoLayout: 'poem',
+    headline: 'Uma pergunta.',
+    items: ['Uma vida.', 'Uma ofensiva.', 'A clínica.'],
+    sub: 'Feito para dentistas pela Odontohub.',
+    caption: 'Uma pergunta. A clínica.\n\nTreino da Cola — academy.odontohub.app.br',
+  },
+  {
+    id: 'photo-story-phone',
+    title: 'Story · Cola',
+    line: 'cola',
+    format: 'story',
+    surface: 'black',
+    kind: 'hero',
+    photo: '/presets/apple-phone-hand.png',
+    photoTone: 'dark',
+    photoLayout: 'center',
+    headline: 'Treino da Cola.\nÉ Academy.',
+    caption: 'Treino da Cola. É Academy.\n\nacademy.odontohub.app.br',
+  },
+  {
+    id: 'photo-story-split',
+    title: 'Story · Split',
+    line: 'cola',
+    format: 'story',
+    surface: 'white',
+    kind: 'hero',
+    photo: '/presets/apple-split-learning.png',
+    photoTone: 'light',
+    photoLayout: 'split',
+    headline: '',
+    items: ['A matéria.', 'O jogo.'],
+    caption: 'A matéria. O jogo.\n\nTreino da Cola no Academy — academy.odontohub.app.br',
+  },
+];
+
 const COLA_STORIES: Preset[] = [
   {
     id: 'st-cola-1',
@@ -1383,6 +1645,7 @@ export default function InstagramPresets() {
     { id: 'feed', label: 'Feed' },
     { id: 'stories', label: 'Stories' },
     { id: 'cola', label: 'Cola' },
+    { id: 'pessoas', label: 'Pessoas' },
     { id: 'destaques', label: 'Destaques' },
     { id: 'modelos', label: 'Modelos' },
   ];
@@ -1403,7 +1666,7 @@ export default function InstagramPresets() {
             do OdontoHub.
           </h1>
           <p className="apple-subhead text-[19px] max-w-[520px]">
-            Pro em preto e azul. Academy nas cinco cores. Cola no roxo do jogo. Baixe a arte. Copie a legenda.
+            Pro em preto e azul. Academy nas cinco cores. Cola no roxo do jogo. Pessoas no recorte Apple. Baixe a arte. Copie a legenda.
           </p>
           <div className="mt-10 flex flex-wrap gap-2">
             {tabs.map((item) => (
@@ -1515,6 +1778,30 @@ export default function InstagramPresets() {
                 <SectionTitle>Carrossel</SectionTitle>
                 <Grid>
                   {COLA_SQUARES.map((preset) => (
+                    <PresetArt key={preset.id} preset={preset} />
+                  ))}
+                </Grid>
+              </section>
+            </motion.div>
+          )}
+
+          {tab === 'pessoas' && (
+            <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="space-y-20">
+              <section>
+                <SectionTitle>Pessoas · feed 4:5</SectionTitle>
+                <p className="mb-8 text-[15px] leading-7 text-[#86868b] max-w-2xl">
+                  Fotos de pessoas, no recorte Apple. Estúdio branco, luz do celular, split, clínica. Texto curto por cima.
+                </p>
+                <Grid>
+                  {PHOTO_FEED.map((preset) => (
+                    <PresetArt key={preset.id} preset={preset} />
+                  ))}
+                </Grid>
+              </section>
+              <section>
+                <SectionTitle>Pessoas · stories 9:16</SectionTitle>
+                <Grid>
+                  {PHOTO_STORIES.map((preset) => (
                     <PresetArt key={preset.id} preset={preset} />
                   ))}
                 </Grid>
