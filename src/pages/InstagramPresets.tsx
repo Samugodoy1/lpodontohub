@@ -3,9 +3,17 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'motion/react';
 import { toPng } from 'html-to-image';
 
-type Line = 'pro' | 'academy';
-type Tab = 'feed' | 'stories' | 'destaques' | 'modelos';
-type Surface = 'black' | 'white' | 'surface' | 'blue' | 'neo' | 'wash';
+type Line = 'pro' | 'academy' | 'cola';
+type Tab = 'feed' | 'stories' | 'destaques' | 'modelos' | 'cola';
+type Surface = 'black' | 'white' | 'surface' | 'blue' | 'neo' | 'wash' | 'cola' | 'colaWash';
+
+const COLA = {
+  id: 'cola',
+  name: 'Cola',
+  neo: '#6D4AFF',
+  soft: '#EDE7FF',
+  wash: '#F6F3FF',
+} as const;
 
 type Neo = {
   id: string;
@@ -56,17 +64,23 @@ function surfaceStyle(surface: Surface, neo?: Neo): React.CSSProperties {
       return { background: neo?.neo ?? '#FF6B2C', color: '#fff' };
     case 'wash':
       return { background: neo?.wash ?? '#FFF4ED', color: '#1d1d1f' };
+    case 'cola':
+      return { background: COLA.neo, color: '#fff' };
+    case 'colaWash':
+      return { background: COLA.wash, color: '#1d1d1f' };
     default:
       return { background: '#fff', color: '#1d1d1f' };
   }
 }
 
 function muted(surface: Surface) {
-  return surface === 'black' || surface === 'blue' || surface === 'neo' ? 'rgba(255,255,255,0.55)' : '#86868b';
+  return surface === 'black' || surface === 'blue' || surface === 'neo' || surface === 'cola'
+    ? 'rgba(255,255,255,0.55)'
+    : '#86868b';
 }
 
 function ink(surface: Surface) {
-  return surface === 'black' || surface === 'blue' || surface === 'neo' ? '#f5f5f7' : '#1d1d1f';
+  return surface === 'black' || surface === 'blue' || surface === 'neo' || surface === 'cola' ? '#f5f5f7' : '#1d1d1f';
 }
 
 function ArtMeta({
@@ -87,7 +101,9 @@ function ArtMeta({
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="text-[15px] font-semibold tracking-tight text-apple-ink">{title}</p>
-          <p className="text-[12px] text-apple-gray mt-0.5">{line === 'academy' ? 'Academy' : 'Pro'}</p>
+          <p className="text-[12px] text-apple-gray mt-0.5">
+            {line === 'cola' ? 'Cola' : line === 'academy' ? 'Academy' : 'Pro'}
+          </p>
         </div>
         <div className="flex items-center gap-3 shrink-0">
           <button type="button" onClick={onDownload} className="text-[13px] neo-link !text-[#0066cc]">
@@ -144,7 +160,15 @@ function Wordmark({ surface, academy = false, neo }: { surface: Surface; academy
     <p className="text-[13px] font-semibold tracking-tight" style={{ color }}>
       OdontoHub
       {academy && (
-        <span className="ml-1.5 font-normal" style={{ color: surface === 'wash' || surface === 'white' || surface === 'surface' ? neo?.neo : 'rgba(255,255,255,0.7)' }}>
+        <span
+          className="ml-1.5 font-normal"
+          style={{
+            color:
+              surface === 'wash' || surface === 'white' || surface === 'surface' || surface === 'colaWash'
+                ? neo?.neo ?? COLA.neo
+                : 'rgba(255,255,255,0.7)',
+          }}
+        >
           Academy
         </span>
       )}
@@ -163,7 +187,7 @@ type Preset = {
   kicker?: string;
   headline: string;
   sub?: string;
-  kind: 'hero' | 'quote' | 'list' | 'stat' | 'device' | 'cta' | 'steps' | 'blank';
+  kind: 'hero' | 'quote' | 'list' | 'stat' | 'device' | 'cta' | 'steps' | 'blank' | 'speech' | 'hud' | 'path';
   items?: string[];
   quoteName?: string;
   quoteRole?: string;
@@ -171,6 +195,7 @@ type Preset = {
   statLabel?: string;
   cta?: string;
   placeholder?: string;
+  speaker?: string;
 };
 
 function PresetArt({ preset }: { preset: Preset }) {
@@ -178,18 +203,24 @@ function PresetArt({ preset }: { preset: Preset }) {
   const tone = muted(preset.surface);
   const color = ink(preset.surface);
   const accent =
-    preset.line === 'academy'
-      ? preset.surface === 'neo'
+    preset.line === 'cola'
+      ? preset.surface === 'cola'
         ? '#fff'
-        : preset.neo?.neo ?? '#FF6B2C'
-      : preset.surface === 'black'
-        ? '#2997ff'
-        : '#0071e3';
+        : COLA.neo
+      : preset.line === 'academy'
+        ? preset.surface === 'neo'
+          ? '#fff'
+          : preset.neo?.neo ?? '#FF6B2C'
+        : preset.surface === 'black'
+          ? '#2997ff'
+          : '#0071e3';
+
+  const lightCard = preset.surface === 'wash' || preset.surface === 'white' || preset.surface === 'surface' || preset.surface === 'colaWash';
 
   return (
     <div>
       <Canvas format={preset.format} surface={preset.surface} neo={preset.neo} canvasRef={ref}>
-        <Wordmark surface={preset.surface} academy={preset.line === 'academy'} neo={preset.neo} />
+        <Wordmark surface={preset.surface} academy={preset.line !== 'pro'} neo={preset.line === 'cola' ? COLA : preset.neo} />
 
         {preset.kind === 'hero' && (
           <div className="flex-1 flex flex-col justify-center">
@@ -267,8 +298,8 @@ function PresetArt({ preset }: { preset: Preset }) {
             <div
               className="rounded-[22px] p-5 text-left"
               style={{
-                background: preset.surface === 'wash' || preset.surface === 'white' || preset.surface === 'surface' ? '#fff' : 'rgba(255,255,255,0.1)',
-                color: preset.surface === 'wash' || preset.surface === 'white' || preset.surface === 'surface' ? '#1d1d1f' : '#fff',
+                background: lightCard ? '#fff' : 'rgba(255,255,255,0.1)',
+                color: lightCard ? '#1d1d1f' : '#fff',
               }}
             >
               {(preset.items ?? []).map((item) => (
@@ -293,8 +324,8 @@ function PresetArt({ preset }: { preset: Preset }) {
             <div
               className="mt-8 self-start rounded-full px-5 py-2.5 text-[15px]"
               style={{
-                background: preset.surface === 'black' || preset.surface === 'neo' ? '#fff' : accent,
-                color: preset.surface === 'black' || preset.surface === 'neo' ? '#1d1d1f' : '#fff',
+                background: preset.surface === 'black' || preset.surface === 'neo' || preset.surface === 'cola' ? '#fff' : accent,
+                color: preset.surface === 'black' || preset.surface === 'neo' || preset.surface === 'cola' ? '#1d1d1f' : '#fff',
               }}
             >
               {preset.cta ?? 'Começar'}
@@ -319,6 +350,90 @@ function PresetArt({ preset }: { preset: Preset }) {
                 </li>
               ))}
             </ol>
+          </div>
+        )}
+
+        {preset.kind === 'speech' && (
+          <div className="flex-1 flex flex-col justify-center">
+            <p className="text-[12px] font-semibold tracking-[0.14em] uppercase mb-4" style={{ color: accent }}>
+              {preset.speaker}
+            </p>
+            <div
+              className="rounded-[22px] px-5 py-5 text-[20px] md:text-[24px] font-semibold tracking-tight leading-[1.2]"
+              style={{
+                background: lightCard ? '#fff' : 'rgba(255,255,255,0.14)',
+                color: lightCard ? '#1d1d1f' : '#fff',
+              }}
+            >
+              {preset.headline}
+            </div>
+            {preset.sub && (
+              <p className="mt-5 text-[15px]" style={{ color: tone }}>
+                {preset.sub}
+              </p>
+            )}
+          </div>
+        )}
+
+        {preset.kind === 'hud' && (
+          <div className="flex-1 flex flex-col justify-center">
+            <p className="text-[13px] mb-6" style={{ color: accent }}>
+              {preset.kicker}
+            </p>
+            <div className="grid grid-cols-3 gap-3">
+              {(preset.items ?? []).map((item) => {
+                const [value, label] = item.split('|');
+                return (
+                  <div
+                    key={item}
+                    className="rounded-[20px] px-3 py-5 text-center"
+                    style={{ background: lightCard ? '#fff' : 'rgba(255,255,255,0.12)' }}
+                  >
+                    <p className="text-[28px] font-semibold tracking-tight" style={{ color: accent }}>
+                      {value}
+                    </p>
+                    <p className="text-[12px] mt-1" style={{ color: tone }}>
+                      {label}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+            {preset.sub && (
+              <p className="mt-6 text-[16px] leading-snug" style={{ color }}>
+                {preset.sub}
+              </p>
+            )}
+          </div>
+        )}
+
+        {preset.kind === 'path' && (
+          <div className="flex-1 flex flex-col justify-center">
+            <div className="flex items-center gap-3 mb-8">
+              <span className="w-11 h-11 rounded-full flex items-center justify-center text-white text-[16px]" style={{ background: '#34C759' }}>
+                ✓
+              </span>
+              <span className="w-11 h-11 rounded-full flex items-center justify-center text-white text-[16px]" style={{ background: '#34C759' }}>
+                ✓
+              </span>
+              <span className="w-11 h-11 rounded-full flex items-center justify-center text-white text-[18px]" style={{ background: '#FFB020' }}>
+                ★
+              </span>
+              <span className="w-11 h-11 rounded-full flex items-center justify-center text-white text-[16px]" style={{ background: COLA.neo }}>
+                ·
+              </span>
+            </div>
+            <p className="text-[13px] mb-2" style={{ color: accent }}>
+              {preset.kicker}
+            </p>
+            <h3 className="text-[28px] md:text-[34px] font-semibold tracking-tight leading-[1.08]" style={{ color }}>
+              {preset.headline}
+            </h3>
+            {preset.sub && (
+              <p className="mt-3 text-[15px]" style={{ color: tone }}>
+                {preset.sub}
+              </p>
+            )}
           </div>
         )}
 
@@ -925,6 +1040,304 @@ const MODELOS: Preset[] = [
   })),
 ];
 
+const COLA_FEED: Preset[] = [
+  {
+    id: 'cola-treino',
+    title: 'Treino da Cola',
+    line: 'cola',
+    format: 'feed',
+    surface: 'colaWash',
+    kind: 'hero',
+    kicker: 'Novidade',
+    headline: 'Treino da Cola.',
+    sub: 'Lições curtas, vidas e ofensiva diária. Aprenda a clínica jogando.',
+    caption: 'Chegou o Treino da Cola no Academy. Lições curtas, vidas e ofensiva diária. Aprenda a clínica jogando. academy.odontohub.app.br',
+  },
+  {
+    id: 'cola-jogando',
+    title: 'Aprenda jogando',
+    line: 'cola',
+    format: 'feed',
+    surface: 'cola',
+    kind: 'hero',
+    headline: 'Aprenda a clínica\njogando.',
+    sub: 'A cola agora tem trilha, XP e vidas.',
+    caption: 'A cola do Academy agora se joga. Trilha, XP e vidas. academy.odontohub.app.br',
+  },
+  {
+    id: 'cola-nina',
+    title: 'Nina',
+    line: 'cola',
+    format: 'feed',
+    surface: 'colaWash',
+    kind: 'speech',
+    speaker: 'Nina',
+    headline: 'Meta do dia batida. Se quiser mais uma, eu topo.',
+    sub: 'Pré-clínica · Nível 2',
+    caption: 'Nina: “Meta do dia batida. Se quiser mais uma, eu topo.” Treino da Cola, no Academy.',
+  },
+  {
+    id: 'cola-hud',
+    title: 'Vidas e ofensiva',
+    line: 'cola',
+    format: 'feed',
+    surface: 'white',
+    kind: 'hud',
+    kicker: 'O seu treino',
+    headline: '',
+    items: ['1|ofensiva', '37|gemas', '5|vidas'],
+    sub: 'Uma lição por vez. Sem perder o dia.',
+    caption: 'Ofensiva, gemas e vidas. O Treino da Cola acompanha o seu ritmo na clínica da faculdade.',
+  },
+  {
+    id: 'cola-nivel',
+    title: 'Nível 2',
+    line: 'cola',
+    format: 'feed',
+    surface: 'colaWash',
+    kind: 'stat',
+    stat: '2',
+    headline: 'Pré-clínica.',
+    statLabel: '41 de 150 XP neste nível.',
+    caption: 'Nível 2 · Pré-clínica. O Treino da Cola mostra o XP — sem ranking público.',
+  },
+  {
+    id: 'cola-meta',
+    title: 'Meta do dia',
+    line: 'cola',
+    format: 'feed',
+    surface: 'cola',
+    kind: 'stat',
+    stat: '141',
+    headline: 'XP hoje.',
+    statLabel: 'Meta do dia batida.',
+    caption: 'Meta do dia batida. Se quiser mais uma, o Academy topa.',
+  },
+  {
+    id: 'cola-val',
+    title: 'Exame clínico',
+    line: 'cola',
+    format: 'feed',
+    surface: 'colaWash',
+    kind: 'path',
+    kicker: 'Com Dra. Val',
+    headline: 'Exame clínico.',
+    sub: 'Ouvir, examinar e transformar achado em plano. 2/2 lições.',
+    caption: 'Exame clínico com a Dra. Val. Ouvir, examinar e transformar achado em plano. Treino da Cola.',
+  },
+  {
+    id: 'cola-kaio',
+    title: 'Radiologia',
+    line: 'cola',
+    format: 'feed',
+    surface: 'white',
+    kind: 'path',
+    kicker: 'Com Kaio, residente',
+    headline: 'Radiologia.',
+    sub: 'Pedir a tomada certa e ler sem pular etapa. 0/2 lições.',
+    caption: 'Radiologia com o Kaio. Pedir a tomada certa e ler sem pular etapa.',
+  },
+  {
+    id: 'cola-principio',
+    title: 'Kaio',
+    line: 'cola',
+    format: 'feed',
+    surface: 'colaWash',
+    kind: 'speech',
+    speaker: 'Kaio',
+    headline: 'Princípio primeiro; o resto é consequência.',
+    sub: 'Radiologia · Lição 1',
+    caption: 'Kaio: “Princípio primeiro; o resto é consequência.” Treino da Cola.',
+  },
+  {
+    id: 'cola-ordem',
+    title: 'Lição',
+    line: 'cola',
+    format: 'feed',
+    surface: 'white',
+    kind: 'list',
+    headline: 'Na ordem certa.',
+    items: [
+      'Conferir a qualidade da imagem',
+      'Identificar a anatomia normal',
+      'Descrever o achado',
+      'Correlacionar com a clínica',
+    ],
+    caption: 'Coloque a leitura radiográfica na ordem. Lições curtas, no Academy.',
+  },
+  {
+    id: 'cola-relampago',
+    title: 'Desafio relâmpago',
+    line: 'cola',
+    format: 'feed',
+    surface: 'cola',
+    kind: 'hero',
+    kicker: '60 segundos',
+    headline: 'Desafio\nrelâmpago.',
+    sub: 'Sem gastar vidas.',
+    caption: 'Desafio relâmpago: 60 segundos, sem gastar vidas. Treino da Cola.',
+  },
+  {
+    id: 'cola-treinar',
+    title: 'Treinar',
+    line: 'cola',
+    format: 'feed',
+    surface: 'colaWash',
+    kind: 'cta',
+    headline: 'Ler a cola.\nOu treinar.',
+    sub: 'A mesma matéria. Dois jeitos.',
+    cta: 'Treinar',
+    caption: 'Ler a cola ou treinar. A mesma matéria, dois jeitos. academy.odontohub.app.br',
+  },
+];
+
+const COLA_STORIES: Preset[] = [
+  {
+    id: 'st-cola-1',
+    title: 'Story · Treino',
+    line: 'cola',
+    format: 'story',
+    surface: 'cola',
+    kind: 'hero',
+    headline: 'Treino da Cola.',
+    sub: 'Lições curtas. Vidas. Ofensiva diária.',
+    caption: 'Chegou o Treino da Cola.',
+  },
+  {
+    id: 'st-cola-2',
+    title: 'Story · Nina',
+    line: 'cola',
+    format: 'story',
+    surface: 'colaWash',
+    kind: 'speech',
+    speaker: 'Nina',
+    headline: 'Meta do dia batida. Se quiser mais uma, eu topo.',
+    caption: 'Nina, no Treino da Cola.',
+  },
+  {
+    id: 'st-cola-3',
+    title: 'Story · Trilha',
+    line: 'cola',
+    format: 'story',
+    surface: 'white',
+    kind: 'path',
+    kicker: 'A sua trilha',
+    headline: 'Uma lição depois da outra.',
+    sub: 'Verde é feito. Roxo é o próximo.',
+    caption: 'A trilha da Cola.',
+  },
+  {
+    id: 'st-cola-4',
+    title: 'Story · Lição',
+    line: 'cola',
+    format: 'story',
+    surface: 'colaWash',
+    kind: 'hero',
+    kicker: 'Radiologia · Lição 1',
+    headline: 'Coloque a leitura na ordem.',
+    sub: 'Toque nos passos. Verifique.',
+    caption: 'Lição de radiologia no Treino da Cola.',
+  },
+  {
+    id: 'st-cola-5',
+    title: 'Story · Vidas',
+    line: 'cola',
+    format: 'story',
+    surface: 'cola',
+    kind: 'stat',
+    stat: '5',
+    headline: 'vidas.',
+    statLabel: 'Errar faz parte. Acabar as vidas, também.',
+    caption: 'Cinco vidas. Treino da Cola.',
+  },
+  {
+    id: 'st-cola-6',
+    title: 'Story · CTA',
+    line: 'cola',
+    format: 'story',
+    surface: 'colaWash',
+    kind: 'cta',
+    headline: 'Abre a Cola\ne treina.',
+    cta: 'Treinar',
+    caption: START_ACADEMY,
+  },
+];
+
+const COLA_SQUARES: Preset[] = [
+  {
+    id: 'sq-cola-1',
+    title: 'Carrossel Cola · 1',
+    line: 'cola',
+    format: 'square',
+    surface: 'cola',
+    kind: 'hero',
+    headline: 'A cola\nvirou jogo.',
+    caption: 'Carrossel Cola — 1.',
+  },
+  {
+    id: 'sq-cola-2',
+    title: 'Carrossel Cola · 2',
+    line: 'cola',
+    format: 'square',
+    surface: 'colaWash',
+    kind: 'list',
+    headline: 'Como funciona',
+    items: ['Lições curtas', 'Cinco vidas', 'Ofensiva diária', 'Ler a cola quando quiser'],
+    caption: 'Carrossel Cola — 2.',
+  },
+  {
+    id: 'sq-cola-3',
+    title: 'Carrossel Cola · 3',
+    line: 'cola',
+    format: 'square',
+    surface: 'white',
+    kind: 'cta',
+    headline: 'Treinar.',
+    sub: 'No Academy.',
+    cta: 'Começar',
+    caption: START_ACADEMY,
+  },
+];
+
+const COLA_MODELOS: Preset[] = [
+  {
+    id: 'md-cola-wash',
+    title: 'Modelo Cola · Claro',
+    line: 'cola',
+    format: 'feed',
+    surface: 'colaWash',
+    kind: 'blank',
+    kicker: 'Treino da Cola',
+    headline: '',
+    placeholder: 'A sua frase.',
+    caption: '',
+  },
+  {
+    id: 'md-cola-fill',
+    title: 'Modelo Cola · Roxo',
+    line: 'cola',
+    format: 'feed',
+    surface: 'cola',
+    kind: 'blank',
+    kicker: 'Treino da Cola',
+    headline: '',
+    placeholder: 'A sua frase.',
+    caption: '',
+  },
+  {
+    id: 'md-cola-story',
+    title: 'Modelo Story Cola',
+    line: 'cola',
+    format: 'story',
+    surface: 'colaWash',
+    kind: 'blank',
+    kicker: 'Treino da Cola',
+    headline: '',
+    placeholder: 'A sua frase.',
+    caption: '',
+  },
+];
+
 function HighlightCover({
   title,
   line,
@@ -951,7 +1364,7 @@ function HighlightCover({
         </p>
       </div>
       <p className="mt-4 text-[13px] text-apple-ink font-semibold tracking-tight">{title}</p>
-      <p className="text-[12px] text-apple-gray">{line === 'academy' ? 'Academy' : 'Pro'}</p>
+      <p className="text-[12px] text-apple-gray">{line === 'cola' ? 'Cola' : line === 'academy' ? 'Academy' : 'Pro'}</p>
       <button
         type="button"
         onClick={() => downloadNode(ref.current, `destaque-${slug(title)}.png`)}
@@ -969,6 +1382,7 @@ export default function InstagramPresets() {
   const tabs: { id: Tab; label: string }[] = [
     { id: 'feed', label: 'Feed' },
     { id: 'stories', label: 'Stories' },
+    { id: 'cola', label: 'Cola' },
     { id: 'destaques', label: 'Destaques' },
     { id: 'modelos', label: 'Modelos' },
   ];
@@ -989,7 +1403,7 @@ export default function InstagramPresets() {
             do OdontoHub.
           </h1>
           <p className="apple-subhead text-[19px] max-w-[520px]">
-            Pro em preto e azul. Academy nas cinco cores. Baixe a arte. Copie a legenda.
+            Pro em preto e azul. Academy nas cinco cores. Cola no roxo do jogo. Baixe a arte. Copie a legenda.
           </p>
           <div className="mt-10 flex flex-wrap gap-2">
             {tabs.map((item) => (
@@ -1032,6 +1446,14 @@ export default function InstagramPresets() {
                 </Grid>
               </section>
               <section>
+                <SectionTitle>Feed Cola · 4:5</SectionTitle>
+                <Grid>
+                  {COLA_FEED.map((preset) => (
+                    <PresetArt key={preset.id} preset={preset} />
+                  ))}
+                </Grid>
+              </section>
+              <section>
                 <SectionTitle>Carrossel · 1:1</SectionTitle>
                 <Grid>
                   {SQUARES.map((preset) => (
@@ -1056,6 +1478,43 @@ export default function InstagramPresets() {
                 <SectionTitle>Stories Academy · 9:16</SectionTitle>
                 <Grid>
                   {STORIES_ACADEMY.map((preset) => (
+                    <PresetArt key={preset.id} preset={preset} />
+                  ))}
+                </Grid>
+              </section>
+              <section>
+                <SectionTitle>Stories Cola · 9:16</SectionTitle>
+                <Grid>
+                  {COLA_STORIES.map((preset) => (
+                    <PresetArt key={preset.id} preset={preset} />
+                  ))}
+                </Grid>
+              </section>
+            </motion.div>
+          )}
+
+          {tab === 'cola' && (
+            <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="space-y-20">
+              <section>
+                <SectionTitle>Treino da Cola · feed</SectionTitle>
+                <Grid>
+                  {COLA_FEED.map((preset) => (
+                    <PresetArt key={preset.id} preset={preset} />
+                  ))}
+                </Grid>
+              </section>
+              <section>
+                <SectionTitle>Stories</SectionTitle>
+                <Grid>
+                  {COLA_STORIES.map((preset) => (
+                    <PresetArt key={preset.id} preset={preset} />
+                  ))}
+                </Grid>
+              </section>
+              <section>
+                <SectionTitle>Carrossel</SectionTitle>
+                <Grid>
+                  {COLA_SQUARES.map((preset) => (
                     <PresetArt key={preset.id} preset={preset} />
                   ))}
                 </Grid>
@@ -1086,6 +1545,16 @@ export default function InstagramPresets() {
                   <HighlightCover title="Academy" line="academy" surface="neo" neo={NEOS[4]} />
                 </div>
               </section>
+              <section>
+                <SectionTitle>Cola</SectionTitle>
+                <div className="flex flex-wrap gap-10">
+                  <HighlightCover title="Cola" line="cola" surface="cola" />
+                  <HighlightCover title="Treinar" line="cola" surface="colaWash" />
+                  <HighlightCover title="Nina" line="cola" surface="cola" />
+                  <HighlightCover title="Trilha" line="cola" surface="colaWash" />
+                  <HighlightCover title="Vidas" line="cola" surface="white" />
+                </div>
+              </section>
             </motion.div>
           )}
 
@@ -1093,7 +1562,7 @@ export default function InstagramPresets() {
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}>
               <SectionTitle>Fundos vazios para a sua frase</SectionTitle>
               <Grid>
-                {MODELOS.map((preset) => (
+                {[...MODELOS, ...COLA_MODELOS].map((preset) => (
                   <PresetArt key={preset.id} preset={preset} />
                 ))}
               </Grid>
