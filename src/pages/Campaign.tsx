@@ -269,9 +269,9 @@ function PostArt({ post }: { post: CampaignPost }): React.ReactElement {
           <button
             type="button"
             onClick={() => {
-              navigator.clipboard.writeText(post.caption);
               setCopied(true);
               window.setTimeout(() => setCopied(false), 1600);
+              void navigator.clipboard?.writeText(post.caption).catch(() => undefined);
             }}
             className="text-[13px] text-[#0066cc]"
           >
