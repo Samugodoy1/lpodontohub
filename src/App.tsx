@@ -5,7 +5,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import Home from './pages/Home';
 import Academy from './pages/Academy';
 import Ambassadors from './pages/Ambassadors';
-import InstagramPresets from './pages/InstagramPresets';
+import Campaign from './pages/Campaign';
 import AdminApplications from './pages/AdminApplications';
 import Confirmation from './pages/Confirmation';
 import Comparison from './pages/Comparison';
@@ -75,7 +75,7 @@ function AnimatedRoutes() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <InstagramPresets />
+            <Campaign />
           </motion.div>
         } />
         <Route path="/admin/embaixadores" element={

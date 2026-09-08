@@ -10,7 +10,8 @@ export const Navbar = () => {
   const location = useLocation();
   const isAcademy = location.pathname.startsWith('/academy');
   const isHome = location.pathname === '/';
-  const dark = isHome;
+  const isCampaign = location.pathname === '/presets';
+  const dark = isHome || isCampaign;
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 8);
