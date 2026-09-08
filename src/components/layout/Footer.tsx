@@ -36,7 +36,7 @@ export const Footer = () => {
               <Link to="/sistemas-para-dentista" className={linkClass}>Sistemas para dentista</Link>
               <Link to="/software-odontologico-autonomo" className={linkClass}>Dentista autônomo</Link>
               <Link to="/app-para-estudante-de-odontologia" className={linkClass}>App para estudantes</Link>
-              <Link to="/presets" className={linkClass}>A clínica contínua.</Link>
+              <Link to="/presets" className={linkClass}>Campanhas</Link>
             </div>
           </div>
           <div>
