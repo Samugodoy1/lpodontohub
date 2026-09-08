@@ -35,17 +35,17 @@ export function OlaCampaign(): React.ReactElement {
         <meta name="description" content="Olá OdontoHub Academy. A clínica da faculdade. Odonto em Jogo: um Duolingo para odontologia." />
       </Helmet>
 
-      <section className="relative min-h-[88svh] flex flex-col justify-end overflow-hidden" style={{ background: LARANJA.neo }}>
-        <div className="relative max-w-[980px] mx-auto px-5 pt-28 pb-16 md:pb-24 w-full text-white">
+      <section className="relative min-h-[88svh] flex flex-col justify-end overflow-hidden text-apple-ink" style={{ background: LARANJA.neo }}>
+        <div className="relative max-w-[980px] mx-auto px-5 pt-28 pb-16 md:pb-24 w-full">
           <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.05, ease: [0.25, 0.1, 0.25, 1] }}>
-            <p className="text-[19px] md:text-[21px] font-semibold tracking-tight mb-3">Lançamento · @odontohub.academy</p>
-            <h1 className="apple-display text-[40px] sm:text-[56px] md:text-[80px] mb-6 max-w-[12ch]">{OLA_LINE}</h1>
-            <p className="apple-subhead text-[19px] md:text-[28px] max-w-[520px] mb-9 text-white/85">{OLA_SUB}</p>
+            <p className="text-[19px] md:text-[21px] font-semibold tracking-tight mb-3 text-black/70">Lançamento · @odontohub.academy</p>
+            <h1 className="apple-display-ink text-[40px] sm:text-[56px] md:text-[80px] mb-6 max-w-[12ch]">{OLA_LINE}</h1>
+            <p className="text-[19px] md:text-[28px] max-w-[520px] mb-9 text-black/65 leading-snug">{OLA_SUB}</p>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-8">
-              <a href="#ola-filme" className="inline-flex items-center rounded-full bg-white text-[#1d1d1f] text-[17px] px-5 py-2.5 hover:bg-white/92">
+              <a href="#ola-filme" className="inline-flex items-center rounded-full bg-[#1d1d1f] text-white text-[17px] px-5 py-2.5 hover:bg-black">
                 Assista o filme
               </a>
-              <a href={START_ACADEMY} className="text-[17px] text-white/90 hover:underline underline-offset-2">
+              <a href={START_ACADEMY} className="text-[17px] text-[#1d1d1f] hover:underline underline-offset-2">
                 Começar <span aria-hidden>›</span>
               </a>
             </div>
@@ -167,12 +167,12 @@ export function OlaCampaign(): React.ReactElement {
         accent={LARANJA.neo}
       />
 
-      <section className="px-5 py-28 md:py-40" style={{ background: LARANJA.neo }}>
-        <div className="max-w-[780px] mx-auto text-center text-white">
+      <section className="px-5 py-28 md:py-40 text-apple-ink" style={{ background: LARANJA.neo }}>
+        <div className="max-w-[780px] mx-auto text-center">
           <Reveal>
-            <h2 className="apple-display text-[36px] md:text-[64px] mb-5">{OLA_LINE}</h2>
-            <p className="apple-subhead text-[19px] md:text-[24px] mb-10 text-white/85">{OLA_SUB}</p>
-            <a href={START_ACADEMY} className="inline-flex items-center rounded-full bg-white text-[#1d1d1f] text-[17px] px-5 py-2.5">
+            <h2 className="apple-display-ink text-[36px] md:text-[64px] mb-5">{OLA_LINE}</h2>
+            <p className="text-[19px] md:text-[24px] mb-10 text-black/65">{OLA_SUB}</p>
+            <a href={START_ACADEMY} className="inline-flex items-center rounded-full bg-[#1d1d1f] text-white text-[17px] px-5 py-2.5">
               Começar
             </a>
           </Reveal>
