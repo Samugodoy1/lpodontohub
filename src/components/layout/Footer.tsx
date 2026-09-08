@@ -36,7 +36,7 @@ export const Footer = () => {
               <Link to="/sistemas-para-dentista" className={linkClass}>Sistemas para dentista</Link>
               <Link to="/software-odontologico-autonomo" className={linkClass}>Dentista autônomo</Link>
               <Link to="/app-para-estudante-de-odontologia" className={linkClass}>App para estudantes</Link>
-              <Link to="/presets" className={linkClass}>Você atende.</Link>
+              <Link to="/presets" className={linkClass}>A clínica contínua.</Link>
             </div>
           </div>
           <div>
@@ -59,7 +59,10 @@ export const Footer = () => {
               </a>
               <Link to="/academy/embaixadores" className={linkClass}>Embaixadores</Link>
               <a href="https://instagram.com/odontohub.app" target="_blank" rel="noreferrer" className={linkClass}>
-                Instagram
+                @odontohub.app
+              </a>
+              <a href="https://instagram.com/odontohub.academy" target="_blank" rel="noreferrer" className={linkClass}>
+                @odontohub.academy
               </a>
               <Link to="/" className={linkClass}>Privacidade</Link>
               <Link to="/" className={linkClass}>Termos</Link>

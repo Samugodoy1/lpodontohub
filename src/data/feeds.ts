@@ -49,15 +49,15 @@ export type FeedPost = {
 export const APP_PROFILE = {
   handle: '@odontohub.app',
   name: 'OdontoHub',
-  bio: 'O sistema para o consultório.\nVocê atende.',
-  note: 'Os primeiros doze. Um post, uma ideia. Preto, branco, azul.',
+  bio: 'A clínica contínua.\nAcademy. Hub. Presença.',
+  note: 'Os primeiros nove. Preto, branco, azul. A Virada. Presença.',
 };
 
 export const ACADEMY_PROFILE = {
   handle: '@odontohub.academy',
   name: 'OdontoHub Academy',
-  bio: 'A clínica da faculdade.\nDo seu jeito.',
-  note: 'Os primeiros doze. Academy Neo: laranja, lima, azul, rosa, violeta.',
+  bio: 'A clínica da faculdade.\nRounds. A Virada.',
+  note: 'Os primeiros nove. Academy Neo: laranja, lima, azul, rosa, violeta.',
 };
 
 export const APP_FEED: FeedPost[] = [
