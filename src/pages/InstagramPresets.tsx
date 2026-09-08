@@ -9,7 +9,7 @@ type Surface = 'black' | 'white' | 'surface' | 'blue' | 'neo' | 'wash' | 'cola' 
 
 const COLA = {
   id: 'cola',
-  name: 'Cola',
+  name: 'Odonto em Jogo',
   neo: '#6D4AFF',
   soft: '#EDE7FF',
   wash: '#F6F3FF',
@@ -102,7 +102,7 @@ function ArtMeta({
         <div>
           <p className="text-[15px] font-semibold tracking-tight text-apple-ink">{title}</p>
           <p className="text-[12px] text-apple-gray mt-0.5">
-            {line === 'cola' ? 'Cola' : line === 'academy' ? 'Academy' : 'Pro'}
+            {line === 'cola' ? 'Odonto em Jogo' : line === 'academy' ? 'Academy' : 'Pro'}
           </p>
         </div>
         <div className="flex items-center gap-3 shrink-0">
@@ -1161,15 +1161,15 @@ const MODELOS: Preset[] = [
 const COLA_FEED: Preset[] = [
   {
     id: 'cola-treino',
-    title: 'Treino da Cola',
+    title: 'Odonto em Jogo',
     line: 'cola',
     format: 'feed',
     surface: 'colaWash',
     kind: 'hero',
     kicker: 'Novidade',
-    headline: 'Treino da Cola.',
-    sub: 'Lições curtas, vidas e ofensiva diária. Aprenda a clínica jogando.',
-    caption: 'Chegou o Treino da Cola no Academy. Lições curtas, vidas e ofensiva diária. Aprenda a clínica jogando. academy.odontohub.app.br',
+    headline: 'Odonto em Jogo.',
+    sub: 'O Duolingo da odontologia. Casos rápidos, vidas, XP e uma trilha para avançar.',
+    caption: 'Odonto em Jogo é o Duolingo da odontologia: situações clínicas rápidas, vidas, XP e uma trilha para avançar. academy.odontohub.app.br',
   },
   {
     id: 'cola-jogando',
@@ -1178,9 +1178,9 @@ const COLA_FEED: Preset[] = [
     format: 'feed',
     surface: 'cola',
     kind: 'hero',
-    headline: 'Aprenda a clínica\njogando.',
-    sub: 'A cola agora tem trilha, XP e vidas.',
-    caption: 'A cola do Academy agora se joga. Trilha, XP e vidas. academy.odontohub.app.br',
+    headline: 'Da teoria para\na clínica.',
+    sub: 'Uma fase por vez. Com trilha, XP e vidas.',
+    caption: 'Escolha um tema, responda situações clínicas e avance uma fase por vez. Odonto em Jogo, no Academy. academy.odontohub.app.br',
   },
   {
     id: 'cola-nina',
@@ -1190,22 +1190,22 @@ const COLA_FEED: Preset[] = [
     surface: 'colaWash',
     kind: 'speech',
     speaker: 'Nina',
-    headline: 'Meta do dia batida. Se quiser mais uma, eu topo.',
+    headline: 'Mandou bem. Bora para a próxima?',
     sub: 'Pré-clínica · Nível 2',
-    caption: 'Nina: “Meta do dia batida. Se quiser mais uma, eu topo.” Treino da Cola, no Academy.',
+    caption: 'Mandou bem. Bora para a próxima? Nina acompanha você no Odonto em Jogo.',
   },
   {
     id: 'cola-hud',
-    title: 'Vidas e ofensiva',
+    title: 'Vidas e sequência',
     line: 'cola',
     format: 'feed',
     surface: 'white',
     kind: 'hud',
-    kicker: 'O seu treino',
+    kicker: 'O seu jogo',
     headline: '',
-    items: ['1|ofensiva', '37|gemas', '5|vidas'],
-    sub: 'Uma lição por vez. Sem perder o dia.',
-    caption: 'Ofensiva, gemas e vidas. O Treino da Cola acompanha o seu ritmo na clínica da faculdade.',
+    items: ['1|sequência', '37|XP', '5|vidas'],
+    sub: 'Uma fase por vez. Cinco minutos já contam.',
+    caption: 'Sequência, XP e vidas. O Odonto em Jogo acompanha o seu ritmo na faculdade.',
   },
   {
     id: 'cola-nivel',
@@ -1217,7 +1217,7 @@ const COLA_FEED: Preset[] = [
     stat: '2',
     headline: 'Pré-clínica.',
     statLabel: '41 de 150 XP neste nível.',
-    caption: 'Nível 2 · Pré-clínica. O Treino da Cola mostra o XP — sem ranking público.',
+    caption: 'Nível 2 · Pré-clínica. Você ganha XP e avança pela trilha no seu ritmo.',
   },
   {
     id: 'cola-meta',
@@ -1241,7 +1241,7 @@ const COLA_FEED: Preset[] = [
     kicker: 'Com Dra. Val',
     headline: 'Exame clínico.',
     sub: 'Ouvir, examinar e transformar achado em plano. 2/2 lições.',
-    caption: 'Exame clínico com a Dra. Val. Ouvir, examinar e transformar achado em plano. Treino da Cola.',
+    caption: 'Exame clínico com a Dra. Val. Ouça, examine e transforme o achado em plano no Odonto em Jogo.',
   },
   {
     id: 'cola-kaio',
@@ -1265,7 +1265,7 @@ const COLA_FEED: Preset[] = [
     speaker: 'Kaio',
     headline: 'Princípio primeiro; o resto é consequência.',
     sub: 'Radiologia · Lição 1',
-    caption: 'Kaio: “Princípio primeiro; o resto é consequência.” Treino da Cola.',
+    caption: 'Kaio: “Princípio primeiro; o resto é consequência.” Odonto em Jogo.',
   },
   {
     id: 'cola-ordem',
@@ -1293,19 +1293,19 @@ const COLA_FEED: Preset[] = [
     kicker: '60 segundos',
     headline: 'Desafio\nrelâmpago.',
     sub: 'Sem gastar vidas.',
-    caption: 'Desafio relâmpago: 60 segundos, sem gastar vidas. Treino da Cola.',
+    caption: 'Desafio relâmpago: 60 segundos, sem gastar vidas. Odonto em Jogo.',
   },
   {
     id: 'cola-treinar',
-    title: 'Treinar',
+    title: 'Jogar',
     line: 'cola',
     format: 'feed',
     surface: 'colaWash',
     kind: 'cta',
-    headline: 'Ler a cola.\nOu treinar.',
-    sub: 'A mesma matéria. Dois jeitos.',
-    cta: 'Treinar',
-    caption: 'Ler a cola ou treinar. A mesma matéria, dois jeitos. academy.odontohub.app.br',
+    headline: 'Cinco minutos.\nUma fase.',
+    sub: 'Escolha um tema e comece.',
+    cta: 'Jogar agora',
+    caption: 'Cinco minutos. Uma fase. Escolha um tema e comece no Odonto em Jogo. academy.odontohub.app.br',
   },
 ];
 
@@ -1341,11 +1341,11 @@ const PHOTO_FEED: Preset[] = [
     headline: 'Cinco minutos.',
     items: ['Antes de dormir.', 'Uma pergunta.', 'Uma resposta.', 'A clínica fica.'],
     sub: 'Feito para dentistas pela Odontohub.',
-    caption: 'Cinco minutos. A clínica fica.\n\nTreino da Cola — academy.odontohub.app.br',
+    caption: 'Cinco minutos. A clínica fica.\n\nOdonto em Jogo — academy.odontohub.app.br',
   },
   {
     id: 'photo-phone-line',
-    title: 'Privacidade · Cola',
+    title: 'Privacidade · Jogo',
     line: 'cola',
     format: 'feed',
     surface: 'black',
@@ -1353,8 +1353,8 @@ const PHOTO_FEED: Preset[] = [
     photo: '/presets/apple-phone-hand.png',
     photoTone: 'dark',
     photoLayout: 'center',
-    headline: 'Treino da Cola.\nÉ Academy.',
-    caption: 'Treino da Cola. É Academy.\n\nacademy.odontohub.app.br',
+    headline: 'Odonto em Jogo.\nÉ Academy.',
+    caption: 'Odonto em Jogo. É Academy.\n\nacademy.odontohub.app.br',
   },
   {
     id: 'photo-split',
@@ -1368,11 +1368,11 @@ const PHOTO_FEED: Preset[] = [
     photoLayout: 'split',
     headline: '',
     items: ['A matéria.', 'O jogo.'],
-    caption: 'A matéria. O jogo.\n\nTreino da Cola no Academy — academy.odontohub.app.br',
+    caption: 'A matéria. O jogo.\n\nOdonto em Jogo no Academy — academy.odontohub.app.br',
   },
   {
     id: 'photo-clinic',
-    title: 'Clínica · Treino',
+    title: 'Clínica · Jogo',
     line: 'academy',
     format: 'feed',
     surface: 'white',
@@ -1382,11 +1382,11 @@ const PHOTO_FEED: Preset[] = [
     photoTone: 'light',
     photoLayout: 'billboard',
     kicker: 'OdontoHub Academy',
-    headline: 'Treino da Cola',
-    sub: 'A matéria vira jogo.\nVocê escolhe o ritmo.',
-    cta: 'Treinar',
-    ctaAlt: 'Ler a cola',
-    caption: 'A matéria vira jogo. Você escolhe o ritmo.\n\nComece em academy.odontohub.app.br',
+    headline: 'Odonto em Jogo',
+    sub: 'Da teoria para a clínica.\nUma fase por vez.',
+    cta: 'Jogar agora',
+    ctaAlt: 'Como funciona',
+    caption: 'Da teoria para a clínica. Uma fase por vez.\n\nComece em academy.odontohub.app.br',
   },
 ];
 
@@ -1420,13 +1420,13 @@ const PHOTO_STORIES: Preset[] = [
     photoTone: 'dark',
     photoLayout: 'poem',
     headline: 'Uma pergunta.',
-    items: ['Uma vida.', 'Uma ofensiva.', 'A clínica.'],
+    items: ['Uma vida.', 'Uma sequência.', 'A clínica.'],
     sub: 'Feito para dentistas pela Odontohub.',
-    caption: 'Uma pergunta. A clínica.\n\nTreino da Cola — academy.odontohub.app.br',
+    caption: 'Uma pergunta. A clínica.\n\nOdonto em Jogo — academy.odontohub.app.br',
   },
   {
     id: 'photo-story-phone',
-    title: 'Story · Cola',
+    title: 'Story · Jogo',
     line: 'cola',
     format: 'story',
     surface: 'black',
@@ -1434,8 +1434,8 @@ const PHOTO_STORIES: Preset[] = [
     photo: '/presets/apple-phone-hand.png',
     photoTone: 'dark',
     photoLayout: 'center',
-    headline: 'Treino da Cola.\nÉ Academy.',
-    caption: 'Treino da Cola. É Academy.\n\nacademy.odontohub.app.br',
+    headline: 'Odonto em Jogo.\nÉ Academy.',
+    caption: 'Odonto em Jogo. É Academy.\n\nacademy.odontohub.app.br',
   },
   {
     id: 'photo-story-split',
@@ -1449,21 +1449,21 @@ const PHOTO_STORIES: Preset[] = [
     photoLayout: 'split',
     headline: '',
     items: ['A matéria.', 'O jogo.'],
-    caption: 'A matéria. O jogo.\n\nTreino da Cola no Academy — academy.odontohub.app.br',
+    caption: 'A matéria. O jogo.\n\nOdonto em Jogo no Academy — academy.odontohub.app.br',
   },
 ];
 
 const COLA_STORIES: Preset[] = [
   {
     id: 'st-cola-1',
-    title: 'Story · Treino',
+    title: 'Story · Jogo',
     line: 'cola',
     format: 'story',
     surface: 'cola',
     kind: 'hero',
-    headline: 'Treino da Cola.',
-    sub: 'Lições curtas. Vidas. Ofensiva diária.',
-    caption: 'Chegou o Treino da Cola.',
+    headline: 'Odonto em Jogo.',
+    sub: 'Casos rápidos. Vidas. XP. Uma trilha para avançar.',
+    caption: 'Chegou o Odonto em Jogo.',
   },
   {
     id: 'st-cola-2',
@@ -1473,8 +1473,8 @@ const COLA_STORIES: Preset[] = [
     surface: 'colaWash',
     kind: 'speech',
     speaker: 'Nina',
-    headline: 'Meta do dia batida. Se quiser mais uma, eu topo.',
-    caption: 'Nina, no Treino da Cola.',
+    headline: 'Mandou bem. Bora para a próxima?',
+    caption: 'Nina, no Odonto em Jogo.',
   },
   {
     id: 'st-cola-3',
@@ -1486,7 +1486,7 @@ const COLA_STORIES: Preset[] = [
     kicker: 'A sua trilha',
     headline: 'Uma lição depois da outra.',
     sub: 'Verde é feito. Roxo é o próximo.',
-    caption: 'A trilha da Cola.',
+    caption: 'A sua trilha no Odonto em Jogo.',
   },
   {
     id: 'st-cola-4',
@@ -1498,7 +1498,7 @@ const COLA_STORIES: Preset[] = [
     kicker: 'Radiologia · Lição 1',
     headline: 'Coloque a leitura na ordem.',
     sub: 'Toque nos passos. Verifique.',
-    caption: 'Lição de radiologia no Treino da Cola.',
+    caption: 'Fase de radiologia no Odonto em Jogo.',
   },
   {
     id: 'st-cola-5',
@@ -1510,7 +1510,7 @@ const COLA_STORIES: Preset[] = [
     stat: '5',
     headline: 'vidas.',
     statLabel: 'Errar faz parte. Acabar as vidas, também.',
-    caption: 'Cinco vidas. Treino da Cola.',
+    caption: 'Cinco vidas. Odonto em Jogo.',
   },
   {
     id: 'st-cola-6',
@@ -1519,8 +1519,8 @@ const COLA_STORIES: Preset[] = [
     format: 'story',
     surface: 'colaWash',
     kind: 'cta',
-    headline: 'Abre a Cola\ne treina.',
-    cta: 'Treinar',
+    headline: 'Escolha um tema\ne jogue.',
+    cta: 'Jogar agora',
     caption: START_ACADEMY,
   },
 ];
@@ -1528,33 +1528,33 @@ const COLA_STORIES: Preset[] = [
 const COLA_SQUARES: Preset[] = [
   {
     id: 'sq-cola-1',
-    title: 'Carrossel Cola · 1',
+    title: 'Carrossel Jogo · 1',
     line: 'cola',
     format: 'square',
     surface: 'cola',
     kind: 'hero',
-    headline: 'A cola\nvirou jogo.',
-    caption: 'Carrossel Cola — 1.',
+    headline: 'Odonto\nem Jogo.',
+    caption: 'Odonto em Jogo — 1.',
   },
   {
     id: 'sq-cola-2',
-    title: 'Carrossel Cola · 2',
+    title: 'Carrossel Jogo · 2',
     line: 'cola',
     format: 'square',
     surface: 'colaWash',
     kind: 'list',
     headline: 'Como funciona',
-    items: ['Lições curtas', 'Cinco vidas', 'Ofensiva diária', 'Ler a cola quando quiser'],
-    caption: 'Carrossel Cola — 2.',
+    items: ['Escolha um tema', 'Responda casos rápidos', 'Ganhe XP', 'Avance pela trilha'],
+    caption: 'Odonto em Jogo — 2.',
   },
   {
     id: 'sq-cola-3',
-    title: 'Carrossel Cola · 3',
+    title: 'Carrossel Jogo · 3',
     line: 'cola',
     format: 'square',
     surface: 'white',
     kind: 'cta',
-    headline: 'Treinar.',
+    headline: 'Jogar.',
     sub: 'No Academy.',
     cta: 'Começar',
     caption: START_ACADEMY,
@@ -1564,36 +1564,36 @@ const COLA_SQUARES: Preset[] = [
 const COLA_MODELOS: Preset[] = [
   {
     id: 'md-cola-wash',
-    title: 'Modelo Cola · Claro',
+    title: 'Modelo Jogo · Claro',
     line: 'cola',
     format: 'feed',
     surface: 'colaWash',
     kind: 'blank',
-    kicker: 'Treino da Cola',
+    kicker: 'Odonto em Jogo',
     headline: '',
     placeholder: 'A sua frase.',
     caption: '',
   },
   {
     id: 'md-cola-fill',
-    title: 'Modelo Cola · Roxo',
+    title: 'Modelo Jogo · Roxo',
     line: 'cola',
     format: 'feed',
     surface: 'cola',
     kind: 'blank',
-    kicker: 'Treino da Cola',
+    kicker: 'Odonto em Jogo',
     headline: '',
     placeholder: 'A sua frase.',
     caption: '',
   },
   {
     id: 'md-cola-story',
-    title: 'Modelo Story Cola',
+    title: 'Modelo Story Jogo',
     line: 'cola',
     format: 'story',
     surface: 'colaWash',
     kind: 'blank',
-    kicker: 'Treino da Cola',
+    kicker: 'Odonto em Jogo',
     headline: '',
     placeholder: 'A sua frase.',
     caption: '',
@@ -1626,7 +1626,7 @@ function HighlightCover({
         </p>
       </div>
       <p className="mt-4 text-[13px] text-apple-ink font-semibold tracking-tight">{title}</p>
-      <p className="text-[12px] text-apple-gray">{line === 'cola' ? 'Cola' : line === 'academy' ? 'Academy' : 'Pro'}</p>
+      <p className="text-[12px] text-apple-gray">{line === 'cola' ? 'Odonto em Jogo' : line === 'academy' ? 'Academy' : 'Pro'}</p>
       <button
         type="button"
         onClick={() => downloadNode(ref.current, `destaque-${slug(title)}.png`)}
@@ -1644,7 +1644,7 @@ export default function InstagramPresets() {
   const tabs: { id: Tab; label: string }[] = [
     { id: 'feed', label: 'Feed' },
     { id: 'stories', label: 'Stories' },
-    { id: 'cola', label: 'Cola' },
+    { id: 'cola', label: 'Jogo' },
     { id: 'pessoas', label: 'Pessoas' },
     { id: 'destaques', label: 'Destaques' },
     { id: 'modelos', label: 'Modelos' },
@@ -1666,7 +1666,7 @@ export default function InstagramPresets() {
             do OdontoHub.
           </h1>
           <p className="apple-subhead text-[19px] max-w-[520px]">
-            Pro em preto e azul. Academy nas cinco cores. Cola no roxo do jogo. Pessoas no recorte Apple. Baixe a arte. Copie a legenda.
+            Pro em preto e azul. Academy nas cinco cores. Odonto em Jogo no roxo. Pessoas no recorte Apple. Baixe a arte. Copie a legenda.
           </p>
           <div className="mt-10 flex flex-wrap gap-2">
             {tabs.map((item) => (
@@ -1709,7 +1709,7 @@ export default function InstagramPresets() {
                 </Grid>
               </section>
               <section>
-                <SectionTitle>Feed Cola · 4:5</SectionTitle>
+                <SectionTitle>Feed Odonto em Jogo · 4:5</SectionTitle>
                 <Grid>
                   {COLA_FEED.map((preset) => (
                     <PresetArt key={preset.id} preset={preset} />
@@ -1746,7 +1746,7 @@ export default function InstagramPresets() {
                 </Grid>
               </section>
               <section>
-                <SectionTitle>Stories Cola · 9:16</SectionTitle>
+                <SectionTitle>Stories Odonto em Jogo · 9:16</SectionTitle>
                 <Grid>
                   {COLA_STORIES.map((preset) => (
                     <PresetArt key={preset.id} preset={preset} />
@@ -1759,7 +1759,7 @@ export default function InstagramPresets() {
           {tab === 'cola' && (
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="space-y-20">
               <section>
-                <SectionTitle>Treino da Cola · feed</SectionTitle>
+                <SectionTitle>Odonto em Jogo · feed</SectionTitle>
                 <Grid>
                   {COLA_FEED.map((preset) => (
                     <PresetArt key={preset.id} preset={preset} />
@@ -1833,10 +1833,10 @@ export default function InstagramPresets() {
                 </div>
               </section>
               <section>
-                <SectionTitle>Cola</SectionTitle>
+                <SectionTitle>Odonto em Jogo</SectionTitle>
                 <div className="flex flex-wrap gap-10">
-                  <HighlightCover title="Cola" line="cola" surface="cola" />
-                  <HighlightCover title="Treinar" line="cola" surface="colaWash" />
+                  <HighlightCover title="Jogo" line="cola" surface="cola" />
+                  <HighlightCover title="Jogar" line="cola" surface="colaWash" />
                   <HighlightCover title="Nina" line="cola" surface="cola" />
                   <HighlightCover title="Trilha" line="cola" surface="colaWash" />
                   <HighlightCover title="Vidas" line="cola" surface="white" />

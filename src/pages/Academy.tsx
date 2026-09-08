@@ -26,7 +26,7 @@ const FEATURES = [
   { t: 'Modo Box', d: 'Letras grandes. Celular apoiado. Sem tocar a tela de luvas.' },
   { t: 'Galeria segura', d: 'Fotos do caso no paciente. Fora do rolo pessoal.' },
   { t: 'Evoluções prontas', d: 'Modelos limpos. Assinatura do preceptor em segundos.' },
-  { t: 'Treino da Cola', d: 'Lições curtas. Vidas. Ofensiva diária. A mesma matéria, jogando.' },
+  { t: 'Odonto em Jogo', d: 'Casos rápidos, vidas e XP. Você pratica a clínica e avança uma fase por vez.' },
 ];
 
 const MOMENTS = [
@@ -77,12 +77,12 @@ const FAQS = [
     a: 'No Ilimitado, cada caso vira um PDF com histórico e fotos em ordem.',
   },
   {
-    q: 'O que é o Treino da Cola?',
-    a: 'Lições curtas sobre a clínica. Vidas e ofensiva diária. A cola continua para ler. O treino é para praticar.',
+    q: 'O que é o Odonto em Jogo?',
+    a: 'É como um Duolingo da odontologia: você escolhe um tema, responde situações clínicas curtas e avança pela trilha. Cada acerto dá XP; cada erro custa uma vida e mostra o que revisar.',
   },
   {
     q: 'Preciso jogar para usar o Academy?',
-    a: 'Não. Casos, checklists e a cola existem sem o jogo. O treino é opcional.',
+    a: 'Não. Pacientes, checklists, Modo Box e materiais de estudo continuam disponíveis. O jogo é só mais um jeito de praticar.',
   },
 ];
 
@@ -165,7 +165,7 @@ export default function Academy() {
         <title>OdontoHub Academy — Para a clínica da faculdade</title>
         <meta
           name="description"
-          content="OdontoHub Academy organiza checklists, evoluções, Modo Box e o Treino da Cola para estudantes de odontologia. Grátis para começar."
+          content="OdontoHub Academy organiza checklists, evoluções, Modo Box e o Odonto em Jogo para estudantes de odontologia. Grátis para começar."
         />
         <link rel="canonical" href="https://www.odontohub.app.br/academy" />
         <meta property="og:title" content="OdontoHub Academy — Para a clínica da faculdade" />
@@ -192,7 +192,7 @@ export default function Academy() {
               Do seu jeito.
             </h1>
             <p className="apple-subhead text-[19px] md:text-[24px] max-w-[560px] mx-auto mb-9">
-              Checklists. Evolução. Modo Box. Treino da Cola.
+              Checklists. Evolução. Modo Box. Odonto em Jogo.
               <br className="hidden md:block" /> Você entra no atendimento com a cabeça limpa.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
@@ -259,7 +259,7 @@ export default function Academy() {
                 <Reveal className="h-full">
                   <div
                     className="h-full rounded-[28px] px-8 py-10"
-                    style={{ background: item.t === 'Modo Box' || item.t === 'Treino da Cola' ? color.soft : color.wash }}
+                    style={{ background: item.t === 'Modo Box' || item.t === 'Odonto em Jogo' ? color.soft : color.wash }}
                   >
                     <h3 className="text-[24px] font-semibold tracking-tight mb-3">{item.t}</h3>
                     <p className="text-[17px] text-apple-gray leading-relaxed">{item.d}</p>
@@ -332,22 +332,22 @@ export default function Academy() {
         <div className="max-w-[980px] mx-auto grid md:grid-cols-2 gap-14 items-center">
           <Reveal>
             <p className="text-[19px] font-semibold tracking-tight mb-2" style={{ color: color.neo }}>
-              Treino da Cola
+              Odonto em Jogo
             </p>
             <h2 className="apple-display-ink text-[40px] md:text-[56px]">
-              Aprenda a clínica
+              Da teoria para a clínica.
               <br />
-              jogando.
+              Uma fase por vez.
             </h2>
             <p className="apple-subhead text-[19px] mt-5 max-w-[440px]">
-              Lições curtas. Vidas. Ofensiva diária. A cola continua para ler. O treino é para praticar.
+              É como um Duolingo feito para quem estuda odontologia.
             </p>
             <p className="text-[15px] text-apple-gray mt-6 leading-relaxed max-w-[440px]">
-              Exame clínico com a Dra. Val. Radiologia com o Kaio. Nina cobra a meta do dia. No grátis, um pouco por dia.
+              Escolha um tema, responda situações que aparecem na clínica e avance pela trilha. Acertou? Ganha XP e mantém a sequência. Errou? Perde uma vida, revisa e tenta de novo.
             </p>
             <div className="mt-8 grid grid-cols-3 gap-3 max-w-[360px]">
               {[
-                { n: '1', l: 'ofensiva' },
+                { n: '1', l: 'sequência' },
                 { n: '5', l: 'vidas' },
                 { n: '2', l: 'nível' },
               ].map((item) => (
@@ -361,10 +361,10 @@ export default function Academy() {
             </div>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 sm:items-center">
               <a href={START_ACADEMY} className="neo-btn">
-                Treinar
+                Jogar agora
               </a>
               <a href={START_ACADEMY} className="neo-link">
-                Ler a cola <span aria-hidden>›</span>
+                Ver como funciona <span aria-hidden>›</span>
               </a>
             </div>
           </Reveal>
@@ -373,7 +373,7 @@ export default function Academy() {
               <div className="relative h-full w-full rounded-[36px] overflow-hidden text-left px-6 pt-12" style={{ background: '#fff' }}>
                 <p className="text-[12px] text-apple-gray mb-1">Nina</p>
                 <p className="text-[20px] font-semibold tracking-tight text-apple-ink leading-[1.15] mb-8">
-                  Meta do dia batida. Se quiser mais uma, eu topo.
+                  Mandou bem. Bora para a próxima?
                 </p>
                 <p className="text-[12px] mb-4" style={{ color: color.neo }}>
                   A sua trilha
@@ -400,7 +400,7 @@ export default function Academy() {
                   className="absolute bottom-6 left-6 right-6 rounded-full px-4 py-3 text-[14px] font-medium text-white text-center"
                   style={{ background: color.neo }}
                 >
-                  Treinar
+                  Começar fase
                 </div>
               </div>
             </div>
