@@ -6,7 +6,6 @@ import {
   ALWAYS,
   CHAPTERS,
   CLOSER,
-  FEED,
   FILM,
   LINE,
   LINES,
@@ -14,13 +13,27 @@ import {
   NEVER,
   PORTRAITS,
   SOUND,
-  SQUARES,
   START_ACADEMY,
   START_PRO,
-  STORIES,
-  type CampaignPost,
   type Shot,
 } from '../data/campaign';
+import {
+  ACADEMY_FEED,
+  ACADEMY_HIGHLIGHTS,
+  ACADEMY_PROFILE,
+  ACADEMY_SQUARES,
+  ACADEMY_STORIES,
+  APP_FEED,
+  APP_HIGHLIGHTS,
+  APP_PROFILE,
+  APP_SQUARES,
+  APP_STORIES,
+  LARANJA,
+  NEOS,
+  type FeedPost,
+  type Highlight,
+  type Surface,
+} from '../data/feeds';
 
 function downloadNode(node: HTMLElement | null, filename: string) {
   if (!node) return;
@@ -176,33 +189,64 @@ function FilmPlayer(): React.ReactElement {
   );
 }
 
-function PostArt({ post }: { post: CampaignPost }): React.ReactElement {
+function surfaceFill(surface: Surface, neo?: FeedPost['neo']): string {
+  switch (surface) {
+    case 'black':
+      return '#000';
+    case 'white':
+      return '#fff';
+    case 'surface':
+      return '#f5f5f7';
+    case 'blue':
+      return '#0071e3';
+    case 'neo':
+      return neo?.neo ?? LARANJA.neo;
+    case 'wash':
+      return neo?.wash ?? LARANJA.wash;
+    default:
+      return '#000';
+  }
+}
+
+function isDarkSurface(post: FeedPost): boolean {
+  if (post.surface === 'photo') return post.photoTone === 'dark';
+  return post.surface === 'black' || post.surface === 'blue' || post.surface === 'neo';
+}
+
+function PostArt({ post }: { post: FeedPost }): React.ReactElement {
   const ref = useRef<HTMLDivElement>(null);
   const [copied, setCopied] = useState(false);
   const ratio =
     post.format === 'story' ? 'aspect-[9/16]' : post.format === 'square' ? 'aspect-square' : 'aspect-[4/5]';
-  const onPhoto = post.surface === 'photo';
-  const dark = post.surface === 'black' || post.photoTone === 'dark';
+  const dark = isDarkSurface(post);
   const color = dark ? '#f5f5f7' : '#1d1d1f';
   const muted = dark ? 'rgba(255,255,255,0.62)' : '#6e6e73';
+  const academy = post.account === 'academy';
+  const accent = dark
+    ? academy
+      ? 'rgba(255,255,255,0.78)'
+      : '#2997ff'
+    : academy
+      ? post.neo?.neo ?? LARANJA.neo
+      : '#0071e3';
+  const academyMark = dark ? 'rgba(255,255,255,0.7)' : post.neo?.neo ?? LARANJA.neo;
   const align =
     post.align === 'center'
       ? 'flex-1 flex flex-col justify-center items-center text-center'
       : post.align === 'start'
         ? 'flex-1 flex flex-col justify-start pt-2'
         : 'flex-1 flex flex-col justify-end';
+  const kind = post.kind ?? 'hero';
+  const link = academy ? post.neo?.neo ?? LARANJA.neo : '#0066cc';
 
   return (
     <div>
       <div
         ref={ref}
         className={`relative w-full overflow-hidden ${ratio}`}
-        style={{
-          background: post.surface === 'white' ? '#fff' : '#000',
-          color,
-        }}
+        style={{ background: surfaceFill(post.surface, post.neo), color }}
       >
-        {onPhoto && post.photo && (
+        {post.surface === 'photo' && post.photo && (
           <>
             <img src={post.photo} alt="" className="absolute inset-0 h-full w-full object-cover" />
             <div
@@ -211,7 +255,7 @@ function PostArt({ post }: { post: CampaignPost }): React.ReactElement {
                 background:
                   post.photoTone === 'dark'
                     ? 'linear-gradient(to top, rgba(0,0,0,0.62) 0%, transparent 46%)'
-                    : 'linear-gradient(to top, rgba(255,255,255,0.55) 0%, transparent 42%)',
+                    : 'linear-gradient(to top, rgba(255,255,255,0.58) 0%, transparent 42%)',
               }}
             />
           </>
@@ -219,29 +263,64 @@ function PostArt({ post }: { post: CampaignPost }): React.ReactElement {
         <div className="absolute inset-0 flex flex-col p-10 md:p-12">
           <p className="text-[13px] font-semibold tracking-tight" style={{ color }}>
             OdontoHub
+            {academy && (
+              <span className="ml-1.5 font-normal" style={{ color: academyMark }}>
+                Academy
+              </span>
+            )}
           </p>
           <div className={align}>
             {post.kicker && (
-              <p className="text-[13px] mb-3" style={{ color: dark ? 'rgba(255,255,255,0.7)' : '#0071e3' }}>
+              <p className="text-[13px] mb-3" style={{ color: accent }}>
                 {post.kicker}
               </p>
             )}
-            <h3
-              className="text-[32px] md:text-[40px] font-semibold tracking-tight leading-[1.05] whitespace-pre-line"
-              style={{ color }}
-            >
-              {post.headline}
-            </h3>
-            {post.sub && (
-              <p className="mt-4 text-[16px] md:text-[18px]" style={{ color: muted }}>
+            {(kind === 'hero' || kind === 'cta' || kind === 'colors') && (
+              <h3
+                className="text-[32px] md:text-[40px] font-semibold tracking-tight leading-[1.05] whitespace-pre-line"
+                style={{ color }}
+              >
+                {post.headline}
+              </h3>
+            )}
+            {kind === 'list' && (
+              <>
+                <h3
+                  className="text-[28px] md:text-[34px] font-semibold tracking-tight leading-[1.08] mb-7"
+                  style={{ color }}
+                >
+                  {post.headline}
+                </h3>
+                <ul className="space-y-3">
+                  {(post.items ?? []).map((item) => (
+                    <li key={item} className="text-[16px] md:text-[17px]" style={{ color }}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+            {kind === 'colors' && (
+              <div className={`mt-8 flex gap-3 ${post.align === 'center' ? 'justify-center' : ''}`}>
+                {NEOS.map((neo) => (
+                  <span
+                    key={neo.id}
+                    className="w-8 h-8 rounded-full"
+                    style={{ background: neo.neo, boxShadow: 'inset 0 0 0 2px rgba(255,255,255,0.55)' }}
+                  />
+                ))}
+              </div>
+            )}
+            {post.sub && kind !== 'list' && (
+              <p className="mt-4 text-[16px] md:text-[18px] leading-snug" style={{ color: muted }}>
                 {post.sub}
               </p>
             )}
             {post.cta && (
               <div
-                className="mt-8 rounded-full px-5 py-2.5 text-[15px] self-center"
+                className={`mt-8 rounded-full px-5 py-2.5 text-[15px] ${post.align === 'center' ? 'self-center' : 'self-start'}`}
                 style={{
-                  background: dark ? '#fff' : '#0071e3',
+                  background: dark ? '#fff' : academy ? post.neo?.neo ?? LARANJA.neo : '#0071e3',
                   color: dark ? '#1d1d1f' : '#fff',
                 }}
               >
@@ -253,16 +332,21 @@ function PostArt({ post }: { post: CampaignPost }): React.ReactElement {
       </div>
       <div className="mt-5 flex items-start justify-between gap-3">
         <div>
-          <p className="text-[15px] font-semibold tracking-tight text-apple-ink">{post.title}</p>
+          <p className="text-[15px] font-semibold tracking-tight text-apple-ink">
+            {post.n ? `${post.n} · ${post.title}` : post.title}
+          </p>
           <p className="text-[12px] text-apple-gray mt-0.5">
+            {post.account === 'academy' ? '@odontohub.academy' : '@odontohub.app'}
+            {' · '}
             {post.format === 'story' ? '9:16' : post.format === 'square' ? '1:1' : '4:5'}
           </p>
         </div>
         <div className="flex items-center gap-3 shrink-0">
           <button
             type="button"
-            onClick={() => downloadNode(ref.current, `${slug(post.title)}.png`)}
-            className="text-[13px] text-[#0066cc]"
+            onClick={() => downloadNode(ref.current, `${post.account}-${post.n}-${slug(post.title)}.png`)}
+            className="text-[13px]"
+            style={{ color: link }}
           >
             Baixar
           </button>
@@ -273,13 +357,44 @@ function PostArt({ post }: { post: CampaignPost }): React.ReactElement {
               window.setTimeout(() => setCopied(false), 1600);
               void navigator.clipboard?.writeText(post.caption).catch(() => undefined);
             }}
-            className="text-[13px] text-[#0066cc]"
+            className="text-[13px]"
+            style={{ color: link }}
           >
             {copied ? 'Copiado' : 'Legenda'}
           </button>
         </div>
       </div>
       <p className="mt-2 text-[13px] text-apple-gray leading-relaxed whitespace-pre-line">{post.caption}</p>
+    </div>
+  );
+}
+
+function HighlightCover({ item }: { item: Highlight }): React.ReactElement {
+  const ref = useRef<HTMLDivElement>(null);
+  const dark = item.surface === 'black' || item.surface === 'blue' || item.surface === 'neo';
+  const color = dark ? '#f5f5f7' : '#1d1d1f';
+  const link = item.account === 'academy' ? item.neo?.neo ?? LARANJA.neo : '#0066cc';
+
+  return (
+    <div className="flex flex-col items-center">
+      <div
+        ref={ref}
+        className="w-[168px] h-[168px] rounded-full flex items-center justify-center"
+        style={{ background: surfaceFill(item.surface, item.neo) }}
+      >
+        <p className="text-[15px] font-semibold tracking-tight text-center px-6 leading-tight" style={{ color }}>
+          {item.title}
+        </p>
+      </div>
+      <p className="mt-4 text-[13px] text-apple-ink font-semibold tracking-tight">{item.title}</p>
+      <button
+        type="button"
+        onClick={() => downloadNode(ref.current, `destaque-${slug(item.title)}.png`)}
+        className="mt-2 text-[13px]"
+        style={{ color: link }}
+      >
+        Baixar
+      </button>
     </div>
   );
 }
@@ -302,7 +417,14 @@ function ShotList({ shots }: { shots: Shot[] }): React.ReactElement {
 }
 
 export default function Campaign(): React.ReactElement {
-  const [tab, setTab] = useState<'feed' | 'stories' | 'carrossel'>('feed');
+  const [account, setAccount] = useState<'app' | 'academy'>('app');
+  const [format, setFormat] = useState<'feed' | 'stories' | 'carrossel' | 'destaques'>('feed');
+  const academyOn = account === 'academy';
+  const profile = academyOn ? ACADEMY_PROFILE : APP_PROFILE;
+  const feed = academyOn ? ACADEMY_FEED : APP_FEED;
+  const stories = academyOn ? ACADEMY_STORIES : APP_STORIES;
+  const squares = academyOn ? ACADEMY_SQUARES : APP_SQUARES;
+  const highlights = academyOn ? ACADEMY_HIGHLIGHTS : APP_HIGHLIGHTS;
 
   const scrollToFilm = useCallback(() => {
     document.getElementById('filme')?.scrollIntoView({ behavior: 'smooth' });
@@ -342,8 +464,8 @@ export default function Campaign(): React.ReactElement {
               <button type="button" onClick={scrollToFilm} className="apple-btn">
                 Assista o filme
               </button>
-              <a href="#linha" className="apple-link !text-[#2997ff]">
-                A linha <span aria-hidden>›</span>
+              <a href="#feeds" className="apple-link !text-[#2997ff]">
+                Os feeds <span aria-hidden>›</span>
               </a>
             </div>
           </motion.div>
@@ -484,29 +606,67 @@ export default function Campaign(): React.ReactElement {
         </div>
       </section>
 
-      <section className="bg-apple-surface text-apple-ink px-5 py-24 md:py-32">
+      <section
+        id="feeds"
+        className="px-5 py-24 md:py-32"
+        style={{ background: academyOn ? LARANJA.wash : '#f5f5f7', color: '#1d1d1f' }}
+      >
         <div className="max-w-[1100px] mx-auto">
           <Reveal className="mb-10 md:mb-14">
-            <h2 className="apple-display-ink text-[40px] md:text-[56px]">Os cortes.</h2>
-            <p className="apple-subhead text-[19px] mt-4 max-w-[520px]">
-              O mesmo filme, no formato de quem vai postar. Baixe a arte. Copie a legenda. Não acrescente.
+            <h2 className="apple-display-ink text-[40px] md:text-[56px]">Os dois feeds.</h2>
+            <p className="apple-subhead text-[19px] mt-4 max-w-[560px]">
+              Como a Apple abre uma conta. Do post 01. Uma ideia por quadro. O leitor entende no primeiro olhar.
             </p>
+            <div className="mt-8 flex flex-wrap gap-2">
+              {(
+                [
+                  { id: 'app', label: '@odontohub.app' },
+                  { id: 'academy', label: '@odontohub.academy' },
+                ] as const
+              ).map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => setAccount(item.id)}
+                  className="rounded-full px-4 py-2 text-[13px] transition-colors"
+                  style={
+                    account === item.id
+                      ? academyOn && item.id === 'academy'
+                        ? { background: LARANJA.neo, color: '#fff' }
+                        : { background: '#1d1d1f', color: '#fff' }
+                      : { background: '#fff', color: '#1d1d1f' }
+                  }
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+            <div className="mt-10 max-w-[520px]">
+              <p className="text-[19px] font-semibold tracking-tight">{profile.handle}</p>
+              <p className="mt-3 text-[22px] md:text-[28px] font-semibold tracking-tight leading-[1.15] whitespace-pre-line">
+                {profile.bio}
+              </p>
+              <p className="mt-4 text-[13px] text-apple-gray">{profile.note}</p>
+            </div>
             <div className="mt-8 flex flex-wrap gap-2">
               {(
                 [
                   { id: 'feed', label: 'Feed' },
                   { id: 'stories', label: 'Stories' },
                   { id: 'carrossel', label: 'Carrossel' },
+                  { id: 'destaques', label: 'Destaques' },
                 ] as const
               ).map((item) => (
                 <button
                   key={item.id}
                   type="button"
-                  onClick={() => setTab(item.id)}
+                  onClick={() => setFormat(item.id)}
                   className="rounded-full px-4 py-2 text-[13px] transition-colors"
                   style={
-                    tab === item.id
-                      ? { background: '#1d1d1f', color: '#fff' }
+                    format === item.id
+                      ? academyOn
+                        ? { background: LARANJA.neo, color: '#fff' }
+                        : { background: '#1d1d1f', color: '#fff' }
                       : { background: '#fff', color: '#1d1d1f' }
                   }
                 >
@@ -516,29 +676,38 @@ export default function Campaign(): React.ReactElement {
             </div>
           </Reveal>
 
-          {tab === 'feed' && (
+          {format === 'feed' && (
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 md:gap-12">
-              {FEED.map((post) => (
+              {feed.map((post) => (
                 <React.Fragment key={post.id}>
                   <PostArt post={post} />
                 </React.Fragment>
               ))}
             </div>
           )}
-          {tab === 'stories' && (
+          {format === 'stories' && (
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 md:gap-12">
-              {STORIES.map((post) => (
+              {stories.map((post) => (
                 <React.Fragment key={post.id}>
                   <PostArt post={post} />
                 </React.Fragment>
               ))}
             </div>
           )}
-          {tab === 'carrossel' && (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-              {SQUARES.map((post) => (
+          {format === 'carrossel' && (
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 md:gap-12">
+              {squares.map((post) => (
                 <React.Fragment key={post.id}>
                   <PostArt post={post} />
+                </React.Fragment>
+              ))}
+            </div>
+          )}
+          {format === 'destaques' && (
+            <div className="flex flex-wrap gap-10">
+              {highlights.map((item) => (
+                <React.Fragment key={`${item.account}-${item.title}`}>
+                  <HighlightCover item={item} />
                 </React.Fragment>
               ))}
             </div>
