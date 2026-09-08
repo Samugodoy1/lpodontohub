@@ -83,13 +83,15 @@ export const VIRADA_STORY = [
   },
 ];
 
-export const COMMERCIAL: {
+export type Shot = {
   at: string;
   dur: number;
   src: string | null;
   picture: string;
   beat: string;
-}[] = [
+};
+
+export const COMMERCIAL: Shot[] = [
   {
     at: '00:00',
     dur: 2500,
