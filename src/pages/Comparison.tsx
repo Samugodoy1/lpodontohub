@@ -244,7 +244,7 @@ export default function Comparison() {
         </div>
       </section>
 
-      <DarkCTA title="Escolha o essencial." subtitle="Comece grátis. Sem cartão." href={START_PRO} />
+      <DarkCTA title="Assine o OdontoHub." subtitle="A partir de R$ 190 por mês." href={START_PRO} label="Assinar" />
     </div>
   );
 }

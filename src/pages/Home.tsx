@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
-const START = 'https://sistema.odontohub.app.br';
+import { HUB_FROM_MONTHLY, HUB_PLANS, START_PRO as START, brl } from '../data/plans';
 
 function Reveal({
   children,
@@ -157,6 +157,97 @@ const AcademyDevice = () => (
   </div>
 );
 
+function HubPlans() {
+  const [yearly, setYearly] = useState(true);
+
+  return (
+    <section id="planos" className="bg-white text-apple-ink px-5 py-24 md:py-32 scroll-mt-12">
+      <div className="max-w-[980px] mx-auto">
+        <Reveal className="text-center mb-10 md:mb-12">
+          <h2 className="apple-display-ink text-[40px] md:text-[56px]">Assine o OdontoHub.</h2>
+          <p className="apple-subhead text-[19px] md:text-[21px] mt-4">
+            A partir de R$&nbsp;{brl(HUB_FROM_MONTHLY)} por mês.
+          </p>
+        </Reveal>
+
+        <div className="flex justify-center mb-12">
+          <div className="inline-flex rounded-full bg-apple-surface p-1">
+            {(
+              [
+                { id: false, label: 'Mensal' },
+                { id: true, label: 'Anual' },
+              ] as const
+            ).map((item) => (
+              <button
+                key={String(item.id)}
+                type="button"
+                onClick={() => setYearly(item.id)}
+                className="rounded-full px-5 py-2 text-[13px] font-medium transition-colors"
+                style={
+                  yearly === item.id
+                    ? { background: '#1d1d1f', color: '#f5f5f7' }
+                    : { color: '#1d1d1f' }
+                }
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 items-stretch max-w-[820px] mx-auto">
+          {HUB_PLANS.map((plan, i) => {
+            const amount = yearly ? plan.yearly : plan.monthly;
+            const unit = yearly ? '/ano' : '/mês';
+            const dark = plan.featured;
+            return (
+              <React.Fragment key={plan.id}>
+                <Reveal delay={i * 0.06} className="h-full">
+                  <div
+                    className={`h-full rounded-[28px] p-8 md:p-10 flex flex-col ${
+                      dark ? 'bg-[#1d1d1f] text-white' : 'bg-apple-surface text-apple-ink'
+                    }`}
+                  >
+                    <h3 className="text-[24px] font-semibold tracking-tight">{plan.name}</h3>
+                    <p className={`mt-2 text-[15px] ${dark ? 'text-white/50' : 'text-apple-gray'}`}>{plan.line}</p>
+                    <p className="mt-6 text-[40px] md:text-[44px] font-semibold tracking-tight tabular-nums">
+                      R$&nbsp;{brl(amount)}
+                      <span className={`text-[17px] font-normal ${dark ? 'text-white/40' : 'text-apple-gray'}`}>
+                        {unit}
+                      </span>
+                    </p>
+                    <p className={`text-[13px] mt-1 mb-8 ${dark ? 'text-white/40' : 'text-apple-gray'}`}>
+                      {yearly
+                        ? `R$ ${brl(Math.round(plan.yearly / 12))}/mês, cobrado anualmente.`
+                        : 'Cobrada no início de cada mês.'}
+                    </p>
+                    <ul className={`space-y-3 text-[14px] flex-grow mb-10 ${dark ? 'text-white/80' : 'text-apple-ink/80'}`}>
+                      {plan.features.map((f) => (
+                        <li key={f} className="flex gap-2">
+                          <span className={dark ? 'text-white/35' : 'text-apple-gray'}>–</span>
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                    <a href={`${START}?plan=${plan.id}${yearly ? '-anual' : ''}`} className={dark ? 'apple-btn-light w-full' : 'apple-btn w-full'}>
+                      {plan.cta}
+                    </a>
+                  </div>
+                </Reveal>
+              </React.Fragment>
+            );
+          })}
+        </div>
+
+        <p className="mt-10 text-center text-[12px] text-apple-gray max-w-[520px] mx-auto leading-relaxed">
+          Um mês incluso na primeira assinatura. A renovação é automática. Cancele quando quiser.
+          OdontoHub+ inclui tudo o que está no OdontoHub.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white">
@@ -164,7 +255,7 @@ export default function Home() {
         <title>OdontoHub — O sistema para o consultório</title>
         <meta
           name="description"
-          content="OdontoHub é o sistema para dentistas. Agenda, prontuário, confirmações e finanças — com o mínimo de ruído. Comece gratuitamente."
+          content="OdontoHub é o sistema para o consultório. Agenda, prontuário, confirmações e finanças — com o mínimo de ruído. A partir de R$ 190 por mês."
         />
         <meta
           name="keywords"
@@ -432,95 +523,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PLANS */}
-      <section id="planos" className="bg-white text-apple-ink px-5 py-24 md:py-32 scroll-mt-12">
-        <div className="max-w-[980px] mx-auto">
-          <Reveal className="text-center mb-14 md:mb-16">
-            <h2 className="apple-display-ink text-[40px] md:text-[56px]">Escolha o OdontoHub.</h2>
-            <p className="apple-subhead text-[19px] md:text-[21px] mt-4">Do gratuito ao Pro. Sem contrato. Sem cartão para começar.</p>
-          </Reveal>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-5 items-stretch">
-            <Reveal className="h-full">
-              <div className="h-full rounded-[28px] bg-apple-surface p-8 md:p-10 flex flex-col">
-                <h3 className="text-[24px] font-semibold tracking-tight">Gratuito</h3>
-                <p className="mt-4 text-[40px] font-semibold tracking-tight">R$&nbsp;0</p>
-                <p className="text-[14px] text-apple-gray mt-1 mb-8">Para sempre</p>
-                <ul className="space-y-3 text-[14px] text-apple-ink/80 flex-grow mb-10">
-                  {[
-                    'Pacientes e agendamentos com limite',
-                    'Histórico centralizado',
-                    'Fichas e agenda básicas',
-                    'Interface limpa, sem anúncios',
-                  ].map((f) => (
-                    <li key={f} className="flex gap-2">
-                      <span className="text-apple-gray">–</span>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <a href={START} className="apple-btn w-full">
-                  Criar conta
-                </a>
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.06} className="h-full">
-              <div className="h-full rounded-[28px] bg-apple-surface p-8 md:p-10 flex flex-col">
-                <h3 className="text-[24px] font-semibold tracking-tight">Essencial</h3>
-                <p className="mt-4 text-[40px] font-semibold tracking-tight">
-                  R$&nbsp;49,90<span className="text-[17px] font-normal text-apple-gray">/mês</span>
-                </p>
-                <p className="text-[14px] text-apple-gray mt-1 mb-8">Até 150 pacientes</p>
-                <ul className="space-y-3 text-[14px] text-apple-ink/80 flex-grow mb-10">
-                  {[
-                    'Até 150 prontuários ativos',
-                    'Até 150 agendamentos por mês',
-                    'Confirmação no WhatsApp',
-                    'Prontuário fotográfico',
-                    'Dashboard financeiro',
-                  ].map((f) => (
-                    <li key={f} className="flex gap-2">
-                      <span className="text-apple-gray">–</span>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <a href={START} className="apple-btn w-full">
-                  Assinar Essencial
-                </a>
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.12} className="h-full">
-              <div className="h-full rounded-[28px] bg-[#1d1d1f] text-white p-8 md:p-10 flex flex-col">
-                <h3 className="text-[24px] font-semibold tracking-tight">Pro</h3>
-                <p className="mt-4 text-[40px] font-semibold tracking-tight">
-                  R$&nbsp;99,90<span className="text-[17px] font-normal text-white/40">/mês</span>
-                </p>
-                <p className="text-[14px] text-white/45 mt-1 mb-8">Ilimitado</p>
-                <ul className="space-y-3 text-[14px] text-white/80 flex-grow mb-10">
-                  {[
-                    'Pacientes e agenda ilimitados',
-                    'Inteligência artificial completa',
-                    'Encaixes e retornos automáticos',
-                    'Painel do que fazer hoje',
-                    'Previsão de caixa',
-                  ].map((f) => (
-                    <li key={f} className="flex gap-2">
-                      <span className="text-white/35">–</span>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <a href={START} className="apple-btn-light w-full">
-                  Assinar Pro
-                </a>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
+      <HubPlans />
 
       {/* FAQ */}
       <section className="bg-apple-surface text-apple-ink px-5 py-24 md:py-32">
@@ -535,8 +538,12 @@ export default function Home() {
                 a: 'Não. Sistemas tradicionais arquivam papéis digitais. O OdontoHub transforma a rotina em uma lista curta do que fazer. Se não houver pendência, ele some.',
               },
               {
-                q: 'O que muda no plano Pro?',
-                a: 'O gratuito organiza agenda e fichas. O Pro ativa lembretes automáticos, previsão de caixa e a inteligência que encontra o próximo passo — e cala quando não há um.',
+                q: 'O que é o OdontoHub+?',
+                a: 'O OdontoHub é o sistema: agenda, paciente, confirmações, prontuário. O + acrescenta a inteligência que antecipa — encaixes, retornos, previsão de caixa — e some quando o dia está resolvido.',
+              },
+              {
+                q: 'Como funciona a assinatura?',
+                a: 'Mensal ou anual. Um mês incluso na primeira assinatura. Depois, a renovação é automática. Cancele quando quiser.',
               },
               {
                 q: 'Como os dados são protegidos?',
@@ -565,9 +572,9 @@ export default function Home() {
       <section className="bg-black px-5 py-28 md:py-40">
         <div className="max-w-[780px] mx-auto text-center">
           <Reveal>
-            <h2 className="apple-display text-[40px] md:text-[72px] mb-6">Comece hoje.</h2>
+            <h2 className="apple-display text-[40px] md:text-[72px] mb-6">Assine o OdontoHub.</h2>
             <p className="apple-subhead text-[19px] md:text-[24px] mb-10">
-              Grátis para começar. Sem cartão de crédito.
+              A partir de R$&nbsp;{brl(HUB_FROM_MONTHLY)} por mês. Um mês para conhecer.
             </p>
             <a href={START} className="apple-btn">
               Começar

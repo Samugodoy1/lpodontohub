@@ -55,7 +55,7 @@ export const Footer = () => {
                 Entrar
               </a>
               <a href={isAcademy ? 'https://academy.odontohub.app.br' : 'https://sistema.odontohub.app.br'} className={linkClass}>
-                Começar grátis
+                Começar
               </a>
               <Link to="/academy/embaixadores" className={linkClass}>Embaixadores</Link>
               <a href="https://instagram.com/odontohub.app" target="_blank" rel="noreferrer" className={linkClass}>

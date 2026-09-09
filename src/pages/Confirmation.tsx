@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { motion } from 'motion/react';
+import { hubPlanByQuery } from '../data/plans';
 
 export default function Confirmation() {
   const [searchParams] = useSearchParams();
@@ -16,15 +17,10 @@ export default function Confirmation() {
   );
 
   const getPlanDetails = () => {
+    const hub = hubPlanByQuery(plan);
+    if (hub) return hub;
+
     switch (plan.toLowerCase()) {
-      case 'essencial':
-        return {
-          name: 'OdontoHub Essencial',
-          price: 'R$ 49,90',
-          period: 'Mensal',
-          subText: 'Para o consultório solo em crescimento',
-          redirectUrl: 'https://sistema.odontohub.app.br',
-        };
       case 'clinico':
         return {
           name: 'Academy Clínico',
@@ -42,15 +38,8 @@ export default function Confirmation() {
           subText: 'Arquivo completo da graduação',
           redirectUrl: 'https://academy.odontohub.app.br',
         };
-      case 'pro':
       default:
-        return {
-          name: 'OdontoHub Pro',
-          price: 'R$ 99,90',
-          period: 'Mensal',
-          subText: 'O consultório, sem ruído',
-          redirectUrl: 'https://sistema.odontohub.app.br',
-        };
+        return hubPlanByQuery('plus') as NonNullable<ReturnType<typeof hubPlanByQuery>>;
     }
   };
 
