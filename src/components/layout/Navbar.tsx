@@ -84,7 +84,7 @@ export const Navbar = () => {
             }`}
             style={isAcademy ? { background: 'var(--neo)' } : undefined}
           >
-            Começar
+            {isAcademy ? 'Começar grátis' : 'Assinar'}
           </a>
         </div>
 
@@ -122,7 +122,7 @@ export const Navbar = () => {
                   href={startHref}
                   className={`${isAcademy ? 'neo-btn' : 'apple-btn'} !text-[15px] !py-2.5 !px-5`}
                 >
-                  Começar
+                  {isAcademy ? 'Começar grátis' : 'Assinar'}
                 </a>
                 <a href={loginHref} className={`self-center ${dark ? 'text-[#2997ff]' : 'text-[#0066cc]'}`}>
                   Entrar

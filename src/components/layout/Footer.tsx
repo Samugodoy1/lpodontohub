@@ -13,8 +13,8 @@ export const Footer = () => {
     <footer className="bg-apple-surface text-apple-gray-2">
       <div className="max-w-[980px] mx-auto px-5 pt-10 pb-8">
         <p className="text-[12px] leading-relaxed border-b border-apple-line pb-5 mb-7">
-          OdontoHub é um sistema de gestão para dentistas e estudantes de odontologia.
-          Agenda, prontuário, confirmações e finanças — com o mínimo de ruído.
+          OdontoHub para o consultório. Academy para a clínica da faculdade.
+          Tudo em ordem, desde o primeiro box.
         </p>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
@@ -55,7 +55,7 @@ export const Footer = () => {
                 Entrar
               </a>
               <a href={isAcademy ? 'https://academy.odontohub.app.br' : 'https://sistema.odontohub.app.br'} className={linkClass}>
-                Começar
+                {isAcademy ? 'Começar grátis' : 'Assinar'}
               </a>
               <Link to="/academy/embaixadores" className={linkClass}>Embaixadores</Link>
               <a href="https://instagram.com/odontohub.app" target="_blank" rel="noreferrer" className={linkClass}>

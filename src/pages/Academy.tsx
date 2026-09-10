@@ -21,18 +21,18 @@ const COLORWAYS: NeoColorway[] = [
 ];
 
 const FEATURES = [
-  { t: 'Dossiê de pacientes', d: 'Dados, planejamento e anotações. Um lugar. Sem papéis soltos.' },
-  { t: 'Checklists por disciplina', d: 'O que levar. O que esterilizar. Sem esquecer o instrumental.' },
-  { t: 'Modo Box', d: 'Letras grandes. Celular apoiado. Sem tocar a tela de luvas.' },
-  { t: 'Galeria segura', d: 'Fotos do caso no paciente. Fora do rolo pessoal.' },
-  { t: 'Evoluções prontas', d: 'Modelos limpos. Assinatura do preceptor em segundos.' },
-  { t: 'Odonto em Jogo', d: 'Casos rápidos, vidas e XP. Você pratica a clínica e avança uma fase por vez.' },
+  { t: 'Seu paciente', d: 'Planejamento, anotações e histórico juntos. O caso inteiro antes de chamar.' },
+  { t: 'Nada ficou na esterilização', d: 'Cada disciplina com o próprio checklist. Você separa uma vez e entra em paz.' },
+  { t: 'Modo Box', d: 'O próximo passo grande, à distância. Celular apoiado. Luvas longe da tela.' },
+  { t: 'Fotos no lugar certo', d: 'Cada imagem dentro do caso. Seu rolo pessoal volta a ser pessoal.' },
+  { t: 'Evolução sem começar do zero', d: 'Modelos limpos para registrar, revisar e levar ao preceptor.' },
+  { t: 'Odonto em Jogo', d: 'Casos rápidos, XP e vidas. Pratique hoje o que pode aparecer amanhã.' },
 ];
 
 const MOMENTS = [
-  { n: '01', t: 'Antes.', d: 'Separe o instrumental pelo checklist da disciplina. Nada esquecido na esterilização.' },
-  { n: '02', t: 'No box.', d: 'Modo Box: alto contraste, passos visíveis a um metro. Biossegurança intacta.' },
-  { n: '03', t: 'Depois.', d: 'Fotos no paciente. Evolução rascunhada. Feche o app e vá embora.' },
+  { n: '01', t: 'Na véspera.', d: 'O caso revisado. O instrumental separado. Amanhã deixa de começar no grupo da sala.' },
+  { n: '02', t: 'Antes de chamar.', d: 'Paciente, planejamento e próximo passo na mesma tela. Respira. Agora entra.' },
+  { n: '03', t: 'Quando termina.', d: 'Fotos no caso. Evolução encaminhada. O atendimento fica pronto para a próxima clínica.' },
 ];
 
 const PLANS = [
@@ -41,6 +41,7 @@ const PLANS = [
     price: 'R$ 0',
     note: 'Para sempre',
     feats: ['Até 3 pacientes', 'Agenda básica', 'Checklists essenciais', 'Até 50 fotos'],
+    cta: 'Começar grátis',
     featured: false,
   },
   {
@@ -48,6 +49,7 @@ const PLANS = [
     price: 'R$ 12,90',
     note: '/mês',
     feats: ['Até 15 pacientes', 'Até 500 fotos', 'Todas as disciplinas', 'Evolução em PDF'],
+    cta: 'Escolher Clínico',
     featured: false,
   },
   {
@@ -55,6 +57,7 @@ const PLANS = [
     price: 'R$ 24,90',
     note: '/mês',
     feats: ['Tudo ilimitado', 'Modo Box', 'Ficha completa em PDF', 'Suporte na clínica'],
+    cta: 'Escolher Ilimitado',
     featured: true,
   },
 ];
@@ -78,7 +81,7 @@ const FAQS = [
   },
   {
     q: 'O que é o Odonto em Jogo?',
-    a: 'É como um Duolingo da odontologia: você escolhe um tema, responde situações clínicas curtas e avança pela trilha. Cada acerto dá XP; cada erro custa uma vida e mostra o que revisar.',
+    a: 'Uma trilha de situações clínicas curtas. Você escolhe um tema e decide a conduta. Cada acerto dá XP; cada erro custa uma vida e mostra o que revisar.',
   },
   {
     q: 'Preciso jogar para usar o Academy?',
@@ -117,7 +120,7 @@ function AcademyDevice() {
           </span>
         </div>
         <h3 className="text-[22px] md:text-[28px] font-semibold tracking-tight text-apple-ink leading-[1.12] mb-7">
-          Tudo pronto para o seu próximo atendimento.
+          Amanhã começa hoje.
         </h3>
         <div
           className="rounded-[22px] p-6 md:p-7 text-white"
@@ -162,13 +165,14 @@ export default function Academy() {
       }
     >
       <Helmet>
-        <title>OdontoHub Academy — Para a clínica da faculdade</title>
+        <title>OdontoHub Academy — Chegue no box sabendo</title>
         <meta
           name="description"
-          content="OdontoHub Academy organiza checklists, evoluções, Modo Box e o Odonto em Jogo para estudantes de odontologia. Grátis para começar."
+          content="Chegue no box sabendo. Organize o caso, separe o instrumental e pratique situações clínicas no Odonto em Jogo. Grátis para começar."
         />
         <link rel="canonical" href="https://www.odontohub.app.br/academy" />
-        <meta property="og:title" content="OdontoHub Academy — Para a clínica da faculdade" />
+        <meta property="og:title" content="OdontoHub Academy — Chegue no box sabendo" />
+        <meta property="og:description" content="O caso organizado. O instrumental separado. A conduta na cabeça." />
         <meta property="og:url" content="https://www.odontohub.app.br/academy" />
       </Helmet>
 
@@ -184,20 +188,19 @@ export default function Academy() {
         <div className="relative max-w-[980px] mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}>
             <p className="text-[19px] md:text-[21px] font-semibold tracking-tight mb-3" style={{ color: color.neo }}>
-              Academy
+              OdontoHub Academy
             </p>
             <h1 className="apple-display-ink text-[40px] sm:text-[56px] md:text-[72px] mb-5">
-              A clínica da faculdade.
-              <br />
-              Do seu jeito.
+              Chegue no box
+              <br /> sabendo.
             </h1>
             <p className="apple-subhead text-[19px] md:text-[24px] max-w-[560px] mx-auto mb-9">
-              Checklists. Evolução. Modo Box. Odonto em Jogo.
-              <br className="hidden md:block" /> Você entra no atendimento com a cabeça limpa.
+              O caso organizado. O instrumental separado. A conduta na cabeça.
+              <br className="hidden md:block" /> Antes de o paciente sentar.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
               <a href={START_ACADEMY} className="neo-btn">
-                Começar
+                Começar grátis
               </a>
               <a href="#como-funciona" className="neo-link">
                 Saiba mais <span aria-hidden>›</span>
@@ -237,12 +240,11 @@ export default function Academy() {
         <div className="max-w-[820px] mx-auto text-center">
           <Reveal>
             <h2 className="apple-display-ink text-[34px] md:text-[52px]">
-              Menos nervosismo
-              <br />
-              antes de entrar no box.
+              A clínica não espera
+              <br /> você se sentir pronto.
             </h2>
             <p className="apple-subhead text-[19px] md:text-[24px] mt-6 max-w-[520px] mx-auto">
-              A faculdade já exige o suficiente. O Academy organiza o caso. Você atende.
+              Quando o professor disser “pode chamar”, seu caso já está aberto. E você sabe por onde começar.
             </p>
           </Reveal>
         </div>
@@ -251,7 +253,9 @@ export default function Academy() {
       <section className="bg-white px-5 py-24 md:py-32">
         <div className="max-w-[980px] mx-auto">
           <Reveal className="text-center mb-14">
-            <h2 className="apple-display-ink text-[40px] md:text-[56px]">O essencial. O seu.</h2>
+            <h2 className="apple-display-ink text-[40px] md:text-[56px]">
+              Tudo o que você vai procurar amanhã. Hoje, num lugar só.
+            </h2>
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
             {FEATURES.map((item) => (
@@ -274,7 +278,7 @@ export default function Academy() {
       <section id="como-funciona" className="px-5 py-24 md:py-32 scroll-mt-12" style={{ background: color.wash }}>
         <div className="max-w-[980px] mx-auto">
           <Reveal className="text-center mb-16">
-            <h2 className="apple-display-ink text-[40px] md:text-[56px]">Três momentos. Seus.</h2>
+            <h2 className="apple-display-ink text-[40px] md:text-[56px]">Antes. Durante. Depois. Sem improviso.</h2>
           </Reveal>
           <div className="space-y-16 md:space-y-20">
             {MOMENTS.map((item) => (
@@ -297,12 +301,11 @@ export default function Academy() {
           <Reveal>
             <p className="text-[19px] font-semibold tracking-tight text-white/80 mb-2">Modo Box</p>
             <h2 className="text-[40px] md:text-[56px] font-semibold tracking-tight leading-[1.05]">
-              A lista de passos,
-              <br />
-              visível de longe.
+              O próximo passo.
+              <br /> Na sua frente.
             </h2>
             <p className="text-[19px] mt-5 max-w-[440px] text-white/80 leading-snug">
-              Luvas. Sem toque. O celular apoiado. O próximo passo, grande o suficiente para só olhar.
+              Alto contraste. Letras grandes. Celular apoiado. Você olha uma vez e continua o atendimento.
             </p>
           </Reveal>
           <Reveal>
@@ -335,15 +338,14 @@ export default function Academy() {
               Odonto em Jogo
             </p>
             <h2 className="apple-display-ink text-[40px] md:text-[56px]">
-              Da teoria para a clínica.
-              <br />
-              Uma fase por vez.
+              Pratique hoje.
+              <br /> Reconheça amanhã.
             </h2>
             <p className="apple-subhead text-[19px] mt-5 max-w-[440px]">
-              É como um Duolingo feito para quem estuda odontologia.
+              Casos clínicos curtos numa trilha feita para odontologia.
             </p>
             <p className="text-[15px] text-apple-gray mt-6 leading-relaxed max-w-[440px]">
-              Escolha um tema, responda situações que aparecem na clínica e avance pela trilha. Acertou? Ganha XP e mantém a sequência. Errou? Perde uma vida, revisa e tenta de novo.
+              Escolha um tema e decida a conduta. Acertou: XP e a próxima fase. Errou: uma vida, a revisão e outra chance antes de precisar lembrar no box.
             </p>
             <div className="mt-8 grid grid-cols-3 gap-3 max-w-[360px]">
               {[
@@ -373,7 +375,7 @@ export default function Academy() {
               <div className="relative h-full w-full rounded-[36px] overflow-hidden text-left px-6 pt-12" style={{ background: '#fff' }}>
                 <p className="text-[12px] text-apple-gray mb-1">Nina</p>
                 <p className="text-[20px] font-semibold tracking-tight text-apple-ink leading-[1.15] mb-8">
-                  Mandou bem. Bora para a próxima?
+                  Você reconheceria esse caso amanhã?
                 </p>
                 <p className="text-[12px] mb-4" style={{ color: color.neo }}>
                   A sua trilha
@@ -411,8 +413,8 @@ export default function Academy() {
       <section id="planos" className="bg-white px-5 py-24 md:py-32 scroll-mt-12">
         <div className="max-w-[980px] mx-auto">
           <Reveal className="text-center mb-14">
-            <h2 className="apple-display-ink text-[40px] md:text-[56px]">Escolha o seu Academy.</h2>
-            <p className="apple-subhead text-[19px] mt-4">Grátis para começar. Sem anúncios. Sem venda de dados.</p>
+            <h2 className="apple-display-ink text-[40px] md:text-[56px]">Seu primeiro paciente cabe no grátis.</h2>
+            <p className="apple-subhead text-[19px] mt-4">Comece com três. Leve todos quando a clínica crescer.</p>
           </Reveal>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             {PLANS.map((plan) => (
@@ -436,7 +438,7 @@ export default function Academy() {
                   ))}
                 </ul>
                 <a href={START_ACADEMY} className={plan.featured ? 'apple-btn-light w-full' : 'neo-btn w-full'}>
-                  Começar
+                  {plan.cta}
                 </a>
               </div>
             ))}
@@ -466,8 +468,8 @@ export default function Academy() {
 
       <section className="bg-white px-5 py-24">
         <div className="max-w-[680px] mx-auto text-center">
-          <h2 className="apple-display-ink text-[34px] md:text-[48px] mb-4">Acabou de se formar?</h2>
-          <p className="apple-subhead text-[19px] mb-8">Leve o arquivo do Academy para o OdontoHub. Sem recomeçar do zero.</p>
+          <h2 className="apple-display-ink text-[34px] md:text-[48px] mb-4">A faculdade termina. Seu arquivo não.</h2>
+          <p className="apple-subhead text-[19px] mb-8">Leve pacientes, fotos e evoluções para o OdontoHub. O primeiro consultório já começa com história.</p>
           <Link to="/" className="apple-link">
             Conhecer o OdontoHub <span aria-hidden>›</span>
           </Link>
@@ -477,11 +479,11 @@ export default function Academy() {
       <section className="px-5 py-24 md:py-36 text-white" style={{ background: color.neo }}>
         <div className="max-w-[780px] mx-auto text-center">
           <h2 className="text-[36px] md:text-[56px] font-semibold tracking-tight leading-[1.05] mb-5">
-            Entre na clínica do seu jeito.
+            Sua próxima clínica começa agora.
           </h2>
-          <p className="text-[19px] md:text-[21px] text-white/80 mb-9">Grátis para começar.</p>
+          <p className="text-[19px] md:text-[21px] text-white/80 mb-9">Três pacientes. Grátis para sempre.</p>
           <a href={START_ACADEMY} className="apple-btn-light">
-            Começar
+            Começar grátis
           </a>
         </div>
       </section>

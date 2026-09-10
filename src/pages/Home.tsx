@@ -58,17 +58,17 @@ const AppleLink = ({ href, children, light = false }: { href: string; children: 
 const StudioDashboard = () => (
   <div className="apple-device overflow-hidden text-left">
     <div className="px-6 md:px-10 pt-7 md:pt-10 pb-8 md:pb-12 bg-[#fbfbfd]">
-      <p className="text-[13px] md:text-[15px] text-apple-gray mb-2">Bom dia, doutor.</p>
+      <p className="text-[13px] md:text-[15px] text-apple-gray mb-2">Seu dia já começou.</p>
       <h3 className="text-[22px] md:text-[34px] font-semibold tracking-tight text-apple-ink leading-[1.12] max-w-xl">
-        Hoje, 8 atendimentos.
+        Oito atendimentos.
         <br />
-        Dois ainda não confirmaram.
+        Seis já confirmados.
       </h3>
 
       <div className="mt-7 md:mt-9 flex flex-col sm:flex-row gap-3 sm:items-center justify-between rounded-2xl bg-white px-5 py-4 shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
-        <p className="text-[14px] md:text-[15px] text-apple-ink/80">Enviar lembretes agora?</p>
+        <p className="text-[14px] md:text-[15px] text-apple-ink/80">Dois ainda não responderam.</p>
         <span className="inline-flex self-start sm:self-auto items-center rounded-full bg-[#0071e3] text-white text-[13px] px-4 py-1.5">
-          Enviar
+          Lembrar agora
         </span>
       </div>
 
@@ -99,12 +99,12 @@ const QuietDashboard = () => (
           <path d="M20 6 9 17l-5-5" />
         </svg>
       </div>
-      <p className="text-[13px] text-apple-gray mb-3">Silêncio ativo</p>
+      <p className="text-[13px] text-apple-gray mb-3">Dia concluído</p>
       <h3 className="text-[26px] md:text-[36px] font-semibold tracking-tight text-apple-ink leading-[1.12] max-w-md">
-        Tudo certo para hoje.
+        Nada ficou para amanhã.
       </h3>
       <p className="mt-4 text-[15px] md:text-[17px] text-apple-gray max-w-sm leading-relaxed">
-        Seis pacientes confirmados. O caixa está em equilíbrio. Pode fechar o sistema.
+        Agenda confirmada. Retornos em dia. Caixa conferido. Agora, feche o sistema.
       </p>
     </div>
   </div>
@@ -164,9 +164,9 @@ function HubPlans() {
     <section id="planos" className="bg-white text-apple-ink px-5 py-24 md:py-32 scroll-mt-12">
       <div className="max-w-[980px] mx-auto">
         <Reveal className="text-center mb-10 md:mb-12">
-          <h2 className="apple-display-ink text-[40px] md:text-[56px]">Assine o OdontoHub.</h2>
+          <h2 className="apple-display-ink text-[40px] md:text-[56px]">Seu primeiro mês está incluído.</h2>
           <p className="apple-subhead text-[19px] md:text-[21px] mt-4">
-            A partir de R$&nbsp;{brl(HUB_FROM_MONTHLY)} por mês.
+            Depois, a partir de R$&nbsp;{brl(HUB_FROM_MONTHLY)} por mês.
           </p>
         </Reveal>
 
@@ -252,21 +252,21 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white">
       <Helmet>
-        <title>OdontoHub — O sistema para o consultório</title>
+        <title>OdontoHub — Chegue para atender</title>
         <meta
           name="description"
-          content="OdontoHub é o sistema para o consultório. Agenda, prontuário, confirmações e finanças — com o mínimo de ruído. A partir de R$ 190 por mês."
+          content="Chegue para atender. O OdontoHub organiza agenda, confirmações, prontuário, retornos e caixa antes da primeira cadeira."
         />
         <meta
           name="keywords"
           content="odontohub, software odontologico, sistema para consultorio odontologico, prontuario odontologico digital, estudante de odontologia"
         />
         <link rel="canonical" href="https://www.odontohub.app.br/" />
-        <meta property="og:title" content="OdontoHub — O sistema para o consultório" />
-        <meta property="og:description" content="Menos decisões. Mais presença. O sistema que cuida da rotina para o dentista cuidar do paciente." />
+        <meta property="og:title" content="OdontoHub — Chegue para atender" />
+        <meta property="og:description" content="Seu consultório já em ordem. Antes do primeiro paciente." />
         <meta property="og:url" content="https://www.odontohub.app.br/" />
-        <meta name="twitter:title" content="OdontoHub — O sistema para o consultório" />
-        <meta name="twitter:description" content="Menos decisões. Mais presença. O sistema que cuida da rotina para o dentista cuidar do paciente." />
+        <meta name="twitter:title" content="OdontoHub — Chegue para atender" />
+        <meta name="twitter:description" content="Seu consultório já em ordem. Antes do primeiro paciente." />
       </Helmet>
 
       {/* HERO */}
@@ -279,16 +279,16 @@ export default function Home() {
           >
             <p className="text-[19px] md:text-[21px] font-semibold tracking-tight text-[#f5f5f7] mb-3">OdontoHub</p>
             <h1 className="apple-display text-[40px] sm:text-[56px] md:text-[80px] mb-5 md:mb-6">
-              O sistema
-              <br className="sm:hidden" /> para o consultório.
+              Chegue
+              <br /> para atender.
             </h1>
             <p className="apple-subhead text-[19px] md:text-[28px] max-w-[640px] mx-auto mb-8 md:mb-10">
-              Ele cuida da agenda, do paciente e do caixa.
-              <br className="hidden md:block" /> Você cuida de quem está na cadeira.
+              Agenda confirmada. Prontuário pronto. Caixa visível.
+              <br className="hidden md:block" /> Antes do primeiro paciente.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
               <a href={START} className="apple-btn">
-                Começar
+                Começar agora
               </a>
               <AppleLink href="#agenda" light>
                 Saiba mais
@@ -318,11 +318,11 @@ export default function Home() {
         <div className="max-w-[820px] mx-auto text-center">
           <Reveal>
             <h2 className="apple-display text-[34px] md:text-[56px]">
-              O consultório não precisa de mais dados.
-              <span className="block mt-2 text-white/90">Precisa de menos decisões.</span>
+              Enquanto alguns ainda abrem o WhatsApp,
+              <span className="block mt-2 text-white/90">você abre a porta.</span>
             </h2>
             <p className="apple-subhead text-[19px] md:text-[24px] mt-8 max-w-[560px] mx-auto">
-              Se não houver nada urgente, o OdontoHub permanece em silêncio.
+              O dia já sabe quem vem, quem precisa voltar e o que merece atenção.
             </p>
           </Reveal>
         </div>
@@ -334,15 +334,14 @@ export default function Home() {
           <Reveal className="text-center mb-14 md:mb-20">
             <p className="text-[19px] md:text-[21px] font-semibold tracking-tight mb-2">Agenda</p>
             <h2 className="apple-display-ink text-[40px] md:text-[64px]">
-              Ela antecipa.
-              <br />
-              Você atende.
+              Uma cadeira vazia
+              <br /> não deveria ser surpresa.
             </h2>
             <p className="apple-subhead text-[19px] md:text-[24px] mt-5 max-w-[540px] mx-auto">
-              Janelas vazias, retornos esquecidos, confirmações pendentes. O sistema encontra. Você só autoriza.
+              Confirmações pendentes, retornos esquecidos e janelas livres aparecem antes de custarem o seu dia.
             </p>
             <div className="mt-6">
-              <AppleLink href={START}>Começar com a agenda</AppleLink>
+              <AppleLink href={START}>Ver o seu dia</AppleLink>
             </div>
           </Reveal>
           <Reveal>
@@ -355,14 +354,13 @@ export default function Home() {
       <section className="bg-black px-5 py-24 md:py-32">
         <div className="max-w-[980px] mx-auto">
           <Reveal className="text-center mb-14 md:mb-20">
-            <p className="text-[19px] md:text-[21px] font-semibold tracking-tight text-[#f5f5f7] mb-2">Silêncio ativo</p>
+            <p className="text-[19px] md:text-[21px] font-semibold tracking-tight text-[#f5f5f7] mb-2">Fim do expediente</p>
             <h2 className="apple-display text-[40px] md:text-[64px]">
-              Quando está tudo bem,
-              <br />
-              o sistema some.
+              Leve o trabalho a sério.
+              <br /> Não leve para casa.
             </h2>
             <p className="apple-subhead text-[19px] md:text-[24px] mt-5 max-w-[520px] mx-auto">
-              Sem alertas para parecer útil. Sem gráficos para prender você na tela. Paz é o produto.
+              Quando tudo está em ordem, não existe mais nada para conferir. Essa é a melhor tela do OdontoHub.
             </p>
           </Reveal>
           <Reveal>
@@ -382,16 +380,15 @@ export default function Home() {
           <Reveal className="order-1 md:order-2 text-center md:text-left">
             <p className="text-[19px] md:text-[21px] font-semibold tracking-tight mb-2">Paciente</p>
             <h2 className="apple-display-ink text-[40px] md:text-[56px]">
-              Ele confirma.
-              <br />
-              Sozinho.
+              Confirmado
+              <br /> antes de sentar.
             </h2>
             <p className="apple-subhead text-[19px] md:text-[21px] mt-5 max-w-[440px] md:max-w-none mx-auto md:mx-0">
-              Um toque no celular. A ficha preenchida antes de sentar. Orientações depois do procedimento. Sem ligar para a recepção.
+              Um toque para confirmar. A ficha pronta antes da chegada. As orientações no celular depois do procedimento.
             </p>
             <div className="mt-7 flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-start gap-5">
               <a href={START} className="apple-btn">
-                Começar
+                Começar agora
               </a>
               <AppleLink href="#planos">Ver os planos</AppleLink>
             </div>
@@ -403,13 +400,13 @@ export default function Home() {
       <section className="bg-black px-5 py-24 md:py-36">
         <div className="max-w-[820px] mx-auto">
           <Reveal className="text-center mb-16 md:mb-24">
-            <h2 className="apple-display text-[40px] md:text-[56px]">Três princípios.</h2>
+            <h2 className="apple-display text-[40px] md:text-[56px]">Do primeiro paciente ao último.</h2>
           </Reveal>
           <div className="space-y-16 md:space-y-24">
             {[
-              { n: '01', t: 'O que fazer em seguida.', d: 'Dados sem ação são ruído. Cada tela do OdontoHub responde a uma pergunta: o que merece atenção agora?' },
-              { n: '02', t: 'Se não houver ação, não há aviso.', d: 'Nada de notificações para justificar o software. Se não há o que fazer, não há o que mostrar.' },
-              { n: '03', t: 'Quando está tudo bem, silêncio.', d: 'O sucesso do sistema é você fechá-lo. Encerrar o dia sabendo que nada importante ficou para trás.' },
+              { n: '01', t: 'Antes. O dia se confirma.', d: 'Quem vem. Quem ainda não respondeu. Qual janela pode ser preenchida antes de ficar vazia.' },
+              { n: '02', t: 'Durante. Tudo já está à mão.', d: 'Prontuário, histórico e próximo passo. Menos procura entre um paciente e outro.' },
+              { n: '03', t: 'Depois. Nada acompanha você.', d: 'Retornos organizados. Caixa conferido. O consultório fica no consultório.' },
             ].map((item, i) => (
               <React.Fragment key={item.n}>
                 <Reveal delay={i * 0.06}>
@@ -429,16 +426,16 @@ export default function Home() {
       <section id="recursos" className="bg-apple-surface text-apple-ink px-5 py-24 md:py-32 scroll-mt-12">
         <div className="max-w-[980px] mx-auto">
           <Reveal className="text-center mb-14 md:mb-16">
-            <h2 className="apple-display-ink text-[40px] md:text-[56px]">A rotina, reduzida ao essencial.</h2>
+            <h2 className="apple-display-ink text-[40px] md:text-[56px]">Tudo o que o consultório pede. Só quando pede.</h2>
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
             {[
-              { t: 'Painel do dia', d: 'Uma lista. O que precisa de você. Depois, some.' },
-              { t: 'Prontuário', d: 'Sem campos inúteis. Histórico clínico em segundos.' },
-              { t: 'WhatsApp', d: 'Confirmações e lembretes no canal que o paciente já usa.' },
-              { t: 'Reagendamentos', d: 'Alguém desmarcou. O próximo da fila já está à espera.' },
-              { t: 'Caixa', d: 'A previsão das próximas semanas. Um aviso, só se houver risco.' },
-              { t: 'Retornos', d: 'Pacientes que deveriam voltar. Encontrados. Discretamente.' },
+              { t: 'Hoje', d: 'Uma lista curta mostra o que ainda pode mudar o seu dia.' },
+              { t: 'Prontuário', d: 'O histórico certo, aberto antes de você precisar procurar.' },
+              { t: 'WhatsApp', d: 'O paciente confirma no lugar onde já conversa com você.' },
+              { t: 'Próxima cadeira', d: 'Alguém desmarcou. O próximo retorno já pode ocupar a janela.' },
+              { t: 'Próximas semanas', d: 'Receitas e riscos aparecem antes de virarem surpresa.' },
+              { t: 'Quem precisa voltar', d: 'O paciente esquecido deixa de depender da sua memória.' },
             ].map((item, i) => (
               <React.Fragment key={item.t}>
                 <Reveal delay={(i % 2) * 0.08} className="h-full">
@@ -459,14 +456,11 @@ export default function Home() {
           <Reveal>
             <p className="text-[19px] md:text-[21px] font-semibold tracking-tight text-[#f5f5f7] mb-2">Academy</p>
             <h2 className="apple-display text-[40px] md:text-[56px]">
-              Para quem
-              <br />
-              ainda está
-              <br />
-              aprendendo.
+              Ainda na faculdade?
+              <br /> Comece antes.
             </h2>
             <p className="apple-subhead text-[19px] md:text-[21px] mt-5 max-w-[440px]">
-              Checklists de instrumental. Evolução clínica. Modo Box. Feito para a clínica da faculdade — não para o ERP de uma rede.
+              Organize pacientes, checklists e evoluções desde o primeiro box. Quando a agenda for sua, o arquivo já será também.
             </p>
             <div className="mt-8">
               <AppleLink href="/academy" light>
@@ -484,7 +478,7 @@ export default function Home() {
       <section id="depoimentos" className="bg-apple-surface text-apple-ink px-5 py-24 md:py-32">
         <div className="max-w-[820px] mx-auto">
           <Reveal className="text-center mb-16 md:mb-20">
-            <h2 className="apple-display-ink text-[40px] md:text-[56px]">Quem usa, fecha mais cedo.</h2>
+            <h2 className="apple-display-ink text-[40px] md:text-[56px]">É assim que o dia deveria terminar.</h2>
           </Reveal>
           <div className="space-y-16 md:space-y-24">
             {[
@@ -572,12 +566,12 @@ export default function Home() {
       <section className="bg-black px-5 py-28 md:py-40">
         <div className="max-w-[780px] mx-auto text-center">
           <Reveal>
-            <h2 className="apple-display text-[40px] md:text-[72px] mb-6">Assine o OdontoHub.</h2>
+            <h2 className="apple-display text-[40px] md:text-[72px] mb-6">Amanhã pode começar diferente.</h2>
             <p className="apple-subhead text-[19px] md:text-[24px] mb-10">
-              A partir de R$&nbsp;{brl(HUB_FROM_MONTHLY)} por mês. Um mês para conhecer.
+              Seu primeiro mês está incluído. Depois, a partir de R$&nbsp;{brl(HUB_FROM_MONTHLY)} por mês.
             </p>
             <a href={START} className="apple-btn">
-              Começar
+              Começar agora
             </a>
           </Reveal>
         </div>
