@@ -38,6 +38,7 @@ const MOMENTS = [
 const PLANS = [
   {
     name: 'Grátis',
+    ideal: 'Para começar a clínica.',
     price: 'R$ 0',
     note: 'Para sempre',
     feats: ['Até 3 pacientes', 'Agenda básica', 'Checklists essenciais', 'Até 50 fotos'],
@@ -46,6 +47,7 @@ const PLANS = [
   },
   {
     name: 'Clínico',
+    ideal: 'Para o semestre ganhar ritmo.',
     price: 'R$ 12,90',
     note: '/mês',
     feats: ['Até 15 pacientes', 'Até 500 fotos', 'Todas as disciplinas', 'Evolução em PDF'],
@@ -54,6 +56,7 @@ const PLANS = [
   },
   {
     name: 'Ilimitado',
+    ideal: 'Para quem já vive no box.',
     price: 'R$ 24,90',
     note: '/mês',
     feats: ['Tudo ilimitado', 'Modo Box', 'Ficha completa em PDF', 'Suporte na clínica'],
@@ -240,38 +243,13 @@ export default function Academy() {
         <div className="max-w-[820px] mx-auto text-center">
           <Reveal>
             <h2 className="apple-display-ink text-[34px] md:text-[52px]">
-              A clínica não espera
-              <br /> você se sentir pronto.
+              A confiança começa
+              <br /> antes do box.
             </h2>
             <p className="apple-subhead text-[19px] md:text-[24px] mt-6 max-w-[520px] mx-auto">
               Quando o professor disser “pode chamar”, seu caso já está aberto. E você sabe por onde começar.
             </p>
           </Reveal>
-        </div>
-      </section>
-
-      <section className="bg-white px-5 py-24 md:py-32">
-        <div className="max-w-[980px] mx-auto">
-          <Reveal className="text-center mb-14">
-            <h2 className="apple-display-ink text-[40px] md:text-[56px]">
-              Tudo o que você vai procurar amanhã. Hoje, num lugar só.
-            </h2>
-          </Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
-            {FEATURES.map((item) => (
-              <React.Fragment key={item.t}>
-                <Reveal className="h-full">
-                  <div
-                    className="h-full rounded-[28px] px-8 py-10"
-                    style={{ background: item.t === 'Modo Box' || item.t === 'Odonto em Jogo' ? color.soft : color.wash }}
-                  >
-                    <h3 className="text-[24px] font-semibold tracking-tight mb-3">{item.t}</h3>
-                    <p className="text-[17px] text-apple-gray leading-relaxed">{item.d}</p>
-                  </div>
-                </Reveal>
-              </React.Fragment>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -349,9 +327,9 @@ export default function Academy() {
             </p>
             <div className="mt-8 grid grid-cols-3 gap-3 max-w-[360px]">
               {[
-                { n: '1', l: 'sequência' },
-                { n: '5', l: 'vidas' },
-                { n: '2', l: 'nível' },
+                { n: '5 min', l: 'por sessão' },
+                { n: '3', l: 'casos rápidos' },
+                { n: '+XP', l: 'na trilha' },
               ].map((item) => (
                 <div key={item.l} className="rounded-[18px] bg-white px-3 py-4 text-center">
                   <p className="text-[22px] font-semibold tracking-tight" style={{ color: color.neo }}>
@@ -363,10 +341,10 @@ export default function Academy() {
             </div>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 sm:items-center">
               <a href={START_ACADEMY} className="neo-btn">
-                Jogar agora
+                Experimentar uma fase
               </a>
-              <a href={START_ACADEMY} className="neo-link">
-                Ver como funciona <span aria-hidden>›</span>
+              <a href="#planos" className="neo-link">
+                Ver os planos <span aria-hidden>›</span>
               </a>
             </div>
           </Reveal>
@@ -410,7 +388,32 @@ export default function Academy() {
         </div>
       </section>
 
-      <section id="planos" className="bg-white px-5 py-24 md:py-32 scroll-mt-12">
+      <section className="bg-white px-5 py-24 md:py-32">
+        <div className="max-w-[980px] mx-auto">
+          <Reveal className="text-center mb-14">
+            <h2 className="apple-display-ink text-[40px] md:text-[56px]">
+              Tudo o que você vai procurar amanhã. Hoje, num lugar só.
+            </h2>
+          </Reveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+            {FEATURES.map((item) => (
+              <React.Fragment key={item.t}>
+                <Reveal className="h-full">
+                  <div
+                    className="h-full rounded-[28px] px-8 py-10"
+                    style={{ background: item.t === 'Modo Box' || item.t === 'Odonto em Jogo' ? color.soft : color.wash }}
+                  >
+                    <h3 className="text-[24px] font-semibold tracking-tight mb-3">{item.t}</h3>
+                    <p className="text-[17px] text-apple-gray leading-relaxed">{item.d}</p>
+                  </div>
+                </Reveal>
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="planos" className="px-5 py-24 md:py-32 scroll-mt-12" style={{ background: color.wash }}>
         <div className="max-w-[980px] mx-auto">
           <Reveal className="text-center mb-14">
             <h2 className="apple-display-ink text-[40px] md:text-[56px]">Seu primeiro paciente cabe no grátis.</h2>
@@ -424,10 +427,11 @@ export default function Academy() {
                 style={
                   plan.featured
                     ? { background: color.neo, color: '#fff' }
-                    : { background: color.wash, color: '#1d1d1f' }
+                    : { background: '#fff', color: '#1d1d1f' }
                 }
               >
                 <h3 className="text-[24px] font-semibold tracking-tight">{plan.name}</h3>
+                <p className={`mt-2 text-[14px] ${plan.featured ? 'text-white/70' : 'text-apple-gray'}`}>{plan.ideal}</p>
                 <p className="mt-4 text-[40px] font-semibold tracking-tight">
                   {plan.price}
                   <span className={`text-[17px] font-normal ${plan.featured ? 'text-white/70' : 'text-apple-gray'}`}> {plan.note}</span>

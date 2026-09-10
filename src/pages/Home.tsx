@@ -134,29 +134,6 @@ const PatientPhone = () => (
   </div>
 );
 
-const AcademyDevice = () => (
-  <div className="apple-device-dark overflow-hidden text-left">
-    <div className="p-7 md:p-10">
-      <p className="text-[13px] text-white/40 mb-2">Boa noite, Samuel</p>
-      <h3 className="text-[22px] md:text-[28px] font-semibold tracking-tight text-white leading-[1.12] mb-8">
-        O próximo caso já está na mão.
-      </h3>
-      <div className="rounded-[22px] bg-white/[0.08] p-6 md:p-7">
-        <p className="text-[11px] uppercase tracking-[0.14em] text-white/35 mb-2">Amanhã, 09:30</p>
-        <p className="text-[22px] md:text-[26px] font-semibold text-white tracking-tight">Marcos Roberto</p>
-        <p className="mt-2 text-[14px] text-white/50">Endodontia · Box 3</p>
-      </div>
-      <div className="mt-4 rounded-[18px] bg-white/5 px-5 py-4 flex items-center justify-between">
-        <div>
-          <p className="text-[11px] text-white/35">Checklist</p>
-          <p className="text-[14px] text-white/80">Instrumental completo</p>
-        </div>
-        <span className="text-[#30d158] text-[13px]">Pronto</span>
-      </div>
-    </div>
-  </div>
-);
-
 function HubPlans() {
   const [yearly, setYearly] = useState(true);
 
@@ -259,7 +236,7 @@ export default function Home() {
         />
         <meta
           name="keywords"
-          content="odontohub, software odontologico, sistema para consultorio odontologico, prontuario odontologico digital, estudante de odontologia"
+          content="odontohub, software odontologico, sistema para consultorio odontologico, prontuario odontologico digital, agenda para dentistas"
         />
         <link rel="canonical" href="https://www.odontohub.app.br/" />
         <meta property="og:title" content="OdontoHub — Chegue para atender" />
@@ -447,30 +424,6 @@ export default function Home() {
               </React.Fragment>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ACADEMY */}
-      <section id="academy" className="bg-[#010101] px-5 py-24 md:py-32">
-        <div className="max-w-[980px] mx-auto grid md:grid-cols-2 gap-14 md:gap-16 items-center">
-          <Reveal>
-            <p className="text-[19px] md:text-[21px] font-semibold tracking-tight text-[#f5f5f7] mb-2">Academy</p>
-            <h2 className="apple-display text-[40px] md:text-[56px]">
-              Ainda na faculdade?
-              <br /> Comece antes.
-            </h2>
-            <p className="apple-subhead text-[19px] md:text-[21px] mt-5 max-w-[440px]">
-              Organize pacientes, checklists e evoluções desde o primeiro box. Quando a agenda for sua, o arquivo já será também.
-            </p>
-            <div className="mt-8">
-              <AppleLink href="/academy" light>
-                Conhecer o Academy
-              </AppleLink>
-            </div>
-          </Reveal>
-          <Reveal>
-            <AcademyDevice />
-          </Reveal>
         </div>
       </section>
 
