@@ -52,7 +52,21 @@ export type Shot = {
   src: string | null;
   picture: string;
   beat: string;
+  bg?: string;
+  sub?: string;
 };
+
+export function NinaFace({ size = 40 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 40 40" aria-hidden>
+      <circle cx="20" cy="20" r="20" fill="#34C759" />
+      <circle cx="13.5" cy="17" r="2.15" fill="#111" />
+      <circle cx="26.5" cy="17" r="2.15" fill="#111" />
+      <path d="M11 13.2l6.2 1.4" stroke="#111" strokeWidth="1.7" strokeLinecap="round" />
+      <path d="M14.5 25.5c2.6 2.8 8.4 2.8 11 0" stroke="#111" strokeWidth="1.8" strokeLinecap="round" fill="none" />
+    </svg>
+  );
+}
 
 export function FilmPlayer({
   shots,
@@ -107,10 +121,16 @@ export function FilmPlayer({
             {shot.src ? (
               <img src={shot.src} alt={shot.beat} className="h-full w-full object-cover" />
             ) : (
-              <div className="h-full w-full bg-black flex flex-col items-center justify-center px-8 text-center">
-                <p className="text-[28px] md:text-[48px] font-semibold tracking-tight text-[#f5f5f7] leading-[1.08]">
+              <div
+                className="h-full w-full flex flex-col items-center justify-center px-8 text-center"
+                style={{ background: shot.bg ?? '#000' }}
+              >
+                <p className="text-[28px] md:text-[48px] font-semibold tracking-tight text-[#f5f5f7] leading-[1.08] whitespace-pre-line">
                   {shot.beat}
                 </p>
+                {shot.sub && (
+                  <p className="mt-4 text-[15px] md:text-[19px] text-white/70 max-w-[28ch] leading-snug">{shot.sub}</p>
+                )}
                 {endSub && index === shots.length - 1 && (
                   <p className="mt-4 text-[15px] md:text-[19px] text-white/45">{endSub}</p>
                 )}
@@ -162,7 +182,7 @@ export function FilmPlayer({
             {item.src ? (
               <img src={item.src} alt="" className="h-full w-full object-cover" />
             ) : (
-              <span className="absolute inset-0 bg-black" />
+              <span className="absolute inset-0" style={{ background: item.bg ?? '#000' }} />
             )}
             <span
               className="absolute inset-0"
@@ -189,14 +209,151 @@ export function surfaceFill(surface: Surface, neo?: FeedPost['neo']): string {
       return neo?.neo ?? LARANJA.neo;
     case 'wash':
       return neo?.wash ?? LARANJA.wash;
+    case 'lock':
+      return '#0b0c10';
+    case 'gradient':
+      return neo?.neo ?? LARANJA.neo;
     default:
       return '#000';
   }
 }
 
 function isDarkSurface(post: FeedPost): boolean {
+  if (post.kind === 'notify' || post.kind === 'comment' || post.kind === 'poster') return true;
   if (post.surface === 'photo') return post.photoTone === 'dark';
-  return post.surface === 'black' || post.surface === 'blue' || post.surface === 'neo';
+  return (
+    post.surface === 'black' ||
+    post.surface === 'blue' ||
+    post.surface === 'neo' ||
+    post.surface === 'lock' ||
+    post.surface === 'gradient'
+  );
+}
+
+export function NotifyLock({
+  post,
+  clock,
+}: {
+  post: FeedPost;
+  clock?: boolean;
+}) {
+  const from = post.notifyFrom ?? 'nina';
+  const time = post.notifyTime ?? 'agora';
+  const body = post.notifyBody ?? post.headline;
+  const lock = clock || post.format === 'story';
+
+  return (
+    <div
+      className="absolute inset-0 flex flex-col"
+      style={{
+        background:
+          'radial-gradient(90% 55% at 50% 12%, rgba(52,199,89,0.28) 0%, rgba(255,107,44,0.12) 36%, rgba(11,12,16,0) 62%), #0b0c10',
+      }}
+    >
+      {lock ? (
+        <>
+          <div className="pt-14 px-8 text-center text-white">
+            <p className="text-[64px] md:text-[72px] font-semibold tracking-tight leading-none">
+              {post.kicker || '22:44'}
+            </p>
+            <p className="mt-2 text-[15px] text-white/55">quarta-feira, 9 de setembro</p>
+          </div>
+          <div className="mt-10 mx-5 rounded-[28px] px-4 py-3.5 flex gap-3 items-start" style={{ background: 'rgba(44,44,46,0.78)', backdropFilter: 'blur(22px)' }}>
+            <div className="shrink-0 mt-0.5 overflow-hidden rounded-[12px]">
+              <NinaFace size={42} />
+            </div>
+            <div className="min-w-0 flex-1">
+              <div className="flex items-baseline justify-between gap-3">
+                <p className="text-[15px] font-semibold text-white tracking-tight">{from}</p>
+                <p className="text-[12px] text-white/40">{time}</p>
+              </div>
+              <p className="mt-1 text-[14px] text-white/90 leading-snug whitespace-pre-line">{body}</p>
+            </div>
+          </div>
+        </>
+      ) : (
+        <div className="flex-1 flex flex-col p-6 md:p-7">
+          <div className="rounded-[32px] flex-1 flex flex-col overflow-hidden" style={{ background: 'rgba(22,22,24,0.92)' }}>
+            <div className="px-5 pt-4 pb-2 flex items-center gap-3">
+              <div className="overflow-hidden rounded-[11px] shrink-0">
+                <NinaFace size={36} />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-[14px] font-semibold text-white tracking-tight">{from}</p>
+                <p className="text-[11px] text-white/40">para você · {time}</p>
+              </div>
+            </div>
+            <div className="flex-1 flex items-center justify-center py-6">
+              <NinaFace size={post.format === 'square' ? 108 : 132} />
+            </div>
+            <p className="px-6 pb-8 text-[20px] md:text-[22px] font-semibold tracking-tight text-white leading-[1.2] text-center whitespace-pre-line">
+              {body}
+            </p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function CommentArt({ post }: { post: FeedPost }) {
+  const thread = post.thread ?? [];
+
+  return (
+    <div className="absolute inset-0 flex flex-col bg-[#0b0c10] text-white px-6 py-8">
+      <p className="text-[11px] uppercase tracking-[0.14em] text-white/35 mb-4">{post.kicker ?? 'a conversa'}</p>
+      {post.quote && (
+        <p className="text-[18px] md:text-[20px] font-semibold tracking-tight leading-[1.2] text-white/88 mb-8">
+          {post.quote}
+        </p>
+      )}
+      <div className="mt-auto space-y-5">
+        {thread.map((row) => (
+          <div key={`${row.user}-${row.text}`} className="flex gap-3 items-start">
+            <div className="shrink-0 overflow-hidden rounded-full">
+              {row.author ? <NinaFace size={28} /> : <span className="block w-7 h-7 rounded-full bg-white/15" />}
+            </div>
+            <div className="min-w-0">
+              <p className="text-[13px] leading-snug">
+                <span className="font-semibold" style={{ color: row.author ? '#34C759' : '#fff' }}>
+                  {row.user}
+                </span>{' '}
+                <span className="text-white/80">{row.text}</span>
+              </p>
+              {row.likes && <p className="mt-1 text-[11px] text-white/35">{row.likes} curtidas</p>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function PosterArt({ post }: { post: FeedPost }) {
+  const neo = post.neo ?? LARANJA;
+
+  return (
+    <div
+      className="absolute inset-0 flex flex-col px-8 py-10"
+      style={{
+        background: `linear-gradient(180deg, #24143c 0%, ${neo.neo} 52%, #ffb020 100%)`,
+      }}
+    >
+      <div className="flex justify-center pt-4">
+        <div className="overflow-hidden rounded-full" style={{ boxShadow: '0 12px 40px rgba(0,0,0,0.25)' }}>
+          <NinaFace size={108} />
+        </div>
+      </div>
+      <div className="mt-auto text-center">
+        <h3 className="text-[42px] md:text-[52px] font-bold tracking-tight leading-[0.92] lowercase text-white whitespace-pre-line">
+          {post.headline}
+        </h3>
+        {post.sub && (
+          <p className="mt-5 text-[15px] md:text-[16px] text-white/90 leading-snug max-w-[28ch] mx-auto">{post.sub}</p>
+        )}
+      </div>
+    </div>
+  );
 }
 
 export function PostArt({ post }: { post: FeedPost }) {
@@ -232,89 +389,96 @@ export function PostArt({ post }: { post: FeedPost }) {
         className={`relative w-full overflow-hidden ${ratio}`}
         style={{ background: surfaceFill(post.surface, post.neo), color }}
       >
-        {post.surface === 'photo' && post.photo && (
+        {kind === 'notify' && <NotifyLock post={post} />}
+        {kind === 'comment' && <CommentArt post={post} />}
+        {kind === 'poster' && <PosterArt post={post} />}
+        {kind !== 'notify' && kind !== 'comment' && kind !== 'poster' && (
           <>
-            <img src={post.photo} alt="" className="absolute inset-0 h-full w-full object-cover" />
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  post.photoTone === 'dark'
-                    ? 'linear-gradient(to top, rgba(0,0,0,0.62) 0%, transparent 46%)'
-                    : 'linear-gradient(to top, rgba(255,255,255,0.58) 0%, transparent 42%)',
-              }}
-            />
-          </>
-        )}
-        <div className="absolute inset-0 flex flex-col p-10 md:p-12">
-          <p className="text-[13px] font-semibold tracking-tight" style={{ color }}>
-            OdontoHub
-            {academy && (
-              <span className="ml-1.5 font-normal" style={{ color: academyMark }}>
-                Academy
-              </span>
-            )}
-          </p>
-          <div className={align}>
-            {post.kicker && (
-              <p className="text-[13px] mb-3" style={{ color: accent }}>
-                {post.kicker}
-              </p>
-            )}
-            {(kind === 'hero' || kind === 'cta' || kind === 'colors') && (
-              <h3
-                className="text-[32px] md:text-[40px] font-semibold tracking-tight leading-[1.05] whitespace-pre-line"
-                style={{ color }}
-              >
-                {post.headline}
-              </h3>
-            )}
-            {kind === 'list' && (
+            {post.surface === 'photo' && post.photo && (
               <>
-                <h3
-                  className="text-[28px] md:text-[34px] font-semibold tracking-tight leading-[1.08] mb-7"
-                  style={{ color }}
-                >
-                  {post.headline}
-                </h3>
-                <ul className="space-y-3">
-                  {(post.items ?? []).map((item) => (
-                    <li key={item} className="text-[16px] md:text-[17px]" style={{ color }}>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <img src={post.photo} alt="" className="absolute inset-0 h-full w-full object-cover" />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      post.photoTone === 'dark'
+                        ? 'linear-gradient(to top, rgba(0,0,0,0.62) 0%, transparent 46%)'
+                        : 'linear-gradient(to top, rgba(255,255,255,0.58) 0%, transparent 42%)',
+                  }}
+                />
               </>
             )}
-            {kind === 'colors' && (
-              <div className={`mt-8 flex gap-3 ${post.align === 'center' ? 'justify-center' : ''}`}>
-                {NEOS.map((neo) => (
-                  <span
-                    key={neo.id}
-                    className="w-8 h-8 rounded-full"
-                    style={{ background: neo.neo, boxShadow: 'inset 0 0 0 2px rgba(255,255,255,0.55)' }}
-                  />
-                ))}
-              </div>
-            )}
-            {post.sub && kind !== 'list' && (
-              <p className="mt-4 text-[16px] md:text-[18px] leading-snug" style={{ color: muted }}>
-                {post.sub}
+            <div className="absolute inset-0 flex flex-col p-10 md:p-12">
+              <p className="text-[13px] font-semibold tracking-tight" style={{ color }}>
+                OdontoHub
+                {academy && (
+                  <span className="ml-1.5 font-normal" style={{ color: academyMark }}>
+                    Academy
+                  </span>
+                )}
               </p>
-            )}
-            {post.cta && (
-              <div
-                className={`mt-8 rounded-full px-5 py-2.5 text-[15px] ${post.align === 'center' ? 'self-center' : 'self-start'}`}
-                style={{
-                  background: dark ? '#fff' : academy ? post.neo?.neo ?? LARANJA.neo : '#0071e3',
-                  color: dark ? '#1d1d1f' : '#fff',
-                }}
-              >
-                {post.cta}
+              <div className={align}>
+                {post.kicker && (
+                  <p className="text-[13px] mb-3" style={{ color: accent }}>
+                    {post.kicker}
+                  </p>
+                )}
+                {(kind === 'hero' || kind === 'cta' || kind === 'colors') && (
+                  <h3
+                    className="text-[32px] md:text-[40px] font-semibold tracking-tight leading-[1.05] whitespace-pre-line"
+                    style={{ color }}
+                  >
+                    {post.headline}
+                  </h3>
+                )}
+                {kind === 'list' && (
+                  <>
+                    <h3
+                      className="text-[28px] md:text-[34px] font-semibold tracking-tight leading-[1.08] mb-7"
+                      style={{ color }}
+                    >
+                      {post.headline}
+                    </h3>
+                    <ul className="space-y-3">
+                      {(post.items ?? []).map((item) => (
+                        <li key={item} className="text-[16px] md:text-[17px]" style={{ color }}>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+                {kind === 'colors' && (
+                  <div className={`mt-8 flex gap-3 ${post.align === 'center' ? 'justify-center' : ''}`}>
+                    {NEOS.map((neo) => (
+                      <span
+                        key={neo.id}
+                        className="w-8 h-8 rounded-full"
+                        style={{ background: neo.neo, boxShadow: 'inset 0 0 0 2px rgba(255,255,255,0.55)' }}
+                      />
+                    ))}
+                  </div>
+                )}
+                {post.sub && kind !== 'list' && (
+                  <p className="mt-4 text-[16px] md:text-[18px] leading-snug" style={{ color: muted }}>
+                    {post.sub}
+                  </p>
+                )}
+                {post.cta && (
+                  <div
+                    className={`mt-8 rounded-full px-5 py-2.5 text-[15px] ${post.align === 'center' ? 'self-center' : 'self-start'}`}
+                    style={{
+                      background: dark ? '#fff' : academy ? post.neo?.neo ?? LARANJA.neo : '#0071e3',
+                      color: dark ? '#1d1d1f' : '#fff',
+                    }}
+                  >
+                    {post.cta}
+                  </div>
+                )}
               </div>
-            )}
-          </div>
-        </div>
+            </div>
+          </>
+        )}
       </div>
       <div className="mt-5 flex items-start justify-between gap-3">
         <div>
@@ -357,7 +521,12 @@ export function PostArt({ post }: { post: FeedPost }) {
 
 export function HighlightCover({ item }: { item: Highlight }) {
   const ref = useRef<HTMLDivElement>(null);
-  const dark = item.surface === 'black' || item.surface === 'blue' || item.surface === 'neo';
+  const dark =
+    item.surface === 'black' ||
+    item.surface === 'blue' ||
+    item.surface === 'neo' ||
+    item.surface === 'lock' ||
+    item.surface === 'gradient';
   const color = dark ? '#f5f5f7' : '#1d1d1f';
   const link = item.account === 'academy' ? item.neo?.neo ?? LARANJA.neo : '#0066cc';
 
@@ -489,6 +658,9 @@ export function FeedStudio({
   modelos,
   academyOn,
   accent,
+  title = 'Os primeiros posts.',
+  intro = 'Fundo limpo. Tipo forte. Texto na arte, o mínimo.',
+  studioBg,
 }: {
   handle: string;
   bio: string;
@@ -500,6 +672,9 @@ export function FeedStudio({
   modelos: FeedPost[];
   academyOn: boolean;
   accent: string;
+  title?: string;
+  intro?: string;
+  studioBg?: string;
 }) {
   const [format, setFormat] = useState<'feed' | 'stories' | 'carrossel' | 'destaques' | 'modelos'>('feed');
 
@@ -507,14 +682,12 @@ export function FeedStudio({
     <section
       id="feeds"
       className="px-5 py-24 md:py-32"
-      style={{ background: academyOn ? LARANJA.wash : '#f5f5f7', color: '#1d1d1f' }}
+      style={{ background: studioBg ?? (academyOn ? LARANJA.wash : '#f5f5f7'), color: '#1d1d1f' }}
     >
       <div className="max-w-[1100px] mx-auto">
         <Reveal className="mb-10 md:mb-14">
-          <h2 className="apple-display-ink text-[40px] md:text-[56px]">Os primeiros posts.</h2>
-          <p className="apple-subhead text-[19px] mt-4 max-w-[560px]">
-            Fundo limpo. Tipo forte. Texto na arte, o mínimo.
-          </p>
+          <h2 className="apple-display-ink text-[40px] md:text-[56px]">{title}</h2>
+          <p className="apple-subhead text-[19px] mt-4 max-w-[560px]">{intro}</p>
           <div className="mt-10 max-w-[560px]">
             <p className="text-[19px] font-semibold tracking-tight">{handle}</p>
             <p className="mt-3 text-[22px] md:text-[26px] font-semibold tracking-tight leading-[1.15] whitespace-pre-line">

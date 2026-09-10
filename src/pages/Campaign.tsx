@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { HelloCampaign } from './campaign/Hello';
 import { OlaCampaign } from './campaign/Ola';
+import { OfensivaCampaign } from './campaign/Ofensiva';
 import { ContinuaCampaign } from './campaign/Continua';
-import { LARANJA } from '../data/feeds';
+import { LARANJA, LIMA } from '../data/feeds';
 
-export type CampaignTab = 'hello' | 'ola' | 'continua';
+export type CampaignTab = 'hello' | 'ofensiva' | 'ola' | 'continua';
 
 const TABS: { id: CampaignTab; label: string; note: string }[] = [
   { id: 'hello', label: 'Hello OdontoHub.', note: 'Agora' },
-  { id: 'ola', label: 'Olá Academy.', note: 'Agora' },
+  { id: 'ofensiva', label: 'A ofensiva.', note: 'Agora' },
+  { id: 'ola', label: 'Olá Academy.', note: 'Arquivo' },
   { id: 'continua', label: 'A clínica contínua.', note: 'Futuro' },
 ];
 
 function tabFromHash(): CampaignTab {
   const hash = window.location.hash.replace('#', '');
-  if (hash === 'ola' || hash === 'academy') return 'ola';
+  if (hash === 'ofensiva' || hash === 'academy' || hash === 'nina') return 'ofensiva';
+  if (hash === 'ola') return 'ola';
   if (hash === 'continua' || hash === 'futuro') return 'continua';
   return 'hello';
 }
@@ -51,9 +54,11 @@ export default function Campaign(): React.ReactElement {
                 className="shrink-0 rounded-full px-3.5 py-1.5 text-[12px] transition-colors"
                 style={
                   on
-                    ? item.id === 'ola'
-                      ? { background: LARANJA.neo, color: '#fff' }
-                      : { background: '#f5f5f7', color: '#1d1d1f' }
+                    ? item.id === 'ofensiva'
+                      ? { background: LIMA.neo, color: '#0b0c10' }
+                      : item.id === 'ola'
+                        ? { background: LARANJA.neo, color: '#fff' }
+                        : { background: '#f5f5f7', color: '#1d1d1f' }
                     : { color: 'rgba(245,245,247,0.7)' }
                 }
               >
@@ -66,6 +71,7 @@ export default function Campaign(): React.ReactElement {
       </div>
       <div className="pt-12">
         {tab === 'hello' && <HelloCampaign />}
+        {tab === 'ofensiva' && <OfensivaCampaign />}
         {tab === 'ola' && <OlaCampaign />}
         {tab === 'continua' && <ContinuaCampaign />}
       </div>
