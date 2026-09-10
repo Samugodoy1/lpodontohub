@@ -371,6 +371,157 @@ menos uma chance de olhar pro professor como criança perdida.
 ${START_ACADEMY}`,
     align: 'start',
   },
+  {
+    id: 'nina-13',
+    n: '13',
+    account: 'academy',
+    title: 'telepatia da dupla',
+    format: 'feed',
+    surface: 'neo',
+    neo: VIOLETA,
+    kind: 'quiz',
+    headline: 'sua dupla te olha assim no meio do atendimento: 👁️👁️',
+    items: ['me passa o sugador', 'chama o professor', 'você contaminou a luva', 'todas as anteriores'],
+    value: '3',
+    sub: 'três semestres juntos. uma comunicação baseada em sobrancelha.',
+    caption: `operador e auxiliar já não conversam.
+
+trocam olhares e assumem riscos.`,
+    align: 'start',
+  },
+  {
+    id: 'nina-14',
+    n: '14',
+    account: 'academy',
+    title: 'faltou assinatura',
+    format: 'feed',
+    surface: 'white',
+    neo: LARANJA,
+    kind: 'breaking',
+    headline: 'aluna finaliza prontuário e esquece assinatura',
+    sub: 'comemoração é cancelada aos 48 do segundo tempo. testemunhas procuram o professor pelo corredor.',
+    caption: `o atendimento acabou.
+
+o prontuário: não tão rápido.`,
+    align: 'start',
+  },
+  {
+    id: 'nina-15',
+    n: '15',
+    account: 'academy',
+    title: 'instrumental',
+    format: 'feed',
+    surface: 'neo',
+    neo: VIOLETA,
+    kind: 'quiz',
+    headline: 'qual deles é o brunidor?',
+    items: ['o fininho', 'o outro fininho', 'o fininho com uma curva', 'o que sua dupla pegou primeiro'],
+    value: '3',
+    sub: 'o calouro pediu nomes. a lista entregou 47 variações de metal.',
+    caption: `espátula. brunidor. condensador. hollemback.
+
+no primeiro semestre: quatro talheres muito específicos.`,
+    align: 'start',
+  },
+  {
+    id: 'nina-16',
+    n: '16',
+    account: 'academy',
+    title: 'material obrigatório',
+    format: 'feed',
+    surface: 'white',
+    neo: LIMA,
+    kind: 'receipt',
+    headline: `obrigada pela sua compra.
+até o próximo boleto.`,
+    items: [
+      'item “obrigatório” comprado',
+      'embalagem aberta: não',
+      'vezes utilizado: 0',
+      'reencontrado no fim do semestre',
+      'valor emocional: incalculável',
+    ],
+    caption: `ele ficou o semestre inteiro no fundo da maleta.
+
+intacto. caro. obrigatório.`,
+    align: 'center',
+  },
+  {
+    id: 'nina-17',
+    n: '17',
+    account: 'academy',
+    title: 'aura do isolamento',
+    format: 'feed',
+    surface: 'gradient',
+    neo: LIMA,
+    kind: 'poster',
+    headline: '+800 aura',
+    sub: 'isolamento absoluto perfeito. encostou a luva no cabelo: volte três casas.',
+    caption: `a biossegurança não trabalha com bloqueio de ofensiva.
+
+troca a luva e segue o jogo.`,
+    align: 'center',
+  },
+  {
+    id: 'nina-18',
+    n: '18',
+    account: 'academy',
+    title: 'procura-se paciente',
+    format: 'feed',
+    surface: 'white',
+    neo: ROSA,
+    kind: 'starter',
+    headline: `procura-se
+o paciente perfeito`,
+    items: ['tem terça às 8h livre', 'não desmarca às 7:03', 'encaixa na disciplina', 'responde “confirmo” e aparece'],
+    sub: 'informações sobre o paradeiro: grupo da família.',
+    caption: `não é namoro.
+
+é mais difícil.`,
+    align: 'start',
+  },
+  {
+    id: 'nina-19',
+    n: '19',
+    account: 'academy',
+    title: 'cadê o professor',
+    format: 'feed',
+    surface: 'lock',
+    neo: LIMA,
+    kind: 'comment',
+    kicker: 'ao vivo da clínica',
+    headline: 'cadê o professor',
+    quote: '“me mostra antes, durante e depois”',
+    thread: [
+      { user: 'aluna', text: 'professor, pode olhar?', likes: '08:41' },
+      { user: 'aluna', text: 'professor?', likes: '08:46' },
+      { user: 'nina', text: 'ele está no box do outro lado dizendo a mesma coisa', author: true, likes: '1.209' },
+    ],
+    caption: `o “durante” durou 27 minutos.`,
+    align: 'start',
+  },
+  {
+    id: 'nina-20',
+    n: '20',
+    account: 'academy',
+    title: 'caso em aberto',
+    format: 'feed',
+    surface: 'neo',
+    neo: VIOLETA,
+    kind: 'quiz',
+    headline: `caso em aberto #01
+
+dor espontânea. piora à noite. resposta ao frio persiste.`,
+    items: ['pulpite reversível', 'pulpite irreversível sintomática', 'necrose pulpar', 'pedir “uma radiografia só pra confirmar”'],
+    value: '1',
+    sub: 'justifica nos comentários. a conduta completa abre no jogo.',
+    caption: `não vale só marcar letra.
+
+deixa a justificativa. quando a turma bater a meta de xp, a nina libera o desfecho.
+
+${START_ACADEMY}`,
+    align: 'start',
+  },
 ];
 
 export const OFENSIVA_STORIES: FeedPost[] = [

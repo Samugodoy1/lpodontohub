@@ -1,18 +1,27 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { toPng } from 'html-to-image';
+import { toBlob } from 'html-to-image';
 import { LARANJA, NEOS, type FeedPost, type Highlight, type Surface } from '../../data/feeds';
 
-export function downloadNode(node: HTMLElement | null, filename: string) {
-  if (!node) return;
-  toPng(node, { cacheBust: true, pixelRatio: 2 })
-    .then((dataUrl) => {
-      const link = document.createElement('a');
-      link.download = filename;
-      link.href = dataUrl;
-      link.click();
-    })
-    .catch(() => undefined);
+export async function downloadNode(node: HTMLElement | null, filename: string): Promise<void> {
+  if (!node) throw new Error('Arte não encontrada.');
+
+  const blob = await toBlob(node, {
+    cacheBust: true,
+    pixelRatio: 2,
+    backgroundColor: surfaceFill('white'),
+  });
+  if (!blob) throw new Error('Não foi possível gerar a imagem.');
+
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.download = filename;
+  link.href = url;
+  link.style.display = 'none';
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  window.setTimeout(() => URL.revokeObjectURL(url), 10_000);
 }
 
 export function slug(value: string) {
@@ -505,6 +514,7 @@ function VarietyArt({ post }: { post: FeedPost }) {
 export function PostArt({ post }: { post: FeedPost }) {
   const ref = useRef<HTMLDivElement>(null);
   const [copied, setCopied] = useState(false);
+  const [downloadState, setDownloadState] = useState<'idle' | 'loading' | 'done' | 'error'>('idle');
   const ratio =
     post.format === 'story' ? 'aspect-[9/16]' : post.format === 'square' ? 'aspect-square' : 'aspect-[4/5]';
   const dark = isDarkSurface(post);
@@ -641,11 +651,30 @@ export function PostArt({ post }: { post: FeedPost }) {
         <div className="flex items-center gap-3 shrink-0">
           <button
             type="button"
-            onClick={() => downloadNode(ref.current, `${post.account}-${post.n}-${slug(post.title)}.png`)}
+            onClick={() => {
+              if (downloadState === 'loading') return;
+              setDownloadState('loading');
+              void downloadNode(ref.current, `${post.account}-${post.n}-${slug(post.title)}.png`)
+                .then(() => {
+                  setDownloadState('done');
+                  window.setTimeout(() => setDownloadState('idle'), 1800);
+                })
+                .catch(() => {
+                  setDownloadState('error');
+                  window.setTimeout(() => setDownloadState('idle'), 3000);
+                });
+            }}
             className="text-[13px]"
             style={{ color: link }}
+            disabled={downloadState === 'loading'}
           >
-            Baixar
+            {downloadState === 'loading'
+              ? 'Gerando…'
+              : downloadState === 'done'
+                ? 'Baixado ✓'
+                : downloadState === 'error'
+                  ? 'Tentar de novo'
+                  : 'Baixar'}
           </button>
           <button
             type="button"
