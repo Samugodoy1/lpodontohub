@@ -455,6 +455,25 @@ function VarietyArt({ post }: { post: FeedPost }) {
     );
   }
 
+  if (post.kind === 'pov') {
+    return (
+      <div className="absolute inset-0 bg-[#ffb62e] text-[#17120a] p-7 flex flex-col">
+        <p className="text-[12px] font-black tracking-[.14em]">POV · O SOTAQUE CHEGOU</p>
+        <div className="mt-7 grid grid-rows-2 gap-3 flex-1">
+          <div className="rounded-[22px] bg-white/88 p-5 flex flex-col justify-center">
+            <p className="text-[11px] font-bold text-black/40 mb-3">fora da clínica</p>
+            <p className="text-[24px] md:text-[30px] font-bold tracking-tight leading-none">{post.headline}</p>
+          </div>
+          <div className="rounded-[22px] bg-[#24143c] text-white p-5 flex flex-col justify-center">
+            <p className="text-[11px] font-bold text-white/40 mb-3">no box</p>
+            <p className="text-[24px] md:text-[30px] font-bold tracking-tight leading-none">{post.quote}</p>
+          </div>
+        </div>
+        <p className="mt-5 text-[12px] font-semibold">{post.sub}</p>
+      </div>
+    );
+  }
+
   return (
     <div className="absolute inset-0 bg-[#5b2be0] text-white p-7 flex flex-col">
       <div className="flex items-center gap-3">
@@ -519,8 +538,8 @@ export function PostArt({ post }: { post: FeedPost }) {
         {kind === 'notify' && <NotifyLock post={post} />}
         {kind === 'comment' && <CommentArt post={post} />}
         {kind === 'poster' && <PosterArt post={post} />}
-        {['breaking', 'chat', 'receipt', 'starter', 'quiz'].includes(kind) && <VarietyArt post={post} />}
-        {!['notify', 'comment', 'poster', 'breaking', 'chat', 'receipt', 'starter', 'quiz'].includes(kind) && (
+        {['breaking', 'chat', 'receipt', 'starter', 'quiz', 'pov'].includes(kind) && <VarietyArt post={post} />}
+        {!['notify', 'comment', 'poster', 'breaking', 'chat', 'receipt', 'starter', 'quiz', 'pov'].includes(kind) && (
           <>
             {post.surface === 'photo' && post.photo && (
               <>

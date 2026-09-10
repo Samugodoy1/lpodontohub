@@ -45,6 +45,29 @@ export const OFENSIVA_REPLIES = [
   { they: 'sou loira odonto com orgulho', we: 'o hb20 branco já entregou antes de você' },
 ];
 
+export const OFENSIVA_ARC = [
+  {
+    n: '01',
+    title: 'a nina solta o caso.',
+    body: 'reel curto, manequim ou ilustração. uma decisão clínica real. a conduta fica em aberto.',
+  },
+  {
+    n: '02',
+    title: 'os comentários viram banca.',
+    body: 'a turma vota e justifica. a nina responde as hipóteses boas, ruins e confiantes demais.',
+  },
+  {
+    n: '03',
+    title: 'a resposta mora no jogo.',
+    body: 'a fase completa abre no Odonto em Jogo. cada caso concluído soma no placar coletivo.',
+  },
+  {
+    n: '04',
+    title: 'a sala libera o próximo.',
+    body: 'bateu a meta de XP, sai o desfecho e um novo caso. alcance vira retorno ao produto.',
+  },
+] as const;
+
 export const OFENSIVA_FILM: Shot[] = [
   {
     at: '00:00',
@@ -313,16 +336,19 @@ a nina também vai fingir que não viu.`,
     id: 'nina-11',
     n: '11',
     account: 'academy',
-    title: 'nervosismo surreal',
+    title: 'sotaque de dentista',
     format: 'feed',
-    surface: 'white',
+    surface: 'gradient',
     neo: LARANJA,
-    kind: 'breaking',
-    headline: '“pode chamar o paciente”',
-    sub: 'rapaz, é um nervosismo surreal. aluna que treinou a semana inteira esquece até o próprio crocs.',
-    caption: `a trend do nervosismo surreal tinha endereço.
+    kind: 'pov',
+    headline: 'abre a boca.',
+    quote: 'abre só mais um pouquinho pra mim, tá?',
+    sub: 'o “pra mim” aparece no terceiro período e nunca mais vai embora.',
+    caption: `você não escolhe o sotaque de dentista.
 
-era o corredor da clínica.`,
+o sotaque de dentista escolhe você.
+
+(abre só mais um pouquinho pra mim, tá?)`,
     align: 'start',
   },
   {

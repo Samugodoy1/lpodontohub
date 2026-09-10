@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import { FeedStudio, FilmPlayer, NinaFace, Reveal } from '../../components/campaign/Art';
 import {
   OFENSIVA_BIO,
+  OFENSIVA_ARC,
   OFENSIVA_DONT,
   OFENSIVA_FEED,
   OFENSIVA_FILM,
@@ -137,6 +138,34 @@ export function OfensivaCampaign(): React.ReactElement {
                       nina
                     </p>
                     <p className="text-[16px] leading-snug">{row.we}</p>
+                  </div>
+                </Reveal>
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-5 py-24 md:py-32 bg-[#5b2be0]">
+        <div className="max-w-[980px] mx-auto">
+          <Reveal className="mb-14">
+            <p className="text-[13px] text-[#d7ff52] mb-4">o arco de reativação</p>
+            <h2 className="text-[36px] md:text-[56px] font-semibold tracking-tight leading-[1.02] lowercase max-w-[16ch]">
+              caso em aberto.
+            </h2>
+            <p className="mt-5 text-[16px] md:text-[18px] text-white/65 leading-relaxed max-w-[560px]">
+              o meme chama. o caso segura. a turma só descobre a conduta quando entra no jogo. curtida não resolve a
+              história — xp resolve.
+            </p>
+          </Reveal>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {OFENSIVA_ARC.map((item) => (
+              <React.Fragment key={item.n}>
+                <Reveal>
+                  <div className="h-full rounded-[22px] bg-white/10 p-5 border border-white/10">
+                    <p className="text-[12px] text-[#d7ff52] mb-8">{item.n}</p>
+                    <h3 className="text-[21px] font-semibold tracking-tight leading-[1.08] lowercase">{item.title}</h3>
+                    <p className="mt-4 text-[14px] text-white/55 leading-relaxed">{item.body}</p>
                   </div>
                 </Reveal>
               </React.Fragment>

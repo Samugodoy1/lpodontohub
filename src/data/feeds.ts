@@ -37,7 +37,8 @@ export type Kind =
   | 'chat'
   | 'receipt'
   | 'starter'
-  | 'quiz';
+  | 'quiz'
+  | 'pov';
 
 export type FeedComment = {
   user: string;
