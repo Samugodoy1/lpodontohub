@@ -24,7 +24,20 @@ export const ROSA = NEOS[3];
 export const VIOLETA = NEOS[4];
 
 export type Surface = 'black' | 'white' | 'surface' | 'blue' | 'photo' | 'neo' | 'wash' | 'lock' | 'gradient';
-export type Kind = 'hero' | 'list' | 'device' | 'colors' | 'cta' | 'notify' | 'comment' | 'poster';
+export type Kind =
+  | 'hero'
+  | 'list'
+  | 'device'
+  | 'colors'
+  | 'cta'
+  | 'notify'
+  | 'comment'
+  | 'poster'
+  | 'breaking'
+  | 'chat'
+  | 'receipt'
+  | 'starter'
+  | 'quiz';
 
 export type FeedComment = {
   user: string;
@@ -56,6 +69,8 @@ export type FeedPost = {
   notifyBody?: string;
   quote?: string;
   thread?: FeedComment[];
+  label?: string;
+  value?: string;
 };
 
 export const APP_PROFILE = {

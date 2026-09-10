@@ -9,7 +9,7 @@ export type CampaignTab = 'hello' | 'ofensiva' | 'ola' | 'continua';
 
 const TABS: { id: CampaignTab; label: string; note: string }[] = [
   { id: 'hello', label: 'Hello OdontoHub.', note: 'Agora' },
-  { id: 'ofensiva', label: 'A ofensiva.', note: 'Agora' },
+  { id: 'ofensiva', label: 'A Nina viu.', note: 'Agora' },
   { id: 'ola', label: 'Olá Academy.', note: 'Arquivo' },
   { id: 'continua', label: 'A clínica contínua.', note: 'Futuro' },
 ];

@@ -356,6 +356,133 @@ function PosterArt({ post }: { post: FeedPost }) {
   );
 }
 
+function VarietyArt({ post }: { post: FeedPost }) {
+  const items = post.items ?? [];
+  const thread = post.thread ?? [];
+
+  if (post.kind === 'breaking') {
+    return (
+      <div className="absolute inset-0 bg-[#f4efe5] text-[#111] flex flex-col">
+        <div className="bg-[#ec3323] text-white px-6 py-3 text-[13px] font-black tracking-[0.16em]">
+          URGENTE
+        </div>
+        <div className="px-7 pt-8 flex-1 flex flex-col">
+          <p className="text-[11px] font-bold tracking-[0.14em] uppercase text-black/45">
+            plantão da clínica-escola
+          </p>
+          <h3 className="mt-4 text-[34px] md:text-[42px] font-black tracking-[-0.045em] leading-[0.95] whitespace-pre-line">
+            {post.headline}
+          </h3>
+          <p className="mt-5 text-[15px] leading-snug text-black/60">{post.sub}</p>
+          <div className="mt-auto mb-8 border-t-2 border-black pt-3 flex justify-between text-[11px] font-bold">
+            <span>NINA NEWS</span>
+            <span>fontes: o grupo da sala</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (post.kind === 'chat') {
+    return (
+      <div className="absolute inset-0 bg-[#e8e2d9] text-[#111] flex flex-col">
+        <div className="bg-[#075e54] text-white px-5 py-4 flex items-center gap-3">
+          <NinaFace size={34} />
+          <div>
+            <p className="text-[14px] font-semibold">{post.label ?? 'Paciente — Clínica'}</p>
+            <p className="text-[10px] text-white/60">online</p>
+          </div>
+        </div>
+        <div className="flex-1 px-5 py-7 space-y-3 bg-[radial-gradient(rgba(0,0,0,.04)_1px,transparent_1px)] [background-size:10px_10px]">
+          {thread.map((row, index) => (
+            <div
+              key={`${row.user}-${index}`}
+              className={`max-w-[84%] rounded-[12px] px-3.5 py-2.5 text-[13px] leading-snug shadow-sm ${
+                row.author ? 'ml-auto bg-[#d9fdd3]' : 'bg-white'
+              }`}
+            >
+              <p>{row.text}</p>
+              <p className="mt-1 text-right text-[9px] text-black/35">{row.likes ?? '07:03'}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (post.kind === 'receipt') {
+    return (
+      <div className="absolute inset-0 bg-[#d7ff52] text-[#111] p-7 flex items-center justify-center">
+        <div className="w-full bg-[#fffdf5] px-6 py-8 shadow-[0_18px_45px_rgba(0,0,0,.18)] rotate-[-1deg] font-mono">
+          <p className="text-center text-[12px]">ACADEMY WRAPPED</p>
+          <p className="text-center text-[10px] mt-1 text-black/45">seu semestre até aqui</p>
+          <div className="my-6 border-y border-dashed border-black/30 py-5 space-y-4">
+            {items.map((item, index) => (
+              <div key={item} className="flex gap-3 text-[13px] leading-tight">
+                <span className="font-bold">{String(index + 1).padStart(2, '0')}</span>
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-[11px] font-bold whitespace-pre-line">{post.headline}</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (post.kind === 'starter') {
+    return (
+      <div className="absolute inset-0 bg-[#ffd7e2] text-[#28121a] p-7 flex flex-col">
+        <div className="flex items-start justify-between gap-4">
+          <h3 className="text-[31px] md:text-[38px] font-black tracking-[-0.05em] leading-[0.92] whitespace-pre-line">
+            {post.headline}
+          </h3>
+          <span className="rounded-full bg-white px-3 py-1 text-[10px] font-bold">starter pack</span>
+        </div>
+        <div className="mt-7 grid grid-cols-2 gap-3 flex-1">
+          {items.map((item, index) => (
+            <div
+              key={item}
+              className="rounded-[18px] bg-white/75 px-3 py-4 flex flex-col items-center justify-center text-center"
+            >
+              <span className="text-[28px] mb-3">{['🎀', '🚗', '🧥', '💳'][index % 4]}</span>
+              <span className="text-[12px] font-semibold leading-tight">{item}</span>
+            </div>
+          ))}
+        </div>
+        <p className="mt-5 text-[12px] font-semibold">{post.sub}</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="absolute inset-0 bg-[#5b2be0] text-white p-7 flex flex-col">
+      <div className="flex items-center gap-3">
+        <NinaFace size={34} />
+        <p className="text-[13px] font-bold">NINA PERGUNTA</p>
+      </div>
+      <h3 className="mt-10 text-[27px] md:text-[34px] font-bold tracking-tight leading-[1.05] whitespace-pre-line">
+        {post.headline}
+      </h3>
+      <div className="mt-auto space-y-2.5">
+        {items.map((item, index) => (
+          <div
+            key={item}
+            className={`rounded-[14px] border-2 px-4 py-3 text-[13px] font-semibold ${
+              index === Number(post.value ?? '-1')
+                ? 'border-[#d7ff52] bg-[#d7ff52] text-[#1a1a1a]'
+                : 'border-white/30 bg-white/8'
+            }`}
+          >
+            {item}
+          </div>
+        ))}
+      </div>
+      {post.sub && <p className="mt-5 text-[12px] text-white/65">{post.sub}</p>}
+    </div>
+  );
+}
+
 export function PostArt({ post }: { post: FeedPost }) {
   const ref = useRef<HTMLDivElement>(null);
   const [copied, setCopied] = useState(false);
@@ -392,7 +519,8 @@ export function PostArt({ post }: { post: FeedPost }) {
         {kind === 'notify' && <NotifyLock post={post} />}
         {kind === 'comment' && <CommentArt post={post} />}
         {kind === 'poster' && <PosterArt post={post} />}
-        {kind !== 'notify' && kind !== 'comment' && kind !== 'poster' && (
+        {['breaking', 'chat', 'receipt', 'starter', 'quiz'].includes(kind) && <VarietyArt post={post} />}
+        {!['notify', 'comment', 'poster', 'breaking', 'chat', 'receipt', 'starter', 'quiz'].includes(kind) && (
           <>
             {post.surface === 'photo' && post.photo && (
               <>
