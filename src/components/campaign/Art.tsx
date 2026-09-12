@@ -799,26 +799,19 @@ export function AmbassadorAvatar({ size = 120 }: { size?: number }) {
       style={{
         width: size,
         height: size,
-        background: 'linear-gradient(145deg, #d7ff52 0%, #34C759 52%, #5b2be0 100%)',
-        boxShadow: `inset 0 0 0 ${Math.max(3, size * 0.045)}px rgba(255,255,255,.92)`,
+        background: 'radial-gradient(circle at 35% 28%, #6f36ad 0%, #351642 46%, #09060a 100%)',
+        boxShadow: `inset 0 0 0 ${Math.max(2, size * 0.018)}px rgba(255,255,255,.12)`,
       }}
     >
-      <div className="overflow-hidden rounded-full" style={{ transform: `scale(${size / 150})` }}>
-        <NinaFace size={96} />
-      </div>
-      <span
-        className="absolute rounded-full bg-[#5b2be0] text-white flex items-center justify-center font-black"
-        style={{
-          width: size * 0.32,
-          height: size * 0.32,
-          right: size * 0.01,
-          bottom: size * 0.03,
-          fontSize: size * 0.16,
-          boxShadow: `0 0 0 ${Math.max(2, size * 0.025)}px #fff`,
-        }}
-      >
-        ★
-      </span>
+      <svg width={size * 0.5} height={size * 0.5} viewBox="0 0 64 64" fill="none" aria-hidden>
+        <path
+          d="M50.5 32a18.5 18.5 0 1 1-13.08-17.68"
+          stroke="#fff"
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
+        <circle cx="48.5" cy="16" r="3" fill="#dba8ff" />
+      </svg>
     </div>
   );
 }
@@ -829,17 +822,21 @@ export function AmbassadorAvatarTile() {
 
   return (
     <div>
-      <div ref={ref} className="aspect-square rounded-[28px] bg-[#d7ff52] flex items-center justify-center">
+      <div
+        ref={ref}
+        className="aspect-square rounded-[28px] flex items-center justify-center"
+        style={{ background: 'linear-gradient(145deg, #351642 0%, #130b18 58%, #000 100%)' }}
+      >
         <AmbassadorAvatar size={230} />
       </div>
       <div className="mt-4 flex items-center justify-between gap-3">
         <div>
-          <p className="text-[13px] font-semibold text-apple-ink">Foto de perfil · Recrutamento</p>
+          <p className="text-[13px] font-semibold text-apple-ink">Foto de perfil · Embaixadores</p>
           <p className="text-[11px] text-apple-gray mt-1">1:1 · 1080 × 1080</p>
         </div>
         <button
           type="button"
-          className="text-[13px] text-[#248a3d]"
+          className="text-[13px] text-[#7c3fc4]"
           disabled={state === 'loading'}
           onClick={() => {
             setState('loading');

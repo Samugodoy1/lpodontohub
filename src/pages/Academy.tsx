@@ -351,7 +351,7 @@ export default function Academy() {
           <Reveal>
             <div className="mx-auto w-[260px] aspect-[9/19] rounded-[44px] bg-white p-[10px] shadow-[0_28px_60px_-20px_rgba(0,0,0,0.18)]">
               <div className="relative h-full w-full rounded-[36px] overflow-hidden text-left px-6 pt-12" style={{ background: '#fff' }}>
-                <p className="text-[12px] text-apple-gray mb-1">Nina</p>
+                <p className="text-[12px] text-apple-gray mb-1">Odonto em Jogo</p>
                 <p className="text-[20px] font-semibold tracking-tight text-apple-ink leading-[1.15] mb-8">
                   Você reconheceria esse caso amanhã?
                 </p>
