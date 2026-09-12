@@ -120,13 +120,15 @@ export function EmbaixadoresCampaign(): React.ReactElement {
           </Reveal>
           <div className="grid md:grid-cols-3 gap-10">
             {EMBAIXADORES_INSIGHT.map((item) => (
-              <Reveal key={item.k}>
-                <p className="text-[13px] mb-3 lowercase" style={{ color: LIMA.neo }}>
-                  {item.k}
-                </p>
-                <h3 className="text-[22px] font-semibold tracking-tight leading-[1.12]">{item.t}</h3>
-                <p className="mt-4 text-[15px] text-white/50 leading-relaxed">{item.d}</p>
-              </Reveal>
+              <React.Fragment key={item.k}>
+                <Reveal>
+                  <p className="text-[13px] mb-3 lowercase" style={{ color: LIMA.neo }}>
+                    {item.k}
+                  </p>
+                  <h3 className="text-[22px] font-semibold tracking-tight leading-[1.12]">{item.t}</h3>
+                  <p className="mt-4 text-[15px] text-white/50 leading-relaxed">{item.d}</p>
+                </Reveal>
+              </React.Fragment>
             ))}
           </div>
         </div>
@@ -155,16 +157,18 @@ export function EmbaixadoresCampaign(): React.ReactElement {
               ['“minha turma vive pedindo meu resumo”', 'isso não é uma frase. é uma candidatura.'],
               ['“posso falar do meu jeito?”', 'deve. roteiro engessado já basta a ficha clínica.'],
             ].map(([question, answer]) => (
-              <Reveal key={question}>
-                <div className="h-full rounded-[22px] px-5 py-5 bg-black/35">
-                  <p className="text-[13px] text-white/40 mb-2">odonter</p>
-                  <p className="text-[16px] leading-snug">{question}</p>
-                  <p className="text-[13px] mt-4 mb-2" style={{ color: LIMA.neo }}>
-                    nina
-                  </p>
-                  <p className="text-[16px] leading-snug">{answer}</p>
-                </div>
-              </Reveal>
+              <React.Fragment key={question}>
+                <Reveal>
+                  <div className="h-full rounded-[22px] px-5 py-5 bg-black/35">
+                    <p className="text-[13px] text-white/40 mb-2">odonter</p>
+                    <p className="text-[16px] leading-snug">{question}</p>
+                    <p className="text-[13px] mt-4 mb-2" style={{ color: LIMA.neo }}>
+                      nina
+                    </p>
+                    <p className="text-[16px] leading-snug">{answer}</p>
+                  </div>
+                </Reveal>
+              </React.Fragment>
             ))}
           </div>
         </div>
@@ -180,13 +184,15 @@ export function EmbaixadoresCampaign(): React.ReactElement {
           </Reveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-3">
             {EMBAIXADORES_PROCESS.map((item) => (
-              <Reveal key={item.n}>
-                <div className="h-full rounded-[22px] bg-white/10 p-5 border border-white/10">
-                  <p className="text-[12px] text-[#d7ff52] mb-8">{item.n}</p>
-                  <h3 className="text-[20px] font-semibold tracking-tight leading-[1.08] lowercase">{item.title}</h3>
-                  <p className="mt-4 text-[14px] text-white/55 leading-relaxed">{item.body}</p>
-                </div>
-              </Reveal>
+              <React.Fragment key={item.n}>
+                <Reveal>
+                  <div className="h-full rounded-[22px] bg-white/10 p-5 border border-white/10">
+                    <p className="text-[12px] text-[#d7ff52] mb-8">{item.n}</p>
+                    <h3 className="text-[20px] font-semibold tracking-tight leading-[1.08] lowercase">{item.title}</h3>
+                    <p className="mt-4 text-[14px] text-white/55 leading-relaxed">{item.body}</p>
+                  </div>
+                </Reveal>
+              </React.Fragment>
             ))}
           </div>
         </div>
