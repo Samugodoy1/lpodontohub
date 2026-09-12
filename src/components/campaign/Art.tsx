@@ -792,6 +792,75 @@ export function AvatarTile({ src, label, file }: { src: string; label: string; f
   );
 }
 
+export function AmbassadorAvatar({ size = 120 }: { size?: number }) {
+  return (
+    <div
+      className="relative rounded-full flex items-center justify-center"
+      style={{
+        width: size,
+        height: size,
+        background: 'linear-gradient(145deg, #d7ff52 0%, #34C759 52%, #5b2be0 100%)',
+        boxShadow: `inset 0 0 0 ${Math.max(3, size * 0.045)}px rgba(255,255,255,.92)`,
+      }}
+    >
+      <div className="overflow-hidden rounded-full" style={{ transform: `scale(${size / 150})` }}>
+        <NinaFace size={96} />
+      </div>
+      <span
+        className="absolute rounded-full bg-[#5b2be0] text-white flex items-center justify-center font-black"
+        style={{
+          width: size * 0.32,
+          height: size * 0.32,
+          right: size * 0.01,
+          bottom: size * 0.03,
+          fontSize: size * 0.16,
+          boxShadow: `0 0 0 ${Math.max(2, size * 0.025)}px #fff`,
+        }}
+      >
+        ★
+      </span>
+    </div>
+  );
+}
+
+export function AmbassadorAvatarTile() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [state, setState] = useState<'idle' | 'loading' | 'done' | 'error'>('idle');
+
+  return (
+    <div>
+      <div ref={ref} className="aspect-square rounded-[28px] bg-[#d7ff52] flex items-center justify-center">
+        <AmbassadorAvatar size={230} />
+      </div>
+      <div className="mt-4 flex items-center justify-between gap-3">
+        <div>
+          <p className="text-[13px] font-semibold text-apple-ink">Foto de perfil · Recrutamento</p>
+          <p className="text-[11px] text-apple-gray mt-1">1:1 · 1080 × 1080</p>
+        </div>
+        <button
+          type="button"
+          className="text-[13px] text-[#248a3d]"
+          disabled={state === 'loading'}
+          onClick={() => {
+            setState('loading');
+            void downloadNode(ref.current, 'academy-embaixadores-foto-de-perfil.png')
+              .then(() => {
+                setState('done');
+                window.setTimeout(() => setState('idle'), 1800);
+              })
+              .catch(() => {
+                setState('error');
+                window.setTimeout(() => setState('idle'), 3000);
+              });
+          }}
+        >
+          {state === 'loading' ? 'Gerando…' : state === 'done' ? 'Baixado ✓' : state === 'error' ? 'Tentar de novo' : 'Baixar'}
+        </button>
+      </div>
+    </div>
+  );
+}
+
 export function MarkTile({ inverted = false }: { inverted?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const color = inverted ? '#f5f5f7' : '#1d1d1f';
