@@ -3,42 +3,60 @@ import { AZUL, LARANJA, LIMA, NEOS, ROSA, START_ACADEMY, VIOLETA, type FeedPost,
 export const REP_LINE = 'Representantes';
 export const REP_KICKER = 'OdontoHub Academy';
 export const REP_SUB =
-  'Você não está divulgando um app. Você é a voz do Academy na sua faculdade — e parte de uma marca maior.';
+  'O kit está aqui quando fizer sentido. A forma de falar continua sendo a sua.';
+
+export const REP_QUOTE_MEET =
+  'Aqui é o lugar onde quem vive a clínica da faculdade se encontra. Mais do que participar, você contribui.';
+
+export const REP_QUOTE_SELF =
+  'Você é muito mais do que podemos ver de fora. Traga a sua experiência, a sua turma, o seu jeito de estudar. Respeitamos quem você é e quem ainda vai se tornar.';
+
+export const REP_GROWTH_KICKER = 'Crescimento, no seu ritmo.';
+export const REP_GROWTH_TITLE = 'Começar aqui é só o começo.';
+export const REP_GROWTH_LEFT =
+  'As pessoas são a alma do Academy. Convidamos você pelo que já traz — a clínica, a fala, a forma de estar com a turma. Desde o primeiro dia, a contribuição é a sua. Não um tom emprestado.';
+export const REP_GROWTH_RIGHT =
+  'Não há um jeito certo de aparecer. Há o seu. O kit existe para o dia em que quiser uma cor, um lockup, um recorte. No resto, você segue como já segue. Qualquer caminho que escolher, vamos estar no processo — e poder crescer juntos.';
+
+export const REP_COLLAB_KICKER = 'Juntos';
+export const REP_COLLAB_LEAD = 'São necessárias';
+export const REP_COLLAB_COLOR = 'as suas ideias';
+export const REP_COLLAB_TAIL = 'para a clínica da faculdade.';
 
 export const REP_BIO_BASE = `A clínica da faculdade.
 Do seu jeito.
 academy.odontohub.app.br`;
 
 export function repBio(code: string) {
-  return `Embaixador Academy.
-Código ${code}.
-${START_ACADEMY.replace('https://', '')}`;
+  return `A clínica da faculdade.
+Do seu jeito.
+${code}`;
 }
 
 export const REP_JUMP = [
   { id: 'logotipos', label: 'Logotipos', hint: 'Lockups e marca' },
   { id: 'cores', label: 'Cores Neo', hint: 'Cinco colorways' },
   { id: 'formatos', label: 'Formatos', hint: '4:5 · 9:16 · 1:1' },
-  { id: 'voz', label: 'Voz', hint: 'Como a marca fala' },
-  { id: 'diretrizes', label: 'Diretrizes', hint: 'O que vale. O que não.' },
-  { id: 'presets', label: 'Presets', hint: 'Feed, stories, destaques' },
+  { id: 'voz', label: 'Voz', hint: 'A sua, como já é' },
+  { id: 'cultura', label: 'Cultura', hint: 'O lugar, não o roteiro' },
+  { id: 'presets', label: 'Presets', hint: 'Se quiser um começo' },
 ] as const;
 
 export const REP_PILLARS = [
   {
-    kicker: 'Pertencer',
-    title: 'A marca já está na sua mão.',
-    body: 'O mesmo laranja do app. O mesmo tipo. O mesmo silêncio. Quando você posta, a faculdade vê o Academy — não um recorte.',
+    kicker: 'Você',
+    title: 'A fala já é sua.',
+    body: 'Convidamos pela clínica que você vive. Não para repetir a nossa. Traga o jeito que já tem.',
   },
   {
-    kicker: 'Cuidar',
-    title: 'Identidade não é enfeite.',
-    body: 'Logotipo, cor, formato e frase andam juntos. Um fora do lugar e a marca some. O kit existe para você não improvisar.',
+    kicker: 'O kit',
+    title: 'Está aqui. Não é obrigação.',
+    body: 'Lockup, cor, recorte, um preset. Use o que servir. Ignore o que não caber no seu dia.',
   },
   {
-    kicker: 'Falar',
-    title: 'A sua voz. A nossa precisão.',
-    body: 'Conte a sua clínica. Use as palavras certas. Nunca prometa o que o produto não é. Representar é isso.',
+    kicker: 'Juntos',
+    title: 'Contribuir, não representar um texto.',
+    body: 'O Academy ganha quando a sua turma ouve você. A marca só precisa ter um nome, quando o produto aparecer.',
   },
 ] as const;
 
@@ -51,18 +69,11 @@ export const KIT_LOGOS = [
   { href: '/brand/logo-odontohub.svg', label: 'Wordmark OdontoHub', note: 'Quando a conversa é a marca-mãe' },
 ] as const;
 
-export const LOGO_RULES = [
-  { t: 'Respiração', d: 'Deixe em volta, no mínimo, a altura da letra O. A marca precisa de ar.' },
-  { t: 'Tamanho', d: 'No digital, a palavra Academy não pode ficar menor do que 11 px. Se não cabe, use só a marca.' },
-  { t: 'Fundo', d: 'Preto, branco, superfície #f5f5f7, ou um Neo inteiro. Nunca um degradê inventado. Nunca foto ocupada.' },
-  { t: 'Cor', d: 'Academy no laranja oficial, ou branco sobre Neo. Não recolorir de verde, dourado, neon.' },
-] as const;
-
-export const LOGO_DONT = [
-  'Não estique, não incline, não coloque sombra.',
-  'Não escreva “Odonto Hub”, “ODONTOHUB ACADEMY” em caixa alta, nem “o Hub da faculdade”.',
-  'Não cole a marca sobre foto de procedimento, sangue ou rosto de paciente.',
-  'Não misture o azul do Hub com o laranja do Academy no mesmo lockup.',
+export const LOGO_NOTES = [
+  { t: 'O lockup', d: 'OdontoHub + Academy. Os arquivos já vêm no ar certo, no peso certo. É só colocar.' },
+  { t: 'A cor', d: 'Academy no laranja, ou branco sobre um Neo. Os SVGs já nascem assim.' },
+  { t: 'O fundo', d: 'Preto, branco, superfície, ou um Neo inteiro. Onde o tipo respira, a marca aparece.' },
+  { t: 'Se não couber', d: 'A palavra inteira pede um pouco de largura. No espaço curto, o arco basta.' },
 ] as const;
 
 export const COLOR_USES = [
@@ -79,86 +90,59 @@ export const FORMATS = [
     ratio: '4:5',
     size: '1080 × 1350',
     title: 'Feed',
-    body: 'A peça principal. Tipo grande. Uma ideia. Texto na arte, o mínimo.',
+    body: 'O recorte do feed. Cabe uma ideia, uma foto, o que você já faria.',
   },
   {
     id: 'story',
     ratio: '9:16',
     size: '1080 × 1920',
     title: 'Stories',
-    body: 'Vertical, centro. Uma frase. Sem carrossel de oito telas. Um gesto.',
+    body: 'Vertical. Uma tela ou várias. Do jeito que você já conta o dia.',
   },
   {
     id: 'square',
     ratio: '1:1',
     size: '1080 × 1080',
     title: 'Carrossel e destaques',
-    body: 'Capa de destaque é um círculo. Carrossel: uma palavra por lâmina.',
+    body: 'Quadrado, se quiser. Capa de destaque, se fizer sentido para você.',
   },
 ] as const;
 
-export const VOICE_DO = [
+export const VOICE_INVITES = [
   {
-    t: 'Frases curtas.',
-    d: 'Ponto final. Como a marca. “A clínica da faculdade.” Não um parágrafo de anúncio.',
+    t: 'Fale como você fala.',
+    d: 'Sério, leve, curto, longo. A gente chamou você por isso. Não há um tom a copiar.',
   },
   {
-    t: 'A sua rotina.',
-    d: 'O box, o checklist, a prova. Você vive isso. A marca empresta o tipo. A história é sua.',
+    t: 'Conte o que você vive.',
+    d: 'O box, a prova, a semana. Ou não conte nada disso. O que couber na sua forma de estar.',
   },
   {
-    t: 'O nome certo.',
-    d: 'OdontoHub Academy. Na segunda menção, Academy. Nunca “o aplicativo da faculdade”.',
+    t: 'O produto tem um nome.',
+    d: 'Quando ele aparecer, OdontoHub Academy. No resto da frase, o seu vocabulário.',
   },
   {
-    t: 'Parceria visível.',
-    d: '“Embaixador OdontoHub Academy.” Uma linha. Sempre. No story, na bio, no post pago.',
-  },
-] as const;
-
-export const VOICE_DONT = [
-  {
-    t: 'Não é prontuário oficial.',
-    d: 'Não diga que substitui a ficha da universidade, o sistema da preceptoria, ou o papel do professor.',
-  },
-  {
-    t: 'Não é milagre.',
-    d: 'Não prometa nota, aprovação, paciente, ou “passar em prova sem estudar”.',
-  },
-  {
-    t: 'Não é ERP.',
-    d: 'Não compare com Clinicorp, Simples Dental, ou “software de gestão”. Academy é a clínica da faculdade.',
-  },
-  {
-    t: 'Não é piada com paciente.',
-    d: 'Sem rosto, sem dado, sem caso reconhecível. Biossegurança também é de imagem.',
+    t: 'O kit é um convite.',
+    d: 'Uma arte pronta, se quiser. Uma foto sua, se quiser. Um texto só seu, sempre.',
   },
 ] as const;
 
-export const SAY_THIS = [
-  { bad: 'O melhor software odontológico do Brasil.', good: 'A clínica da faculdade. Do seu jeito.' },
-  { bad: 'Gamificação revolucionária para alunos.', good: 'Odonto em Jogo. Uma fase por vez.' },
-  { bad: 'Substitua o prontuário da sua faculdade.', good: 'O seu organizador pessoal. A ficha oficial continua na universidade.' },
-  { bad: 'Use meu cupom e ganhe desconto agora!!!', good: `Código ${'{código}'}. Grátis para começar.` },
-  { bad: 'App da Apple para dentistas.', good: 'OdontoHub Academy. Para a clínica da faculdade.' },
-] as const;
-
-export const PHOTO_RULES = [
+export const PHOTO_INVITES = [
   {
-    t: 'O box, de verdade.',
-    d: 'Celular apoiado. Luva visível. Luz da clínica. Sem encenação de stock. O produto entra no quadro pequeno.',
+    t: 'A sua clínica, se quiser.',
+    d: 'A luz da sala. O tray. O dia. Nada precisa parecer campanha.',
   },
   {
-    t: 'Mãos, não rostos.',
-    d: 'Paciente nunca identificável. Sem radiografia com nome. Sem crachá de colega sem pedido.',
+    t: 'As pessoas, com cuidado.',
+    d: 'Quem aparece, aparece porque quis. Paciente, colega, você — o respeito vem antes do enquadramento.',
   },
   {
-    t: 'Uma cor por peça.',
-    d: 'Se a arte é laranja, a foto não compete. Prefira o wash, o Neo cheio, ou a foto com tipo por cima — nunca os dois gritando.',
+    t: 'O produto, num canto.',
+    d: 'Pode entrar na foto. Pode não entrar. A história continua sendo a sua.',
   },
   {
-    t: 'Sem filtro “odonto”.',
-    d: 'Nada de dente 3D genérico, nada de estoque de sorriso. A marca já tem tipo. Deixe ela respirar.',
+    t: 'O que você já filma.',
+    d: 'Stories da semana, o recorte de sempre. Não pedimos um novo jeito de olhar.',
   },
 ] as const;
 
@@ -196,29 +180,28 @@ export const SURFACES = [
 export const CAPTION_BANK = (code: string) =>
   [
     {
-      title: 'Apresentação',
-      text: `Embaixador OdontoHub Academy.\nA clínica da faculdade. Do seu jeito.\n\nCódigo ${code}\n${START_ACADEMY}`,
+      title: 'Se quiser um começo',
+      text: `Tenho usado o OdontoHub Academy na clínica da faculdade.\n\nCódigo ${code} — se fizer sentido para você.\n${START_ACADEMY}`,
     },
     {
       title: 'Odonto em Jogo',
-      text: `Odonto em Jogo. Como o Duolingo, para odontologia.\nTema. Situação clínica. XP, vidas, a próxima fase.\n\nCódigo ${code}`,
+      text: `Odonto em Jogo, no Academy. Tem me ajudado a praticar entre um atendimento e outro.\n\n${code}`,
     },
     {
       title: 'Modo Box',
-      text: `Modo Box. O passo, grande o suficiente.\nCelular apoiado. Sem tirar a luva.\n\n${START_ACADEMY}`,
+      text: `Modo Box. O passo na tela, sem tirar a luva.\n\n${START_ACADEMY}`,
     },
     {
-      title: 'Convite',
-      text: `Grátis para começar.\nCódigo ${code} — se fizer sentido para a sua clínica da faculdade.\n\n${START_ACADEMY}`,
+      title: 'Do seu jeito',
+      text: `Reescreva esta inteira.\nO código, se quiser: ${code}`,
     },
   ] as const;
 
 export const REP_PLAN = [
-  { when: 'Bio', what: 'Embaixador Academy. Código visível. Link na bio.' },
-  { when: 'Sempre', what: 'Uma linha de parceria em todo post sobre o produto.' },
-  { when: 'Feed', what: 'Uma ideia. Tipo grande. Preset do kit, ou foto do seu box.' },
-  { when: 'Stories', what: 'Uma frase. Destaque “Academy” com a capa oficial.' },
-  { when: 'Código', what: 'Claro, uma vez. Sem urgência falsa. Sem CAPS.' },
+  { when: 'Você', what: 'O jeito que já posta. Nada a mudar, se não quiser.' },
+  { when: 'O kit', what: 'Uma arte, uma cor, um recorte. Só se couber.' },
+  { when: 'O nome', what: 'OdontoHub Academy, quando o produto aparecer.' },
+  { when: 'O código', what: 'O seu. Onde e como fizer sentido.' },
 ];
 
 export function buildRepPresets(code: string): {
@@ -236,14 +219,14 @@ export function buildRepPresets(code: string): {
       id: 'rep-01',
       n: '01',
       account: 'academy',
-      title: 'Representante',
+      title: 'Do seu jeito',
       format: 'feed',
       surface: 'neo',
       neo: LARANJA,
       kind: 'hero',
-      kicker: 'Embaixador',
-      headline: 'Representantes.',
-      caption: `Embaixador OdontoHub Academy.\n${tag}.\n\n${start}`,
+      kicker: 'Academy',
+      headline: 'Do seu\njeito.',
+      caption: `A clínica da faculdade. Do seu jeito.\n${tag}.\n\n${start}`,
       align: 'center',
     },
     {
@@ -323,13 +306,13 @@ export function buildRepPresets(code: string): {
       id: 'rep-st-01',
       n: '01',
       account: 'academy',
-      title: 'Story · Representante',
+      title: 'Story · Clínica',
       format: 'story',
       surface: 'neo',
       neo: LARANJA,
       kind: 'hero',
-      headline: 'Representantes.',
-      caption: `Embaixador OdontoHub Academy.\n${tag}`,
+      headline: 'Do seu\njeito.',
+      caption: `A clínica da faculdade.\n${tag}`,
       align: 'center',
     },
     {
@@ -435,9 +418,9 @@ export function buildRepPresets(code: string): {
       format: 'feed',
       surface: 'lock',
       kind: 'hero',
-      kicker: 'Parceria',
-      headline: 'Embaixador\nAcademy.',
-      caption: `Embaixador OdontoHub Academy.\n${tag}\n${start}`,
+      kicker: 'Academy',
+      headline: 'A sua\nvoz.',
+      caption: `Do seu jeito.\n${tag}\n${start}`,
       align: 'center',
     },
     {

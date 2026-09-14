@@ -9,20 +9,26 @@ import {
   COLOR_USES,
   FORMATS,
   KIT_LOGOS,
-  LOGO_DONT,
-  LOGO_RULES,
-  PHOTO_RULES,
+  LOGO_NOTES,
+  PHOTO_INVITES,
   REP_BIO_BASE,
+  REP_COLLAB_COLOR,
+  REP_COLLAB_KICKER,
+  REP_COLLAB_LEAD,
+  REP_COLLAB_TAIL,
+  REP_GROWTH_KICKER,
+  REP_GROWTH_LEFT,
+  REP_GROWTH_RIGHT,
   REP_JUMP,
   REP_KICKER,
   REP_LINE,
   REP_PILLARS,
   REP_PLAN,
+  REP_QUOTE_MEET,
+  REP_QUOTE_SELF,
   REP_SUB,
-  SAY_THIS,
   SURFACES,
-  VOICE_DO,
-  VOICE_DONT,
+  VOICE_INVITES,
   buildRepPresets,
   repBio,
 } from '../data/representantes';
@@ -77,6 +83,15 @@ function JumpIcon({ id }: { id: string }) {
       </svg>
     );
   }
+  if (id === 'cultura') {
+    return (
+      <svg {...common}>
+        <circle cx="14" cy="16" r="5" stroke={stroke} strokeWidth="1.6" />
+        <circle cx="22" cy="16" r="5" stroke={stroke} strokeWidth="1.6" />
+        <path d="M9.5 25.5c1.6-2.4 4-3.6 8.5-3.6s6.9 1.2 8.5 3.6" stroke={stroke} strokeWidth="1.6" strokeLinecap="round" />
+      </svg>
+    );
+  }
   return (
     <svg {...common}>
       <circle cx="18" cy="18" r="9" stroke={stroke} strokeWidth="1.6" />
@@ -123,7 +138,7 @@ export default function Representantes(): React.ReactElement {
         <title>Representantes — Recursos de marca · OdontoHub Academy</title>
         <meta
           name="description"
-          content="Recursos de marca e diretrizes de identidade para representantes do OdontoHub Academy. Logotipos, cores Neo, presets, formatos e voz."
+          content="Um lugar para representantes do OdontoHub Academy. O kit de marca está aqui. A voz continua sendo a sua."
         />
         <link rel="canonical" href="https://www.odontohub.app.br/academy/representantes" />
         <meta property="og:title" content="Representantes — OdontoHub Academy" />
@@ -177,25 +192,33 @@ export default function Representantes(): React.ReactElement {
         </motion.h1>
       </section>
 
-      <section className="relative overflow-hidden min-h-[78svh] flex items-end">
+      <section className="relative overflow-hidden min-h-[88svh] flex items-center">
         <div
           className="absolute inset-0"
           style={{
-            background:
-              'linear-gradient(180deg, #1a0a22 0%, #3b1048 38%, #ff6b2c 100%)',
+            background: 'linear-gradient(115deg, #FF6B2C 0%, #FF6482 48%, #BF5AF2 100%)',
           }}
         />
-        <div
-          className="absolute inset-0 opacity-40"
-          style={{
-            background:
-              'radial-gradient(ellipse at 30% 40%, rgba(255,255,255,0.18), transparent 42%)',
-          }}
-        />
-        <div className="relative max-w-[980px] mx-auto px-5 pb-16 md:pb-24 w-full">
+        <div className="relative max-w-[920px] mx-auto px-5 py-28 md:py-36 w-full">
           <Reveal>
-            <p className="text-[32px] sm:text-[44px] md:text-[56px] font-semibold tracking-tight leading-[1.08] text-white max-w-[18ch]">
-              Uma clínica na faculdade pode inspirar a turma inteira.
+            <p className="text-[28px] sm:text-[36px] md:text-[44px] font-semibold tracking-tight leading-[1.18] text-white text-center">
+              {REP_QUOTE_MEET}
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="relative overflow-hidden min-h-[88svh] flex items-center">
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(165deg, #FF6B2C 0%, #FF3B5C 55%, #E11D48 100%)',
+          }}
+        />
+        <div className="relative max-w-[860px] mx-auto px-5 py-28 md:py-36 w-full">
+          <Reveal>
+            <p className="text-[28px] sm:text-[36px] md:text-[44px] font-semibold tracking-tight leading-[1.18] text-white text-center">
+              {REP_QUOTE_SELF}
             </p>
           </Reveal>
         </div>
@@ -205,11 +228,10 @@ export default function Representantes(): React.ReactElement {
         <div className="max-w-[820px] mx-auto text-center">
           <Reveal>
             <h2 className="apple-display-ink text-[40px] md:text-[56px] mb-6">
-              Recursos de marca e diretrizes de identidade
+              O kit. A sua voz.
             </h2>
             <p className="text-[17px] md:text-[21px] leading-relaxed text-apple-ink/80 max-w-[640px] mx-auto">
-              {REP_SUB} Use os logotipos, as cores Neo, os presets e estas orientações para apresentar o Academy em
-              qualquer comunicação — com a mesma precisão de quem já trabalha aqui.
+              {REP_SUB} Logotipos, cores, recortes e algumas artes prontas — para o dia em que quiser. Nada aqui pede que você fale de outro jeito.
             </p>
           </Reveal>
           <div className="mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-6 gap-8 md:gap-4">
@@ -248,7 +270,7 @@ export default function Representantes(): React.ReactElement {
           <Reveal className="mb-14 max-w-[640px]">
             <h2 className="apple-display-ink text-[40px] md:text-[56px]">Logotipos</h2>
             <p className="apple-subhead text-[19px] mt-4">
-              O lockup é OdontoHub + Academy. A marca é o arco. Em fundo claro, tinta. Em fundo Neo, branco.
+              O lockup é OdontoHub + Academy. Os arquivos estão prontos. É só levar, se quiser.
             </p>
           </Reveal>
           <div className="grid md:grid-cols-2 gap-6 mb-6">
@@ -282,28 +304,16 @@ export default function Representantes(): React.ReactElement {
             </div>
           </div>
 
-          <div className="mt-16 grid md:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-[21px] font-semibold tracking-tight mb-6">Como usar</h3>
-              <ul className="space-y-5">
-                {LOGO_RULES.map((rule) => (
-                  <li key={rule.t}>
-                    <p className="text-[17px] font-semibold tracking-tight">{rule.t}</p>
-                    <p className="mt-1 text-[15px] text-apple-gray leading-relaxed">{rule.d}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-[21px] font-semibold tracking-tight mb-6">O que não fazer</h3>
-              <ul className="space-y-4">
-                {LOGO_DONT.map((line) => (
-                  <li key={line} className="text-[15px] text-apple-gray leading-relaxed pl-4 border-l border-black/10">
-                    {line}
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="mt-16 max-w-[640px]">
+            <h3 className="text-[21px] font-semibold tracking-tight mb-6">Como o lockup se comporta</h3>
+            <ul className="space-y-5">
+              {LOGO_NOTES.map((rule) => (
+                <li key={rule.t}>
+                  <p className="text-[17px] font-semibold tracking-tight">{rule.t}</p>
+                  <p className="mt-1 text-[15px] text-apple-gray leading-relaxed">{rule.d}</p>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="mt-16 pt-10 border-t border-apple-line">
@@ -325,7 +335,7 @@ export default function Representantes(): React.ReactElement {
           <Reveal className="mb-14 max-w-[560px]">
             <h2 className="apple-display-ink text-[40px] md:text-[56px]">Cores Neo</h2>
             <p className="apple-subhead text-[19px] mt-4">
-              Cinco colorways. Uma conta. A pessoa escolhe a sua. Você representa todas — e usa uma por peça.
+              Cinco colorways. Uma conta. A pessoa escolhe a sua. Você usa a que quiser, quando quiser.
             </p>
           </Reveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
@@ -347,8 +357,8 @@ export default function Representantes(): React.ReactElement {
             ))}
           </div>
           <p className="mt-10 text-[15px] text-apple-gray max-w-[640px] leading-relaxed">
-            Superfície da marca: #f5f5f7. Tinta: #1d1d1f. Cinza: #86868b. O laranja é a casa. As outras quatro cores
-            existem para a pessoa se reconhecer — não para um arco-íris no mesmo post.
+            Superfície #f5f5f7. Tinta #1d1d1f. Cinza #86868b. O laranja é a cor da casa. As outras existem para quem
+            quiser se reconhecer nelas.
           </p>
         </div>
       </section>
@@ -358,7 +368,7 @@ export default function Representantes(): React.ReactElement {
           <Reveal className="mb-14">
             <h2 className="apple-display-ink text-[40px] md:text-[56px]">Formatos</h2>
             <p className="apple-subhead text-[19px] mt-4 max-w-[540px]">
-              Três recortes. Sempre. O tipo ocupa o quadro. A arte já nasce no tamanho certo — não recorte depois.
+              Três recortes comuns. Use o que servir para o que você já posta.
             </p>
           </Reveal>
           <div className="grid md:grid-cols-3 gap-10">
@@ -392,11 +402,11 @@ export default function Representantes(): React.ReactElement {
           <Reveal className="mb-14 max-w-[640px]">
             <h2 className="apple-display-ink text-[40px] md:text-[56px]">Fotografia</h2>
             <p className="apple-subhead text-[19px] mt-4">
-              A clínica real. A luz da sala. O telefone no tray. Nada de banco de imagens de sorriso.
+              Se quiser mostrar o dia. Do jeito que você já mostra.
             </p>
           </Reveal>
           <div className="grid md:grid-cols-2 gap-x-16 gap-y-12">
-            {PHOTO_RULES.map((rule) => (
+            {PHOTO_INVITES.map((rule) => (
               <React.Fragment key={rule.t}>
                 <Reveal>
                   <h3 className="text-[24px] font-semibold tracking-tight">{rule.t}</h3>
@@ -410,61 +420,57 @@ export default function Representantes(): React.ReactElement {
 
       <section id="voz" className="bg-white px-5 py-24 md:py-32 scroll-mt-32">
         <div className="max-w-[980px] mx-auto">
-          <Reveal className="mb-14 max-w-[560px]">
-            <h2 className="apple-display-ink text-[40px] md:text-[56px]">Voz + estilo</h2>
+          <Reveal className="mb-14 max-w-[640px]">
+            <h2 className="apple-display-ink text-[40px] md:text-[56px]">A sua voz.</h2>
             <p className="apple-subhead text-[19px] mt-4">
-              A marca fala baixo e certo. Você conta a sua clínica. As duas coisas no mesmo post.
+              Não há roteiro. Não há tom obrigatório. Chamamos você pelo jeito que já fala.
             </p>
           </Reveal>
-          <div className="grid md:grid-cols-2 gap-6 mb-16">
-            {VOICE_DO.map((item) => (
+          <div className="grid md:grid-cols-2 gap-6">
+            {VOICE_INVITES.map((item) => (
               <div key={item.t} className="rounded-[28px] bg-[#f5f5f7] p-8 md:p-10">
                 <h3 className="text-[22px] font-semibold tracking-tight">{item.t}</h3>
                 <p className="mt-3 text-[15px] text-apple-gray leading-relaxed">{item.d}</p>
               </div>
             ))}
           </div>
-          <h3 className="text-[21px] font-semibold tracking-tight mb-6">Diga isto. Não aquilo.</h3>
-          <div className="divide-y divide-black/10 border-y border-black/10">
-            {SAY_THIS.map((row) => (
-              <div key={row.bad} className="py-6 grid md:grid-cols-2 gap-4 md:gap-10">
-                <p className="text-[15px] text-apple-gray leading-relaxed">
-                  <span className="block text-[12px] font-medium text-apple-gray mb-1">Evite</span>
-                  {row.bad}
-                </p>
-                <p className="text-[15px] text-apple-ink leading-relaxed">
-                  <span className="block text-[12px] font-medium mb-1" style={{ color: LARANJA.neo }}>
-                    Use
-                  </span>
-                  {row.good}
-                </p>
-              </div>
-            ))}
+        </div>
+      </section>
+
+      <section id="cultura" className="bg-[#f5f5f7] px-5 py-24 md:py-32 scroll-mt-32">
+        <div className="max-w-[980px] mx-auto">
+          <Reveal className="mb-12">
+            <p className="text-[19px] font-semibold tracking-tight mb-3" style={{ color: LARANJA.neo }}>
+              {REP_GROWTH_KICKER}
+            </p>
+            <h2 className="apple-display-ink text-[40px] md:text-[56px] max-w-[16ch]">
+              Começar aqui
+              <br />
+              <span style={{ color: LARANJA.neo }}>é só o começo.</span>
+            </h2>
+          </Reveal>
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16">
+            <p className="text-[17px] leading-relaxed text-apple-ink/80">{REP_GROWTH_LEFT}</p>
+            <p className="text-[17px] leading-relaxed text-apple-ink/80">{REP_GROWTH_RIGHT}</p>
           </div>
         </div>
       </section>
 
-      <section id="diretrizes" className="bg-black text-white px-5 py-24 md:py-32 scroll-mt-32">
+      <section className="bg-black text-white px-5 py-24 md:py-36">
         <div className="max-w-[980px] mx-auto">
-          <Reveal className="mb-14 max-w-[620px]">
-            <h2 className="apple-display text-[40px] md:text-[56px]">Diretrizes</h2>
-            <p className="apple-subhead text-[19px] mt-4 !text-white/55">
-              Representar o Academy é um cargo de confiança. A liberdade é a sua história. O limite é a verdade do
-              produto.
-            </p>
+          <Reveal>
+            <p className="text-[19px] font-semibold tracking-tight text-white/55 mb-5">{REP_COLLAB_KICKER}</p>
+            <h2 className="text-[40px] md:text-[56px] font-semibold tracking-tight leading-[1.08] max-w-[16ch]">
+              {REP_COLLAB_LEAD}{' '}
+              <span
+                className="whitespace-nowrap bg-clip-text text-transparent"
+                style={{ backgroundImage: 'linear-gradient(90deg, #32ADE6 0%, #BF5AF2 100%)' }}
+              >
+                {REP_COLLAB_COLOR}
+              </span>{' '}
+              {REP_COLLAB_TAIL}
+            </h2>
           </Reveal>
-          <div className="grid md:grid-cols-2 gap-12">
-            {VOICE_DONT.map((item) => (
-              <div key={item.t}>
-                <h3 className="text-[24px] font-semibold tracking-tight">{item.t}</h3>
-                <p className="mt-3 text-[16px] text-white/55 leading-relaxed">{item.d}</p>
-              </div>
-            ))}
-          </div>
-          <p className="mt-16 text-[15px] text-white/45 max-w-[640px] leading-relaxed">
-            O Academy é ferramenta de apoio pessoal. A ficha oficial, a avaliação e a preceptoria continuam na
-            universidade. Paciente nenhum entra em conteúdo sem consentimento. A parceria se declara. Sempre.
-          </p>
         </div>
       </section>
 
@@ -483,8 +489,7 @@ export default function Representantes(): React.ReactElement {
               />
             </label>
             <p className="text-[15px] text-apple-gray max-w-[420px] leading-relaxed">
-              Os presets e as legendas já saem com o código {safeCode}. Baixe a arte. Copie a legenda. Declare a
-              parceria.
+              Se quiser, as artes e um ponto de partida já saem com {safeCode}. Pode baixar. Pode reescrever tudo.
             </p>
           </div>
         </div>
@@ -502,7 +507,7 @@ export default function Representantes(): React.ReactElement {
         academyOn
         accent={LARANJA.neo}
         title="Presets"
-        intro="Peças prontas. Fundo limpo. Tipo forte. Coloque o seu código e baixe."
+        intro="Peças prontas, se um dia quiser. Fundo, tipo, recorte. A legenda pode ser inteira sua."
       />
 
       <section className="bg-white px-5 py-24 md:py-28">
@@ -510,7 +515,7 @@ export default function Representantes(): React.ReactElement {
           <Reveal className="mb-10">
             <h2 className="apple-display-ink text-[34px] md:text-[48px]">Legendas</h2>
             <p className="apple-subhead text-[19px] mt-3 max-w-[520px]">
-              Copie. Adapte o começo, se quiser. Mantenha o nome, o código e o que o produto é.
+              Um ponto de partida. Pode copiar, pode mudar uma linha, pode jogar fora.
             </p>
           </Reveal>
           <div className="grid md:grid-cols-2 gap-6">
@@ -559,18 +564,18 @@ export default function Representantes(): React.ReactElement {
           <Reveal>
             <p className="text-[19px] font-semibold tracking-tight text-white/80 mb-4">{REP_KICKER}</p>
             <h2 className="text-[36px] md:text-[64px] font-semibold tracking-tight leading-[1.04] mb-6">
-              Você já faz parte.
+              Traga quem você já é.
             </h2>
-            <p className="text-[19px] md:text-[24px] text-white/80 mb-10 max-w-[22ch] mx-auto">
-              A marca é maior do que um story. Use ela como quem trabalha aqui.
+            <p className="text-[19px] md:text-[24px] text-white/80 mb-10 max-w-[24ch] mx-auto">
+              O kit espera. A voz, não.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
-              <a href="#presets" className="apple-btn-light">
-                Abrir os presets
+              <a href="#voz" className="apple-btn-light">
+                A sua voz
               </a>
-              <Link to="/academy/embaixadores" className="text-[17px] text-white/90 hover:underline underline-offset-2">
-                O programa <span aria-hidden>›</span>
-              </Link>
+              <a href="#presets" className="text-[17px] text-white/90 hover:underline underline-offset-2">
+                Ver o kit <span aria-hidden>›</span>
+              </a>
             </div>
           </Reveal>
         </div>
