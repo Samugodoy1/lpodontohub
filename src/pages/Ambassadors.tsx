@@ -105,7 +105,7 @@ export default function Ambassadors() {
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a href="#inscricao"><Button>Quero ser embaixador</Button></a>
-            <a href="#programa" className="inline-flex items-center gap-2 px-5 py-3 font-bold text-[#ff6422]">Conhecer o programa <ArrowRight size={17} /></a>
+            <Link to="/academy/representantes" className="inline-flex items-center gap-2 px-5 py-3 font-bold text-[#ff6422]">Já faço parte <ArrowRight size={17} /></Link>
           </div>
           <p className="mt-8 text-xs font-semibold text-[#171717]/30">Primeiro grupo de embaixadores · inscrições sujeitas a análise</p>
         </div>
@@ -224,6 +224,22 @@ export default function Ambassadors() {
         </div>
       </Section>
 
+      <Section className="bg-[#171717] px-5 py-28 text-white">
+        <div className="mx-auto max-w-5xl text-center">
+          <p className="mb-6 text-sm font-bold text-[#ff8a55]">Já faz parte</p>
+          <h2 className="text-3xl font-bold tracking-tight md:text-5xl">O lugar dos representantes.</h2>
+          <p className="mx-auto mt-7 max-w-2xl text-lg font-medium leading-relaxed text-white/55">
+            Logotipos, cores Neo, presets, formatos e a voz da marca. Um estúdio para quem já representa o Academy — como quem trabalha aqui.
+          </p>
+          <Link
+            to="/academy/representantes"
+            className="mt-10 inline-flex items-center rounded-full bg-white px-6 py-3 font-bold text-[#171717]"
+          >
+            Entrar no estúdio <ArrowRight size={17} className="ml-2" />
+          </Link>
+        </div>
+      </Section>
+
       <Section className="px-5 py-28">
         <div className="mx-auto max-w-3xl">
           <div className="mb-12 flex items-center gap-4"><HelpCircle className="text-[#ff6422]" size={28} /><h2 className="text-3xl font-bold tracking-tight">Dúvidas frequentes</h2></div>
@@ -233,6 +249,7 @@ export default function Ambassadors() {
             <FaqItem question="O que eu ganho como embaixador?" answer="Você recebe um código personalizado, comissão recorrente pelas assinaturas feitas através dele, kit oficial e acesso antecipado a novidades e materiais do Academy." />
             <FaqItem question="Como funciona a comissão?" answer="Cada assinatura realizada através do seu código gera comissão recorrente enquanto essa assinatura permanecer ativa. As condições completas são apresentadas aos embaixadores aprovados." />
             <FaqItem question="Posso criar o conteúdo do meu jeito?" answer="Sim. Sua voz continua sendo sua. O programa fornece direcionamentos para manter a comunicação alinhada à marca, com liberdade para adaptar o conteúdo ao seu estilo." />
+            <FaqItem question="Já fui aprovado. Onde estão os materiais?" answer="No estúdio de representantes: logotipos, cores, presets, formatos e a voz da marca. Entre em /academy/representantes, coloque o seu código e baixe as peças." />
           </div>
         </div>
       </Section>

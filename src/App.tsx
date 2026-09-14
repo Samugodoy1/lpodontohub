@@ -5,6 +5,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import Home from './pages/Home';
 import Academy from './pages/Academy';
 import Ambassadors from './pages/Ambassadors';
+import Representantes from './pages/Representantes';
 import Campaign from './pages/Campaign';
 import AdminApplications from './pages/AdminApplications';
 import Confirmation from './pages/Confirmation';
@@ -66,6 +67,16 @@ function AnimatedRoutes() {
             transition={{ duration: 0.3 }}
           >
             <Ambassadors />
+          </motion.div>
+        } />
+        <Route path="/academy/representantes" element={
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Representantes />
           </motion.div>
         } />
         <Route path="/presets" element={
