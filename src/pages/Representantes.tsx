@@ -170,7 +170,7 @@ export default function Representantes(): React.ReactElement {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.15, ease: [0.25, 0.1, 0.25, 1] }}
-          className="relative px-5 text-center font-semibold tracking-[-0.045em] leading-[0.92] text-[18vw] sm:text-[120px] md:text-[160px]"
+          className="relative px-5 text-center font-semibold tracking-[-0.045em] leading-[0.92] text-[42px] sm:text-[84px] md:text-[124px] lg:text-[152px]"
           style={{ color: '#e4b8ff' }}
         >
           {REP_LINE}
@@ -201,7 +201,7 @@ export default function Representantes(): React.ReactElement {
         </div>
       </section>
 
-      <section id="visao" className="bg-[#f5f5f7] px-5 pt-20 md:pt-28 pb-10 scroll-mt-28">
+      <section id="visao" className="bg-[#f5f5f7] px-5 pt-20 md:pt-28 pb-10 scroll-mt-32">
         <div className="max-w-[820px] mx-auto text-center">
           <Reveal>
             <h2 className="apple-display-ink text-[40px] md:text-[56px] mb-6">
@@ -243,7 +243,7 @@ export default function Representantes(): React.ReactElement {
         </div>
       </section>
 
-      <section id="logotipos" className="bg-white px-5 py-24 md:py-32 scroll-mt-28">
+      <section id="logotipos" className="bg-white px-5 py-24 md:py-32 scroll-mt-32">
         <div className="max-w-[1100px] mx-auto">
           <Reveal className="mb-14 max-w-[640px]">
             <h2 className="apple-display-ink text-[40px] md:text-[56px]">Logotipos</h2>
@@ -320,7 +320,7 @@ export default function Representantes(): React.ReactElement {
         </div>
       </section>
 
-      <section id="cores" className="px-5 py-24 md:py-32 scroll-mt-28" style={{ background: LARANJA.wash }}>
+      <section id="cores" className="px-5 py-24 md:py-32 scroll-mt-32" style={{ background: LARANJA.wash }}>
         <div className="max-w-[980px] mx-auto">
           <Reveal className="mb-14 max-w-[560px]">
             <h2 className="apple-display-ink text-[40px] md:text-[56px]">Cores Neo</h2>
@@ -353,7 +353,7 @@ export default function Representantes(): React.ReactElement {
         </div>
       </section>
 
-      <section id="formatos" className="bg-white px-5 py-24 md:py-32 scroll-mt-28">
+      <section id="formatos" className="bg-white px-5 py-24 md:py-32 scroll-mt-32">
         <div className="max-w-[980px] mx-auto">
           <Reveal className="mb-14">
             <h2 className="apple-display-ink text-[40px] md:text-[56px]">Formatos</h2>
@@ -361,18 +361,21 @@ export default function Representantes(): React.ReactElement {
               Três recortes. Sempre. O tipo ocupa o quadro. A arte já nasce no tamanho certo — não recorte depois.
             </p>
           </Reveal>
-          <div className="grid md:grid-cols-3 gap-10 items-end">
+          <div className="grid md:grid-cols-3 gap-10">
             {FORMATS.map((item) => (
               <React.Fragment key={item.id}>
                 <Reveal>
-                  <div
-                    className="mx-auto w-full max-w-[220px] rounded-[18px] mb-6 flex items-end justify-center overflow-hidden"
-                    style={{
-                      aspectRatio: item.ratio.replace(':', ' / '),
-                      background: item.id === 'story' ? LARANJA.neo : item.id === 'square' ? LARANJA.soft : LARANJA.wash,
-                    }}
-                  >
-                    <p className="pb-8 text-[22px] font-semibold tracking-tight text-apple-ink">{item.ratio}</p>
+                  <div className="h-[240px] flex items-end justify-center mb-6">
+                    <div
+                      className="rounded-[18px] flex items-end justify-center overflow-hidden"
+                      style={{
+                        height: '100%',
+                        aspectRatio: item.ratio.replace(':', ' / '),
+                        background: item.id === 'story' ? LARANJA.neo : item.id === 'square' ? LARANJA.soft : LARANJA.wash,
+                      }}
+                    >
+                      <p className="pb-6 text-[19px] font-semibold tracking-tight text-apple-ink">{item.ratio}</p>
+                    </div>
                   </div>
                   <p className="text-[13px] tabular-nums text-apple-gray mb-2">{item.size}</p>
                   <h3 className="text-[24px] font-semibold tracking-tight">{item.title}</h3>
@@ -405,7 +408,7 @@ export default function Representantes(): React.ReactElement {
         </div>
       </section>
 
-      <section id="voz" className="bg-white px-5 py-24 md:py-32 scroll-mt-28">
+      <section id="voz" className="bg-white px-5 py-24 md:py-32 scroll-mt-32">
         <div className="max-w-[980px] mx-auto">
           <Reveal className="mb-14 max-w-[560px]">
             <h2 className="apple-display-ink text-[40px] md:text-[56px]">Voz + estilo</h2>
@@ -441,7 +444,7 @@ export default function Representantes(): React.ReactElement {
         </div>
       </section>
 
-      <section id="diretrizes" className="bg-black text-white px-5 py-24 md:py-32 scroll-mt-28">
+      <section id="diretrizes" className="bg-black text-white px-5 py-24 md:py-32 scroll-mt-32">
         <div className="max-w-[980px] mx-auto">
           <Reveal className="mb-14 max-w-[620px]">
             <h2 className="apple-display text-[40px] md:text-[56px]">Diretrizes</h2>
@@ -465,7 +468,7 @@ export default function Representantes(): React.ReactElement {
         </div>
       </section>
 
-      <section className="bg-[#f5f5f7] px-5 pt-16 pb-4">
+      <section id="presets" className="bg-[#f5f5f7] px-5 pt-16 pb-4 scroll-mt-32">
         <div className="max-w-[1100px] mx-auto">
           <div className="rounded-[28px] bg-white p-6 md:p-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
             <label className="flex-1">
@@ -487,22 +490,20 @@ export default function Representantes(): React.ReactElement {
         </div>
       </section>
 
-      <div id="presets" className="scroll-mt-28">
-        <FeedStudio
-          handle="@odontohub.academy"
-          bio={repBio(safeCode)}
-          plan={REP_PLAN}
-          feed={presets.feed}
-          stories={presets.stories}
-          squares={presets.squares}
-          highlights={presets.highlights}
-          modelos={presets.modelos}
-          academyOn
-          accent={LARANJA.neo}
-          title="Presets"
-          intro="Peças prontas. Fundo limpo. Tipo forte. Coloque o seu código e baixe."
-        />
-      </div>
+      <FeedStudio
+        handle="@odontohub.academy"
+        bio={repBio(safeCode)}
+        plan={REP_PLAN}
+        feed={presets.feed}
+        stories={presets.stories}
+        squares={presets.squares}
+        highlights={presets.highlights}
+        modelos={presets.modelos}
+        academyOn
+        accent={LARANJA.neo}
+        title="Presets"
+        intro="Peças prontas. Fundo limpo. Tipo forte. Coloque o seu código e baixe."
+      />
 
       <section className="bg-white px-5 py-24 md:py-28">
         <div className="max-w-[980px] mx-auto">

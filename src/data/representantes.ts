@@ -18,10 +18,10 @@ ${START_ACADEMY.replace('https://', '')}`;
 export const REP_JUMP = [
   { id: 'logotipos', label: 'Logotipos', hint: 'Lockups e marca' },
   { id: 'cores', label: 'Cores Neo', hint: 'Cinco colorways' },
-  { id: 'presets', label: 'Presets', hint: 'Feed, stories, destaques' },
   { id: 'formatos', label: 'Formatos', hint: '4:5 · 9:16 · 1:1' },
-  { id: 'voz', label: 'Voz + estilo', hint: 'Como a marca fala' },
+  { id: 'voz', label: 'Voz', hint: 'Como a marca fala' },
   { id: 'diretrizes', label: 'Diretrizes', hint: 'O que vale. O que não.' },
+  { id: 'presets', label: 'Presets', hint: 'Feed, stories, destaques' },
 ] as const;
 
 export const REP_PILLARS = [
@@ -127,7 +127,7 @@ export const VOICE_DONT = [
   },
   {
     t: 'Não é ERP.',
-    d: 'Não compare com Clinicorp, Simple Dental, ou “software de gestão”. Academy é a clínica da faculdade.',
+    d: 'Não compare com Clinicorp, Simples Dental, ou “software de gestão”. Academy é a clínica da faculdade.',
   },
   {
     t: 'Não é piada com paciente.',
@@ -418,7 +418,7 @@ export function buildRepPresets(code: string): {
   ];
 
   const highlights: Highlight[] = [
-    { title: 'Academy', account: 'academy', surface: 'wash', neo: LARANJA },
+    { title: 'Academy', account: 'academy', surface: 'black' },
     { title: 'Código', account: 'academy', surface: 'neo', neo: LARANJA },
     { title: 'Odonto em Jogo', account: 'academy', surface: 'neo', neo: VIOLETA },
     { title: 'Modo Box', account: 'academy', surface: 'neo', neo: AZUL },

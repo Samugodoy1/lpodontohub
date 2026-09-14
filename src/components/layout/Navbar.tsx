@@ -28,7 +28,7 @@ export const Navbar = () => {
     ? [
         { label: 'Academy', href: '/academy', isLink: true },
         { label: 'Embaixadores', href: '/academy/embaixadores', isLink: true },
-        { label: 'Presets', href: '#presets' },
+        { label: 'O kit', href: '#logotipos' },
         { label: 'Campanhas', href: '/presets', isLink: true },
       ]
     : isAcademy
