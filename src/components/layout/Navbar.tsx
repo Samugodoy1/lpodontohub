@@ -11,7 +11,8 @@ export const Navbar = () => {
   const isAcademy = location.pathname.startsWith('/academy');
   const isHome = location.pathname === '/';
   const isCampaign = location.pathname === '/presets';
-  const dark = isHome || isCampaign;
+  const isRepresentantes = location.pathname.startsWith('/academy/representantes');
+  const dark = isHome || isCampaign || isRepresentantes;
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 8);
@@ -23,11 +24,19 @@ export const Navbar = () => {
     setIsMenuOpen(false);
   }, [location.pathname]);
 
-  const links = isAcademy
+  const links = isRepresentantes
+    ? [
+        { label: 'Academy', href: '/academy', isLink: true },
+        { label: 'Embaixadores', href: '/academy/embaixadores', isLink: true },
+        { label: 'O kit', href: '#logotipos' },
+        { label: 'Campanhas', href: '/presets', isLink: true },
+      ]
+    : isAcademy
     ? [
         { label: 'Como funciona', href: '#como-funciona' },
         { label: 'App para Estudantes', href: '/app-para-estudante-de-odontologia', isLink: true },
         { label: 'Embaixadores', href: '/academy/embaixadores', isLink: true },
+        { label: 'Representantes', href: '/academy/representantes', isLink: true },
         { label: 'Blog', href: '/blog', isLink: true },
         { label: 'Planos', href: '#planos' },
       ]

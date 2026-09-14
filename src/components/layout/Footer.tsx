@@ -58,6 +58,7 @@ export const Footer = () => {
                 Começar
               </a>
               <Link to="/academy/embaixadores" className={linkClass}>Embaixadores</Link>
+              <Link to="/academy/representantes" className={linkClass}>Representantes</Link>
               <a href="https://instagram.com/odontohub.app" target="_blank" rel="noreferrer" className={linkClass}>
                 @odontohub.app
               </a>
