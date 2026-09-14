@@ -1,19 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { toPng } from 'html-to-image';
+import { downloadHref, downloadNode, downloadSvgAsPng } from '../../lib/download';
 import { LARANJA, NEOS, type FeedPost, type Highlight, type Surface } from '../../data/feeds';
 
-export function downloadNode(node: HTMLElement | null, filename: string) {
-  if (!node) return;
-  toPng(node, { cacheBust: true, pixelRatio: 2 })
-    .then((dataUrl) => {
-      const link = document.createElement('a');
-      link.download = filename;
-      link.href = dataUrl;
-      link.click();
-    })
-    .catch(() => undefined);
-}
+export { downloadNode };
 
 export function slug(value: string) {
   return value
@@ -22,6 +12,46 @@ export function slug(value: string) {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/\s+/g, '-')
     .replace(/[^a-z0-9-]/g, '');
+}
+
+export function DownloadLink({
+  children = 'Baixar',
+  className = 'text-[13px] text-[#0066cc]',
+  style,
+  run,
+}: {
+  children?: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
+  run: () => void | Promise<void>;
+}) {
+  const [state, setState] = useState<'idle' | 'busy' | 'err'>('idle');
+  return (
+    <button
+      type="button"
+      className={className}
+      style={style}
+      disabled={state === 'busy'}
+      onClick={() => {
+        if (state === 'busy') return;
+        setState('busy');
+        Promise.resolve(run())
+          .then(() => setState('idle'))
+          .catch(() => {
+            setState('err');
+            window.setTimeout(() => setState('idle'), 1800);
+          });
+      }}
+    >
+      {state === 'busy' ? 'Baixando…' : state === 'err' ? 'Tente de novo' : children}
+    </button>
+  );
+}
+
+function exportSize(format: FeedPost['format']) {
+  if (format === 'story') return { width: 1080, height: 1920 };
+  if (format === 'square') return { width: 1080, height: 1080 };
+  return { width: 1080, height: 1350 };
 }
 
 export function Reveal({
@@ -492,14 +522,13 @@ export function PostArt({ post }: { post: FeedPost }) {
           </p>
         </div>
         <div className="flex items-center gap-3 shrink-0">
-          <button
-            type="button"
-            onClick={() => downloadNode(ref.current, `${post.account}-${post.n}-${slug(post.title)}.png`)}
-            className="text-[13px]"
+          <DownloadLink
             style={{ color: link }}
-          >
-            Baixar
-          </button>
+            className="text-[13px]"
+            run={() =>
+              downloadNode(ref.current, `${post.account}-${post.n}-${slug(post.title)}.png`, exportSize(post.format))
+            }
+          />
           <button
             type="button"
             onClick={() => {
@@ -532,24 +561,23 @@ export function HighlightCover({ item }: { item: Highlight }) {
 
   return (
     <div className="flex flex-col items-center">
-      <div
-        ref={ref}
-        className="w-[168px] h-[168px] rounded-full flex items-center justify-center"
-        style={{ background: surfaceFill(item.surface, item.neo) }}
-      >
-        <p className="text-[15px] font-semibold tracking-tight text-center px-6 leading-tight" style={{ color }}>
-          {item.title}
-        </p>
+      <div className="w-[168px] h-[168px] rounded-full overflow-hidden">
+        <div
+          ref={ref}
+          className="w-full h-full flex items-center justify-center"
+          style={{ background: surfaceFill(item.surface, item.neo) }}
+        >
+          <p className="text-[15px] font-semibold tracking-tight text-center px-6 leading-tight" style={{ color }}>
+            {item.title}
+          </p>
+        </div>
       </div>
       <p className="mt-4 text-[13px] text-apple-ink font-semibold tracking-tight">{item.title}</p>
-      <button
-        type="button"
-        onClick={() => downloadNode(ref.current, `destaque-${slug(item.title)}.png`)}
+      <DownloadLink
         className="mt-2 text-[13px]"
         style={{ color: link }}
-      >
-        Baixar
-      </button>
+        run={() => downloadNode(ref.current, `destaque-${slug(item.title)}.png`, { width: 1080, height: 1080 })}
+      />
     </div>
   );
 }
@@ -557,7 +585,6 @@ export function HighlightCover({ item }: { item: Highlight }) {
 export function Lockup({
   inverted = false,
   academy = false,
-  neo,
   label,
 }: {
   inverted?: boolean;
@@ -565,81 +592,75 @@ export function Lockup({
   neo?: string;
   label: string;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const color = inverted ? '#f5f5f7' : '#1d1d1f';
+  const href = academy
+    ? inverted
+      ? '/brand/logo-academy-white.svg'
+      : '/brand/logo-academy.svg'
+    : inverted
+      ? '/brand/logo-odontohub-white.svg'
+      : '/brand/logo-odontohub.svg';
 
   return (
     <div>
-      <div
-        ref={ref}
-        className="rounded-[22px] px-8 py-14 flex items-center justify-center"
-        style={{ background: inverted ? '#000' : '#fff' }}
-      >
-        <p className="text-[28px] md:text-[34px] font-semibold tracking-tight" style={{ color }}>
-          OdontoHub
-          {academy && (
-            <span className="ml-2 font-normal" style={{ color: inverted ? 'rgba(255,255,255,0.55)' : neo ?? LARANJA.neo }}>
-              Academy
-            </span>
-          )}
-        </p>
+      <div className="rounded-[22px] overflow-hidden">
+        <div className="px-8 py-14 flex items-center justify-center" style={{ background: inverted ? '#000' : '#fff' }}>
+          <img src={href} alt="" className="h-[34px] md:h-[42px] w-auto max-w-[86%]" />
+        </div>
       </div>
       <div className="mt-4 flex items-center justify-between">
         <p className="text-[13px] text-apple-gray">{label}</p>
-        <button
-          type="button"
-          onClick={() => downloadNode(ref.current, `${slug(label)}.png`)}
-          className="text-[13px] text-[#0066cc]"
-        >
-          Baixar
-        </button>
+        <DownloadLink
+          run={() =>
+            downloadSvgAsPng(href, `${slug(label)}.png`, {
+              background: inverted ? '#000000' : '#ffffff',
+              pad: 96,
+              width: 2400,
+            })
+          }
+        />
       </div>
     </div>
   );
 }
 
 export function AvatarTile({ src, label, file }: { src: string; label: string; file: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-
   return (
     <div>
-      <div ref={ref} className="rounded-[22px] overflow-hidden aspect-square bg-black">
+      <div className="rounded-[22px] overflow-hidden aspect-square bg-black">
         <img src={src} alt={label} className="h-full w-full object-cover" />
       </div>
       <div className="mt-4 flex items-center justify-between">
         <p className="text-[13px] text-apple-gray">{label}</p>
-        <button type="button" onClick={() => downloadNode(ref.current, file)} className="text-[13px] text-[#0066cc]">
-          Baixar
-        </button>
+        <DownloadLink run={() => downloadHref(src, file)} />
       </div>
     </div>
   );
 }
 
 export function MarkTile({ inverted = false }: { inverted?: boolean }) {
-  const ref = useRef<HTMLDivElement>(null);
+  const href = inverted ? '/brand/mark-white.svg' : '/brand/mark-black.svg';
   const color = inverted ? '#f5f5f7' : '#1d1d1f';
 
   return (
     <div>
-      <div
-        ref={ref}
-        className="rounded-[22px] aspect-square flex items-center justify-center"
-        style={{ background: inverted ? '#000' : '#fff' }}
-      >
-        <svg width="88" height="88" viewBox="0 0 64 64" fill="none" aria-hidden>
-          <path d="M50.5 32a18.5 18.5 0 1 1-13.08-17.68" stroke={color} strokeWidth="3.2" strokeLinecap="round" />
-        </svg>
+      <div className="rounded-[22px] overflow-hidden aspect-square">
+        <div className="h-full w-full flex items-center justify-center" style={{ background: inverted ? '#000' : '#fff' }}>
+          <svg width="88" height="88" viewBox="0 0 64 64" fill="none" aria-hidden>
+            <path d="M50.5 32a18.5 18.5 0 1 1-13.08-17.68" stroke={color} strokeWidth="3.2" strokeLinecap="round" />
+          </svg>
+        </div>
       </div>
       <div className="mt-4 flex items-center justify-between">
         <p className="text-[13px] text-apple-gray">{inverted ? 'Marca · Preto' : 'Marca · Branco'}</p>
-        <button
-          type="button"
-          onClick={() => downloadNode(ref.current, inverted ? 'marca-preto.png' : 'marca-branco.png')}
-          className="text-[13px] text-[#0066cc]"
-        >
-          Baixar
-        </button>
+        <DownloadLink
+          run={() =>
+            downloadSvgAsPng(href, inverted ? 'marca-preto.png' : 'marca-branco.png', {
+              background: inverted ? '#000000' : '#ffffff',
+              width: 1024,
+              pad: 220,
+            })
+          }
+        />
       </div>
     </div>
   );

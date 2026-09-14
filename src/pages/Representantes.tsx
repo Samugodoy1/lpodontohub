@@ -2,7 +2,8 @@ import React, { useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { FeedStudio, Lockup, MarkTile, Reveal } from '../components/campaign/Art';
+import { DownloadLink, FeedStudio, Lockup, MarkTile, Reveal } from '../components/campaign/Art';
+import { downloadHref, downloadSolidPng, downloadSvgAsPng } from '../lib/download';
 import { LARANJA, NEOS } from '../data/feeds';
 import {
   CAPTION_BANK,
@@ -281,25 +282,53 @@ export default function Representantes(): React.ReactElement {
             <MarkTile />
             <MarkTile inverted />
             <div>
-              <div className="rounded-[22px] aspect-square flex items-center justify-center bg-white">
+              <div className="rounded-[22px] overflow-hidden aspect-square flex items-center justify-center bg-white">
                 <img src="/brand/logo-academy.svg" alt="OdontoHub Academy" className="w-[78%] max-w-[200px]" />
               </div>
-              <div className="mt-4 flex items-center justify-between">
-                <p className="text-[13px] text-apple-gray">Wordmark · SVG</p>
-                <a href="/brand/logo-academy.svg" download className="text-[13px] text-[#0066cc]">
-                  Baixar
-                </a>
+              <div className="mt-4 flex items-center justify-between gap-3">
+                <p className="text-[13px] text-apple-gray">Wordmark</p>
+                <div className="flex gap-3 shrink-0">
+                  <DownloadLink
+                    run={() =>
+                      downloadSvgAsPng('/brand/logo-academy.svg', 'odontohub-academy.png', {
+                        background: '#ffffff',
+                        pad: 80,
+                        width: 2400,
+                      })
+                    }
+                  >
+                    PNG
+                  </DownloadLink>
+                  <DownloadLink run={() => downloadHref('/brand/logo-academy.svg', 'odontohub-academy.svg')}>
+                    SVG
+                  </DownloadLink>
+                </div>
               </div>
             </div>
             <div>
-              <div className="rounded-[22px] aspect-square flex items-center justify-center bg-black">
+              <div className="rounded-[22px] overflow-hidden aspect-square flex items-center justify-center bg-black">
                 <img src="/brand/logo-academy-white.svg" alt="OdontoHub Academy branco" className="w-[78%] max-w-[200px]" />
               </div>
-              <div className="mt-4 flex items-center justify-between">
-                <p className="text-[13px] text-apple-gray">Wordmark branco · SVG</p>
-                <a href="/brand/logo-academy-white.svg" download className="text-[13px] text-[#0066cc]">
-                  Baixar
-                </a>
+              <div className="mt-4 flex items-center justify-between gap-3">
+                <p className="text-[13px] text-apple-gray">Wordmark branco</p>
+                <div className="flex gap-3 shrink-0">
+                  <DownloadLink
+                    run={() =>
+                      downloadSvgAsPng('/brand/logo-academy-white.svg', 'odontohub-academy-branco.png', {
+                        background: '#000000',
+                        pad: 80,
+                        width: 2400,
+                      })
+                    }
+                  >
+                    PNG
+                  </DownloadLink>
+                  <DownloadLink
+                    run={() => downloadHref('/brand/logo-academy-white.svg', 'odontohub-academy-branco.svg')}
+                  >
+                    SVG
+                  </DownloadLink>
+                </div>
               </div>
             </div>
           </div>
@@ -320,10 +349,12 @@ export default function Representantes(): React.ReactElement {
             <p className="text-[13px] text-apple-gray mb-4">Arquivos</p>
             <div className="flex flex-wrap gap-x-6 gap-y-3">
               {KIT_LOGOS.map((file) => (
-                <a key={file.href} href={file.href} download className="text-[15px] text-[#0066cc]">
-                  {file.label}
-                  <span className="ml-2 text-apple-gray">{file.note}</span>
-                </a>
+                <React.Fragment key={file.href}>
+                  <DownloadLink className="text-[15px] text-[#0066cc] text-left" run={() => downloadHref(file.href)}>
+                    {file.label}
+                    <span className="ml-2 text-apple-gray">{file.note}</span>
+                  </DownloadLink>
+                </React.Fragment>
               ))}
             </div>
           </div>
@@ -349,8 +380,13 @@ export default function Representantes(): React.ReactElement {
                   <p className="mt-3 text-[13px] tabular-nums text-apple-gray">{neo.neo}</p>
                   <p className="text-[12px] tabular-nums text-apple-gray">RGB {hexToRgb(neo.neo)}</p>
                   <p className="mt-3 text-[13px] text-apple-gray leading-snug">{useFor[neo.id]}</p>
-                  <div className="mt-4">
+                  <div className="mt-4 flex items-center justify-between">
                     <CopyLine value={neo.neo} label="Copiar hex" />
+                    <DownloadLink
+                      run={() => downloadSolidPng(neo.neo, `academy-neo-${neo.id}.png`)}
+                    >
+                      PNG
+                    </DownloadLink>
                   </div>
                 </div>
               </div>
