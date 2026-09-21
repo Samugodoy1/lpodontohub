@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { DarkCTA, START_PRO } from '../components/shared/Apple';
+import { CARE_URL } from '../data/plans';
 
 interface CompareFeature {
   name: string;
@@ -16,6 +17,14 @@ export default function Comparison() {
   const [activeTab, setActiveTab] = useState<'pro' | 'academy'>('pro');
 
   const proFeatures: CompareFeature[] = [
+    {
+      name: 'OdontoHub Care',
+      category: 'Pacientes',
+      description: 'Dossiê de dentistas verificados encontrado por quem procura no Google.',
+      odontohub: { has: true, detail: 'Quem usa o OdontoHub aparece. Pacientes encontram e confiam.' },
+      simples: { has: false, detail: 'Sem dossiê público de recomendação.' },
+      others: { has: false, detail: 'O sistema não atrai pacientes novos.' },
+    },
     {
       name: 'Interface limpa',
       category: 'Usabilidade',
@@ -117,7 +126,7 @@ export default function Comparison() {
         <title>OdontoHub vs outros sistemas odontológicos</title>
         <meta
           name="description"
-          content="Compare OdontoHub, Simples Dental e sistemas tradicionais. O que muda na clínica real."
+          content="Compare OdontoHub, Simples Dental e sistemas tradicionais. O Care atrai pacientes para dentistas verificados — além da agenda, fotos e WhatsApp na clínica real."
         />
         <link rel="canonical" href="https://www.odontohub.app.br/comparativo" />
       </Helmet>
@@ -194,14 +203,17 @@ export default function Comparison() {
         <div className="max-w-[680px] mx-auto">
           <h2 className="apple-display-ink text-[34px] md:text-[48px] mb-8">Por que o OdontoHub.</h2>
           <p className="text-[19px] text-apple-ink leading-relaxed mb-6">
-            O software da clínica não deveria ser uma planilha com login. Deveria caber no intervalo entre um paciente e outro.
+            O software da clínica não deveria ser uma planilha com login. Deveria caber no intervalo entre um paciente e outro — e fazer o próximo paciente te encontrar.
           </p>
           <p className="text-[17px] text-apple-gray leading-relaxed mb-10">
-            Para o dentista solo: agenda, fotos e WhatsApp sem excesso. Para o estudante: checklist, evolução e Modo Box — sem fingir que a faculdade é uma rede de clínicas.
+            Para o dentista solo: agenda, fotos, WhatsApp e o Care, o dossiê de dentistas verificados. Para o estudante: checklist, evolução e Modo Box — sem fingir que a faculdade é uma rede de clínicas.
           </p>
           <div className="flex flex-wrap gap-6">
             <a href={START_PRO} className="apple-btn">
               Começar
+            </a>
+            <a href={CARE_URL} className="apple-link">
+              Ver o Care <span aria-hidden>›</span>
             </a>
             <Link to="/academy" className="apple-link">
               Ver Academy <span aria-hidden>›</span>
@@ -215,6 +227,10 @@ export default function Comparison() {
           <h2 className="apple-display-ink text-[34px] md:text-[48px] text-center mb-10">Perguntas frequentes</h2>
           <div className="divide-y divide-apple-line border-y border-apple-line">
             {[
+              {
+                q: 'O que nenhum outro sistema tem?',
+                a: 'O OdontoHub Care. Pacientes que procuram um bom dentista no Google encontram o dossiê de dentistas verificados. Quem usa o OdontoHub, aparece.',
+              },
               {
                 q: 'Por que o OdontoHub é mais rápido?',
                 a: 'Arquitetura leve. Cada tela pergunta só o que fazer em seguida.',

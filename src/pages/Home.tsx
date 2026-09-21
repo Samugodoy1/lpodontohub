@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
-import { HUB_FROM_MONTHLY, HUB_PLANS, START_PRO as START, brl } from '../data/plans';
+import { CARE_URL, HUB_FROM_MONTHLY, HUB_PLANS, START_PRO as START, brl } from '../data/plans';
 
 function Reveal({
   children,
@@ -134,6 +134,38 @@ const PatientPhone = () => (
   </div>
 );
 
+const CareDossier = () => (
+  <div className="apple-device overflow-hidden text-left">
+    <div className="px-6 md:px-10 pt-7 md:pt-10 pb-8 md:pb-12 bg-[#fbfbfd]">
+      <p className="text-[13px] md:text-[15px] text-apple-gray mb-4">Care</p>
+      <div className="rounded-full bg-white px-5 py-3 md:py-3.5 shadow-[0_1px_2px_rgba(0,0,0,0.04)] text-[15px] md:text-[17px] text-apple-ink tracking-tight">
+        dentista em Taubaté
+      </div>
+      <p className="mt-5 text-[14px] md:text-[15px] text-apple-gray">Qualidade verificada.</p>
+
+      <div className="mt-5 md:mt-6 space-y-3">
+        {[
+          { initials: 'AL', name: 'Dra. Ana Lima', line: 'Clínica geral · Centro' },
+          { initials: 'MR', name: 'Dr. Marcos Reis', line: 'Clínica geral · Jardim das Nações' },
+        ].map((doc) => (
+          <div
+            key={doc.initials}
+            className="rounded-[22px] bg-white px-5 py-4 md:px-6 md:py-5 shadow-[0_1px_2px_rgba(0,0,0,0.04)] flex items-start justify-between gap-4"
+          >
+            <div>
+              <p className="text-[18px] md:text-[22px] font-semibold tracking-tight text-apple-ink leading-tight">{doc.name}</p>
+              <p className="mt-1 text-[13px] md:text-[14px] text-apple-gray">{doc.line}</p>
+            </div>
+            <div className="w-11 h-11 rounded-full bg-[#0071e3]/10 text-[#0071e3] flex items-center justify-center text-[13px] font-medium shrink-0">
+              {doc.initials}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+);
+
 const AcademyDevice = () => (
   <div className="apple-device-dark overflow-hidden text-left">
     <div className="p-7 md:p-10">
@@ -255,18 +287,42 @@ export default function Home() {
         <title>OdontoHub — O sistema para o consultório</title>
         <meta
           name="description"
-          content="OdontoHub é o sistema para o consultório. Agenda, prontuário, confirmações e finanças — com o mínimo de ruído. A partir de R$ 190 por mês."
+          content="OdontoHub é o sistema para o consultório. Agenda, prontuário e confirmações — e o Care, o dossiê de dentistas verificados que atrai pacientes no Google. A partir de R$ 190 por mês."
         />
         <meta
           name="keywords"
-          content="odontohub, software odontologico, sistema para consultorio odontologico, prontuario odontologico digital, estudante de odontologia"
+          content="odontohub, odontohub care, dentistas odontohub, software odontologico, sistema para consultorio odontologico, dentista verificado, prontuario odontologico digital, estudante de odontologia"
         />
         <link rel="canonical" href="https://www.odontohub.app.br/" />
         <meta property="og:title" content="OdontoHub — O sistema para o consultório" />
-        <meta property="og:description" content="Menos decisões. Mais presença. O sistema que cuida da rotina para o dentista cuidar do paciente." />
+        <meta property="og:description" content="O sistema que cuida da rotina — e o Care, que faz o paciente te encontrar. Dentistas verificados. Mais reconhecimento. Mais pacientes." />
         <meta property="og:url" content="https://www.odontohub.app.br/" />
         <meta name="twitter:title" content="OdontoHub — O sistema para o consultório" />
-        <meta name="twitter:description" content="Menos decisões. Mais presença. O sistema que cuida da rotina para o dentista cuidar do paciente." />
+        <meta name="twitter:description" content="O sistema que cuida da rotina — e o Care, que faz o paciente te encontrar. Dentistas verificados. Mais reconhecimento. Mais pacientes." />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'O que é o OdontoHub Care?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'O OdontoHub Care é o dossiê público de dentistas OdontoHub. Pacientes que procuram um bom dentista no Google encontram profissionais com qualidade verificada — os que usam o OdontoHub na clínica.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Dentistas que usam o OdontoHub aparecem no Care?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Sim. Quem usa o OdontoHub na clínica tem o direito de ser encontrado no dossiê Care. Isso aumenta o reconhecimento e as chances de o paciente encontrar e confiar no profissional.',
+                },
+              },
+            ],
+          })}
+        </script>
       </Helmet>
 
       {/* HERO */}
@@ -290,8 +346,8 @@ export default function Home() {
               <a href={START} className="apple-btn">
                 Começar
               </a>
-              <AppleLink href="#agenda" light>
-                Saiba mais
+              <AppleLink href="#care" light>
+                Pacientes te encontram
               </AppleLink>
             </div>
           </motion.div>
@@ -399,6 +455,39 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CARE */}
+      <section id="care" className="bg-black px-5 py-24 md:py-32 scroll-mt-12">
+        <div className="max-w-[980px] mx-auto grid md:grid-cols-2 gap-14 md:gap-16 items-center">
+          <Reveal>
+            <p className="text-[19px] md:text-[21px] font-semibold tracking-tight text-[#f5f5f7] mb-2">Care</p>
+            <h2 className="apple-display text-[40px] md:text-[56px]">
+              Quem procura
+              <br />
+              um bom dentista
+              <br />
+              encontra você.
+            </h2>
+            <p className="apple-subhead text-[19px] md:text-[21px] mt-5 max-w-[460px]">
+              Pacientes no Google encontram o dossiê Care: dentistas OdontoHub, com qualidade verificada. Quem usa o sistema, aparece. Quem aparece, é encontrado — e confiado.
+            </p>
+            <p className="mt-5 text-[17px] md:text-[19px] text-white/55 max-w-[440px] leading-relaxed">
+              O OdontoHub atrai pacientes para a clínica. Mais reconhecimento. Mais chances de ser recomendado.
+            </p>
+            <div className="mt-8 flex flex-col sm:flex-row items-start gap-5">
+              <a href={START} className="apple-btn">
+                Começar
+              </a>
+              <AppleLink href={CARE_URL} light>
+                Ver o Care
+              </AppleLink>
+            </div>
+          </Reveal>
+          <Reveal>
+            <CareDossier />
+          </Reveal>
+        </div>
+      </section>
+
       {/* PRINCIPLES */}
       <section className="bg-black px-5 py-24 md:py-36">
         <div className="max-w-[820px] mx-auto">
@@ -432,6 +521,17 @@ export default function Home() {
             <h2 className="apple-display-ink text-[40px] md:text-[56px]">A rotina, reduzida ao essencial.</h2>
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+            <Reveal className="md:col-span-2">
+              <Link to="/odontohub-care" className="block h-full rounded-[28px] bg-[#1d1d1f] text-white px-8 py-10 md:px-12 md:py-14">
+                <p className="text-[15px] md:text-[17px] font-semibold tracking-tight text-white/50 mb-2">OdontoHub Care</p>
+                <h3 className="text-[28px] md:text-[40px] font-semibold tracking-tight leading-[1.12] mb-4">
+                  Pacientes te encontram.
+                </h3>
+                <p className="text-[17px] md:text-[21px] text-white/55 leading-relaxed max-w-[560px]">
+                  Quem usa o OdontoHub entra no dossiê de dentistas verificados. Mais reconhecimento. Mais chances de ser encontrado e recomendado.
+                </p>
+              </Link>
+            </Reveal>
             {[
               { t: 'Painel do dia', d: 'Uma lista. O que precisa de você. Depois, some.' },
               { t: 'Prontuário', d: 'Sem campos inúteis. Histórico clínico em segundos.' },
@@ -536,6 +636,10 @@ export default function Home() {
               {
                 q: 'O OdontoHub é um sistema odontológico tradicional?',
                 a: 'Não. Sistemas tradicionais arquivam papéis digitais. O OdontoHub transforma a rotina em uma lista curta do que fazer. Se não houver pendência, ele some.',
+              },
+              {
+                q: 'O que é o OdontoHub Care?',
+                a: 'É o dossiê público de dentistas OdontoHub. Pacientes que procuram um bom dentista no Google encontram profissionais com qualidade verificada — os que usam o OdontoHub na clínica. Quem usa, é encontrado. Quem é encontrado, é confiado.',
               },
               {
                 q: 'O que é o OdontoHub+?',

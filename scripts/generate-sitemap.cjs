@@ -13,6 +13,7 @@ const staticRoutes = [
   { path: 'presets', priority: '0.8', changefreq: 'weekly' },
   { path: 'comparativo', priority: '0.8', changefreq: 'weekly' },
   { path: 'blog', priority: '0.9', changefreq: 'daily' },
+  { path: 'odontohub-care', priority: '0.9', changefreq: 'weekly' },
   
   // CATEGORIA 1 - ALTA INTENÇÃO DE COMPRA
   { path: 'software-odontologico', priority: '0.9', changefreq: 'weekly' },

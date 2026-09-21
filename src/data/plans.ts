@@ -1,4 +1,5 @@
 export const START_PRO = 'https://sistema.odontohub.app.br';
+export const CARE_URL = 'https://care.odontohub.app.br';
 
 export type HubPlan = {
   id: 'odontohub' | 'plus';
@@ -21,6 +22,7 @@ export const HUB_PLANS: HubPlan[] = [
     cta: 'Assinar OdontoHub',
     featured: false,
     features: [
+      'OdontoHub Care — pacientes te encontram',
       'Agenda e confirmações',
       'Prontuário e fotos',
       'Pacientes ilimitados',
@@ -37,6 +39,7 @@ export const HUB_PLANS: HubPlan[] = [
     featured: true,
     features: [
       'Tudo no OdontoHub',
+      'OdontoHub Care — pacientes te encontram',
       'A inteligência que antecipa',
       'Encaixes e retornos',
       'Previsão de caixa',

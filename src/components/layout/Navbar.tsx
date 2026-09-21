@@ -43,6 +43,7 @@ export const Navbar = () => {
     : [
         { label: 'Agenda', href: isHome ? '#agenda' : '/#agenda' },
         { label: 'Paciente', href: isHome ? '#paciente' : '/#paciente' },
+        { label: 'Care', href: isHome ? '#care' : '/#care' },
         { label: 'Academy', href: '/academy', isLink: true },
         { label: 'Planos', href: isHome ? '#planos' : '/#planos' },
       ];

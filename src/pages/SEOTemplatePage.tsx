@@ -166,6 +166,7 @@ export default function SEOTemplatePage() {
 
   // List of all 40 requested pages to display in our sticky sidebar index (Crawlability Masterpiece)
   const allArticlesList = [
+    { slug: 'odontohub-care', name: 'OdontoHub Care — Pacientes te encontram' },
     { slug: 'software-odontologico', name: 'Software Odontológico' },
     { slug: 'melhor-software-odontologico', name: 'Melhor Software' },
     { slug: 'software-odontologico-autonomo', name: 'Autônomos e Consultórios Solo' },
@@ -215,6 +216,9 @@ export default function SEOTemplatePage() {
         <meta name="description" content={pageData.metaDescription} />
         <meta name="keywords" content={pageData.keywords.join(', ')} />
         <link rel="canonical" href={`https://www.odontohub.app.br/${pageData.slug}`} />
+        <meta property="og:title" content={pageData.title} />
+        <meta property="og:description" content={pageData.metaDescription} />
+        <meta property="og:url" content={`https://www.odontohub.app.br/${pageData.slug}`} />
         <script type="application/ld+json">
           {JSON.stringify(schemaJson)}
         </script>

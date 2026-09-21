@@ -14,7 +14,7 @@ export const Footer = () => {
       <div className="max-w-[980px] mx-auto px-5 pt-10 pb-8">
         <p className="text-[12px] leading-relaxed border-b border-apple-line pb-5 mb-7">
           OdontoHub é um sistema de gestão para dentistas e estudantes de odontologia.
-          Agenda, prontuário, confirmações e finanças — com o mínimo de ruído.
+          Agenda, prontuário, confirmações — e o Care, o dossiê que atrai pacientes para dentistas verificados.
         </p>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
@@ -23,6 +23,7 @@ export const Footer = () => {
             <div className="flex flex-col gap-2.5">
               <a href="/#agenda" className={linkClass}>Agenda</a>
               <a href="/#paciente" className={linkClass}>Paciente</a>
+              <a href="/#care" className={linkClass}>Care</a>
               <a href="/#planos" className={linkClass}>Planos</a>
               <Link to="/academy" className={linkClass}>Academy</Link>
               <Link to="/comparativo" className={linkClass}>Comparativo</Link>
@@ -32,6 +33,10 @@ export const Footer = () => {
           <div>
             <p className={colTitle}>OdontoHub</p>
             <div className="flex flex-col gap-2.5">
+              <Link to="/odontohub-care" className={linkClass}>OdontoHub Care</Link>
+              <a href="https://care.odontohub.app.br" className={linkClass} rel="noreferrer">
+                Dossiê de dentistas
+              </a>
               <Link to="/software-odontologico" className={linkClass}>Software odontológico</Link>
               <Link to="/sistemas-para-dentista" className={linkClass}>Sistemas para dentista</Link>
               <Link to="/software-odontologico-autonomo" className={linkClass}>Dentista autônomo</Link>

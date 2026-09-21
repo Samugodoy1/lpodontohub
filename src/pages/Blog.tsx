@@ -51,6 +51,49 @@ export default function Blog() {
 
   const articles: Article[] = [
     {
+      slug: 'odontohub-care-pacientes-encontram-dentistas-verificados',
+      title: 'OdontoHub Care: o dossiê que faz o paciente encontrar o dentista no Google',
+      category: 'Gestão',
+      publishDate: '21 de setembro, 2026',
+      readTime: '6 min de leitura',
+      author: 'Equipe Editorial OdontoHub',
+      authorRole: 'Ecossistema e Produto',
+      summary: 'O OdontoHub Care é o mais novo integrante do ecossistema. Pacientes que procuram um bom dentista no Google encontram o dossiê de dentistas verificados. Quem usa o OdontoHub, aparece — e é recomendado.',
+      seoKeywords: ['odontohub care', 'dentistas odontohub', 'dentista verificado', 'software odontologico que atrai pacientes', 'encontrar dentista google', 'recomendacao dentista'],
+      content: (
+        <div className="space-y-6 text-brand-text/80 leading-relaxed font-semibold text-sm md:text-base">
+          <p className="text-lg text-brand-text font-bold mb-4">
+            O <strong>OdontoHub Care</strong> é o mais novo integrante do ecossistema OdontoHub: um portal para pacientes. Quem está procurando um bom dentista no Google encontra um dossiê de <strong>dentistas OdontoHub</strong> — profissionais com qualidade verificada, que usam o sistema na clínica.
+          </p>
+
+          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4">O sistema que organiza a clínica agora também atrai pacientes</h2>
+          <p>
+            Agenda, prontuário e confirmações resolvem o dia de quem já é seu paciente. O Care resolve o dia de quem ainda está procurando. O paciente pesquisa tratamento e cidade. O dossiê mostra dentistas verificados. A confiança começa antes da cadeira.
+          </p>
+          <p>
+            Dentistas que usam o OdontoHub têm o direito de ser encontrados nesse dossiê de recomendação. A posição não é comprada. A entrada e a permanência seguem critérios de qualidade. Resultado: muito mais chances de o paciente encontrar você — e de confiar em você.
+          </p>
+
+          <blockquote className="border-l-4 border-brand-green pl-4 italic text-brand-text/95 bg-brand-green/5 p-4 rounded-r-xl">
+            "O OdontoHub atrai mais pacientes para o dentista. Quem usa o sistema tem mais reconhecimento e mais chances de ser encontrado e recomendado."
+          </blockquote>
+
+          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4">Por que isso é um dos principais benefícios de usar o OdontoHub</h2>
+          <p>
+            Softwares odontológicos tradicionais competem por quem já está dentro da clínica. O Care compete onde o paciente novo realmente busca: no Google. Usar o OdontoHub deixa de ser só organização interna. Passa a ser presença pública — um dossiê de qualidade verificada com o nome da sua clínica.
+          </p>
+          <p>
+            Na prática: complete CRO e cidade no sistema, mantenha a publicação no Care, e o paciente que procura “dentista para extração” ou “dentista em Taubaté” encontra um profissional OdontoHub. O pedido chega na inbox da clínica. Sem anúncio comprado. Sem lista genérica.
+          </p>
+
+          <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4">Academy, Hub, Care</h2>
+          <p>
+            O estudante organiza o box no Academy. O dentista comanda o consultório no Hub. O paciente encontra o dentista no Care. Um ecossistema. Quem usa o OdontoHub não só fecha a agenda mais cedo — aparece para quem ainda nem te conhecia.
+          </p>
+        </div>
+      )
+    },
+    {
       slug: 'esquecer-de-ligar-para-paciente-impacto',
       title: 'O Custo Invisível: O que realmente acontece quando você esquece de ligar para um paciente',
       category: 'Gestão',
@@ -240,6 +283,10 @@ export default function Blog() {
               <h4 className="font-extrabold text-brand-text text-sm">3. Alertas e Silêncio Ativo de Verdade</h4>
               <p className="text-xs text-brand-text-muted mt-1">O melhor sistema sabe quando ficar mudo para garantir o seu merecido descanso no final de semana, notificando apenas o que é estritamente urgente sobre a agenda.</p>
             </div>
+            <div>
+              <h4 className="font-extrabold text-brand-text text-sm">4. OdontoHub Care — pacientes te encontram</h4>
+              <p className="text-xs text-brand-text-muted mt-1">O software não deveria só organizar quem já é seu paciente. O Care coloca dentistas verificados no Google: quem usa o OdontoHub aparece no dossiê, é encontrado e recomendado.</p>
+            </div>
           </div>
 
           <blockquote className="border-l-4 border-brand-green pl-4 italic text-brand-text/95 bg-brand-green/5 p-4 rounded-r-xl">
@@ -248,7 +295,7 @@ export default function Blog() {
 
           <h2 className="text-xl md:text-2xl font-bold text-brand-text pt-4">O Ecossistema OdontoHub Une Todos os Públicos</h2>
           <p>
-            Seja você um <strong>estudante de odonto</strong> que exige o Modo Box de biossegurança com timers de alta rotação integrados, ou se você é um cirurgião-dentista de consultório solo liderando seus próprios agendamentos e faturamentos sob o modelo de sala alugada — o OdontoHub foi moldado sob medida para o seu dia a dia. É a harmonia ideal de simplicidade, velocidade e preço justo que o destaca como o <strong>melhor sistema para dentistas</strong> de nova geração.
+            Seja você um <strong>estudante de odonto</strong> que exige o Modo Box de biossegurança com timers de alta rotação integrados, ou se você é um cirurgião-dentista de consultório solo liderando seus próprios agendamentos e faturamentos sob o modelo de sala alugada — o OdontoHub foi moldado sob medida para o seu dia a dia. E o <strong>OdontoHub Care</strong> completa o ecossistema: pacientes que procuram um bom dentista no Google encontram o dossiê de dentistas verificados. É a harmonia de simplicidade, velocidade, preço justo e reconhecimento que o destaca como o <strong>melhor sistema para dentistas</strong> de nova geração.
           </p>
         </div>
       )
