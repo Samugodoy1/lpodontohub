@@ -137,25 +137,22 @@ const PatientPhone = () => (
 const CareDossier = () => (
   <div className="apple-device overflow-hidden text-left">
     <div className="px-6 md:px-10 pt-7 md:pt-10 pb-8 md:pb-12 bg-[#fbfbfd]">
-      <p className="text-[13px] md:text-[15px] text-apple-gray mb-2">OdontoHub Care</p>
-      <h3 className="text-[22px] md:text-[34px] font-semibold tracking-tight text-apple-ink leading-[1.12] max-w-xl">
-        Dentistas OdontoHub
-        <br />
-        em Taubaté.
-      </h3>
-      <p className="mt-3 text-[14px] md:text-[15px] text-apple-gray">Qualidade verificada.</p>
+      <p className="text-[13px] md:text-[15px] text-apple-gray mb-4">Care</p>
+      <div className="rounded-full bg-white px-5 py-3 md:py-3.5 shadow-[0_1px_2px_rgba(0,0,0,0.04)] text-[15px] md:text-[17px] text-apple-ink tracking-tight">
+        dentista em Taubaté
+      </div>
+      <p className="mt-5 text-[14px] md:text-[15px] text-apple-gray">Qualidade verificada.</p>
 
-      <div className="mt-7 md:mt-9 space-y-3">
+      <div className="mt-5 md:mt-6 space-y-3">
         {[
-          { initials: 'SG', name: 'Dr. Samuel Godoy', line: 'Clínica geral · Centro' },
-          { initials: 'JP', name: 'Dr. Juan Pablo', line: 'Clínica geral · JP Odontologia' },
+          { initials: 'AL', name: 'Dra. Ana Lima', line: 'Clínica geral · Centro' },
+          { initials: 'MR', name: 'Dr. Marcos Reis', line: 'Clínica geral · Jardim das Nações' },
         ].map((doc) => (
           <div
             key={doc.initials}
             className="rounded-[22px] bg-white px-5 py-4 md:px-6 md:py-5 shadow-[0_1px_2px_rgba(0,0,0,0.04)] flex items-start justify-between gap-4"
           >
             <div>
-              <p className="text-[11px] uppercase tracking-[0.14em] text-apple-gray mb-1">Dentista OdontoHub</p>
               <p className="text-[18px] md:text-[22px] font-semibold tracking-tight text-apple-ink leading-tight">{doc.name}</p>
               <p className="mt-1 text-[13px] md:text-[14px] text-apple-gray">{doc.line}</p>
             </div>
