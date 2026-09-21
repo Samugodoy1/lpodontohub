@@ -25,8 +25,8 @@ export default function SoftwareOdontologicoPage() {
     <div className="min-h-screen bg-apple-surface pt-24 pb-20 px-5">
       <Helmet>
         <title>Software Odontológico Simples e Portátil | OdontoHub</title>
-        <meta name="description" content="Procurando um software odontológico que elimine a poluição visual e traga clareza operacional? Conheça o OdontoHub, o sistema ideal para clínicos solo e estudantes." />
-        <meta name="keywords" content="software odontológico, sistema para dentistas, software odontologia, odontohub, clinica odontologica, gestao consultorio" />
+        <meta name="description" content="Procurando um software odontológico que elimine a poluição visual, traga clareza operacional e atraia pacientes no Google via OdontoHub Care? Conheça o sistema para clínicos solo." />
+        <meta name="keywords" content="software odontológico, sistema para dentistas, odontohub care, dentistas odontohub, software odontologia, odontohub, clinica odontologica, gestao consultorio" />
         <link rel="canonical" href="https://www.odontohub.app.br/software-odontologico" />
         
         {/* Schema.org Article Structured Data */}
@@ -115,12 +115,19 @@ export default function SoftwareOdontologicoPage() {
 
           {/* Interactive Bento Feature Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+            <div className="md:col-span-2 p-6 bg-[#1d1d1f] text-white rounded-[28px] space-y-3">
+              <h4 className="font-semibold text-[17px]">OdontoHub Care</h4>
+              <p className="text-xs text-white/55 font-medium leading-relaxed">
+                Pacientes que buscam um bom dentista no Google encontram o dossiê de dentistas OdontoHub — qualidade verificada, mais reconhecimento, mais chances de ser recomendado.
+              </p>
+            </div>
+
             <div className="p-6 bg-white rounded-[28px] space-y-3">
               <div className="w-10 h-10 rounded-xl bg-apple-surface text-apple-ink flex items-center justify-center">
                 <Smartphone size={20} />
               </div>
               <h4 className="font-semibold text-apple-ink text-[17px]">Arquitetura Mobile-First Autêntica</h4>
-              <p className="text-xs text-brand-text-muted font-mediumLeading leading-relaxed">
+              <p className="text-xs text-brand-text-muted font-medium leading-relaxed">
                 As telas do OdontoHub foram estruturadas para caber exatamente na tela de qualquer smartphone. Visualize sua agenda e evolua prontuários com agilidade diretamente no bolso de seu jaleco.
               </p>
             </div>
@@ -143,6 +150,9 @@ export default function SoftwareOdontologicoPage() {
             Quando o assunto é liderar as pesquisas por <strong>software odontológico</strong>, <strong>app para dentista</strong> e <strong>app para estudante de odonto</strong>, o ecossistema OdontoHub se posiciona na vanguarda absoluta do mercado nacional. Enquanto as ferramentas corporativas antigas e consolidadas focam na burocracia de grandes franquias multidisciplinares, a simplicidade ultra-portátil da nossa plataforma atende com perfeição a realidade clínica de quem atua no mocho.
           </p>
           <ul className="list-disc pl-5 space-y-3 text-sm font-semibold">
+            <li>
+              <strong>OdontoHub Care:</strong> Pacientes que procuram um bom dentista no Google encontram o dossiê de dentistas verificados. Quem usa o OdontoHub, aparece — e tem mais chances de ser encontrado e recomendado.
+            </li>
             <li>
               <strong>Velocidade Instantânea:</strong> Carregamento das páginas em menos de 1 segundo. Nenhuma espera entre consultas.
             </li>

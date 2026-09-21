@@ -23,6 +23,47 @@ export interface SEOPageData {
 }
 
 export const seoPages: SEOPageData[] = [
+  {
+    slug: 'odontohub-care',
+    category: 'Alta Intenção de Compra',
+    title: 'OdontoHub Care: Dentistas Verificados Encontrados no Google | OdontoHub',
+    metaDescription: 'OdontoHub Care é o dossiê de dentistas verificados. Pacientes que procuram um bom dentista no Google encontram quem usa o OdontoHub na clínica. Mais pacientes, mais reconhecimento.',
+    keywords: ['odontohub care', 'dentistas odontohub', 'dentista verificado', 'software odontologico que atrai pacientes', 'dossie dentista', 'encontrar dentista google', 'recomendacao dentista'],
+    h1: 'OdontoHub Care: o dossiê que faz o paciente encontrar o dentista',
+    intro: 'Quem usa o OdontoHub na clínica entra no dossiê Care. Pacientes que procuram um bom dentista no Google encontram profissionais com qualidade verificada — e confiam neles.',
+    p1: 'O OdontoHub Care é o integrante mais novo do ecossistema OdontoHub: um portal para pacientes. Quem está procurando um bom dentista no Google encontra um dossiê de dentistas OdontoHub — profissionais com qualidade verificada, que usam o sistema na clínica. Não é uma lista comprada. É o direito de quem já organiza a rotina com o OdontoHub.',
+    p2: 'Sistemas odontológicos tradicionais param na porta da clínica: agenda, prontuário, caixa. O paciente novo, o que ainda não te conhece, continua buscando “dentista perto de mim” ou “dentista para extração em Taubaté” e cai em diretórios genéricos. O Care inverte isso. O OdontoHub passa a atrair pacientes para o dentista, porque o dentista que usa o sistema aparece no dossiê de recomendação.',
+    p3: 'A lógica é direta. Dentistas que usam o OdontoHub têm o direito de ser encontrados nesse dossiê. Pacientes veem profissionais ativos, com clínica identificada e qualidade verificada. A posição não é comprada. A permanência depende do padrão de atendimento. O resultado: mais chances de o paciente encontrar você — e de confiar em você antes mesmo de sentar na cadeira.',
+    p4: 'Na prática, o Care fecha o ciclo do consultório. O sistema cuida da agenda, das confirmações e do prontuário de quem já é seu paciente. O Care cuida de quem ainda está procurando. Um só ecossistema: Academy para o box da faculdade, Hub para o consultório, Care para o paciente que busca no Google. Usar o OdontoHub deixa de ser só organização interna. Passa a ser reconhecimento público.',
+    p5: 'Conclusão para o cirurgião-dentista: o OdontoHub atrai mais pacientes, aumenta o reconhecimento e multiplica as chances de ser encontrado e recomendado. Quem usa o sistema na clínica não compete só no WhatsApp da recepção. Compete — e aparece — onde o paciente já pesquisa: no Google, no dossiê Care.',
+    bulletsTitle: 'Por que o OdontoHub Care é um dos principais benefícios de usar o OdontoHub?',
+    bullets: [
+      'Pacientes que procuram um bom dentista no Google encontram o dossiê de dentistas OdontoHub.',
+      'Quem usa o OdontoHub na clínica tem o direito de aparecer — qualidade verificada, não posição comprada.',
+      'Mais reconhecimento: o paciente confia em quem já foi selecionado pelo Care.',
+      'O OdontoHub deixa de ser só gestão interna e passa a atrair pacientes para o consultório.'
+    ],
+    tableTitle: 'Gestão interna vs OdontoHub com Care',
+    tableHeaders: ['O que o dentista precisa', 'Software tradicional', 'OdontoHub + Care'],
+    tableRows: [
+      ['Organizar a clínica', 'Agenda e prontuário, se o sistema for leve', 'Agenda, prontuário e silêncio ativo'],
+      ['Ser encontrado por pacientes novos', 'Depende de anúncio pago ou indicação informal', 'Dossiê Care no Google, dentistas verificados'],
+      ['Reconhecimento e confiança', 'O paciente chega frio, sem contexto', 'Chega já sabendo que o dentista usa o OdontoHub']
+    ],
+    faq: [
+      { question: 'O que é o OdontoHub Care?', answer: 'É o portal público de pacientes do ecossistema OdontoHub. Quem procura um bom dentista no Google encontra o dossiê de dentistas com qualidade verificada — os que usam o OdontoHub na clínica.' },
+      { question: 'Todo dentista que usa o OdontoHub aparece no Care?', answer: 'Sim, quem usa o OdontoHub na clínica tem o direito de ser encontrado no dossiê. A conta precisa estar ativa, com clínica identificada. Alunos do Academy não aparecem no Care.' },
+      { question: 'A posição no Care é comprada?', answer: 'Não. A entrada e a permanência seguem critérios de qualidade. Problemas sérios no atendimento podem retirar o profissional da lista, sem bloquear o sistema da clínica.' },
+      { question: 'Como o Care atrai pacientes para o dentista?', answer: 'O paciente pesquisa o tratamento e a cidade. O Care mostra dentistas OdontoHub verificados. O pedido de consulta chega na inbox da clínica, com nome e WhatsApp.' }
+    ],
+    ctaTitle: 'Apareça no dossiê de dentistas verificados',
+    ctaText: 'Assine o OdontoHub, complete CRO e cidade do consultório e mantenha a publicação no Care. Pacientes no Google passam a te encontrar.',
+    internalLinks: [
+      { name: 'Software Odontológico', url: '/software-odontologico' },
+      { name: 'Sistemas para Dentista', url: '/sistemas-para-dentista' },
+      { name: 'Experiência do Paciente', url: '/experiencia-do-paciente-na-odontologia' }
+    ]
+  },
   // ----------------------------------------------------
   // CATEGORIA 1 - ALTA INTENÇÃO DE COMPRA
   // ----------------------------------------------------
@@ -41,6 +82,7 @@ export const seoPages: SEOPageData[] = [
     p5: 'Mais do que automatizar, queremos devolver a você a alegria de voltar para casa sem ter que responder agendamentos ou atualizar o financeiro em cadernos de rascunhos. É a união ideal de tecnologia silenciosa e respeito ao seu cansaço físico que consagra o OdontoHub como a principal indicação do profissional de saúde brasileiro.',
     bulletsTitle: 'Quais os reais benefícios do OdontoHub para o seu cotidiano?',
     bullets: [
+      'OdontoHub Care: pacientes no Google encontram o dossiê de dentistas verificados.',
       'Agendamento autônomo guiado por links discretos compartilhados no WhatsApp.',
       'Galeria clínica restrita por paciente para fotos de dentes sem misturar com sua galeria privada.',
       'Confirmação inteligente de agendamentos em 1 clique na véspera do atendimento.',
@@ -51,7 +93,7 @@ export const seoPages: SEOPageData[] = [
     tableRows: [
       ['Velocidade de carregamento', 'Lenta, exige computadores de alta performance', 'Instantânea em qualquer smartphone ou celular'],
       ['Treinamento necessário', 'Horas de tutoriais e manuais complexos', 'Nenhum, interface auto-explicativa intuitiva'],
-      ['Relacionamento de pacientes', 'Ficha passiva que mofa sem retorno ativo', 'Sistema identifica esquecidos e sugere o recall']
+                  ['Relacionamento de pacientes', 'Ficha passiva que mofa sem retorno ativo', 'Care atrai pacientes novos; o sistema identifica esquecidos e sugere o recall']
     ],
     faq: [
       { question: 'O OdontoHub exige plano de fidelidade ou multa de cancelamento?', answer: 'Não. Nós acreditamos na liberdade comercial do cirurgião-dentista autônomo. Nossos planos são mensais com suporte humanizado e cancelamento simples sem pegadinhas.' },
@@ -60,6 +102,7 @@ export const seoPages: SEOPageData[] = [
     ctaTitle: 'Retome agora as rédeas do seu tempo clínico debaixo do mocho',
     ctaText: 'Cadastre-se hoje gratuitamente, sem cartão exigido na inscrição, e descubra a leveza do Clinical Clarity.',
     internalLinks: [
+      { name: 'OdontoHub Care', url: '/odontohub-care' },
       { name: 'Sistemas para Dentista', url: '/sistemas-para-dentista' },
       { name: 'Como Evitar Pacientes Esquecidos', url: '/como-evitar-pacientes-esquecidos' }
     ]
@@ -79,6 +122,7 @@ export const seoPages: SEOPageData[] = [
     p5: 'Mais do que uma ferramenta, o OdontoHub redefine a sua gestão de negócios. Ele ajuda você a aumentar o faturamento ao reter os pacientes inativos que fizeram profilaxia ou endodontia há mais de seis meses, preenchendo as tradicionais terças-feiras ociosas de forma automatizada.',
     bulletsTitle: 'Critérios cruciais para o melhor software odontológico:',
     bullets: [
+      'OdontoHub Care: dossiê de dentistas verificados que atrai pacientes no Google.',
       'Portabilidade total e funcionamento liso em celulares Android, iOS e tablets de entrada.',
       'Recall preventivo automático que detecta perdas invisíveis de pacientes históricos.',
       'Suporte humanizado ágil que resolve suas dúvidas em minutos no WhatsApp.',
@@ -501,6 +545,7 @@ export const seoPages: SEOPageData[] = [
     p5: 'Escolha um software que foi desenhado não para vigiar secretárias ou gerar relatórios contábeis industriais, mas para dar paz de espírito, descanso neurológico de lazer e faturamento previsível ao profissional solo independente.',
     bulletsTitle: 'Quais as reais diferenças na prática cotidiana de atendimento?',
     bullets: [
+      'OdontoHub Care: pacientes encontram dentistas verificados no Google — reconhecimento que o software tradicional não entrega.',
       'Nossos dashboards priorizam o equilíbrio mental e a clareza limpa, sem poluição de alertas.',
       'Agendamento rápido de consultas em 3 cliques simplificados na nuvem integrada do smartphone.',
       'Sincronização imediata de fotos das arcadas dentárias de evolução à beira do mocho clínico.',
@@ -812,6 +857,7 @@ export const seoPages: SEOPageData[] = [
     p5: 'Acolha os pacientes com o resguardo e sigilo que as diretrizes rígidas da LGPD médica determinam. O OdontoHub é a ferramenta perfeita para quem deseja construir uma marca odontológica clássica e resiliente sem acrescentar complexidades operacionais chatas ao dia.',
     bulletsTitle: 'Engrenagens que refinam a experiência cotidiana do paciente:',
     bullets: [
+      'OdontoHub Care: o paciente te encontra no Google antes de mandar a primeira mensagem.',
       'Agendamentos descomplicados sem dezenas de mensagens arrastadas de WhatsApp.',
       'Painéis com fotos cronológicas de antes e depois organizadas de dentes acessíveis por toque.',
       'Lembretes humanizados atrelados a pós-operatórios delicados de cicatrização periodontal.',

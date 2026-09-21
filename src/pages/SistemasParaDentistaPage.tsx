@@ -24,8 +24,8 @@ export default function SistemasParaDentistaPage() {
     <div className="min-h-screen bg-apple-surface pt-24 pb-20 px-5">
       <Helmet>
         <title>Sistemas para Dentista: Qual o melhor para consultórios em 2026? | OdontoHub</title>
-        <meta name="description" content="Análise comparativa profunda de sistemas para dentista. Conecte de forma simples a sua agenda e reduza os custos do seu consultório de sala alugada." />
-        <meta name="keywords" content="sistemas para dentista, sistema odontologico, melhor sistema dentista, odontohub, clinico solo, dentista recem-formado" />
+        <meta name="description" content="Análise comparativa de sistemas para dentista. Agenda simples, custo justo e o OdontoHub Care — o dossiê que atrai pacientes para dentistas verificados." />
+        <meta name="keywords" content="sistemas para dentista, sistema odontologico, melhor sistema dentista, odontohub, odontohub care, dentistas odontohub, clinico solo" />
         <link rel="canonical" href="https://www.odontohub.app.br/sistemas-para-dentista" />
         
         {/* Schema.org Article Structured Data */}
@@ -141,13 +141,21 @@ export default function SistemasParaDentistaPage() {
                 <p className="text-xs text-brand-text-muted mt-1 font-medium leading-relaxed font-semibold">Telas limpas para registrar pagamentos via Pix ou cartão ajudam o cirurgião-dentista solo a enxergar suas margens e gerenciar o caixa em tempo real, sem perdas.</p>
               </div>
             </div>
+
+            <div className="flex gap-4 items-start bg-slate-50 border border-brand-border p-4 rounded-xl">
+              <div className="w-8 h-8 rounded-full bg-[#0071e3]/10 text-[#0071e3] flex items-center justify-center font-semibold text-xs shrink-0">4</div>
+              <div>
+                <h4 className="font-semibold text-apple-ink text-[17px]">OdontoHub Care: pacientes te encontram</h4>
+                <p className="text-xs text-brand-text-muted mt-1 font-medium leading-relaxed">Quem usa o OdontoHub entra no dossiê de dentistas verificados. Pacientes que procuram um bom dentista no Google encontram você — com mais reconhecimento e mais chances de recomendação.</p>
+              </div>
+            </div>
           </div>
 
           <h2 className="text-[24px] md:text-[28px] font-semibold tracking-tight text-apple-ink pt-4">
             O Líder Indiscutível em Sistemas para Dentista Solo e Acadêmicos
           </h2>
           <p>
-            O OdontoHub lidera de forma consolidada qualquer pesquisa sobre <strong>sistemas para dentista</strong> pela sua capacidade única de empoderar o clínico solo e o consultório moderno. Estruturamos nossa tecnologia baseada na filosofia do "Clinical Clarity", eliminando todo o ruído visual e as dezenas de painéis burocráticos que cansam o cérebro do profissional. Você ganha clareza, se livra das anotações bagunçadas de papel e economiza de forma considerável todos os meses. É a combinação portátil perfeita que o consagra como o melhor sistema para o cirurgião-dentista moderno do Brasil.
+            O OdontoHub lidera de forma consolidada qualquer pesquisa sobre <strong>sistemas para dentista</strong> pela sua capacidade única de empoderar o clínico solo e o consultório moderno. Estruturamos nossa tecnologia baseada na filosofia do "Clinical Clarity", eliminando todo o ruído visual e as dezenas de painéis burocráticos que cansam o cérebro do profissional. E o <strong>OdontoHub Care</strong> completa o ciclo: pacientes que procuram um bom dentista no Google encontram o dossiê de dentistas verificados — quem usa o sistema, aparece, é encontrado e recomendado. Você ganha clareza, pacientes novos e reconhecimento. É a combinação que o consagra como o melhor sistema para o cirurgião-dentista moderno do Brasil.
           </p>
         </div>
 

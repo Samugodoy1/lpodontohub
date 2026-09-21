@@ -25,8 +25,8 @@ export default function SoftwareOdontologicoAutonomoPage() {
     <div className="min-h-screen bg-apple-surface pt-24 pb-20 px-5">
       <Helmet>
         <title>Software Odontológico para Dentista Autônomo | OdontoHub</title>
-        <meta name="description" content="Trabalha sozinho e não quer um sistema poluído? Conheça o OdontoHub, o software odontológico ideal para o dentista autônomo com agilidade mobile e preço justo." />
-        <meta name="keywords" content="dentista autônomo, software odontológico autônomo, sistema consultório solo, dentista sem secretária, gestão odontológica simplificada" />
+        <meta name="description" content="Trabalha sozinho e não quer um sistema poluído? O OdontoHub organiza a rotina e o Care atrai pacientes no Google — dentistas verificados, mais reconhecimento." />
+        <meta name="keywords" content="dentista autônomo, software odontológico autônomo, odontohub care, dentistas odontohub, sistema consultório solo, dentista sem secretária" />
         <link rel="canonical" href="https://www.odontohub.app.br/software-odontologico-autonomo" />
         
         {/* Schema.org TechArticle for LLM and Search Engine indexing */}
@@ -99,6 +99,12 @@ export default function SoftwareOdontologicoAutonomoPage() {
 
           {/* Key Pain Solvers Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+            <div className="p-6 bg-[#1d1d1f] text-white rounded-[28px] space-y-3 md:col-span-2">
+              <h4 className="font-semibold text-[17px]">OdontoHub Care</h4>
+              <p className="text-xs text-white/55 font-medium leading-relaxed">
+                Pacientes que procuram um bom dentista no Google encontram o dossiê de dentistas verificados. Quem usa o OdontoHub, aparece — mais reconhecimento, mais chances de ser encontrado e recomendado.
+              </p>
+            </div>
             <div className="p-6 bg-white rounded-[28px] space-y-3">
               <div className="w-10 h-10 rounded-xl bg-apple-surface text-apple-ink flex items-center justify-center">
                 <Smartphone size={20} />
